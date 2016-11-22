@@ -1,5 +1,5 @@
 /*==========全局==========*/
-html{overflow-y: scroll; overflow-x:hidden; _background-image:url(about:blank); _background-attachment:fixed;}
+html{overflow-y: auto; overflow-x:hidden; _background-image:url(about:blank); _background-attachment:fixed;}
 body {font-family:"Microsoft Yahei",Arial,'Hiragino Sans GB',sans-serif; font-size:12px; color:#333333;}
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,sup,sub{margin:0;padding:0}
 fieldset,img{border:0}
@@ -14,7 +14,7 @@ input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;
 .fl{float:left; display:inline;}
 .fr{float:right; display:inline;}
 a {text-decoration:none; color:#333333;}
-a:hover{ text-decoration:none; color:#f60;}
+a:hover{ text-decoration:none; color:#00abeb;}
 a:active{blr:expression(this.onFocus=this.blur());}
 .tc{text-align:center;}
 .tl{text-align:left;}
@@ -22,3 +22,77 @@ a:active{blr:expression(this.onFocus=this.blur());}
 .word{word-break:break-all;}
 .dn{display:none;}
 /*开始写*/
+.j_bg{background-color: #f5f5f5;}
+.j_head{width: 1920px;height: 50px;background-color: #00abeb;}
+.j_name{font-size:16px;color: #fff;height: 50px;line-height: 50px;float: left;margin-left: 20px;}
+.j_signin{font-size:16px;color: #fff;height: 50px;line-height: 50px; float: right;margin-right: 25px;width: 63px;background:url('../images/ji_sigin.png') right center no-repeat;cursor: pointer;position: relative;}
+.j_signin_block{position: absolute;top: 50px;background-color: #fff;color: #000;text-align: center;width: 75px;font-size:14px;display: none;}
+.j_box{width: 1920px;min-height: 1030px;}
+.j_con{width: 1200px;margin: 0 auto;padding-top: 10px;}
+.j_con_btn{margin-left: 65px;height: 190px;width: 118px;background-color: #dedede;border-radius: 7px;font-size:12px;padding-top: 10px;float: left;}
+.j_con_btn ul li a{display: block;height: 30px;line-height: 30px;margin-left: 20px;text-align: center;padding-left: 12px;}
+.j_con_btn ul li:nth-child(2) a{background:url('../images/ji_yingxiao.png') left center no-repeat;}
+.j_con_btn ul li:nth-child(1) a{background:url('../images/ji_haibao.png') left center no-repeat;}
+.j_con_btn ul li.current{background-color: #fff;}
+.j_con_main{width: 700px;height: 669px;background-color: #dedede;float: left;margin-left: 68px;}
+.j_con_main_head{height: 50px;}
+.j_con_main_head_btn{float: left;margin-left: 12px;margin-top: 10px;}
+.j_con_main_head_btn ul li{float: left;width: 76px;height: 40px;line-height: 40px; font-size:14px;text-align: center;}
+.j_con_main_head_btn ul li.current{background-color: #fff;}
+.j_con_main_head_btn ul li.current a{color: #438eb9}
+.j_con_main_head_search{float: right;width: 292px;height: 26px;margin-top: 15px;}
+.j_con_main_head_search input{float: left;background:url('../images/ji_serchBg.png') no-repeat;width: 204px;height: 24px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
