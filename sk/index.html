@@ -8,6 +8,7 @@
 <title></title>
 <link href="css/ji.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 </head>
 <body class="j_bg">
@@ -63,6 +64,105 @@
                                 </ul>
                             </div>
                         </div>
+                        <div class="j_con_main_con_condition_data clearfix">
+                            <div class="j_con_main_con_condition_title">
+                                <p>创建时间：</p>
+                            </div>
+                            <div class="j_con_main_con_condition_dataVal hover">
+                                <ul class="clearfix">
+                                    <li class="current"><p>近三天</p></li>
+                                    <li><p>近七天</p></li>
+                                    <li><p>近一月</p></li>
+                                    
+                                </ul>
+                                <div class="starDate">
+                                    <input type="text" placeholder="起始时间" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                                </div>
+                                <div class="ovDate">
+                                    <input type="text" placeholder="结束时间"  onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                                </div>
+                                <p class="text">至</p>
+                                <p class="tip">注：格式（20160505）</p>
+                            </div>
+                        </div>
+                        <div class="j_con_main_con_condition_sort clearfix">
+                            <div class="j_con_main_con_condition_title mar">
+                                <p>分<span>分类</span>类：</p>
+                            </div>
+                            <div class="j_con_main_con_condition_sortVal hover">
+                                <ul class="clearfix">
+                                    <li class="current"><p>产品培训</p></li>
+                                    <li><p>营销活动</p></li>
+                                    <li><p>邀请函</p></li>
+                                    <li><p>节日祝福</p></li>
+                                    <li><p>招聘</p></li>
+                                    <li><p>庆典</p></li>
+                                    <li><p>年会</p></li>
+                                    <li><p>调查表</p></li>
+                                    <li><p>培训</p></li>
+                                    <li><p>汇报</p></li>
+                                    <li><p>知识分享</p></li>
+                                    <li><p>课件</p></li>
+                                    <li><p>表彰</p></li>
+                                    <li><p>政策宣传</p></li>
+                                    <li><p>总结报告</p></li>
+                                    <li><p>其他</p></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="j_con_main_con_condition_px clearfix">
+                            <div class="j_con_main_con_condition_title">
+                                <p>排<span>状态</span>序：</p>
+                            </div>
+                            <div class="j_con_main_con_condition_pxVal">
+                                <ul class="clearfix">
+                                    <li class="clearfix current"><p>创建时间</p><span></span></li>
+                                    <li class="clearfix"><p>总浏览次数</p><span></span></li>
+                                    <li class="clearfix"><p>总浏览人数</p><span></span></li>
+                                    <li class="clearfix"><p>近七日总浏览次数</p><span></span></li>
+                                    <li class="clearfix"><p>近七日总浏览人数</p><span></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="j_con_main_con_data">
+                        <ul class="clearfix">
+                            <li>
+                                <div class="pic">
+                                    <img src="images/pic.png" alt="" width="210" height="190">
+                                </div>
+                                <div class="data">
+                                    <ul class="clearfix">
+                                        <li>100</li>
+                                        <li>100</li>
+                                    </ul>
+                                </div>
+                                <div class="text">
+                                    <p class="title">标题标题标题标题标题标题</p>
+                                    <p class="des">描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+                                </div>
+                                <div class="status">
+                                    <img src="images/ji_stop.png" alt="">
+                                </div>
+                                <div class="feat">
+                                    <div class="featSmall">
+                                        <ul class="clearfix">
+                                            <li data='删除'><img src="images/ji_del.png" alt=""></li>
+                                            <li data='复制'><img src="images/ji_copy.png" alt=""></li>
+                                            <li data='启用'><img src="images/ji_qy.png" alt=""></li>
+                                        </ul>
+                                    </div>
+                                    <div class="featBig">
+                                        <ul>
+                                            <li>预览</li>
+                                            <li>数据统计</li>
+                                            <li>编辑</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            
+                        </ul>
                     </div>
                 </div>
             </div>

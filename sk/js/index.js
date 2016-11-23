@@ -7,9 +7,13 @@ $(function(){
     },function(){
         $('.j_signin_block').fadeOut(200);
     })
+    $('.j_con_main_con_condition_dataVal input').hover(function(){
+        $('.j_con_main_con_condition_dataVal .tip').fadeIn(200);
+    },function(){
+        $('.j_con_main_con_condition_dataVal .tip').fadeOut(200);
+    })
+    base.tip($('.featSmall ul li'));
+    
 
 
-
-
-
-}) 
+})
