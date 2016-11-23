@@ -49,7 +49,7 @@ a:active{blr:expression(this.onFocus=this.blur());}
 .j_con_main_head_search_input input:-ms-input-placeholder { /* Internet Explorer 10+ */color:#eaeaea;}
 .j_con_main_head_search_input img{position: absolute;right: 6px;top: 4px;cursor: pointer;}
 .j_con_main_head_open{background: url('../images/ji_start.png') no-repeat;width: 78px;height: 26px;float: left;margin-left: 10px;color: #fff;text-align: center;line-height: 26px;cursor: pointer;}
- .j_con_main_con{height: 619px;}
+ .j_con_main_con{height: 619px;position: relative;}
 .j_con_main_con_condition{height: 178px;background-color: #fff;padding-left: 13px;padding-right: 13px;}
 .j_con_main_con_condition_status{padding-top: 24px;padding-bottom: 9px;border-bottom: 1px solid #dbdbdb;}
 .j_con_main_con_condition_title{float: left;width: 75px;}
@@ -84,8 +84,9 @@ a:active{blr:expression(this.onFocus=this.blur());}
 .j_con_main_con_condition_pxVal ul li.current p{border-right: 1px solid #00abeb;color: #00abeb}
 .j_con_main_con_condition_pxVal ul li.current span{background:url('../images/ji_sortCurrent.png') center center no-repeat;}
 .j_con_main_con_data{width: 670px;margin-left: 15px;}
+/*注意：选择子元素。ie8以下不兼容*/
 .j_con_main_con_data > ul{width: 690px;overflow: hidden;}
-.j_con_main_con_data > ul >li{width: 210px;float: left;height: 271px;margin-right: 20px;border-radius:3px;margin-top: 14px;overflow: hidden; position: relative;}
+.j_con_main_con_data > ul >li{width: 210px;float: left;height: 271px;margin-right: 20px;border-radius:3px;margin-top: 14px;position: relative;}
 .j_con_main_con_data .data{height: 20px;background-color: #bfddee;}
 .j_con_main_con_data .data ul li{background:url('../images/ji_eye.png') left center no-repeat;float: left;padding-left: 15px;margin-left: 15px;height: 20px;line-height: 20px;}
 .j_con_main_con_data .data ul li:nth-child(2){background:url('../images/ji_per.png') left center no-repeat;}
@@ -94,13 +95,15 @@ a:active{blr:expression(this.onFocus=this.blur());}
 .j_con_main_con_data .text .title{border-bottom: 1px solid #dbdbdb;height: 26px;line-height: 26px;}
 .j_con_main_con_data .text .des{height: 33px;width: 190px;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .j_con_main_con_data .status{width: 75px;height: 79px;position: absolute;left: 0;top: 0;z-index: 3;}
-.feat{height: 210px;width: 210px;background-color: #1382c1;opacity: 0.8;position: absolute;top: 0;left: 0;z-index: 2;}
+.feat{height: 210px;width: 210px;background-color: #1382c1;opacity: 0.8;position: absolute;top: 0;left: 0;z-index: 2;display: none;}
 .featSmall{margin-left: 140px;margin-top: 8px;}
-.featSmall ul li{float: left;margin-right: 10px;cursor: pointer;}
+.featSmall ul li{float: left;margin-right: 10px;cursor: pointer;position: relative;}
 .featBig{margin-left: 66px;margin-top: 44px;}
 .featBig ul li{cursor: pointer;width: 79px;height: 26px;background-color: #ffffff;text-align: center;line-height: 26px;color: #00abeb;border-radius:3px;margin-bottom: 12px;}
-
-
+.tipShow{position: absolute;top: -21px;left: -14px; background: url('../images/tip_bg.png');width: 38px;height: 20px;z-index: 99;text-align: center;line-height: 17px;display: none;}
+/*注意：css3垂直居中 IE9以下无法兼容*/
+.j_con_main_con_nav{position: absolute;bottom: 13px;left: 50%;transform: translate(-50%, 0);}
+.j_con_main_con_nav ul li{float: left;margin-right: 8px;cursor: pointer;}
 
 
 
