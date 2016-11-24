@@ -10,6 +10,7 @@
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="js/base.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+<script src="http://cdn.hcharts.cn/highstock/highstock.js"></script>
 </head>
 <body class="j_bg">
     <div class="j_head clearfix">
@@ -160,7 +161,7 @@
                                     <div class="featBig">
                                         <ul>
                                             <li>预览</li>
-                                            <li>数据统计</li>
+                                            <li class="datas">数据统计</li>
                                             <li>编辑</li>
                                         </ul>
                                     </div>
@@ -199,7 +200,7 @@
                                     <div class="featBig">
                                         <ul>
                                             <li>预览</li>
-                                            <li>数据统计</li>
+                                            <li class="datas">数据统计</li>
                                             <li>编辑</li>
                                         </ul>
                                     </div>
@@ -238,7 +239,7 @@
                                     <div class="featBig">
                                         <ul>
                                             <li>预览</li>
-                                            <li>数据统计</li>
+                                            <li class="datas">数据统计</li>
                                             <li>编辑</li>
                                         </ul>
                                     </div>
@@ -261,6 +262,37 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="ji_dataBg">
+        
+    </div>
+    <div class="ji_dataShow">
+        <div class="ji_dataShow_title">
+            <p>数据统计</p>
+        </div>
+        <div class="ji_dataShow_btn">
+            <ul class="clearfix">
+                <li class="current">实时统计</li>
+                <li>流量统计</li>
+            </ul>
+        </div>
+        <div class="ji_dataShowBox" style="display: block;">
+            <div class="ji_dataShow_Tcon" id="container">
+            
+            </div>
+            <div class="ji_dataShow_Bcon">
+                
+            </div>
+        </div>
+        <div class="ji_dataShowBox">
+            <div class="ji_dataShow_Tcon">
+                 流量统计
+            </div>
+            <div class="ji_dataShow_Bcon">
+                
+            </div>
+        </div>
+        <img src="images/ji_close.png" alt="" class="ji_close">
     </div>
 </body>
 </html>

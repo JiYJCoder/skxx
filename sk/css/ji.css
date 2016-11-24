@@ -21,8 +21,8 @@ a:active{blr:expression(this.onFocus=this.blur());}
 .tr{text-align:right;}
 .word{word-break:break-all;}
 .dn{display:none;}
-/*开始写*/
-.j_bg{background-color: #f5f5f5;}
+/*首页*/
+.j_bg{background-color: #f5f5f5;height: 100%;}
 .j_head{width: 1920px;height: 50px;background-color: #00abeb;}
 .j_name{font-size:16px;color: #fff;height: 50px;line-height: 50px;float: left;margin-left: 20px;}
 .j_signin{font-size:16px;color: #fff;height: 50px;line-height: 50px; float: right;margin-right: 25px;width: 63px;background:url('../images/ji_sigin.png') right center no-repeat;cursor: pointer;position: relative;}
@@ -104,27 +104,195 @@ a:active{blr:expression(this.onFocus=this.blur());}
 /*注意：css3垂直居中 IE9以下无法兼容*/
 .j_con_main_con_nav{position: absolute;bottom: 13px;left: 50%;transform: translate(-50%, 0);}
 .j_con_main_con_nav ul li{float: left;margin-right: 8px;cursor: pointer;}
+.ji_close{
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    cursor: pointer;
+}
+.ji_dataBg{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 5;
+}
+.ji_dataShow{
+    height: 655px;
+    width: 650px;
+    position: fixed;
+    z-index: 6;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
+    background-color: #f5f5f5;
+}
+.ji_dataShow_btn{
+    height: 30px;
+    background-color: #dbdbdb;
+    padding-left: 14px;
+}
+.ji_dataShow_title{
+    padding-left: 16px;
+    font-size:14px;
+    height: 36px;
+    line-height: 36px;
+    background-color: #ccc;
+}
+.ji_dataShow_btn ul li{
+    float: left;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+.ji_dataShow_btn ul li.current{
+    background-color: #f5f5f5;
+    color: #00abeb;
+}
+.ji_dataShow_Tcon{
+    height: 275px;
+    background-color: #fff;
+    width: 626px;
+    margin: 10px auto 6px auto;
+}
+.ji_dataShow_Bcon{
+    margin: 0 auto;
+    width: 626px;
+    height: 204px;
+    background-color: #efefef;
+}
+.ji_dataShowBox{
+    display: none;
+}
+/*站点页面*/
+.homePage_header{
+  width: 100%;
+  background-color: #00abeb;
+  height: 50px;
+  position: relative;
+}
 
+.homePage_logo{
+  width: 120px;
+  height: 36px;
+  position: absolute;
+  left: 9px;
+  top: 6px;
+  text-align: center;
+}
 
+.contentWrap{
+  width: 376px;
+  margin: 0 auto;
+}
 
+.homePage_header_list li{
+  font-size:16px;
+  color: #fff;
+  float: left;
+  width: 94px;
+  height: 100%;
+  line-height:50px;
+  text-align: center;
+  cursor: pointer;
+}
 
+.header_tab_active{
+  background-color: #247ec3;
+}
 
+.createD{
+  position: absolute;
+  left: 1478px;
+  top: 10px;
+  height: 30px;
+  width: 80px;
+  color: #00a0dc;
+  background-color: #fff;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 30px;
+}
+.site_con{
+    width: 1920px;
+    
+}
+.site_con_left{
+    width: 231px;
+    float: left;
+}
+.site_con_right{
+    width: 1687px;
+    height: 36px;
+    background-color: #2e323b;
+    float: right;
+}
+.site_con_leftHead {
+    padding-top: 4px;
+    height: 34px;
+    background-color: #438eb9;
+}
+.site_con_leftHead ul{
+    margin: 0 auto;
+    width: 208px;
+}
+.site_con_leftHead ul li{
+    float: left;
+    font-size:14px;
+    width: 104px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    color: #fff;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    cursor: pointer;
+}
+.site_con_leftHead ul li.current{
+    background-color: #fff;
+    color: #333;
+}
 
+.site_con_leftCon {
+    background-color: #f1f1f1;
+    min-height: 992px;
+}
 
+.remind {
+    width: 100%;
+    height:50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #f19c9c;
+    display: none;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.remindText {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+    font-size:14px;
+    color: #fff;
+    text-align: center;
+    height: 50px;
+    line-height: 59px;
+}
+.remindText img{
+    position: absolute;
+    top: 22px;
+    right: 154px;
+    cursor: pointer;
+}
+.remindText a{
+    color: #0271b0;
+}
+.remindText .tel{
+    color: #0271b0;
+}
 
