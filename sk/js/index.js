@@ -32,42 +32,68 @@ $(function(){
     //        $(".tab1").eq($(this).index()).show().siblings().hide(); 
     })
     base.tip($('.featSmall ul li'));
+
     //数据创建
-    $('#container').highcharts({
-        title: {
-            text:null,
-        },
-        xAxis: {
-            categories: ['11', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                         'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        },
-        yAxis: {
-            title: {
-                text: '数量'
-            },
-            plotLines: [{
-                value: 0,
-                width: 1,
-                color: '#808080'
-            }]
-        },
-        tooltip: {
-            valueSuffix: '°C'
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle',
-            borderWidth: 0
-        },
-        series: [{
-            name: 'UV',
-            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-        }, {
-            name: 'PV',
-            data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-        }]
+    function getTime(){
+        for(var i=0;i<6;i++){
+            date -=600000;
+            var hour=new Date(date).getHours().toString();
+            var min=new Date(date).getMinutes()
+            if(min<10){
+                min="0"+min
+            }
+            var hm=hour+':'+min;
+            categories.push(hm);
+    //        console.log(categories);
+        }
+        return categories.reverse();;
+    }
+    var categories=[];
+    var date=new Date().getTime()
+  
+
+    
+    Highcharts.setOptions({
+        global: {
+            useUTC: false
+        }
     });
+    $('#container').highcharts({
+           
+            title: {
+                text: ''
+            },
+            xAxis: {
+                
+                categories: getTime()
+            },
+            yAxis: {
+                title: {
+                    text: '数量'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                borderWidth: 0
+            },
+            exporting: {
+                enabled: false
+            },
+            series: [{
+                name: 'UV',
+                data: [0,1,2,4,5,6]
+            },{
+                name: 'PV',
+                data: [50,1,2,4,5,30]
+            }]
+        });
     
 
 })
