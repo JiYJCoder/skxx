@@ -100,7 +100,8 @@ a:active{blr:expression(this.onFocus=this.blur());}
 .featSmall ul li{float: left;margin-right: 10px;cursor: pointer;position: relative;}
 .featBig{margin-left: 66px;margin-top: 44px;}
 .featBig ul li{cursor: pointer;width: 79px;height: 26px;background-color: #ffffff;text-align: center;line-height: 26px;color: #00abeb;border-radius:3px;margin-bottom: 12px;}
-.tipShow{position: absolute;top: -21px;left: -14px; background: url('../images/tip_bg.png');width: 38px;height: 20px;z-index: 99;text-align: center;line-height: 17px;display: none;}
+.tipShow{position: absolute;top: -21px;left: 50%; background: url('../images/tip_bg.png') no-repeat;height: 20px;z-index: 99;text-align: center;line-height: 17px;transform:translate(-50%,0);-webkit-transform:translate(-50%,0);display: none;background-size: 100% 100%;padding-left: 4px;padding-right: 4px;white-space: nowrap;}
+.tipShow.bg{background: url('../images/site_bgTip.png') no-repeat;height: 32px;color: #fff;top: 34px;line-height: 38px;background-size: 100% 100%;}
 /*注意：css3垂直居中 IE9以下无法兼容*/
 .j_con_main_con_nav{position: absolute;bottom: 13px;left: 50%;transform: translate(-50%, 0);}
 .j_con_main_con_nav ul li{float: left;margin-right: 8px;cursor: pointer;}
@@ -261,6 +262,7 @@ a:active{blr:expression(this.onFocus=this.blur());}
 .site_con_leftCon {
     background-color: #f1f1f1;
     min-height: 992px;
+    padding-left: 10px;
 }
 
 .remind {
@@ -295,4 +297,164 @@ a:active{blr:expression(this.onFocus=this.blur());}
 .remindText .tel{
     color: #0271b0;
 }
+.site_con_leftCon .base_title{
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+}
 
+.site_con_leftCon .base_title i{
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform:translate(-50%,0);-webkit-transform:translate(-50%,0);
+}
+.base_btn{
+    
+    border: 1px solid #445366;
+    border-left: 0;
+    border-bottom: 0;
+}
+.base_btn ul li{
+    float: left;
+    width: 54px;
+    height: 60px;
+    background-color: #576981;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    border-left: 1px solid #445366;
+    border-bottom: 1px solid #445366;
+    position: relative;
+}
+.hoverBg{
+    width: 54px;
+    height: 60px;
+    position: absolute;
+    top:0;
+    left: 0;
+    background-color: #fff;
+    opacity: 0.2;
+    display: none;
+}
+.base_btn ul li i{
+    display: block;
+    margin-top: 11px;
+    margin-bottom: 7px;
+    height: 20px;
+    line-height: 20px;
+}
+.site_con_right .site_tip{
+    float: left;
+    border-right:1px solid #505666 
+}
+.site_tip ul li{
+    height: 36px;
+    float: left;
+    text-align: center;
+    line-height: 36px;
+    cursor: pointer;
+    position: relative;
+    
+}
+.site_tip ul li img{
+    vertical-align: middle;
+}
+.site_con_rightOne .re li{
+    width: 46px;
+}
+.site_con_right_BtnBg{
+    width: 32px;
+    height: 34px;
+    background-color: #fff;
+    opacity: 0.2;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    position: absolute;
+    bottom: 0;
+    left:50%;
+    transform:translate(-50%,0);-webkit-transform:translate(-50%,0);
+    display: none;
+}
+.site_con_rightTwo .copy li{
+    width: 52px;
+   
+}
+.site_con_rightThree .position li{
+    width: 44.5px;
+}
+.site_con_rightFour .Align li{
+    width: 43px;
+}
+.site_con_rightBox{
+    width: 1328px;
+}
+.siteSetBtn{
+    float: right;
+    padding-top: 7px;
+}
+.siteSetBtn ul li{
+    height: 24px;
+    line-height: 24px;
+    float: left;
+    text-align: center;
+    color: #fff;
+    border-radius:2px;
+    background-color: #505666;
+    padding-left: 8px;
+    padding-right: 8px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.siteSet{
+    width: 800px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
+    z-index: 99;
+    background-color: #f1f1f1;
+}
+.siteSetTitle{
+    height: 40px;
+    background-color: #438eb9;
+    padding-left: 18px;
+    color: #fff;
+    line-height: 40px;
+    position: relative;
+    font-size:14px;
+}
+.site_close{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+.siteSetCon{
+    height: 372px;
+}
+.siteSetbottom{
+    height: 38px;
+    background-color: #dedede;
+    position: relative;
+    margin-top: 1px;
+}
+.siteSetbottom_save{
+    position: absolute;
+    top: 4px;
+    right:10px;
+    height: 30px;
+    width: 82px;
+    border-radius:4px;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    background-color: #438eb9;
+    cursor: pointer;
+}
+.siteSetConLeftBtn{
+    background-color: #cacaca;
+    width: 102px;
+    height: 372px;
+    margin-top: 1px;
+}
