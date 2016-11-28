@@ -346,12 +346,99 @@
             <div class="siteSetConLeftBtn">
                 <ul>
                     <li class="current"><p>基本设置</p></li>
+                    <li><p>绑定独立域名</p></li>
+                    <li><p>meta设置</p></li>
+                    <li><p>图片管理</p></li>
+                    <li><p>账号设置</p></li>
                 </ul>
+            </div>
+            <div class="siteSetConShow baseSet">
+                <form id="baseForm" method="post">
+                    <div class="baseSetTitle">
+                         <p class="title"><span>网站名称：</span><input type="text" placeholder="我的网站名称" class="baseInput" name="title" maxlength="30"></p>
+                         <p class="name"><span>网站域名：</span><input type="text" placeholder="我的网站域名" class="baseInput" name="name"></p>
+                         <div class="BaseTitleTip">
+                             <p>提示：可用中文，英文或者数字组成，最长30个字。</p>
+                         </div>
+                    </div>
+                    <div class="baseSetLang clearfix label">
+                        <p class="title">网站语言：</p>
+                        <label><input type="radio" name="lang" checked value="中文">&nbsp;中文</label>
+                        <label><input type="radio" name="lang" value="英文">&nbsp;英文</label>
+                        <label><input type="radio" name="lang" value="俄语">&nbsp;俄语</label>
+                    </div>
+                    <div class="baseSetLogo clearfix label">
+                        <p class="title">网站logo：</p>
+                        <label><input type="radio" name="logo" checked value="use">&nbsp;使用</label>
+                        <label><input type="radio" name="logo" value="noUse">&nbsp;不使用</label>
+                    </div>
+                    <div class="baseSetIndex clearfix">
+                        <p class="title">网站首页：</p>
+                        <div class="baseSetIndexShow">
+                            <ul>
+                                <li>
+                                     <label class="index" for="index"><input type="radio" name="index" value="site" id="index" checked>&nbsp;站点</label>
+                                     <label class="sel"><select name="indexSel"><option>品牌介绍</option><option>测试1</option></select></label>
+                                </li>
+                                <li>
+                                     <label class="index" for="poster"><input type="radio" name="index" value="poster" id="poster">&nbsp;海报</label>
+                                     <label class="sel"><select name="posterSel" disabled><option>品牌介绍</option><option>测试1</option></select></label>
+                                </li>
+                                <li>
+                                     <label class="index" for="Mall"><input type="radio" name="index" value="Mall" id="Mall">&nbsp;电商</label>
+                                     <label class="sel"><select name="MallSel" disabled><option>品牌介绍</option><option>测试1</option></select></label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="siteSetConShow domainSel">
+                <div class="domainSetOne">
+                    <span>步骤一：配置CNAME</span>
+                    <span class="px">域名服务网站上添加CNAME记录指向  cname.kuaizhan.com  (一般需要1-4小时生效)</span>
+                    <a href="">如何配置域名CNAME?</a>
+                </div>
+                <div class="domainSetTwo">
+                    <span>步骤一：输入独立域名</span>
+                    <input type="text" placeholder="我的独立域名">
+                </div>
+                <div class="domainSetThree">
+                    <p>如何不经过以上配置，让手机打开PC站时自动转到时刻销销</p>
+                    <textarea></textarea>
+                    <p class="copy">复制代码</p>
+                </div>
+            </div>
+            <div class="siteSetConShow imgUpload" style="display:block">
+                <p class="amount">图片共计<span>1</span>张</p>
+                <div class="imUploadBtn">
+                    <input type="file">
+                </div>
+                <p class="tip">提示：建议图片宽度640像素以上；支持多图上传；图片大小不能超过4M；支持jpg,png,gif格式；</p>
+            </div>
+            <div class="siteSetConShow">
+                
+            </div>
+            <div class="siteSetConShow">
+                
             </div>
         </div>
         <div class="siteSetbottom">
-            <div class="siteSetbottom_save">
-                <p>保存</p>
+            <div class="siteSetbottom_save baseBtn">
+                <button>保存</button>
+            </div>
+            <div class="siteSetbottom_save nameBtn" style="display:block">
+                <button>保存</button>
+            </div>
+            <div class="siteSetbottom_save mateBtn">
+                <button>保存</button>
+            </div>
+            <div class="siteSetbottom_save imgBtn">
+                <button>保存</button>
+            </div>
+            <div class="siteSetbottom_save 
+accountBtn">
+                <button>保存</button>
             </div>
         </div>
     </div>

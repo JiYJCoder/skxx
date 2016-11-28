@@ -446,15 +446,202 @@ a:active{blr:expression(this.onFocus=this.blur());}
     height: 30px;
     width: 82px;
     border-radius:4px;
+    line-height: 30px;
+    
+}
+.siteSetbottom_save >button{
     color: #fff;
     text-align: center;
-    line-height: 30px;
-    background-color: #438eb9;
+    width: 82px;
+    height: 30px;
+    display: block;
+    background: 0;
     cursor: pointer;
+    background-color: #438eb9;
+    border-radius:6px; 
 }
 .siteSetConLeftBtn{
+    float: left;
     background-color: #cacaca;
     width: 102px;
     height: 372px;
     margin-top: 1px;
+}
+.siteSetConLeftBtn ul{
+    margin-left: 10px;
+}
+.siteSetConLeftBtn ul li{
+    height: 30px;
+    line-height: 30px;
+    width: 92px;
+    text-align: center;
+    cursor: pointer;
+}
+.siteSetConLeftBtn ul li.current{
+    background-color: #fff;
+    color: #00abeb;
+}
+.siteSetConShow{
+    float: left;
+    padding-left: 11px;
+    width: 678px;
+    display: none;
+}
+.siteSetConShow .baseSetTitle{
+    height: 106px;
+    border-bottom: 1px solid #cacaca;
+    overflow: hidden;
+    position: relative;
+}
+.baseSetTitle .title{
+    margin-top: 10px;
+}
+.baseSetTitle .name{
+    margin-top: 33px;
+}
+.baseInput{
+    border: 1px solid #dbdbdb;
+    background-color: #fff;
+    height: 22px;
+    line-height: 22px;
+    width: 558px;
+    padding-left: 10px;
+    border-radius:2px;
+}
+.baseInput:focus{
+    border:1px solid #438eb9;
+}
+.BaseTitleTip{
+    color: #999;
+    position: absolute;
+    top: 36px;
+    left: 62px;
+}
+.label label{
+    float: left;
+    margin-right: 19px;
+}
+.baseSetLogo p{
+    float: left;
+    margin-right: 6px;
+}
+.baseSetLang p{
+    float: left;
+    margin-right: 8px;
+}
+.label{
+    border-bottom: 1px solid #cacaca;
+    height: 29px;
+    padding-top: 10px;
+}
+.baseSetIndex .title{
+    float: left;
+    margin-right: 8px;
+}
+.baseSetIndex{
+    padding-top: 13px;
+}
+.baseSetIndexShow{
+    float: left;
+}
+.baseSetIndexShow ul li{
+    margin-bottom: 15px;
+}
+.baseSetIndexShow ul li select{
+    background-color: #e7e7e7;   
+    width: 183px;
+    border: 1px solid #dbdbdb;
+    border-radius:3px;
+    padding-left: 10px;
+    height: 22px;
+    line-height: 22px;
+    margin-left: 14px;
+}
+.siteSetbottom_save{
+    display: none;
+}
+.domainSetOne{
+    padding-top: 15px;
+    position: relative;
+}
+.domainSetOne .px{
+    margin-left: 25px;
+   
+}
+.domainSetOne a{
+    position: absolute;
+    bottom: -20px;
+    right: 90px;
+    color: #00abeb;
+    text-decoration:underline;
+}
+.domainSetTwo {
+    margin-top: 37px;
+    border-bottom: 1px solid #dbdbdb;
+    padding-bottom: 15px;
+}
+.domainSetTwo input{
+    padding-left: 10px;
+    width: 348px;
+    height: 22px;
+    border:1px solid #dbdbdb;
+    border-radius:3px;
+    margin-left: 22px;
+}
+.domainSetThree{
+    margin-top: 12px;
+    position: relative;
+}
+.domainSetThree p{
+    text-decoration: underline;
+    color: #00abeb;
+}
+.domainSetThree textarea{
+    border-radius:2px;
+    margin-top: 7px;
+    width: 460px;
+    height: 112px;
+    color: #ccc;
+    padding: 10px 19px;
+}
+.domainSetThree .copy{
+    position: absolute;
+    bottom: 15px;
+    right: 210px;
+    color: #00abeb;
+    cursor: pointer;
+    text-decoration: none;
+}
+.imgUpload{
+    padding-top: 15px;
+    position: relative;
+}
+.imgUpload .amount{
+    width: 92px;
+    
+}
+.imUploadBtn{
+    width: 65px;
+    height: 20px;
+    background:url('../images/site_upload.png') no-repeat;
+    position: absolute;
+    top: 10px;
+    left: 85px;
+    z-index: 99;
+    cursor: pointer;
+    
+}
+.imUploadBtn input{
+    width: 65px;
+    height: 20px;
+    opacity: 0;
+    cursor: pointer;
+    font-size:0;
+  
+}
+.siteSetConShow .tip{
+    position: absolute;
+    top: 19px;;
+    right: 0px;
+    color: #999;
 }
