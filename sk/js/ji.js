@@ -34,7 +34,25 @@ $(function(){
     		$(".siteSetConShow").hide().eq($(this).index()).show(); 
     		$(".siteSetbottom_save").hide().eq($(this).index()).show(); 
     //        $(".tab1").eq($(this).index()).show().siblings().hide(); 
-    })
+    });
+    $('.createBtn_close').click(function(){
+        $('.ji_dataBg').hide();
+        $('.create').hide();
+    });
+    $('.createBtns').click(function(){
+        $('.ji_dataBg').show();
+        $('.create').show();
+    });
+    //站点页面，作品信息图片上传既显；
+    var file=new FileReader();
+    var inpitFile=document.getElementById('file');
+    var img=document.getElementById('image_preview')
+    inpitFile.onchange=function(){
+        file.onload=function(){
+            img.src=file.result
+        }
+        file.readAsDataURL(this.files[0]);
+    }
     base.tip($('.site_tip ul li'));
 //    console.log(decodeURIComponent($('#baseForm').serialize()))
 })

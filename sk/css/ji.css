@@ -120,6 +120,7 @@ a:active{blr:expression(this.onFocus=this.blur());}
     background-color: #000;
     opacity: 0.5;
     z-index: 5;
+    display: none;
 }
 .ji_dataShow{
     height: 655px;
@@ -414,6 +415,7 @@ a:active{blr:expression(this.onFocus=this.blur());}
     transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
     z-index: 99;
     background-color: #f1f1f1;
+    display: none;
 }
 .siteSetTitle{
     height: 40px;
@@ -424,7 +426,7 @@ a:active{blr:expression(this.onFocus=this.blur());}
     position: relative;
     font-size:14px;
 }
-.site_close{
+.site_Imgclose{
     position: absolute;
     top: 15px;
     right: 15px;
@@ -486,15 +488,13 @@ a:active{blr:expression(this.onFocus=this.blur());}
     padding-left: 11px;
     width: 678px;
     display: none;
+    padding-top: 10px;
 }
 .siteSetConShow .baseSetTitle{
     height: 106px;
     border-bottom: 1px solid #cacaca;
     overflow: hidden;
     position: relative;
-}
-.baseSetTitle .title{
-    margin-top: 10px;
 }
 .baseSetTitle .name{
     margin-top: 33px;
@@ -561,7 +561,7 @@ a:active{blr:expression(this.onFocus=this.blur());}
     display: none;
 }
 .domainSetOne{
-    padding-top: 15px;
+    padding-top: 5px;
     position: relative;
 }
 .domainSetOne .px{
@@ -645,3 +645,203 @@ a:active{blr:expression(this.onFocus=this.blur());}
     right: 0px;
     color: #999;
 }
+.metaSet > p{
+    float: left;
+}
+.metaSet_con{
+    float: left;
+    margin-left: 10px;
+}
+.metaSet_con textarea{
+    width: 548px;
+    height: 72px;
+    border: 1px solid #dbdbdb;
+    border-radius:2px;
+    padding: 10px;
+}
+.metaSet_con >p{
+    color: #999;
+}
+.create{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 99;
+    transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
+    height: 480px;
+    width: 800px;
+    background-color: #f1f1f1;
+}
+.createCon{
+    padding-top: 7px;
+    padding-left: 10px;
+    height: 395px;
+}
+.createConPreview{
+    float: left;
+    background-color: #438eb9;
+    width: 218px;
+    height: 388px;
+    border-radius: 3px;
+    overflow: auto;
+}
+.createConSet{
+    height: 378px;
+    float: left;
+    margin-left: 8px;
+    border-left: 1px solid #dbdbdb;
+    margin-top: 5px;
+    padding-left: 10px;
+}
+.createBottom{
+    height: 37px;
+    background-color: #dedede;
+}
+.createBtn{
+    float: right;
+    margin-right: 10px;
+    margin-top: 4px;
+    border-radius: 8px;
+    background-color: #438eb9;
+    color: #fff;
+    text-align: center;
+    width: 82px;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+}
+.createConSetInfon{
+    border-bottom: 1px solid #dedede;
+    width: 526px;
+    position: relative;
+}
+.createConSetInfonTitle{
+    float: left;
+    height: 110px;
+    line-height: 110px;
+    margin-right: 20px;
+}
+.createConSetInfon_set{
+    float: left;
+}
+.createConSetInfon_set_setImg{
+    float: left;
+    border-radius:5px;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    
+}
+.createConSetInfon_set_setImg >input{
+    opacity: 0;
+    width: 90px;
+    height: 90px;
+    font-size:0;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+.createInfo_tip{
+    position: absolute;
+    bottom: 2px;
+    left: 70px;
+    color: #438eb9;
+}
+.createConSetInfon_set_setImg .img{
+    background-color: #a0d4d3;
+    width: 92px;
+    height: 92px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-style:none;
+    border:none;
+    z-index: 1;
+    margin:-1px;
+}
+.createConSetInfon_right{
+    float: left;
+    margin-left: 10px;
+}
+.createConSetInfon_right .title{
+    height: 18px;
+}
+.createConSetInfon_right .ms{
+    height: 61px;
+    margin-top: 7px;
+}
+.createConSetInfon_right input{
+    padding-left: 10px;
+    display: block;
+    border-radius:3px;
+    border: 1px solid #dbdbdb;
+    width: 288px;
+}
+.siteTypeInfo{
+    float: left;
+    width: 452px;
+}
+.siteTypeInfo ul{
+    width: 462px;
+    overflow: hidden;
+}
+.siteTypeInfo ul li{
+    cursor: pointer;
+    width: 67px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background-color: #999;
+    border-radius: 4px;
+    margin-right: 10px;
+    float: left;
+    color: #fff;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

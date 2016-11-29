@@ -322,7 +322,7 @@
                   <ul class="clearfix">
                       <li class="showSel"><p>站点设置</p></li>
                       <li><p>保存</p></li>
-                      <li><p>预览并发布</p></li>
+                      <li class="createBtns"><p>预览并发布</p></li>
                   </ul>
               </div>
           </div>
@@ -340,7 +340,7 @@
     <div class="siteSet">
         <div class="siteSetTitle">
             <p>站点设置</p>
-            <img src="images/site_close.png" alt="" class="site_close">
+            <img src="images/site_close.png" alt="" class="site_close site_Imgclose">
         </div>
         <div class="siteSetCon clearfix">
             <div class="siteSetConLeftBtn">
@@ -348,11 +348,11 @@
                     <li class="current"><p>基本设置</p></li>
                     <li><p>绑定独立域名</p></li>
                     <li><p>meta设置</p></li>
-                    <li><p>图片管理</p></li>
+<!--                    <li><p>图片管理</p></li>-->
                     <li><p>账号设置</p></li>
                 </ul>
             </div>
-            <div class="siteSetConShow baseSet">
+            <div class="siteSetConShow baseSet"  style="display:block">
                 <form id="baseForm" method="post">
                     <div class="baseSetTitle">
                          <p class="title"><span>网站名称：</span><input type="text" placeholder="我的网站名称" class="baseInput" name="title" maxlength="30"></p>
@@ -409,37 +409,102 @@
                     <p class="copy">复制代码</p>
                 </div>
             </div>
-            <div class="siteSetConShow imgUpload" style="display:block">
+<!--
+            <div class="siteSetConShow imgUpload">
                 <p class="amount">图片共计<span>1</span>张</p>
                 <div class="imUploadBtn">
                     <input type="file">
                 </div>
                 <p class="tip">提示：建议图片宽度640像素以上；支持多图上传；图片大小不能超过4M；支持jpg,png,gif格式；</p>
             </div>
-            <div class="siteSetConShow">
-                
+-->
+            <div class="siteSetConShow clearfix metaSet">
+                 <p>META设置</p>
+                 <div class="metaSet_con">
+                     <textarea></textarea>
+                     <p>(提示：这里可以加入第三方工具的META的验证消息)</p>
+                 </div>
             </div>
             <div class="siteSetConShow">
-                
+                <p>账号设置</p>
             </div>
         </div>
         <div class="siteSetbottom">
-            <div class="siteSetbottom_save baseBtn">
+            <div class="siteSetbottom_save baseBtn" style="display:block">
                 <button>保存</button>
             </div>
-            <div class="siteSetbottom_save nameBtn" style="display:block">
+            <div class="siteSetbottom_save nameBtn">
                 <button>保存</button>
             </div>
             <div class="siteSetbottom_save mateBtn">
                 <button>保存</button>
             </div>
+<!--
             <div class="siteSetbottom_save imgBtn">
                 <button>保存</button>
             </div>
+-->
             <div class="siteSetbottom_save 
 accountBtn">
                 <button>保存</button>
             </div>
+        </div>
+    </div>
+    <div class="create">
+        <div class="siteSetTitle">
+            <p>预览并发布</p>
+            <img src="images/site_close.png" alt="" class="createBtn_close site_Imgclose">
+        </div>
+        <div class="createCon clearfix">
+            <div class="createConPreview">
+                测试测试测试测
+            </div>
+            <div class="createConSet">
+                <div class="createConSetInfon clearfix">
+                    <div class="createConSetInfonTitle">
+                        <p>作品信息</p>
+                    </div>
+                    <div class="createConSetInfon_set clearfix">
+                        <div class="createConSetInfon_set_setImg">
+                            <input type="file" id="file">
+                            <img id="image_preview" class="img" atl="">
+                        </div>
+                        <div class="createConSetInfon_right">
+                            <input type="text" placeholder="标题(最多15个字)" maxlength="15" class="title">
+                            <input type="text" placeholder="描述(最多30个字)" maxlength="30" class="ms">
+                        </div>
+                    </div>
+                    <p class="createInfo_tip">提示：点击上面青色方块上传作品图片，大小为210*190最为合适</p>
+                </div>
+                <div class="siteType createConSetInfon clearfix">
+                    <div class="createConSetInfonTitle siteTypeTitle">
+                        <p>作品标签</p>
+                    </div> 
+                    <div class="siteTypeInfo">
+                        <ul class="clearfix">
+                            <li>产品介绍</li>
+                            <li>营销活动</li>
+                            <li>邀请函</li>
+                            <li>节日祝福</li>
+                            <li>招聘</li>
+                            <li>庆典</li>
+                            <li>年会</li>
+                            <li>调查表</li>
+                            <li>培训</li>
+                            <li>汇报</li>
+                            <li>知识分享</li>
+                            <li>课件</li>
+                            <li>表彰</li>
+                            <li>政策宣传</li>
+                            <li>总结报告</li>
+                            <li>其他</li>
+                        </ul>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        <div class="createBottom">
+            <button class="createBtn">保存并发布</button>
         </div>
     </div>
 </body>
