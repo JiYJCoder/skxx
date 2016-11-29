@@ -43,6 +43,11 @@ $(function(){
         $('.ji_dataBg').show();
         $('.create').show();
     });
+    $('.siteRange_data_con_btn ul li').click(function(){
+    		$(this).addClass('current').siblings().removeClass();
+    		$(".siteRange_data_con_btn_dataShow").hide().eq($(this).index()).show(); 
+    //        $(".tab1").eq($(this).index()).show().siblings().hide(); 
+    });
     //站点页面，作品信息图片上传既显；
     var file=new FileReader();
     var inpitFile=document.getElementById('file');
