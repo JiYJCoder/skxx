@@ -48,16 +48,76 @@ $(function(){
     		$(".siteRange_data_con_btn_dataShow").hide().eq($(this).index()).show(); 
     //        $(".tab1").eq($(this).index()).show().siblings().hide(); 
     });
-    //站点页面，作品信息图片上传既显；
-    var file=new FileReader();
-    var inpitFile=document.getElementById('file');
-    var img=document.getElementById('image_preview')
-    inpitFile.onchange=function(){
-        file.onload=function(){
-            img.src=file.result
+    $('.siteRange_show ul').hover(function(){
+        var hSize=Math.round($('.siteRange_show ul li').size()/6)+2;
+        var h=$('.siteRange_show ul li').outerHeight()
+        $(this).stop().animate({
+            height:hSize*h+"px",
+        },300)
+      
+    },function(){
+        $(this).stop().animate({
+            height:'21px',
+        },300)
+    });
+    $('.siteRange_data_cloase').click(function(){
+        $('.siteRange_data').hide();
+    });
+    $('.siteRange_btn').click(function(){
+        $('.siteRange_data').show();
+    });
+    $('.site_con_leftHead ul li').click(function(){
+    		$(this).addClass('current').siblings().removeClass();
+    		$(".site_con_leftCon").hide().eq($(this).index()).show(); 
+    //        $(".tab1").eq($(this).index()).show().siblings().hide(); 
+    })
+    //选择部门等增加和删除数据
+    function addData(){
+        var dataBox=$('.con li');
+        var dataShow=$('.siteRange_show ul');
+        for(var i=0;i<=dataBox.size();i++){
+            dataBox.eq(i).attr('data',i);
         }
-        file.readAsDataURL(this.files[0]);
+        dataBox.click(function(){
+            var num=$(this).attr('data');
+            var data=$(this).find('span').text();
+            var showDataLi=$('.siteRange_show ul li');
+            if($(this).hasClass('current')){
+                $(this).removeClass('current');
+                for(var t=0;t<=$('.siteRange_show ul li').size();t++){
+                    if(showDataLi.eq(t).attr('data')==num){
+                        showDataLi.eq(t).remove();
+                    }
+                }
+            }else{
+                $(this).addClass('current');
+                dataShow.append("<li data="+num+">"+"<img src='images/site_colse.png' width='7' height='7' class='data_close'>"+data+"</li>")
+            }
+        });
+        $(document).on('click','.data_close',function(){
+            for(var i=0;i<=dataBox.size();i++){
+                if(dataBox.eq(i).attr('data')==$(this).parent('li').attr('data')){
+                    dataBox.eq(i).removeClass('current');
+                }
+            }
+            $(this).parent('li').remove();
+        })
     }
-    base.tip($('.site_tip ul li'));
+    addData()
+//    console.log($('.siteRange_show ul li').width())
+    //站点页面，作品信息图片上传既显；
+    function imgfile(){
+        var file=new FileReader();
+        var inpitFile=document.getElementById('file');
+        var img=document.getElementById('image_preview')
+        inpitFile.onchange=function(){
+            file.onload=function(){
+                img.src=file.result
+            }
+            file.readAsDataURL(this.files[0]);
+        }
+        base.tip($('.site_tip ul li'));
+    }
+    imgfile()
 //    console.log(decodeURIComponent($('#baseForm').serialize()))
 })
