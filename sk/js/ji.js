@@ -116,8 +116,9 @@ $(function(){
             }
             file.readAsDataURL(this.files[0]);
         }
-        base.tip($('.site_tip ul li'));
     }
+    base.tip($('.site_tip ul li'));
+//    base.tip($('.site_page_conFeatures ul li'));
     imgfile()
 //    console.log(decodeURIComponent($('#baseForm').serialize()))
 })

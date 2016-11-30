@@ -102,6 +102,7 @@ a:active{blr:expression(this.onFocus=this.blur());}
 .featBig ul li{cursor: pointer;width: 79px;height: 26px;background-color: #ffffff;text-align: center;line-height: 26px;color: #00abeb;border-radius:3px;margin-bottom: 12px;}
 .tipShow{position: absolute;top: -21px;left: 50%; background: url('../images/tip_bg.png') no-repeat;height: 20px;z-index: 99;text-align: center;line-height: 17px;transform:translate(-50%,0);-webkit-transform:translate(-50%,0);display: none;background-size: 100% 100%;padding-left: 4px;padding-right: 4px;white-space: nowrap;}
 .tipShow.bg{background: url('../images/site_bgTip.png') no-repeat;height: 32px;color: #fff;top: 34px;line-height: 38px;background-size: 100% 100%;}
+.tipShow.pageTip{background: url('../images/site_pageTipBg.png') no-repeat;height: 52px;color: #fff;display: block;left: 40px;top: 0;}
 /*注意：css3垂直居中 IE9以下无法兼容*/
 .j_con_main_con_nav{position: absolute;bottom: 13px;left: 50%;transform: translate(-50%, 0);}
 .j_con_main_con_nav ul li{float: left;margin-right: 8px;cursor: pointer;}
@@ -983,8 +984,8 @@ a:active{blr:expression(this.onFocus=this.blur());}
 }
 .site_page_add{
     position: absolute;
-    bottom: 0;
     left: 0;
+    bottom:0;
     height: 34px;
     background-color: #438eb9;
     text-align: center;
@@ -998,19 +999,72 @@ a:active{blr:expression(this.onFocus=this.blur());}
     padding-top: 3px;
     width: 221px;
     height: 856px;
-    overflow: hidden;
+    overflow-y:auto;
+    overflow-x:visible;
 }
-.site_page_con ul li{
+.site_page_con >ul >li{
+    position: relative;
     margin-bottom: 6px;
     cursor: pointer;
     width: 218px;
     height: 78px;
     border: 1px solid #bcbcbc;
     background:url('../images/site_addPagebg.png') no-repeat;
+    font-size: 14px;
+    color: #fff;
 }
-
-
-
+.site_page_con >ul> li.current{
+    background:url('../images/site_addPagebgSel.png') no-repeat;
+    width: 194px;
+    border: 1px solid #78ceee;
+}
+.site_page_con >ul> li.current .center{
+    color: #78ceee;
+}
+.site_page_con .top{
+    margin-top: 3px;
+    margin-left: 7px;
+}
+.site_page_con .center{
+    margin-left: 49px;
+    color: #333;
+}
+.zw{
+    height: 13px;
+    width: 210px;
+}
+.site_page_conFeatures{
+    position: absolute;
+    right: -20px;
+    top: 0;
+    z-index: 999999999999999999999999999999999;
+}
+.site_page_conFeatures ul li{
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-image: url('../images/site_pageBtn.png');
+}
+.site_page_conFeatures ul li.current{
+    background-color: #999;
+}
+.site_page_conFeatures ul li:nth-child(1){
+    
+    background-position:center 5px;
+    
+}
+.site_page_conFeatures ul li:nth-child(2){
+    background-position:center -24px;
+}
+.site_page_conFeatures ul li:nth-child(3){
+    background-position:center -51px;
+}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background-color:#fff;}
+::-webkit-scrollbar-thumb{background-color:#78ceee;}
 
 
 
