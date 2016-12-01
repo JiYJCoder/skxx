@@ -103,7 +103,31 @@ $(function(){
             $(this).parent('li').remove();
         })
     }
-    addData()
+    addData();
+    //自动Tip
+    function autoTip(){
+        $('.site_page_conFeatures ul li').hover(function(){
+            var topNum=$(this).offset().top;
+            var data=$(this).attr('data');
+            $(this).addClass('current');
+            $('.autoTip').css({
+                top:topNum-3
+            }).text(data).show();
+        },function(){
+            $('.autoTip').hide();
+            $(this).removeClass('current');
+        })
+    }
+    autoTip();
+    //增加页面
+    function addPage(){
+        $('.site_page_add').click(function(){
+            var num=$('.site_page_con >ul >li').size()+1;
+            var data="<li><p class='top'>"+num+"</p><p class='center'>第"+num+"页</p></li>"
+            $('.site_page_con >ul').append(data)
+        })
+    }
+    addPage();
 //    console.log($('.siteRange_show ul li').width())
     //站点页面，作品信息图片上传既显；
     function imgfile(){
