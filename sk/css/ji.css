@@ -1071,7 +1071,6 @@ a:active{blr:expression(this.onFocus=this.blur());}
 .site_page_conFeatures ul li:nth-child(3).current{
     background-image: url('../images/site_pageBtnSel.png');
 }
-/*测试修改*/
 .autoTip{
     position: absolute;
     top: 0px;
