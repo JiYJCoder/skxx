@@ -8,13 +8,16 @@
 <title></title>
 <link href="css/ji.css" rel="stylesheet" type="text/css" />
 <link href="css/scrollbar.min.css" rel="stylesheet" type="text/css" />
+<link href="css/colpick.css" rel="stylesheet" type="text/css"/>
+<link href="css/component.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="js/base.js"></script>
 <script type="text/javascript" src="js/ji.js"></script>
 <script type="text/javascript" src="js/scroll-min.js"></script>
 <script type="text/javascript" src="js/scrollbar-min.js"></script>
+<script type="text/javascript" src="js/colpick.js"></script>
 </head>
-<body style="overflow: hidden;">
+<body>
     <div class="homePage_header">
         <div class="homePage_logo">
             <img src="images/logo.png" alt="">
@@ -37,7 +40,7 @@
                   <li>页面中心</li>
               </ul>
           </div>
-          <div class="site_con_leftCon">
+          <div class="site_con_leftCon" style="display:block">
               <div class="site_con_leftCon_base">
                   <div class="base_title">
                       <p>基础</p>
@@ -213,7 +216,7 @@
                   </div>
               </div>
           </div>
-          <div class="site_con_leftCon site_page" style="display:block">
+          <div class="site_con_leftCon site_page">
               <div class="site_page_con" id="Default">
                   <ul>
                       <li class="current">
@@ -223,7 +226,7 @@
                               <ul>
                                   <li data="删除"></li>
                                   <li data="复制"></li>
-                                  <li data="设置"></li>
+                                  <li data="设置" id="pageSet"></li>
                               </ul>
                           </div>
                       </li>
@@ -353,6 +356,51 @@
                       <li class="createBtns"><p>预览并发布</p></li>
                   </ul>
               </div>
+          </div>
+      </div>
+      <div class="site_pageBox">
+          <div class="site_page_container">
+              <ul>
+                  <li>
+                      <div class="text">
+                          <div class="textCon" contenteditable="true">
+                              测试测试
+                          </div>
+                          <div class="chageSize">
+                              <div class="chageSizeLeft">
+                                  
+                              </div>
+                              <div class="chageSizeTop">
+
+                              </div>
+                              <div class="chageSizeRight">
+
+                              </div>
+                              <div class="chageSizebottom">
+
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </div>
+      <div class="site_pageComponent">
+          <div class="site_pageComponent_title">
+              <p>组件设置</p>
+              <div class="site_pageComponent_box">X</div>
+          </div>
+          <div class="site_pageComponent_Btn">
+              <ul class="clearfix">
+                  <li class="current">内容</li>
+                  <li>样式</li>
+              </ul>
+          </div>
+          <div class="site_pageComponent_con" id="Component_css" style="display:block">
+              内容
+          </div>
+          <div class="site_pageComponent_con" id="Component_con">
+              CSS
           </div>
       </div>
     </div>
@@ -644,14 +692,129 @@ accountBtn">
     <div class="autoTip">
                   
     </div>
-    <div class="site_pageSet"></div>
+    <div class="site_pageSet">
+        <div class="site_pageSetTitle">
+            <p>页面设置</p>
+            <img src="images/ji_close.png" alt="" class="site_pageSet_close">
+        </div>
+        <div class="site_pageSetCon">
+            <div class="site_pageSetConTitleSet clearfix">
+                <div class="site_pageSetConleft">
+                    <p>标<span class="op">傻</span>题：</p>
+                </div>
+                <div class="site_pageSetConRight">
+                    <input type="text" placeholder="设置当前页标题" maxlength="100">
+                    <p>（提示：可用中文，英文或者数字组成，最长100字）</p>
+                </div>
+            </div>
+            <div class="site_pageSetCon_bgSet clearfix">
+                <div class="site_pageSetConleft">
+                    <p>背景色：</p>
+                </div>
+                <div class="site_pageSetConColSel">
+                    <div class="site_pageSetConColSelGet clearfix">
+                        <div class="colshow"></div>
+                        <div class="valShow">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="site_pageSetConColSelVal">
+                        <ul class="clearfix">
+                            <li data='#e48ff1'></li>
+                            <li data='#f0de66'></li>
+                            <li data='#86f066'></li>
+                            <li data='#57eee2'></li>
+                            <li data='#578cee'></li>
+                            <li data='#eeb057'></li>
+                            <li data='#f67bb5'></li>
+                            <li id="ColSel"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="site_PageheadSet">
+                <div class="site_pageSetConleft">
+                    <p>头底部设置：</p>
+                </div>
+                <div class="site_PageheadSet_val">
+                    <ul class="clearfix">
+                        <li class="current">显示头部</li>
+                        <li>显示底部</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="site_pageBgiSet">
+                <p>使用背景图</p>
+                <div class="site_pageBgiSetVal">
+                    <div class="site_pageBgiSet_Val clearfix">
+                        <div class="site_pageBgiSet_ValImg">
+                            
+                        </div>
+                        <div class="site_pageBgiSet_file">
+                            <div class="file">
+                                上传
+                                <input type="file">
+                            </div>
+                            <p>(提示：建议上传图片大小为640*1136)</p>
+                        </div>
+                    </div>
+                    <div class="site_pageBgiSet_ValBottom">
+                        <div class="site_pageBgiSet_ValBottom_h clearfix" id="site_hx">
+                            <div class="site_pageBgiSet_ValBottom_h_title" >横向</div>
+                            <div class="site_pageBgiSet_ValBottom_h_sel">
+                                <ul class="clearfix">
+                                    <li class="current">适应宽度</li>
+                                    <li>重复</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="site_pageBgiSet_ValBottom_h clearfix" id="site_zx">
+                            <div class="site_pageBgiSet_ValBottom_h_title">纵向</div>
+                            <div class="site_pageBgiSet_ValBottom_h_sel">
+                                <ul class="clearfix">
+                                    <li class="current">适应宽度</li>
+                                    <li>重复</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="site_pageBgiSet site_pageSeo">
+                <p>SEO设置</p>
+                <div class="site_pageSeo_val">
+                    <p>关键词（50字以内，用逗号隔开）</p>
+                    <input type="text" id="Keyword" maxlength="50">
+                    <p>页面描述(100字以内)</p>
+                    <textarea id="description" maxlength="100"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="site_pageSetBottom">
+            <div class="site_pageSetBottomBtn">
+                保存
+            </div>
+        </div>
+    </div>
     <script>
         $(function ($) {
-        $('#Default').perfectScrollbar({
-            wheelSpeed: 4,
-            wheelPropagation: false,
-          
-        });
+            $('#Default').perfectScrollbar({
+                wheelSpeed: 4,
+                wheelPropagation: false,
+            });
+            $('#ColSel').colpick({
+
+                layout:'rgbhex',
+
+                color:'ffffff',
+
+                onSubmit:function(hsb,hex,rgb,el) {
+                    $('.colshow').css('background-color', '#'+hex);
+                    $('.valShow input').val('#'+hex);
+                    $(el).colpickHide();
+
+                }
+            });
       });
     </script>
 </body>

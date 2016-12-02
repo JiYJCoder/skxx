@@ -16,3 +16,9 @@ base.tip=function(obj){
         })
     }
 }
+//选择
+base.sel=function(obj){
+    obj.click(function(){
+        $(this).addClass('current').siblings().removeClass('current');
+    })
+}

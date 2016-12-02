@@ -1,0 +1,64 @@
+/*单纯组件CSS样式*/
+/*文字*/
+.site_page_container ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 577px;
+}
+.site_page_container ul li{
+    position: absolute;
+    top: 190px;
+    left:25px;
+    min-height: 1px;
+    min-width: 1px;
+}
+
+.textCon{
+    word-wrap: break-word;
+    padding: 10px;
+    outline:none;
+    min-width: 250px;
+    min-height: 30px;
+    position: relative;
+}
+/*改变宽度控件*/
+.chageSize >div{
+    position: absolute;
+}
+.chageSize{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.chageSizeLeft{
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: #438eb9;
+}
+.chageSizeTop{
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #438eb9;
+}
+.chageSizeRight{
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 2px;
+    background-color: #438eb9;
+}
+.chageSizebottom{
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #438eb9;
+}
