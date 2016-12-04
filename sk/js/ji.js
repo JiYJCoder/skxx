@@ -1,11 +1,12 @@
 $.fn.extend({
     generate:function(data){
         var box=$('.site_page_container ul');//手机控件盒子
+        
         var defaults={//控件默认设置
             type:0,   //控件类型
             position:true,  //移动
             chageSize:true, //改变大小
-            chageCss:true,
+            chageCss:true,//改变CSS
         };
         var setting=$.extend({},defaults,data);
         switch(setting.type){

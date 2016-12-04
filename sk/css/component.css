@@ -23,6 +23,117 @@
     min-height: 30px;
     position: relative;
 }
+.colTitle{
+    height: 22px;
+    line-height: 22px;
+    margin-bottom: 8px;
+}
+.colCon{
+    float: left;
+}
+.fontCol{
+    color: #fff;
+}
+.fontCol img{
+    border-bottom: 2px solid #fff;
+    padding-bottom: 2px;
+}
+.colCon ul li{
+    background-color: #ccc;
+    height: 19px;
+    width: 36px;
+    cursor: pointer;
+    float: left;
+    margin-right: 8px;
+    padding-left: 4px;
+    padding-top:3px;
+    background-image: url('../images/site_xiala.png');
+    background-repeat: no-repeat;
+    background-position: 27px center;
+}
+.colConValShow{
+    background-color: #fff;
+    width: 16px;
+    height: 16px;
+}
+.fontStyle{
+    float: left;
+}
+.fontStyle ul li{
+    float: left;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #fff;
+}
+.fontStyle ul li.current{
+    border: 1px solid #6ba5c6;
+}
+.fontStyle ul li.fontbold{
+    font-weight: bold;
+}
+.fontSize{
+    float: left;
+    position: relative;
+    width: 47px;
+    height: 22px;
+    background-color: #ccc;
+    color: #fff;
+    line-height: 22px;
+    padding-left: 5px;
+}
+.shangla{
+    position: absolute;
+    top: 5px;
+    right: 4px;
+    cursor: pointer;
+}
+.xiala{
+    position: absolute;
+    top: 14px;
+    right: 4px;
+    cursor: pointer;
+}
+.font_text_align li{
+    border: 1px solid #fff;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background: url('../images/text_align.png') center center no-repeat;
+    float: left;
+    margin-right: 5px;
+}
+.font_text_align li.current{
+    border: 1px solid #438eb9;
+}
+.font_text_align .left{
+    background-position: 4px 4px;
+}
+.font_text_align .center{
+    background-position: -26px 4px;
+}
+.font_text_align .right{
+    background-position: -53px 4px;
+}
+.font_text_align .justify{
+    background-position: -83px 4px;
+}
+.fontspacing{
+    margin-top: 8px;
+}
+.fontspacingVal{
+    position: relative;
+    float: left;
+    width: 26px;
+    height: 22px;
+    line-height: 22px;
+    color: #fff;
+    background-color: #ccc;
+    padding-left: 6px;
+}
 /*改变宽度控件*/
 .chageSize >div{
     position: absolute;
@@ -62,3 +173,76 @@
     width: 100%;
     background-color: #438eb9;
 }
+.chageSize .size{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background: url('../images/site_chageSizeBtn.png')  no-repeat;
+    z-index: 3;
+    left: 50%;
+    transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
+}
+.chageSizeLeft .wr{
+    cursor: w-resize;
+    top: 50%;
+}
+.chageSizeLeft .nw{
+    top: 0;
+    cursor: nw-resize;
+}
+.chageSizeLeft .sw{
+    top: 100%;
+    cursor: sw-resize;
+}
+.chageSizeTop .nr{
+    top: 50%;
+    cursor: n-resize;
+}
+.chageSizeRight .ne{
+    top: 0;
+    cursor: ne-resize;
+}
+.chageSizeRight .er{
+    top: 50%;
+    cursor: e-resize;
+}
+.chageSizeRight .es{
+    top: 100%;
+    cursor: se-resize;
+}
+.chageSizebottom .nr{
+    top: 50%;
+    cursor: n-resize;
+}
+.Rotate{
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    background: url('../images/site_pageRotate.png') center center no-repeat;
+    width: 12px;
+    height: 28px;
+    transform:translate(-50%,0);-webkit-transform:translate(-50%,0);
+    cursor: url(http://www.eqxiu.com/c/images/mouserotate-70a3d7.ico) 10 10,default;
+}
+/*公共样式*/
+.component_public{
+    margin-top: 16px;
+    width: 206px;
+}
+.component_public .title{
+    border-bottom: 1px solid #dbdbdb;
+    padding-bottom: 3px;
+    background: url('../images/site_page_san.png') center right  no-repeat;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.component_public .publicTitle{
+    padding-right: 10px; float: left;
+}
+
+
+
+
+
+
+

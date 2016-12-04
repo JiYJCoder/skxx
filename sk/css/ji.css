@@ -106,6 +106,7 @@ a:active{blr:expression(this.onFocus=this.blur());}
 /*注意：css3垂直居中 IE9以下无法兼容*/
 .j_con_main_con_nav{position: absolute;bottom: 13px;left: 50%;transform: translate(-50%, 0);}
 .j_con_main_con_nav ul li{float: left;margin-right: 8px;cursor: pointer;}
+.j_con_main_con_nav ul li.current{color: #00abeb;}
 .ji_close{
     position: absolute;
     top: 12px;
@@ -124,6 +125,7 @@ a:active{blr:expression(this.onFocus=this.blur());}
     display: none;
 }
 .ji_dataShow{
+    display: none;
     height: 655px;
     width: 650px;
     position: fixed;
@@ -1091,7 +1093,7 @@ a:active{blr:expression(this.onFocus=this.blur());}
     left: 50%;
     transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
     display: none;
-    z-index: 99;
+    z-index: 6;
 }
 .site_pageSetTitle{
     height: 40px;
@@ -1365,6 +1367,7 @@ a:active{blr:expression(this.onFocus=this.blur());}
     right: 16px;
     width: 226px;
     height: 994px;
+    box-shadow: -1px -1px 21px #000;;
 }
 .site_pageComponent_title{
     background-color: #438eb9;
@@ -1407,6 +1410,7 @@ a:active{blr:expression(this.onFocus=this.blur());}
     border-top-right-radius: 3px;
 }
 .site_pageComponent_con{
+    padding-left: 10px;
     display: none;
 }
 

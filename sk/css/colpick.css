@@ -294,6 +294,7 @@ colpick Color Picker / colpick.com
 	display:none;
 }
 .colpick_rgbhex {
+    z-index: 7;
 	width:282px;
 }
 .colpick_rgbhex .colpick_field, .colpick_rgbhex .colpick_submit {

@@ -368,16 +368,39 @@
                           </div>
                           <div class="chageSize">
                               <div class="chageSizeLeft">
-                                  
+                                  <div class="wr size">
+                                      
+                                  </div>
+                                  <div class="nw size">
+                                      
+                                  </div>
+                                  <div class="sw size">
+                                      
+                                  </div>
                               </div>
                               <div class="chageSizeTop">
-
+                                  <div class="nr size">
+                                      
+                                  </div>
+                                  <div class="Rotate">
+                                      
+                                  </div>
                               </div>
                               <div class="chageSizeRight">
-
+                                  <div class="ne size">
+                                      
+                                  </div>
+                                  <div class="er size">
+                                      
+                                  </div>
+                                  <div class="es size">
+                                      
+                                  </div>
                               </div>
                               <div class="chageSizebottom">
-
+                                  <div class="nr size">
+                                      
+                                  </div>
                               </div>
                           </div>
                       </div>
@@ -396,11 +419,96 @@
                   <li>样式</li>
               </ul>
           </div>
-          <div class="site_pageComponent_con" id="Component_css" style="display:block">
-              内容
-          </div>
-          <div class="site_pageComponent_con" id="Component_con">
-              CSS
+          <div class="chageComponentSet">
+              <div class="site_pageComponent_con" id="Component_con" style="display:block">
+                  <div class="component_font_font component_public">
+                      <p class="title">字体</p>
+                      <ul>
+                          <li class="clearfix col">
+                              <div class="colTitle publicTitle">
+                                  颜色
+                              </div>
+                              <div class="colCon clearfix">
+                                  <ul class="clearfix">
+                                      <li>
+                                          <div class="colConValShow">
+
+                                          </div>
+                                      </li>
+                                      <li>
+                                          <div class="fontCol">
+                                              <img src="images/site_fontA.png" alt="">
+                                          </div>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </li>
+                          <li class="clearfix">
+                              <div class="colTitle publicTitle">
+                                  样式
+                              </div>
+                              <div class="fontStyle">
+                                  <ul class="clearfix">
+                                      <li class="fontbold current">
+                                          B
+                                      </li>
+                                      <li class='fontI'>
+                                          <i>i</i>
+                                      </li>
+                                      <li>
+                                          U
+                                      </li>
+                                      <li>
+                                          Tx
+                                      </li>
+                                  </ul>
+                              </div>
+                          </li>
+                          <li class="clearfix">
+                              <div class="colTitle publicTitle">
+                                  大小
+                              </div>
+                              <div class="fontSize">
+                                  <p>12px</p>
+                                  <img src="images/site_chageSize.png" alt="" class="shangla">
+                                  <img src="images/site_xiala.png" alt="" class="xiala">
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="component_public">
+                      <p class="title">对齐方式</p>
+                      <ul class="clearfix font_text_align">
+                          <li class="left current"></li>
+                          <li class="center"></li>
+                          <li class="right"></li>
+                          <li class="justify"></li>
+                      </ul>
+                      <div class="fontspacing clearfix">
+                          <div class="colTitle publicTitle">
+                                  行间距
+                          </div>
+                          <div class="fontspacingVal">
+                              <span>1</span>
+                              <img src="images/site_chageSize.png" alt="" class="shangla">
+                              <img src="images/site_xiala.png" alt="" class="xiala">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="component_public">
+                      <p class="title">插入链接</p>
+                      <ul>
+                          <li class="clearfix">
+                              <div class="colTitle publicTitle">
+                                  地<span class="op">地址</span>址
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="site_pageComponent_con" id="Component_css">
+                  CSS
+              </div>
           </div>
       </div>
     </div>
@@ -803,11 +911,8 @@ accountBtn">
                 wheelPropagation: false,
             });
             $('#ColSel').colpick({
-
                 layout:'rgbhex',
-
                 color:'ffffff',
-
                 onSubmit:function(hsb,hex,rgb,el) {
                     $('.colshow').css('background-color', '#'+hex);
                     $('.valShow input').val('#'+hex);
