@@ -1,5 +1,9 @@
 /*单纯组件CSS样式*/
 /*文字*/
+.text{
+    position: relative;
+    z-index: 1;
+}
 .site_page_container ul{
     position: absolute;
     top: 0;
@@ -13,14 +17,13 @@
     left:25px;
     min-height: 1px;
     min-width: 1px;
+    z-index: 99;
 }
 
 .textCon{
     word-wrap: break-word;
     padding: 10px;
     outline:none;
-    min-width: 250px;
-    min-height: 30px;
     position: relative;
 }
 .colTitle{
@@ -64,10 +67,9 @@
     width: 20px;
     height: 20px;
     line-height: 20px;
-    background-color: #fff;
     text-align: center;
     cursor: pointer;
-    border: 1px solid #fff;
+    border: 1px solid #f1f1f1;
 }
 .fontStyle ul li.current{
     border: 1px solid #6ba5c6;
@@ -98,7 +100,7 @@
     cursor: pointer;
 }
 .font_text_align li{
-    border: 1px solid #fff;
+    border: 1px solid #f1f1f1;
     width: 20px;
     height: 20px;
     cursor: pointer;
@@ -134,6 +136,61 @@
     background-color: #ccc;
     padding-left: 6px;
 }
+.lineBtn{
+    width: 113px;
+    float: left;
+    padding-left: 5px;
+    height: 22px;
+    line-height: 22px;
+    cursor: pointer;
+    background:url('../images/site_xiala.png') 106px center no-repeat;
+    background-color: #fff;
+}
+.lineStyle{
+    position: relative;
+}
+.lineStyle ul{
+    display: none;
+    position: absolute;
+    bottom: -46px;
+    left: 0;
+    border-top: 1px solid #999;
+}
+.lineStyle ul li {
+    width: 113px;
+    padding-left: 5px;
+    height: 22px;
+    line-height: 22px;
+    background-color: #fff;
+    color: #438eb9;
+}
+.lineStyle ul li:hover{
+    background-color: #ccc;
+    color: #333;
+}
+.fontcssSet li{
+    width: 80px;
+    float: left;
+    margin-bottom: 8px;
+}
+.fontcssSet span{
+    display: block;
+    width: 32px;
+    float: left;
+}
+.fontcssSet >li >input{
+    text-align: center;
+    display: block;
+    float: left;
+    width: 46px;
+    height: 22px;
+    line-height: 22px;
+    border: 0;
+    background: 0;
+    background-color: #ccc;
+    color: #fff;
+    
+}
 /*改变宽度控件*/
 .chageSize >div{
     position: absolute;
@@ -144,6 +201,7 @@
     height: 100%;
     top: 0;
     left: 0;
+    z-index: 2;
 }
 .chageSizeLeft{
     left: 0;

@@ -1367,7 +1367,8 @@ a:active{blr:expression(this.onFocus=this.blur());}
     right: 16px;
     width: 226px;
     height: 994px;
-    box-shadow: -1px -1px 21px #000;;
+    box-shadow: -1px -1px 21px #000;
+    background-color: #f1f1f1;
 }
 .site_pageComponent_title{
     background-color: #438eb9;
@@ -1413,74 +1414,6 @@ a:active{blr:expression(this.onFocus=this.blur());}
     padding-left: 10px;
     display: none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

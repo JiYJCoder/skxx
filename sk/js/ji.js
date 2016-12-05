@@ -1,7 +1,10 @@
 $.fn.extend({
     generate:function(data){
         var box=$('.site_page_container ul');//手机控件盒子
-        
+        var cssSetBox=$('.site_pageComponent');//控件设置box
+        var csHtml="<div class='chageSize'><div class='chageSizeLeft'><div class='wr size'></div><div class='nw size'></div><div class='sw size'></div></div><div class='chageSizeTop'><div class='nr size'></div><div class='Rotate'></div></div><div class='chageSizeRight'><div class='ne size'></div><div class='er size'></div><div class='es size'></div></div><div class='chageSizebottom'><div class='nr size'></div></div>";//改变大小HTML
+        var textHtml="<li><div class='text'><div class='textCon'>双击输入文字</div></div>"+csHtml+"</li>";//字体控件HTML
+        var textSetHtml="<div class='site_pageComponent_con' id='Component_con' style='display:block'><div class='component_font_font component_public'><p class='title'>字体</p><ul><li class='clearfix col'><div class='colTitle publicTitle'>颜色</div><div class='colCon clearfix'><ul class='clearfix'><li><div class='colConValShow'></div></li><li><div class='fontCol'><img src='images/site_fontA.png' alt=''></div></li></ul></div></li><li class='clearfix'><div class='colTitle publicTitle'>样式</div><div class='fontStyle'><ul class='clearfix'><li class='fontbold current'>B</li><li class='fontI'><i>i</i></li><li>U</li><li>Tx</li></ul></div></li><li class='clearfix'><div class='colTitle publicTitle'>大小</div><div class='fontSize'><p>12px</p><img src='images/site_chageSize.png' alt='' class='shangla'><img src='images/site_xiala.png' alt='' class='xiala'></div></li></ul></div><div class='component_public'><p class='title'>对齐方式</p><ul class='clearfix font_text_align'><li class='left current'></li><li class='center'></li><li class='right'></li><li class='justify'></li></ul><div class='fontspacing clearfix'><div class='colTitle publicTitle'>行间距</div><div class='fontspacingVal'><span>1</span><img src='images/site_chageSize.png' alt='' class='shangla'><img src='images/site_xiala.png' alt='' class='xiala'></div></div></div><div class='component_public'><p class='title'>插入链接</p><ul><li class='clearfix'><div class='colTitle publicTitle'>地<span class='op'>地址</span>址</div><div class='lineBtn'>测试</div></li><li class='clearfix'><div class='colTitle publicTitle'>打开方式</div><div class='lineBtn lineStyle'><ul><li>在当前窗口打开</li><li>在新窗口打开</li></ul></div></li></ul></div></div><div class='site_pageComponent_con' id='Component_css'><div class='component_public'><p class='title'>位置</p><ul class='fontcssSet clearfix'><li class='clearfix'><span>宽度</span><input type='text'></li><li class='clearfix'><span>高度</span><input type='text'></li><li class='clearfix'><span>X轴</span><input type='text'></li><li class='clearfix'><span>Y轴</span><input type='text'></li></ul></div></div></div>";//字体设置html
         var defaults={//控件默认设置
             type:0,   //控件类型
             position:true,  //移动
@@ -9,205 +12,74 @@ $.fn.extend({
             chageCss:true,//改变CSS
         };
         var setting=$.extend({},defaults,data);
+        //生成html
+        function creControlHtml(controlHtml,controlSetHtml){
+            box.append(controlHtml);//生成控件html
+            cssSetBox.find('.chageComponentSet').remove();//删除控件设置html
+            cssSetBox.append(controlSetHtml);
+            new Mian(box.find('li:last'));
+        };
+        //根据类型生成控件
         switch(setting.type){
             case 0://生成文字
-                box.append()
+                creControlHtml(textHtml,textSetHtml);
                 break;
+        };
+        //控件主函数
+        function Mian(control){
+            //移动函数
+            var flag;//移动开关
+            var fls;//大小开关
+            var x;//坐标X位置
+            var y;//坐标y位置
+            var cp;//获取控件位置
+            if(setting.position==true){
+                function drag(){
+                    //记录按下坐标的值
+                    control.mousedown(function(e){
+                        flag =true;//开移动
+                        fls=false;//关放大
+                        cp=$(this).position();
+                        x=e.pageX;
+                        y=e.pageY;
+                        return false;
+                    })
+                    //移动
+                    $(document).mousemove(function(e){
+                        if(flag){
+                          control.css({
+                            "left":cp.left+(e.pageX-x),
+                            "top":cp.top+(e.pageY-y),
+                          })  
+                        }
+                        return false;
+                    }).mouseup(function(){
+                        flag=false;//关掉移动
+                        return false;
+                    })
+                }
+                drag();
+            };
+            if(setting.chageSize==true){
+                function resize(){
+                    
+                }
+                resize();
+            }
         }
     }
 })
-$(function(){
-    //过期关闭
-    $('.close').click(function(){
-        $('.remind').fadeOut(300);
-    });
-    //控件栏背景
-    $('.base_btn ul li').hover(function(){
-        $(this).find('.hoverBg').show();
-    },function(){
-        $(this).find('.hoverBg').hide();
-    });
-    //功能栏背景
-    $('.site_tip ul li').hover(function(){
-        $(this).find('.site_con_right_BtnBg').show();
-    },function(){
-        $(this).find('.site_con_right_BtnBg').hide();
-    });
-    //站点设置隐藏
-    $('.site_close').click(function(){
-        $('.siteSet').hide();
-        $('.ji_dataBg').hide();
-    });
-    //站点设置显示
-    $('.showSel').click(function(){
-        $('.siteSet').show();
-        $('.ji_dataBg').show();
-    });
-    //站点设置品牌等切换
-    $(".index input").click(function(e){
-        e.stopPropagation();
-        $('.sel select').attr('disabled',"disabled").eq($(this).parents('li').index()).attr('disabled',false)
-        
-    })
-    //站点设置TAB
-    $('.siteSetConLeftBtn ul li').click(function(){
-    		$(this).addClass('current').siblings().removeClass();
-    		$(".siteSetConShow").hide().eq($(this).index()).show(); 
-    		$(".siteSetbottom_save").hide().eq($(this).index()).show(); 
-    //        $(".tab1").eq($(this).index()).show().siblings().hide(); 
-    });
-    //预览发布关闭
-    $('.createBtn_close').click(function(){
-        $('.ji_dataBg').hide();
-        $('.create').hide();
-    });
-    //预览发布显示
-    $('.createBtns').click(function(){
-        $('.ji_dataBg').show();
-        $('.create').show();
-    });
-    //各部门切换TAB
-    $('.siteRange_data_con_btn ul li').click(function(){
-    		$(this).addClass('current').siblings().removeClass();
-    		$(".siteRange_data_con_btn_dataShow").hide().eq($(this).index()).show(); 
-    //        $(".tab1").eq($(this).index()).show().siblings().hide(); 
-    });
-    //部门人员选择后，高度自增加
-    $('.siteRange_show ul').hover(function(){
-        var hSize=Math.round($('.siteRange_show ul li').size()/6)+2;
-        var h=$('.siteRange_show ul li').outerHeight()
-        $(this).stop().animate({
-            height:hSize*h+"px",
-        },300)
-      
-    },function(){
-        $(this).stop().animate({
-            height:'21px',
-        },300)
-    });
-    //部门人员关闭
-    $('.siteRange_data_cloase').click(function(){
-        $('.siteRange_data').hide();
-    });
-    //部门人员显示
-    $('.siteRange_btn').click(function(){
-        $('.siteRange_data').show();
-    });
-    //组件和页面切换
-    $('.site_con_leftHead ul li').click(function(){
-    		$(this).addClass('current').siblings().removeClass();
-    		$(".site_con_leftCon").hide().eq($(this).index()).show(); 
-    //        $(".tab1").eq($(this).index()).show().siblings().hide(); 
-    });
-    //页面设置选择
-    $('.site_pageBgiSet >p').click(function(){
-        if($(this).hasClass('current')){
-            $(this).removeClass("current")
-        }else{
-            $(this).addClass('current')
-        }
-    });
-    //页面设置出现
-    $('#pageSet').click(function(){
-        $('.site_pageSet').show();
-        $('.ji_dataBg').show();
-    });
-    //页面设置隐藏
-    $('.site_pageSet_close').click(function(){
-        $('.site_pageSet').hide();
-        $('.ji_dataBg').hide();
-    })
-    //组件内容与CSS设置TAB
-    $('.site_pageComponent_Btn ul li').click(function(){
-    		$(this).addClass('current').siblings().removeClass();
-    		$(".site_pageComponent_con").hide().eq($(this).index()).show(); 
-    //        $(".tab1").eq($(this).index()).show().siblings().hide(); 
-    })
-    //选择部门等增加和删除数据
-    function addData(){
-        var dataBox=$('.con li');
-        var dataShow=$('.siteRange_show ul');
-        for(var i=0;i<=dataBox.size();i++){
-            dataBox.eq(i).attr('data',i);
-        }
-        dataBox.click(function(){
-            var num=$(this).attr('data');
-            var data=$(this).find('span').text();
-            var showDataLi=$('.siteRange_show ul li');
-            if($(this).hasClass('current')){
-                $(this).removeClass('current');
-                for(var t=0;t<=$('.siteRange_show ul li').size();t++){
-                    if(showDataLi.eq(t).attr('data')==num){
-                        showDataLi.eq(t).remove();
-                    }
-                }
-            }else{
-                $(this).addClass('current');
-                dataShow.append("<li data="+num+">"+"<img src='images/site_colse.png' width='7' height='7' class='data_close'>"+data+"</li>")
-            }
-        });
-        $(document).on('click','.data_close',function(){
-            for(var i=0;i<=dataBox.size();i++){
-                if(dataBox.eq(i).attr('data')==$(this).parent('li').attr('data')){
-                    dataBox.eq(i).removeClass('current');
-                }
-            }
-            $(this).parent('li').remove();
-        })
-    }
-    addData();
-    //自动Tip
-    function autoTip(){
-        $('.site_page_conFeatures ul li').hover(function(){
-            var topNum=$(this).offset().top;
-            var data=$(this).attr('data');
-            $(this).addClass('current');
-            $('.autoTip').css({
-                top:topNum-3
-            }).text(data).show();
-        },function(){
-            $('.autoTip').hide();
-            $(this).removeClass('current');
-        })
-    }
-    autoTip();
-    //增加页面
-    function addPage(){
-        $('.site_page_add').click(function(){
-            var num=$('.site_page_con >ul >li').size()+1;
-            var data="<li><p class='top'>"+num+"</p><p class='center'>第"+num+"页</p></li>"
-            $('.site_page_con >ul').append(data)
-        })
-    }
-    addPage();
-    //站点页面颜色选择
-    function colSel(){
-        $("#ColSel").siblings().click(function(){
-            var data=$(this).attr('data');
-            $(this).addClass('current').siblings().removeClass('current');
-            $('.valShow input').val(data);
-            $('.colshow').css({
-                backgroundColor:data
-            })
-        })
-    };
-    colSel();
-    //站点页面，作品信息图片上传既显；
-    function imgfile(){
-        var file=new FileReader();
-        var inpitFile=document.getElementById('file');
-        var img=document.getElementById('image_preview')
-        inpitFile.onchange=function(){
-            file.onload=function(){
-                img.src=file.result
-            }
-            file.readAsDataURL(this.files[0]);
-        }
-    }
-    base.sel($('.site_PageheadSet_val ul li'))
-    base.sel($('#site_zx ul li'))
-    base.sel($('#site_hx ul li'))
-    base.tip($('.site_tip ul li'));
-    imgfile()
-//    console.log(decodeURIComponent($('#baseForm').serialize()))
-})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
