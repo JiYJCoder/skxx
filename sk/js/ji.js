@@ -37,6 +37,7 @@ $.fn.extend({
             if(setting.position==true){
                 function drag(){
                     //记录按下坐标的值
+                    var degs=control.css('transform');
                     control.mousedown(function(e){
                         flag =true;//开移动
                         fls=false;//关放大
@@ -68,9 +69,13 @@ $.fn.extend({
                         fls=true;//开放大
                         var _width=control.width();//控件宽度
                         var _height=control.height();//控件高度
-                        var por=control.position();//控件位置
+                        var por=control.position();//控件相对位置
+                        var off=control.offset();//控件绝对位置
                         var targetX=e.pageX;//目标X位置
                         var targetY=e.pageY;//目标Y位置
+                        var ox=off.left+_width/2;//圆心X
+                        var oy=off.top+_height/2;//圆心Y
+                        var degs=control.css('transform');
                         $(document).mousemove(function(e){
                             var e = e || window.event;
                             //西边放大
@@ -79,7 +84,8 @@ $.fn.extend({
                                     top:por.top,
                                     width:targetX-e.pageX+_width,
                                     left:por.left-(targetX-e.pageX),
-                                    height:_height
+                                    height:_height,
+                                    transform:degs
                                 })
                             }
                              //东边放大
@@ -88,7 +94,8 @@ $.fn.extend({
                                     top:por.top,
                                     width:e.pageX-targetX+_width,
                                     left:por.left,
-                                    height:_height
+                                    height:_height,
+                                    transform:degs
                                 })
                             }
                             //北边放大
@@ -97,7 +104,8 @@ $.fn.extend({
                                     top:por.top-(targetY-e.pageY),
                                     width:_width,
                                     left:por.left,
-                                    height:(targetY-e.pageY)+_height
+                                    height:(targetY-e.pageY)+_height,
+                                    transform:degs
                                 })
                             }
                             //南边放大
@@ -106,7 +114,8 @@ $.fn.extend({
                                     top:por.top,
                                     width:_width,
                                     left:por.left,
-                                    height:(e.pageY-targetY)+_height
+                                    height:(e.pageY-targetY)+_height,
+                                    transform:degs
                                 })
                             }
                             //西北放大
@@ -115,7 +124,8 @@ $.fn.extend({
                                     top:por.top-(targetY-e.pageY),
                                     width:targetX-e.pageX+_width,
                                     left:por.left-(targetX-e.pageX),
-                                    height:(targetY-e.pageY)+ _height
+                                    height:(targetY-e.pageY)+ _height,
+                                    transform:degs
                                 })
                             }
                             //西南放大
@@ -124,7 +134,8 @@ $.fn.extend({
                                     top:por.top,
                                     width:targetX-e.pageX+_width,
                                     left:por.left-(targetX-e.pageX),
-                                    height:(e.pageY-targetY)+_height
+                                    height:(e.pageY-targetY)+_height,
+                                    transform:degs
                                 })
                             }
                             //东北放大
@@ -133,7 +144,8 @@ $.fn.extend({
                                     top:por.top-(targetY-e.pageY),
                                     width:e.pageX-targetX+_width,
                                     left:por.left,
-                                    height:(targetY-e.pageY)+_height
+                                    height:(targetY-e.pageY)+_height,
+                                    transform:degs
                                 })
                             }
                             //东南放大
@@ -142,13 +154,23 @@ $.fn.extend({
                                     top:por.top,
                                     width:e.pageX-targetX+_width,
                                     left:por.left,
-                                    height:(e.pageY-targetY)+_height
+                                    height:(e.pageY-targetY)+_height,
+                                    transform:degs
                                 })
                             }
                             //2d旋转
                             if(fls&&rotates){
-                                var ox=28+control.height()/2;
-                                console.log(ox);
+                                var diff_x=e.pageX-ox;
+                                var diff_y=e.pageY-oy;
+                                var deg=360*Math.atan2(diff_y,diff_x)/(2*Math.PI);
+                                    deg=deg<=-90?(360+deg)+90:deg+90;
+                                control.css({
+                                    top:por.top,
+                                    width:_width,
+                                    left:por.left,
+                                    height:_height,
+                                    transform:"rotateZ("+deg+"deg)"
+                                })
                             }
                             
                         }).mouseup(function(){
