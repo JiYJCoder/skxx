@@ -2,7 +2,7 @@ $.fn.extend({
     generate:function(data){
         var box=$('.site_page_container ul');//手机控件盒子
         var cssSetBox=$('.site_pageComponent');//控件设置box
-        var csHtml="<div class='chageSize'><div class='chageSizeLeft'><div class='wr size'></div><div class='nw size'></div><div class='sw size'></div></div><div class='chageSizeTop'><div class='nr size'></div><div class='Rotate'></div></div><div class='chageSizeRight'><div class='ne size'></div><div class='er size'></div><div class='es size'></div></div><div class='chageSizebottom'><div class='nr size'></div></div>";//改变大小HTML
+        var csHtml="<div class='chageSize'><div class='chageSizeLeft'><div class='wr size'></div><div class='nw size'></div><div class='sw size'></div></div><div class='chageSizeTop'><div class='nr size'></div><div class='Rotate'></div></div><div class='chageSizeRight'><div class='ne size'></div><div class='er size'></div><div class='es size'></div></div><div class='chageSizebottom'><div class='sr size'></div></div>";//改变大小HTML
         var textHtml="<li><div class='text'><div class='textCon'>双击输入文字</div></div>"+csHtml+"</li>";//字体控件HTML
         var textSetHtml="<div class='site_pageComponent_con' id='Component_con' style='display:block'><div class='component_font_font component_public'><p class='title'>字体</p><ul><li class='clearfix col'><div class='colTitle publicTitle'>颜色</div><div class='colCon clearfix'><ul class='clearfix'><li><div class='colConValShow'></div></li><li><div class='fontCol'><img src='images/site_fontA.png' alt=''></div></li></ul></div></li><li class='clearfix'><div class='colTitle publicTitle'>样式</div><div class='fontStyle'><ul class='clearfix'><li class='fontbold current'>B</li><li class='fontI'><i>i</i></li><li>U</li><li>Tx</li></ul></div></li><li class='clearfix'><div class='colTitle publicTitle'>大小</div><div class='fontSize'><p>12px</p><img src='images/site_chageSize.png' alt='' class='shangla'><img src='images/site_xiala.png' alt='' class='xiala'></div></li></ul></div><div class='component_public'><p class='title'>对齐方式</p><ul class='clearfix font_text_align'><li class='left current'></li><li class='center'></li><li class='right'></li><li class='justify'></li></ul><div class='fontspacing clearfix'><div class='colTitle publicTitle'>行间距</div><div class='fontspacingVal'><span>1</span><img src='images/site_chageSize.png' alt='' class='shangla'><img src='images/site_xiala.png' alt='' class='xiala'></div></div></div><div class='component_public'><p class='title'>插入链接</p><ul><li class='clearfix'><div class='colTitle publicTitle'>地<span class='op'>地址</span>址</div><div class='lineBtn'>测试</div></li><li class='clearfix'><div class='colTitle publicTitle'>打开方式</div><div class='lineBtn lineStyle'><ul><li>在当前窗口打开</li><li>在新窗口打开</li></ul></div></li></ul></div></div><div class='site_pageComponent_con' id='Component_css'><div class='component_public'><p class='title'>位置</p><ul class='fontcssSet clearfix'><li class='clearfix'><span>宽度</span><input type='text'></li><li class='clearfix'><span>高度</span><input type='text'></li><li class='clearfix'><span>X轴</span><input type='text'></li><li class='clearfix'><span>Y轴</span><input type='text'></li></ul></div></div></div>";//字体设置html
         var defaults={//控件默认设置
@@ -62,10 +62,111 @@ $.fn.extend({
                 drag();
             };
             if(setting.chageSize==true){
-                function resize(){
-                    
+                function resize(target,west,north,east,south,wn,ws,en,es,rotates){
+                    target.mousedown(function(e){
+                        flag=false;//关移动
+                        fls=true;//开放大
+                        var _width=control.width();//控件宽度
+                        var _height=control.height();//控件高度
+                        var por=control.position();//控件位置
+                        var targetX=e.pageX;//目标X位置
+                        var targetY=e.pageY;//目标Y位置
+                        $(document).mousemove(function(e){
+                            var e = e || window.event;
+                            //西边放大
+                            if(fls&&west){
+                                control.css({
+                                    top:por.top,
+                                    width:targetX-e.pageX+_width,
+                                    left:por.left-(targetX-e.pageX),
+                                    height:_height
+                                })
+                            }
+                             //东边放大
+                            if(fls&&east){
+                                control.css({
+                                    top:por.top,
+                                    width:e.pageX-targetX+_width,
+                                    left:por.left,
+                                    height:_height
+                                })
+                            }
+                            //北边放大
+                            if(fls&&north){
+                                control.css({
+                                    top:por.top-(targetY-e.pageY),
+                                    width:_width,
+                                    left:por.left,
+                                    height:(targetY-e.pageY)+_height
+                                })
+                            }
+                            //南边放大
+                            if(fls&&south){
+                                control.css({
+                                    top:por.top,
+                                    width:_width,
+                                    left:por.left,
+                                    height:(e.pageY-targetY)+_height
+                                })
+                            }
+                            //西北放大
+                            if(fls&&wn){
+                                control.css({
+                                    top:por.top-(targetY-e.pageY),
+                                    width:targetX-e.pageX+_width,
+                                    left:por.left-(targetX-e.pageX),
+                                    height:(targetY-e.pageY)+ _height
+                                })
+                            }
+                            //西南放大
+                            if(fls&&ws){
+                                control.css({
+                                    top:por.top,
+                                    width:targetX-e.pageX+_width,
+                                    left:por.left-(targetX-e.pageX),
+                                    height:(e.pageY-targetY)+_height
+                                })
+                            }
+                            //东北放大
+                            if(fls&&en){
+                                control.css({
+                                    top:por.top-(targetY-e.pageY),
+                                    width:e.pageX-targetX+_width,
+                                    left:por.left,
+                                    height:(targetY-e.pageY)+_height
+                                })
+                            }
+                            //东南放大
+                            if(fls&&es){
+                                control.css({
+                                    top:por.top,
+                                    width:e.pageX-targetX+_width,
+                                    left:por.left,
+                                    height:(e.pageY-targetY)+_height
+                                })
+                            }
+                            //2d旋转
+                            if(fls&&rotates){
+                                var ox=28+control.height()/2;
+                                console.log(ox);
+                            }
+                            
+                        }).mouseup(function(){
+                            fls=false;
+                            return false
+                        });
+                        return false;
+                    });
                 }
-                resize();
+                resize($('.wr'),true,false,false,false,false,false,false,false,false);
+                resize($(".er"),false,false,true,false,false,false,false,false,false);
+                resize($(".nr"),false,true,false,false,false,false,false,false,false);
+                resize($(".sr"),false,false,false,true,false,false,false,false,false);
+                resize($(".nw"),false,false,false,false,true,false,false,false,false);
+                resize($(".sw"),false,false,false,false,false,true,false,false,false);
+                resize($(".ne"),false,false,false,false,false,false,true,false,false);
+                resize($(".es"),false,false,false,false,false,false,false,true,false);
+                resize($(".Rotate"),false,false,false,false,false,false,false,false,true);
             }
         }
     }
