@@ -23,6 +23,7 @@ $.fn.extend({
         switch(setting.type){
             case 0://生成文字
                 creControlHtml(textHtml,textSetHtml);
+                //测试推送
                 break;
         };
         //控件主函数
