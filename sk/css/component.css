@@ -18,7 +18,7 @@
     min-height: 1px;
     min-width: 1px;
     z-index: 99;
-    transform:rotateZ(0deg)
+    transform:rotate(0deg)
 }
 
 .textCon{
