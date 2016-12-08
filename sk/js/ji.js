@@ -1,10 +1,11 @@
+var csHtml="<div class='chageSize'><div class='chageSizeLeft'><div class='wr size'></div><div class='nw size'></div><div class='sw size'></div></div><div class='chageSizeTop'><div class='nr size'></div><div class='Rotate'></div></div><div class='chageSizeRight'><div class='ne size'></div><div class='er size'></div><div class='es size'></div></div><div class='chageSizebottom'><div class='sr size'></div></div>";//改变大小HTML
+var textHtml="<li style='left: 25px; top: 190px; transform:rotate(0deg);' type='0'><div class='text'><div class='textCon' style='z-index=999;'>双击输入文字</div></div>"+csHtml+"</li>";//字体控件HTML
+var textSetHtml="<div class='panel'><div class='site_pageComponent_con' id='Component_con' style='display:block'><div class='component_font_font component_public'><p class='title'>字体</p><ul><li class='clearfix col'><div class='colTitle publicTitle'>颜色</div><div class='colCon clearfix'><ul class='clearfix'><li><div class='colConValShow'></div></li><li><div class='fontCol'><img src='images/site_fontA.png' alt=''></div></li></ul></div></li><li class='clearfix'><div class='colTitle publicTitle'>样式</div><div class='fontStyle'><ul class='clearfix'><li class='fontbold current'>B</li><li class='fontI'><i>i</i></li><li>U</li><li>Tx</li></ul></div></li><li class='clearfix'><div class='colTitle publicTitle'>大小</div><div class='fontSize'><p>12px</p><img src='images/site_chageSize.png' alt='' class='shangla'><img src='images/site_xiala.png' alt='' class='xiala'></div></li></ul></div><div class='component_public'><p class='title'>对齐方式</p><ul class='clearfix font_text_align'><li class='left current'></li><li class='center'></li><li class='right'></li><li class='justify'></li></ul><div class='fontspacing clearfix'><div class='colTitle publicTitle'>行间距</div><div class='fontspacingVal'><span>1</span><img src='images/site_chageSize.png' alt='' class='shangla'><img src='images/site_xiala.png' alt='' class='xiala'></div></div></div><div class='component_public'><p class='title'>插入链接</p><ul><li class='clearfix'><div class='colTitle publicTitle'>地<span class='op'>地址</span>址</div><div class='lineBtn'>测试</div></li><li class='clearfix'><div class='colTitle publicTitle'>打开方式</div><div class='lineBtn lineStyle'><ul><li>在当前窗口打开</li><li>在新窗口打开</li></ul></div></li></ul></div></div><div class='site_pageComponent_con' id='Component_css'><div class='component_public'><p class='title'>位置</p><ul class='fontcssSet clearfix'><li class='clearfix'><span>宽度</span><input type='text'></li><li class='clearfix'><span>高度</span><input type='text'></li><li class='clearfix'><span>X轴</span><input type='text'></li><li class='clearfix'><span>Y轴</span><input type='text'></li></ul></div></div></div></div>";//字体设置html
+var controlSetHtmlArr=[];//控件面板html数组
 $.fn.extend({
     generate:function(data){
         var box=$('.site_page_container ul');//手机控件盒子
         var cssSetBox=$('.site_pageComponent');//控件设置box
-        var csHtml="<div class='chageSize'><div class='chageSizeLeft'><div class='wr size'></div><div class='nw size'></div><div class='sw size'></div></div><div class='chageSizeTop'><div class='nr size'></div><div class='Rotate'></div></div><div class='chageSizeRight'><div class='ne size'></div><div class='er size'></div><div class='es size'></div></div><div class='chageSizebottom'><div class='sr size'></div></div>";//改变大小HTML
-        var textHtml="<li style='left: 25px; top: 190px; transform:rotate(0deg);'><div class='text'><div class='textCon'>双击输入文字</div></div>"+csHtml+"</li>";//字体控件HTML
-        var textSetHtml="<div class='panel'><div class='site_pageComponent_con' id='Component_con' style='display:block'><div class='component_font_font component_public'><p class='title'>字体</p><ul><li class='clearfix col'><div class='colTitle publicTitle'>颜色</div><div class='colCon clearfix'><ul class='clearfix'><li><div class='colConValShow'></div></li><li><div class='fontCol'><img src='images/site_fontA.png' alt=''></div></li></ul></div></li><li class='clearfix'><div class='colTitle publicTitle'>样式</div><div class='fontStyle'><ul class='clearfix'><li class='fontbold current'>B</li><li class='fontI'><i>i</i></li><li>U</li><li>Tx</li></ul></div></li><li class='clearfix'><div class='colTitle publicTitle'>大小</div><div class='fontSize'><p>12px</p><img src='images/site_chageSize.png' alt='' class='shangla'><img src='images/site_xiala.png' alt='' class='xiala'></div></li></ul></div><div class='component_public'><p class='title'>对齐方式</p><ul class='clearfix font_text_align'><li class='left current'></li><li class='center'></li><li class='right'></li><li class='justify'></li></ul><div class='fontspacing clearfix'><div class='colTitle publicTitle'>行间距</div><div class='fontspacingVal'><span>1</span><img src='images/site_chageSize.png' alt='' class='shangla'><img src='images/site_xiala.png' alt='' class='xiala'></div></div></div><div class='component_public'><p class='title'>插入链接</p><ul><li class='clearfix'><div class='colTitle publicTitle'>地<span class='op'>地址</span>址</div><div class='lineBtn'>测试</div></li><li class='clearfix'><div class='colTitle publicTitle'>打开方式</div><div class='lineBtn lineStyle'><ul><li>在当前窗口打开</li><li>在新窗口打开</li></ul></div></li></ul></div></div><div class='site_pageComponent_con' id='Component_css'><div class='component_public'><p class='title'>位置</p><ul class='fontcssSet clearfix'><li class='clearfix'><span>宽度</span><input type='text'></li><li class='clearfix'><span>高度</span><input type='text'></li><li class='clearfix'><span>X轴</span><input type='text'></li><li class='clearfix'><span>Y轴</span><input type='text'></li></ul></div></div></div></div>";//字体设置html
         var defaults={//控件默认设置
             type:0,   //控件类型
             position:true,  //移动
@@ -12,39 +13,56 @@ $.fn.extend({
             chageCss:true,//改变CSS
         };
         var setting=$.extend({},defaults,data);
-        //生成html
-        function creControlHtml(controlHtml,controlSetHtml){
-            box.find('.chageSize').hide();//隐藏旧控件控制html
-            cssSetBox.find('.panel').remove();//删除旧控件设置html
-            cssSetBox.append(controlSetHtml);//生成新控件设置html
-            box.append(controlHtml);//生成新控件html
-            new Mian(box.find('li:last'),textSetHtml,0);
-        };
         //根据类型生成控件
         switch(setting.type){
             case 0://生成文字
                 creControlHtml(textHtml,textSetHtml);
                 //测试推送
                 break;
+//            case 1:
+//                creControlHtml(test,testSet);
+//                break;
+        };
+        //生成html
+        function creControlHtml(controlHtml,controlSetHtml){
+            controlSetHtmlArr[setting.type]=controlSetHtml;
+            box.find('.chageSize').hide();//隐藏旧控件控制html
+            cssSetBox.find('.panel').remove();//删除旧控件设置html
+            cssSetBox.append(controlSetHtml);//生成新控件设置html
+            box.append(controlHtml);//生成新控件html
+            new Mian(box.find('li:last'),controlSetHtmlArr);
         };
         //控件主函数
-        function Mian(control,controlSetHtml,type){
+        function Mian(control,controlSetHtmlArr){
             //移动函数
             var flag;//移动开关
             var fls;//大小开关
             var x;//坐标X位置
             var y;//坐标y位置
             var cp;//获取控件位置
+            //控件选择
             function select(){
-                console.log(1);
                 box.find('li').click(function(){
+                    var liNum=Number($(this).attr('type'));
+                    $(this).dblclick(function(){
+                        setting.position=false;
+                        $(this).find('.textCon').attr('contenteditable','true').focus(function(){
+                            var selection = window.getSelection();
+                            var range = document.createRange();
+                            range.selectNodeContents(this);
+                            selection.removeAllRanges();
+                            selection.addRange(range);
+                        })
+                    })
                     $('.panel').remove();
                     box.find('.chageSize').hide();
-                    cssSetBox.append(controlSetHtml);
+                    cssSetBox.append(controlSetHtmlArr[liNum]);
                     $(this).find('.chageSize').show();
                 });
+                chageCss($(this));
             }
             select();
+            //移动函数
             if(setting.position==true){
                 function drag(){
                     //记录按下坐标的值
@@ -55,7 +73,6 @@ $.fn.extend({
                         cp=$(this).position();
                         x=e.pageX;
                         y=e.pageY;
-                        return false;
                     })
                     //移动
                     $(document).mousemove(function(e){
@@ -75,6 +92,7 @@ $.fn.extend({
                 }
                 drag();
             };
+            //放大函数
             if(setting.chageSize==true){
                 function resize(target,west,north,east,south,wn,ws,en,es,rotates){
                     target.mousedown(function(e){
@@ -203,6 +221,10 @@ $.fn.extend({
                 resize(control.find('.es'),false,false,false,false,false,false,false,true,false);
                 resize(control.find('.Rotate'),false,false,false,false,false,false,false,false,true);
             }
+            function chageCss(control){
+                
+            }
+            chageCss(control);
         }
     }
 })
