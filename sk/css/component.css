@@ -14,6 +14,9 @@
     width: 320px;
     height: 577px;
 }
+.site_page_container ul li *{
+    box-sizing: border-box;
+}
 .site_page_container ul li{
     position: absolute;
     top: 190px;
@@ -21,14 +24,19 @@
     min-height: 1px;
     min-width: 1px;
     z-index: 99;
-    transform:rotate(0deg)
+    transform:rotate(0deg);
 }
 
 .textCon{
+    min-height: 36px;
     word-wrap: break-word;
     padding: 10px;
     outline:none;
     position: relative;
+    height: 36px;
+}
+.heightIm{
+    height: auto!important;
 }
 .colTitle{
     height: 22px;
@@ -195,6 +203,75 @@
     color: #fff;
     
 }
+/*图片控件*/
+.Img{
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+.Img img{
+    width: 100%;
+    height: 100%;
+}
+.ImgShow{
+    width: 192px;
+    height: 100px;
+    margin: 0 auto;
+    background:url('../images/site_imgShow.png')  no-repeat;
+    margin: 16px auto 0 auto;
+    cursor: pointer;
+    position: relative;
+}
+.ImgShowTip{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 192px;
+    height: 36px;
+    background-color: #6cacd0;
+    opacity: 0.7;
+    line-height: 36px;
+    text-align: center;
+    color: #fff;
+}
+.bgStyle{
+    overflow: hidden;
+}
+.bgStyle ul{
+    width: 210px;
+    margin-top: 4px;
+}
+.bgStyle ul li{
+    width: 46px;
+    float: left;
+    margin-right: 4px;
+    text-align: center;
+    color: #9e9d9d;
+}
+.bgStyleShow{
+    cursor: pointer;
+    margin-bottom: 5px;
+    height: 38px;
+    border: 1px solid #b0b0b0;
+}
+.bgStyle ul li:nth-child(1) .bgStyleShow{
+    background: url('../images/site_imgShow1.png') center center no-repeat #ccc;
+}
+.bgStyle ul li:nth-child(2) .bgStyleShow{
+    background: url('../images/site_imgShow2.png') center center no-repeat #ccc;
+}
+.bgStyle ul li:nth-child(3) .bgStyleShow{
+    background: url('../images/site_imgShow3.png') center center no-repeat #ccc;
+}
+.bgStyle ul li:nth-child(4) .bgStyleShow{
+    background: url('../images/site_imgShow4.png') center center no-repeat #ccc;
+}
+.bgStyle ul li.current .bgStyleShow{
+    background-color: #fff;
+    border: 1px solid #438eb9;
+}
 /*改变宽度控件*/
 .chageSize >div{
     position: absolute;
@@ -205,7 +282,6 @@
     height: 100%;
     top: 0;
     left: 0;
-/*    z-index: 2;*/
 }
 .chageSizeLeft{
     left: 0;
