@@ -33,7 +33,6 @@
     padding: 10px;
     outline:none;
     position: relative;
-    height: 36px;
 }
 .heightIm{
     height: auto!important;
@@ -184,11 +183,14 @@
     width: 80px;
     float: left;
     margin-bottom: 8px;
+    margin-right: 5px;
 }
 .fontcssSet span{
     display: block;
     width: 32px;
     float: left;
+    height: 22px;
+    line-height: 22px;
 }
 .fontcssSet >li >input{
     text-align: center;
@@ -271,6 +273,133 @@
 .bgStyle ul li.current .bgStyleShow{
     background-color: #fff;
     border: 1px solid #438eb9;
+}
+.ImgchageBg ul{
+    width: 310px;
+    overflow: hidden;
+}
+.ImgchageBg ul li.current{
+    background-color: #fff;
+    border: 1px solid #438eb9;
+    color: #438eb9;
+}
+.ImgchageBg ul li{
+    cursor: pointer;
+    float: left;
+    width: 46px;
+    height: 26px;
+    line-height: 26px;
+    background-color: #ccc;
+    margin-right: 4px;
+    text-align: center;
+}
+.ImgchageBgSet{
+    display: none;
+    margin-top: 7px;
+}
+.ImgchageBgSetCol{
+    float: left;
+    overflow: hidden;
+    cursor: pointer;
+    width: 40px;
+    height: 22px;
+    background:url('../images/site_xiala.png') 28px center no-repeat #ccc ;
+    margin-right: 5px;
+}
+.ImgchageBgSetJb{
+    margin-left: 30px;
+}
+.ImgBoder{
+    
+}
+.ImgBoder ul li span{
+    float: left;
+    display: block;
+    width: 34px;
+    height: 22px;
+    line-height: 22px;
+}
+.ImgchageBgSetColVal{
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    margin-left: 4px;
+    margin-top: 3px;
+}
+.ImgBoderStyle{
+    position: relative;
+    margin-right: 5px;
+    cursor: pointer;
+    float: left;
+    width: 60px;
+    height: 22px;
+    background:url('../images/site_xiala.png') 48px center no-repeat #ccc ;
+}
+.ImgBoderStyle ul{
+    position: absolute;
+    bottom:-23px;
+    left: 0;
+    width: 60px;
+    height: 22px;
+    display: none;
+}
+.ImgBoderStyle >p{
+    width: 35px;
+    border: 1px solid #a5a5a5;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.ImgBoderStyle ul li{
+    overflow: hidden;
+    margin-bottom: 1px;
+    width: 60px;
+    height: 20px;
+    background-color: #ccc;
+}
+.ImgBoderStyle ul li:hover{
+    background-color: #438eb9;
+}
+.ImgBoderStyle ul li p{
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 45px;
+    border: 1px solid #a5a5a5;
+}
+.ImgBoderSize{
+    float: left;
+    width: 60px;
+    height: 22px;
+    position: relative;
+    background-color: #ccc;
+}
+.ImgBoderSizeS{
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    cursor: pointer;
+    z-index: 1;
+}
+.ImgBoderSizeXia{
+    position: absolute;
+    top: 14px;
+    right: 4px;
+    cursor: pointer;
+    z-index: 1;
+}
+.ImgBoderSize input{
+    padding-left: 5px;
+    background: 0;
+    border: 0;
+    width: 55px;
+    height: 22px;
+    line-height: 22px;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.ImgBoder > ul >li{
+    margin-bottom: 8px;
 }
 /*改变宽度控件*/
 .chageSize >div{

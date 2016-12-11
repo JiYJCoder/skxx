@@ -18,7 +18,7 @@
 <script type="text/javascript" src="js/colpick.js"></script>
 <script type="text/javascript" src="js/site.js"></script>
 </head>
-<body>
+<body ondblclick="return false;">
     <div class="homePage_header">
         <div class="homePage_logo">
             <img src="images/logo.png" alt="">
@@ -375,36 +375,7 @@
                   <li>样式</li>
               </ul>
           </div>
-          <div class='panel'>
-              <div class="site_pageComponent_con" style="display:block">
-                  <div class="ImgShow">
-                      <div class="ImgShowTip">
-                          <p>更换图片</p>
-                      </div>
-                  </div>
-                  <div class="component_public bgStyle">
-                      <p class="title">图片显示模式</p>
-                      <ul class="clearfix">
-                          <li class="current"><div class="bgStyleShow"></div><p>自适应</p></li>
-                          <li><div class="bgStyleShow"></div><p>居中</p></li>
-                          <li><div class="bgStyleShow"></div><p>拉伸</p></li>
-                          <li><div class="bgStyleShow"></div><p>原图</p></li>
-                      </ul>
-                  </div>
-                  <div class="component_public">
-                      <p class="title">插入链接</p>
-                      <ul>
-                          <li class="clearfix">
-                              <div class="colTitle publicTitle">地<span class="op">地址</span>址</div>
-                              <div class="lineBtn"></div>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-              <div class="site_pageComponent_con">
-                  
-              </div>
-          </div>
+          
       </div>
     </div>
     <div class="remind">
@@ -822,6 +793,7 @@ accountBtn">
                         type:typeVal,
                     })
                 }
+                return false;
             })
       });
     </script>
