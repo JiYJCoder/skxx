@@ -1414,8 +1414,24 @@ a:active{blr:expression(this.onFocus=this.blur());}
     padding-left: 10px;
     display: none;
 }
-
-
+.site_pageComponent_Bottom{
+    width: 226px;
+    height: 40px;
+    background-color: #dedede;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.site_pageComponent_BottomBtn{
+    width: 99px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    margin: 5px auto 0 auto;
+    cursor: pointer;
+}
 
 
 input:focus{
