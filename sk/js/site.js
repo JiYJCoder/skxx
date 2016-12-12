@@ -105,6 +105,13 @@ $(function(){
     		$(".site_pageComponent_con").hide().eq($(this).index()).show(); 
     //        $(".tab1").eq($(this).index()).show().siblings().hide(); 
     })
+    $('.control_close').click(function(){
+        console.log(1);
+        $('.site_ControlRecordCon').css({
+            display:'none'
+        })
+        return false;
+    })
     //选择部门等增加和删除数据
     function addData(){
         var dataBox=$('.con li');

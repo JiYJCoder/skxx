@@ -106,7 +106,8 @@ var controlSetHtmlArr=[];//控件面板html数组
 $.fn.extend({
     generate:function(data){
         var box=$('.site_page_container ul');//手机控件盒子
-        var cssSetBox=$('.site_pageComponent');//控件设置box
+        var cssSetBox=$('.site_pageComponent');//控件box
+        var controlBtnBox=$('.site_ControlRecordCon ul');//控件控制按钮
         var defaults={//控件默认设置
             type:0,   //控件类型
             position:true,  //移动
@@ -117,10 +118,14 @@ $.fn.extend({
         //根据类型生成控件
         switch(setting.type){
             case 0://生成文字
+                controlBtnBox.find('li').removeClass('current');
+                controlBtnBox.append("<li class='current'>文本框</li>");
                 creControlHtml(textHtml,textSetHtml);
                 //测试推送
                 break;
             case 1:
+                controlBtnBox.find('li').removeClass('current');
+                controlBtnBox.append("<li class='current'>图片</li>");
                 creControlHtml(ImgHtml,ImgSetHtml);
                 break;
         };
@@ -133,6 +138,7 @@ $.fn.extend({
             box.append(controlHtml);//生成新控件html
             new Mian(box.find('li:last'),controlSetHtmlArr);
         };
+        
         //控件主函数
         function Mian(control,controlSetHtmlArr){
             //移动函数
@@ -141,6 +147,39 @@ $.fn.extend({
             var x;//坐标X位置
             var y;//坐标y位置
             var cp;//获取控件位置
+            
+            //根据控件类型生成控件控制按钮
+            function controlBtn(){
+                var controlBtnLi=controlBtnBox.find('li');
+                controlBtnLi.click(function(){
+                    var liNum=Number(box.find('li').eq($(this).index()).attr('type'));
+                    $(this).addClass('current').siblings().removeClass('current');
+                    $('.chageSize').hide();
+                    $('.panel').remove();
+                    cssSetBox.append(controlSetHtmlArr[liNum]);
+                    box.find('li').eq($(this).index()).show();
+                    box.find('li').eq($(this).index()).find('.chageSize').show();
+                    return false;
+                });
+                
+                $('.site_ControlRecordTitle ul li').click(function(){
+                    $('.panel').remove();
+                    for(var i=0;i<box.find('li').size();i++){
+                        if(box.find('li>.chageSize').eq(i).is(':visible')&&$(this).hasClass('control_Sh')){
+                            controlBtnBox.find('li').eq(box.find('li').eq(i).index()).removeClass('current');
+                            box.find('li').eq(i).hide();
+                        }
+                        if(box.find('li>.chageSize').eq(i).is(':visible')&&$(this).hasClass('control_Del')){
+                            controlBtnBox.find('li').eq(box.find('li').eq(i).index()).remove();
+                            box.find('li').eq(i).remove();
+                        }
+                        
+                    }
+                    return false;
+                });
+            }
+            controlBtn();
+            
             //控件选择
             function select(control){
                 //取消全选的时候 取消选择控件
@@ -152,10 +191,9 @@ $.fn.extend({
                      if(!(textCon.attr("contenteditable")=='true')){
                            $(this).parents('li').removeClass('heightIm')
                     }
-                    
+                    //文字框控制
                     textCon.dblclick(function(){
                         this.focus();
-                        if
                         $(this).attr('contenteditable','true').addClass('heightIm');
                         $(this).parents('li').addClass('heightIm');
                         return false;
@@ -170,25 +208,30 @@ $.fn.extend({
                         $(this).parents("li").removeClass('heightIm');
                      
                     })
+                    
                     $('.panel').remove();
                     box.find('.chageSize').hide();
                     cssSetBox.append(controlSetHtmlArr[liNum]);
                     $(this).find('.chageSize').show();
+                    //控件控制按钮
+                    controlBtnBox.find('li').removeClass('current');
+                    controlBtnBox.find('li').eq($(this).index()).addClass('current');
                     chageCss($(this));
-                $(document).click(function(){
-                    var oHeight = control.height();
-                    textCon.attr('contenteditable','false');
-                    textCon.parents("li").height(oHeight);
-                    textCon.height(textCon.height());
-                    textCon.removeClass('heightIm');
-                    textCon.parents("li").removeClass('heightIm');
-                    $('.chageSize').hide();
-                })
+                    $(document).click(function(){
+                        var oHeight = control.height();
+                        textCon.attr('contenteditable','false');
+                        textCon.parents("li").height(oHeight);
+                        textCon.height(textCon.height());
+                        textCon.removeClass('heightIm');
+                        textCon.parents("li").removeClass('heightIm');
+                        $('.chageSize').hide();
+                    })
                 
                 return false;
                 });
             }
             select(control);
+            
             //移动函数
             if(setting.position==true){
                 function drag(){
@@ -220,6 +263,7 @@ $.fn.extend({
                 }
                 drag();
             };
+            
             //放大函数
             if(setting.chageSize==true){
                 function resize(target,west,north,east,south,wn,ws,en,es,rotates){
