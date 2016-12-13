@@ -1,5 +1,6 @@
 $(function(){
     //过期关闭
+    
     $('.close').click(function(){
         $('.remind').fadeOut(300);
     });

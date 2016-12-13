@@ -369,7 +369,7 @@ var atlasSetHtml=`<div class="panel">
               </div>
           </div>`;
 //图集控件
-var atlasHtml=`<li style='left:100px;top:190px;transform:rotate(0deg);width:160px;height:130px;' type='3'>
+var atlasHtml=`<li style='left:100px;top:190px;transform:rotate(0deg);width:147px;height:130px;' type='3'>
                       <div class="site_CAtlas">
                           <ul class="clearfix">
                               <li><img src="images/site_Atlas.png" alt=""></li>
@@ -430,7 +430,7 @@ $.fn.extend({
             cssSetBox.find('.panel').remove();//删除旧控件设置html
             cssSetBox.append(controlSetHtml);//生成新控件设置html
             box.append(controlHtml);//生成新控件html
-            new Mian(box.find('li:last'),controlSetHtmlArr);
+            new Mian(box.find('>li:last'),controlSetHtmlArr);
         };
         
         //控件主函数
@@ -441,7 +441,6 @@ $.fn.extend({
             var x;//坐标X位置
             var y;//坐标y位置
             var cp;//获取控件位置
-            
             //根据控件类型生成控件控制按钮
             function controlBtn(){
                 var controlBtnLi=controlBtnBox.find('li');
@@ -478,7 +477,6 @@ $.fn.extend({
             function select(control){
                 //取消全选的时候 取消选择控件
                 control.click(function(){
-                    console.log(1);
                     var textCon=$(this).find('.textCon');
                     var liNum=Number($(this).attr('type'));
                     
