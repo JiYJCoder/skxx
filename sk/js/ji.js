@@ -1,35 +1,40 @@
-var csHtml="<div class='chageSize'><div class='chageSizeLeft'><div class='wr size'></div><div class='nw size'></div><div class='sw size'></div></div><div class='chageSizeTop'><div class='nr size'></div><div class='Rotate'></div></div><div class='chageSizeRight'><div class='ne size'></div><div class='er size'></div><div class='es size'></div></div><div class='chageSizebottom'><div class='sr size'></div></div>";//改变大小HTML
-var textHtml="<li style='left: 25px; top: 190px; transform:rotate(0deg);width:92px;height:36px;' type='0'><div class='text'><div class='textCon'>双击输入文字</div></div>"+csHtml+"</li>";//字体控件HTML
-var textSetHtml="<div class='panel'><div class='site_pageComponent_con' style='display:block'><div class='component_font_font component_public'><p class='title'>字体</p><ul><li class='clearfix col'><div class='colTitle publicTitle'>颜色</div><div class='colCon clearfix'><ul class='clearfix'><li><div class='colConValShow'></div></li><li><div class='fontCol'><img src='images/site_fontA.png' alt=''></div></li></ul></div></li><li class='clearfix'><div class='colTitle publicTitle'>样式</div><div class='fontStyle'><ul class='clearfix'><li class='fontbold current'>B</li><li class='fontI'><i>i</i></li><li>U</li><li>Tx</li></ul></div></li><li class='clearfix'><div class='colTitle publicTitle'>大小</div><div class='fontSize'><p>12px</p><img src='images/site_chageSize.png' alt='' class='shangla'><img src='images/site_xiala.png' alt='' class='xiala'></div></li></ul></div><div class='component_public'><p class='title'>对齐方式</p><ul class='clearfix font_text_align'><li class='left current'></li><li class='center'></li><li class='right'></li><li class='justify'></li></ul><div class='fontspacing clearfix'><div class='colTitle publicTitle'>行间距</div><div class='fontspacingVal'><span>1</span><img src='images/site_chageSize.png' alt='' class='shangla'><img src='images/site_xiala.png' alt='' class='xiala'></div></div></div><div class='component_public'><p class='title'>插入链接</p><ul><li class='clearfix'><div class='colTitle publicTitle'>地<span class='op'>地址</span>址</div><div class='lineBtn'>测试</div></li><li class='clearfix'><div class='colTitle publicTitle'>打开方式</div><div class='lineBtn lineStyle'><ul><li>在当前窗口打开</li><li>在新窗口打开</li></ul></div></li></ul></div></div><div class='site_pageComponent_con' id='Component_css'><div class='component_public'><p class='title'>位置</p><ul class='fontcssSet clearfix'><li class='clearfix'><span>宽度</span><input type='text'></li><li class='clearfix'><span>高度</span><input type='text'></li><li class='clearfix'><span>X轴</span><input type='text'></li><li class='clearfix'><span>Y轴</span><input type='text'></li></ul></div></div></div></div>";//字体设置html
-var ImgHtml="<li style='left:100px;top:190px;transform:rotate(0deg);' type='1'><div class='Img'><img src='images/site_img.png'></div>"+csHtml+"</li>"//图片控件HTML
-var ImgSetHtml=`<div class='panel'>
-              <div class="site_pageComponent_con" style="display:block">
-                  <div class="ImgShow">
-                      <div class="ImgShowTip">
-                          <p>更换图片</p>
-                      </div>
-                  </div>
-                  <div class="component_public bgStyle">
-                      <p class="title">图片显示模式</p>
-                      <ul class="clearfix">
-                          <li class="current"><div class="bgStyleShow"></div><p>自适应</p></li>
-                          <li><div class="bgStyleShow"></div><p>居中</p></li>
-                          <li><div class="bgStyleShow"></div><p>拉伸</p></li>
-                          <li><div class="bgStyleShow"></div><p>原图</p></li>
-                      </ul>
-                  </div>
-                  <div class="component_public">
-                      <p class="title">插入链接</p>
+//控件通用样式
+var shadowHtml=`<div class="component_public ImgBoder">
+                      <p class="title">阴影</p>
                       <ul>
                           <li class="clearfix">
-                              <div class="colTitle publicTitle">地<span class="op">地址</span>址</div>
-                              <div class="lineBtn"></div>
+                              <span>颜色</span>
+                              <div class="ImgchageBgSetCol">
+                                  <div class="ImgchageBgSetColVal"></div>
+                              </div>
+                          </li>
+                          <li class="clearfix">
+                              <span>Y轴</span>
+                              <div class="ImgBoderSize">
+                                  <input type="text" value="0">
+                                  <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
+                                  <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
+                              </div>
+                          </li>
+                          <li class="clearfix">
+                              <span>X轴</span>
+                              <div class="ImgBoderSize">
+                                  <input type="text" value="0">
+                                  <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
+                                  <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
+                              </div>
+                          </li>
+                          <li class="clearfix">
+                              <span>模糊</span>
+                              <div class="ImgBoderSize">
+                                  <input type="text" value="0">
+                                  <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
+                                  <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
+                              </div>
                           </li>
                       </ul>
-                  </div>
-              </div>
-              <div class="site_pageComponent_con">
-                  <div class="component_public ImgchageBg">
+                  </div>`;
+var bgHtml=`<div class="component_public ImgchageBg">
                       <p class="title">背景</p>
                       <ul class="clearfix">
                           <li class="current">纯色</li>
@@ -50,8 +55,8 @@ var ImgSetHtml=`<div class='panel'>
                               <div class="ImgchageBgSetColVal"></div>
                           </div>
                       </div>
-                  </div>
-                  <div class="component_public ImgBoder">
+                  </div>`;
+var boderHtml=`<div class="component_public ImgBoder">
                       <p class="title">边框</p>
                       <ul>
                           <li class="clearfix">
@@ -90,8 +95,8 @@ var ImgSetHtml=`<div class='panel'>
                               </div>
                           </li>
                       </ul>
-                  </div>
-                  <div class='component_public'>
+                  </div>`;
+var positionHtml=`<div class='component_public'>
                       <p class='title'>位置</p>
                       <ul class='fontcssSet clearfix'>
                           <li class='clearfix'><span>宽度</span><input type='text'></li>
@@ -99,15 +104,294 @@ var ImgSetHtml=`<div class='panel'>
                           <li class='clearfix'><span>X轴</span><input type='text'></li>
                           <li class='clearfix'><span>Y轴</span><input type='text'></li>
                       </ul>
+                  </div>`;
+var linkHtml=`<div class="component_public">
+                      <p class="title">插入链接</p>
+                      <ul>
+                          <li class="clearfix">
+                              <div class="colTitle publicTitle">地<span class="op">地址</span>址</div>
+                              <div class="lineBtn"></div>
+                          </li>
+                      </ul>
+                  </div>`;
+var fontHtml=`<div class='component_font_font component_public'>
+            <p class='title'>字体</p>
+            <ul>
+                <li class='clearfix col'>
+                    <div class='colTitle publicTitle'>颜色</div>
+                    <div class='colCon clearfix'>
+                        <ul class='clearfix'>
+                            <li><div class='colConValShow'></div></li>
+                            <li>
+                            <div class='fontCol'><img src='images/site_fontA.png' alt=''></div></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class='clearfix'>
+                    <div class='colTitle publicTitle'>样式</div>
+                    <div class='fontStyle'>
+                        <ul class='clearfix'>
+                            <li class='fontbold current'>B</li>
+                            <li class='fontI'><i>i</i></li>
+                            <li>U</li>
+                            <li>Tx</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class='clearfix'>
+                    <div class='colTitle publicTitle'>大小</div>
+                    <div class='fontSize'><p>12px</p><img src='images/site_chageSize.png' alt='' class='shangla'><img src='images/site_xiala.png' alt='' class='xiala'>
+                    </div>
+                </li>
+            </ul>
+        </div>`;
+var fontAlignHtml=`<div class='component_public'>
+            <p class='title'>对齐方式</p>
+            <ul class='clearfix font_text_align'>
+                <li class='left current'></li>
+                <li class='center'></li>
+                <li class='right'></li>
+                <li class='justify'></li>
+            </ul>
+            <div class='fontspacing clearfix'>
+                <div class='colTitle publicTitle'>行间距</div>
+                <div class='fontspacingVal'>
+                    <span>1</span>
+                    <img src='images/site_chageSize.png' alt='' class='shangla'>
+                    <img src='images/site_xiala.png' alt='' class='xiala'>
+                </div>
+            </div>
+        </div>`;
+
+//改变大小HTML
+var csHtml="<div class='chageSize'><div class='chageSizeLeft'><div class='wr size'></div><div class='nw size'></div><div class='sw size'></div></div><div class='chageSizeTop'><div class='nr size'></div><div class='Rotate'></div></div><div class='chageSizeRight'><div class='ne size'></div><div class='er size'></div><div class='es size'></div></div><div class='chageSizebottom'><div class='sr size'></div></div>";
+//字体控件HTML
+var textHtml="<li style='left: 25px; top: 190px; transform:rotate(0deg);width:92px;height:36px;' type='0'><div class='text'><div class='textCon'>双击输入文字</div></div>"+csHtml+"</li>";
+//字体设置html
+var textSetHtml=`<div class='panel'>
+    <div class='site_pageComponent_con' style='display:block'>
+        ${fontHtml}
+        ${fontAlignHtml}
+        ${linkHtml}
+    </div>
+    <div class='site_pageComponent_con' id='Component_css'>
+        ${positionHtml}
+    </div>
+</div>`;
+
+//图片控件HTML
+var ImgHtml="<li style='left:100px;top:190px;transform:rotate(0deg);' type='1'><div class='Img'><img src='images/site_img.png'></div>"+csHtml+"</li>"
+//图片设置html
+var ImgSetHtml=`<div class='panel'>
+              <div class="site_pageComponent_con" style="display:block">
+                  <div class="ImgShow">
+                      <div class="ImgShowTip">
+                          <p>更换图片</p>
+                      </div>
                   </div>
+                  <div class="component_public bgStyle">
+                      <p class="title">图片显示模式</p>
+                      <ul class="clearfix">
+                          <li class="current"><div class="bgStyleShow"></div><p>自适应</p></li>
+                          <li><div class="bgStyleShow"></div><p>居中</p></li>
+                          <li><div class="bgStyleShow"></div><p>拉伸</p></li>
+                          <li><div class="bgStyleShow"></div><p>原图</p></li>
+                      </ul>
+                  </div>
+                  ${linkHtml}
+              </div>
+              <div class="site_pageComponent_con">
+                  ${bgHtml}
+                  ${boderHtml}
+                  ${positionHtml}
               </div>
           </div>`;
+//标题控件设置HTML
+var titleSetHtml=`<div class="panel">
+              <div class="site_pageComponent_con" style="display:block;">
+                  <div class="component_public">
+                      <p class="title">标题文字内容</p>
+                      <ul>
+                          <li class="clearfix">
+                              <div class="colTitle publicTitle">标<span class="op">地址</span>题</div>
+                              <div class="lineBtn searchInput"><input type="text"></div>
+                          </li>
+                      </ul>
+                  </div>
+                  ${linkHtml}
+              </div>
+              <div class="site_pageComponent_con">
+                  <div class="component_public titleStyle">
+                      <p class="title">标题</p>
+                      <ul>
+                          <li class="clearfix">
+                              <span>标题</span>
+                              <div class="titleStyleCon titleVal">
+                                  <div class="titleStyleConVal">
+                                      
+                                  </div>
+                                  <ul>
+                                      <li><i></i></li>
+                                      <li class="chage"><i></i></li>
+                                  </ul>
+                              </div>
+                          </li>
+                          <li class="clearfix">
+                              <span>图标</span>
+                              <div class="titleStyleCon titleIconlist">
+                                  <div class="titleStyleIcon">
+                                      
+                                  </div>
+                                  <ul class="clearfix">
+                                      <li><img src="images/site_title1.png" alt=""></li>
+                                      <li><img src="images/site_title2.png" alt=""></li>
+                                      <li></li>
+                                      <li></li>
+                                      <li></li>
+                                      <li></li>
+                                      <li></li>
+                                      <li></li>
+                                      <li></li>
+                                      <li></li>
+                                  </ul>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+                  ${fontHtml}
+                  ${bgHtml}
+                  ${fontAlignHtml}
+                  ${boderHtml}
+                  ${positionHtml}
+              </div>
+          </div>`;
+//标题控件HTML
+var titleHtml=`<li style='left:100px;top:190px;transform:rotate(0deg);width:194px;height:36px;' type='2'>
+                      
+                      <div class="site_serch clearfix">
+                          <div class="serchCon">标题标题标</div>
+                      </div>
+                      ${csHtml}
+                  </li>`;
+//图集
+var atlasSetHtml=`<div class="panel">
+              <div class="site_pageComponent_con"  style="display:block;">
+                  <div class="ImgShow Atlas">
+                      <div class="ImgShowTip">
+                          <p>更换图片</p>
+                      </div>
+                  </div>
+                  <div class="component_public bgStyle">
+                      <p class="title">图片显示模式</p>
+                      <ul class="clearfix">
+                          <li class="current"><div class="bgStyleShow"></div><p>自适应</p></li>
+                          <li><div class="bgStyleShow"></div><p>居中</p></li>
+                          <li><div class="bgStyleShow"></div><p>拉伸</p></li>
+                          <li><div class="bgStyleShow"></div><p>原图</p></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="site_pageComponent_con">
+                  <div class="AtlasStyle">
+                      <img src="images/site_AtlasStyle.png" alt="">
+                      <div class="AtlasStyleList">
+                          <ul>
+                              <li><img src="images/site_AtlasStyle.png" alt=""></li>
+                              <li><img src="images/site_AtlasStyle1.png" alt=""></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="component_public ImgBoder">
+                      <p class="title">图片设置</p>
+                      <ul>
+                          <li class="clearfix">
+                              <span>烈数</span>
+                              <div class="ImgBoderSize">
+                                  <input type="text" value="0">
+                                  <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
+                                  <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
+                              </div>
+                          </li>
+                          <li class="clearfix">
+                              <span>间距</span>
+                              <div class="ImgBoderSize">
+                                  <input type="text" value="0">
+                                  <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
+                                  <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
+                              </div>
+                          </li>
+                          <li class="clearfix">
+                              <span>圆角</span>
+                              <div class="ImgBoderSize">
+                                  <input type="text" value="0">
+                                  <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
+                                  <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="component_public ImgBoder">
+                      <p class="title">阴影</p>
+                      <ul>
+                          <li class="clearfix">
+                              <span>颜色</span>
+                              <div class="ImgchageBgSetCol">
+                                  <div class="ImgchageBgSetColVal"></div>
+                              </div>
+                          </li>
+                          <li class="clearfix">
+                              <span>Y轴</span>
+                              <div class="ImgBoderSize">
+                                  <input type="text" value="0">
+                                  <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
+                                  <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
+                              </div>
+                          </li>
+                          <li class="clearfix">
+                              <span>X轴</span>
+                              <div class="ImgBoderSize">
+                                  <input type="text" value="0">
+                                  <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
+                                  <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
+                              </div>
+                          </li>
+                          <li class="clearfix">
+                              <span>模糊</span>
+                              <div class="ImgBoderSize">
+                                  <input type="text" value="0">
+                                  <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
+                                  <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+                  ${positionHtml}
+              </div>
+          </div>`;
+//图集控件
+var atlasHtml=`<li style='left:100px;top:190px;transform:rotate(0deg);width:160px;height:130px;' type='3'>
+                      <div class="site_CAtlas">
+                          <ul class="clearfix">
+                              <li><img src="images/site_Atlas.png" alt=""></li>
+                              <li><img src="images/site_Atlas.png" alt=""></li>
+                              <li><img src="images/site_Atlas.png" alt=""></li>
+                              <li><img src="images/site_Atlas.png" alt=""></li>
+                              <li><img src="images/site_Atlas.png" alt=""></li>
+                              <li><img src="images/site_Atlas.png" alt=""></li>
+                              <li><img src="images/site_Atlas.png" alt=""></li>
+                              <li><img src="images/site_Atlas.png" alt=""></li>
+                              <li><img src="images/site_Atlas.png" alt=""></li>
+                          </ul>
+                      </div>
+                      ${csHtml}
+                  </li>`;
+
 var controlSetHtmlArr=[];//控件面板html数组
 $.fn.extend({
     generate:function(data){
-        var box=$('.site_page_container ul');//手机控件盒子
+        var box=$('.site_page_container >ul');//手机控件盒子
         var cssSetBox=$('.site_pageComponent');//控件box
-        var controlBtnBox=$('.site_ControlRecordCon ul');//控件控制按钮
+        var controlBtnBox=$('.site_ControlRecordCon >ul');//控件控制按钮
         var defaults={//控件默认设置
             type:0,   //控件类型
             position:true,  //移动
@@ -127,6 +411,16 @@ $.fn.extend({
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>图片</li>");
                 creControlHtml(ImgHtml,ImgSetHtml);
+                break;
+            case 2:
+                controlBtnBox.find('li').removeClass('current');
+                controlBtnBox.append("<li class='current'>标题</li>");
+                creControlHtml(titleHtml,titleSetHtml);
+                break;
+            case 3:
+                controlBtnBox.find('li').removeClass('current');
+                controlBtnBox.append("<li class='current'>图集</li>");
+                creControlHtml(atlasHtml,atlasSetHtml);
                 break;
         };
         //生成html
@@ -184,6 +478,7 @@ $.fn.extend({
             function select(control){
                 //取消全选的时候 取消选择控件
                 control.click(function(){
+                    console.log(1);
                     var textCon=$(this).find('.textCon');
                     var liNum=Number($(this).attr('type'));
                     
@@ -244,6 +539,7 @@ $.fn.extend({
                         cpTop=Number($(this).css('top').replace('px',''))
                         x=e.pageX;
                         y=e.pageY;
+                        return false;
                     })
                     //移动
                     $(document).mousemove(function(e){
