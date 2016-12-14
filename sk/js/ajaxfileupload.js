@@ -1,25 +1,29 @@
 // JavaScript Document
 jQuery.extend({
+	handleError: function( s, xhr, status, e ) 		{
+	// If a local callback was specified, fire it
+			if ( s.error ) {
+				s.error.call( s.context || s, xhr, status, e );
+			}
 
+			// Fire the global callback
+			if ( s.global ) {
+				(s.context ? jQuery(s.context) : jQuery.event).trigger( "ajaxError", [xhr, s, e] );
+			}
+		},
     createUploadIframe: function(id, uri)
  {
    //create frame
             var frameId = 'jUploadFrame' + id;
             
             if(window.ActiveXObject) {
-            	if(jQuery.browser.version=="9.0") {
-            		io = document.createElement('iframe');
-            		io.id = frameId;
-            		io.name = frameId;
-            	} else if(jQuery.browser.version=="6.0"||jQuery.browser.version=="7.0"||jQuery.browser.version=="8.0") {
-            		var io = document.createElement('<iframe id="' + frameId + '" name="' + frameId + '" />');
-                    if(typeof uri== 'boolean'){
-                        io.src = 'javascript:false';
-                    }
-                    else if(typeof uri== 'string'){
-                        io.src = uri;
-                    }
-            	}
+                var io = document.createElement('<iframe id="' + frameId + '" name="' + frameId + '" />');
+                if(typeof uri== 'boolean'){
+                    io.src = 'javascript:false';
+                }
+                else if(typeof uri== 'string'){
+                    io.src = uri;
+                }
             }
             else {
                 var io = document.createElement('iframe');
@@ -34,7 +38,7 @@ jQuery.extend({
 
             return io;   
     },
-    createUploadForm: function(id, fileElementId)
+    createUploadForm: function(id, fileElementId,data)
  {
   //create form 
   var formId = 'jUploadForm' + id;
@@ -45,6 +49,18 @@ jQuery.extend({
   jQuery(oldElement).attr('id', fileId);
   jQuery(oldElement).before(newElement);
   jQuery(oldElement).appendTo(form);
+  
+  
+  
+  
+  
+  if (data) {    
+      for (var i in data) {    
+          $('<input type="hidden" name="' + i + '" value="' + data[i] + '" />').appendTo(form);    
+
+      }    
+
+  }
   //set attributes
   jQuery(form).css('position', 'absolute');
   jQuery(form).css('top', '-1200px');
@@ -57,11 +73,10 @@ jQuery.extend({
         // TODO introduce global settings, allowing the client to modify them for all requests, not only timeout  
         s = jQuery.extend({}, jQuery.ajaxSettings, s);
         var id = s.fileElementId;        
-  var form = jQuery.createUploadForm(id, s.fileElementId);
-  var io = jQuery.createUploadIframe(id, s.secureuri);
-  var frameId = 'jUploadFrame' + id;
-  var formId = 'jUploadForm' + id;  
-        
+		  var form = jQuery.createUploadForm(id, s.fileElementId,s.data);
+		  var io = jQuery.createUploadIframe(id, s.secureuri);
+		  var frameId = 'jUploadFrame' + id;
+		  var formId = 'jUploadForm' + id;  
         if( s.global && ! jQuery.active++ )
   {
    // Watch for a new set of requests
@@ -83,6 +98,7 @@ jQuery.extend({
    {    
     if(io.contentWindow)
     {
+    
       xml.responseText = io.contentWindow.document.body?io.contentWindow.document.body.innerHTML:null;
                   xml.responseXML = io.contentWindow.document.XMLDocument?io.contentWindow.document.XMLDocument:io.contentWindow.document;
       
@@ -217,7 +233,8 @@ jQuery.extend({
         // Get the JavaScript object, ifJSON is used.
         if( type == "json" )
         {
-         data=eval("("+data.replace("<pre>","").replace("</pre>","")+")");
+        eval( "data = " + data );
+        	//eval("data = \" "+data+" \" ");
         }
             
         // evaluate scripts within html
@@ -227,16 +244,5 @@ jQuery.extend({
         }
             
         return data;
-    },
-        handleError: function( s, xhr, status, e ) 		{
-// If a local callback was specified, fire it
-		if ( s.error ) {
-			s.error.call( s.context || s, xhr, status, e );
-		}
-
-		// Fire the global callback
-		if ( s.global ) {
-			(s.context ? jQuery(s.context) : jQuery.event).trigger( "ajaxError", [xhr, s, e] );
-		}
-	}
+    }
 });

@@ -8,30 +8,39 @@
 
 </head>
 <body>
-  <input id="img" type="file" size="45" name="img" class="input" >
+    <audio loop="" src="http://mp3.haoduoge.com/music7/233898.mp3" preload="preload" controls></audio>
+  <input id="img" type="file" size="45" name="file" class="input">
   <button class="button" id="buttonUpload" onclick="return ajaxFileUpload();">Upload</button>
  <script type="text/javascript">
- function ajaxFileUpload()
-{
-$.ajaxFileUpload
-(
-  {
- url:'http://120.25.102.247:8180/wangjian/api/productType/pictureUpload', //你处理上传文件的服务端
- secureuri:false,
- data:{'pictureType':1},
- fileElementId:'img',
- dataType: 'JSON',
- success: function (data)
- {
- JSON.stringify(data);
-console.log(data)
- },error:function(e){
-     console.log(e)
- }
- }
- )
-  return false;
-  } 
+//var ajaxPackage=function(url,json){
+//    return $.ajax({
+//        url:url,
+//        type:'POST',
+//        dataType:'json',
+//        data:json,
+//    })
+//
+//    }
+//ajaxPackage("http://192.168.2.44:8081/wangjian/api/wjArea/provincial")
+//.done(function(data){
+//  console.log(JSON.stringify(data.resultData));
+//})
+
+function ajaxFileUpload(){
+    $.ajaxFileUpload({
+        url:'http://120.25.102.247:8180/wangjian/api/productType/pictureUpload',
+        secureuri:false,
+        data:{'pictureType':"1"},
+        fileElementId:'img',
+        type:'POST',
+        success: function (data){
+    //        console.log(data);
+      console.log($(data).find("pre").text());
+    },error:function(e){
+      alert('上传错误，请联系系统管理员');
+    }
+    })
+} 
   </script>
 </body>
 </html>

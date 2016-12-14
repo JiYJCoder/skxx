@@ -385,7 +385,159 @@ var atlasHtml=`<li style='left:100px;top:190px;transform:rotate(0deg);width:147p
                       </div>
                       ${csHtml}
                   </li>`;
+//横线控件
+var HlineHtml=`<li style="left:100px;top:190px;transform:rotate(0deg);width:190px;height:20px;" type='4'><div class="Hline"><hr></div>${csHtml}</li>`;
+//横线控件设置HTML
+var HlineSetHtml=`<div class="panel">
+              <div class="site_pageComponent_con" style="display:block;"></div>
+              <div class="site_pageComponent_con">
+                  <div class="component_public ImgBoder">
+                      <p class="title">线条</p>
+                      <ul>
+                          <li class="clearfix">
+                              <span>线条</span>
+                              <div class="ImgchageBgSetCol">
+                                  <div class="ImgchageBgSetColVal"></div>
+                              </div>
+                              <div class="ImgBoderStyle">
+                                  <p></p>
+                                  <ul>
+                                      <li><p></p></li>
+                                      <li><p style="border: 1px dotted #a5a5a5;"></p></li>
+                                      <li><p style="border: 1px dashed #a5a5a5;"></p></li>
+                                  </ul>
+                              </div>
+                              <div class="ImgBoderSize">
+                                  <input type="text" value="0">
+                                  <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
+                                  <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+                  ${shadowHtml}
+                  ${positionHtml}
+              </div>
+          </div>`;
+//竖线控件
+var slineHtml=`<li style="left:100px;top:190px;transform:rotate(0deg);width:20px;height:190px;" type='5'><div class="sLine"><hr></div>${csHtml}</li>`;
 
+//按钮控件
+var btnHtml=`<li style="left:100px;top:190px;transform:rotate(0deg);width:100px;height:40px;" type='6'><div class="bottonCon"><div class="botton"><p>按钮</p></div></div>${csHtml}</li>`;
+//按钮设置
+var btnSetHtml=`<div class="panel">
+              <div class="site_pageComponent_con" style="display:block;">
+                  <div class="component_public">
+                      <p class="title">按钮文字</p>
+                      <ul>
+                          <li class="clearfix">
+                              <div class="colTitle publicTitle">文<span class="op">地址</span>字</div>
+                              <div class="lineBtn searchInput"><input type="text"></div>
+                          </li>
+                      </ul>
+                  </div>
+                  ${linkHtml}
+              </div>
+              <div class="site_pageComponent_con">
+                  <div class="component_public titleStyle">
+                      <p class="title">按钮</p>
+                      <ul>
+                          <li class="clearfix">
+                              <span>按钮</span>
+                              <div class="titleStyleCon titleVal btnVal">
+                                  <div class="titleStyleConVal btnCurrent">
+                                      
+                                  </div>
+                                  <ul>
+                                      <li><i></i></li>
+                                      <li class="chage"><i></i></li>
+                                  </ul>
+                              </div>
+                          </li>
+                          <li class="clearfix">
+                              <span>图标</span>
+                              <div class="titleStyleCon titleIconlist">
+                                  <div class="titleStyleIcon">
+                                      
+                                  </div>
+                                  <ul class="clearfix">
+                                      <li><img src="images/site_title1.png" alt=""></li>
+                                      <li><img src="images/site_title2.png" alt=""></li>
+                                      <li></li>
+                                      <li></li>
+                                      <li></li>
+                                      <li></li>
+                                      <li></li>
+                                      <li></li>
+                                      <li></li>
+                                      <li></li>
+                                  </ul>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+                  ${fontHtml}
+                  ${bgHtml}
+                  ${fontAlignHtml}
+                  ${boderHtml}
+                  ${positionHtml}
+              </div>
+          </div>`;
+//容器
+var  CboxHtml=`<li style="left:100px;top:190px;transform:rotate(0deg);width:130px;height:130px;" type='7'><div class="Cbox"><div class="CboxShow"></div></div>${csHtml}</li>`;
+//容器设置
+var CboxSetHtml=`<div class="panel">
+              <div class="site_pageComponent_con" style="display:block;">
+                  
+              </div>
+              <div class="site_pageComponent_con">
+                  ${bgHtml}
+                  ${boderHtml}
+                  ${shadowHtml}
+                  ${positionHtml}
+              </div>
+          </div>`;
+//视频
+var videoHtml=`<li style="left:100px;top:190px;transform:rotate(0deg);width:80px;height:80px;" type='8'>
+                      <div class="video">
+                          <div class="videoImg" style='pointer-events:none;'><embed src="http://player.youku.com/player.php/sid/XMTQ2Mjk2NDI5Mg==/v.swf" allowfullscreen="true" wmode="opaque" quality="high" height="100%" width="100%" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash"></div>
+                      </div>
+                      ${csHtml}
+                  </li>`;
+//视频控件设置
+var videoSetHtml=`<div class="panel">
+              <div class="site_pageComponent_con" style="display:block;">
+                  <div class="videoSet">
+                      <p>支持优酷，土豆，腾讯，搜狐等视频</p>
+                      <div class="videoSetCon" contenteditable="true">
+                          http://player.youku.com/player.php/sid/XMTQ2Mjk2NDI5Mg==/v.swf
+                      </div>
+                  </div>
+              </div>
+              <div class="site_pageComponent_con">
+                  ${positionHtml}
+              </div>
+          </div>`;
+var musicHtml=`<li style="left:100px;top:190px;transform:rotate(0deg);width:80px;height:80px;" type='9'>
+                      <div class="video">
+                          <div class="videoImg" style='pointer-events:none;'><audio loop="" src="http://mp3.haoduoge.com/music7/233898.mp3" preload=" "></audio></div>
+                      </div>
+                      ${csHtml}
+                  </li>`
+//音乐控件设置
+var musicSetHtml=`<div class="panel">
+              <div class="site_pageComponent_con" style="display:block;">
+                  <div class="videoSet">
+                      <p>支持虾米音乐</p>
+                      <div class="videoSetCon" contenteditable="true">
+                          http://mp3.haoduoge.com/music7/233898.mp3
+                      </div>
+                  </div>
+              </div>
+              <div class="site_pageComponent_con">
+                  ${positionHtml}
+              </div>
+          </div>`
 var controlSetHtmlArr=[];//控件面板html数组
 $.fn.extend({
     generate:function(data){
@@ -405,7 +557,6 @@ $.fn.extend({
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>文本框</li>");
                 creControlHtml(textHtml,textSetHtml);
-                //测试推送
                 break;
             case 1:
                 controlBtnBox.find('li').removeClass('current');
@@ -421,6 +572,76 @@ $.fn.extend({
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>图集</li>");
                 creControlHtml(atlasHtml,atlasSetHtml);
+                break;
+            case 4:
+                controlBtnBox.find('li').removeClass('current');
+                controlBtnBox.append("<li class='current'>横线</li>");
+                creControlHtml(HlineHtml,HlineSetHtml);
+                break;
+            case 5:
+                controlBtnBox.find('li').removeClass('current');
+                controlBtnBox.append("<li class='current'>竖线</li>");
+                creControlHtml(slineHtml,HlineSetHtml);
+                break;
+            case 6:
+                controlBtnBox.find('li').removeClass('current');
+                controlBtnBox.append("<li class='current'>按钮</li>");
+                creControlHtml(btnHtml,btnSetHtml);
+                break;
+            case 7:
+                controlBtnBox.find('li').removeClass('current');
+                controlBtnBox.append("<li class='current'>容器</li>");
+                creControlHtml(CboxHtml,CboxSetHtml);
+                break;
+            case 8:
+                controlBtnBox.find('li').removeClass('current');
+                controlBtnBox.append("<li class='current'>视频</li>");
+                creControlHtml(videoHtml,videoSetHtml);
+                break;
+            case 9:
+                controlBtnBox.find('li').removeClass('current');
+                controlBtnBox.append("<li class='current'>音乐</li>");
+                creControlHtml(musicHtml,musicSetHtml);
+                break;
+            case 10:
+                controlBtnBox.find('li').removeClass('current');
+                controlBtnBox.append("<li class='current'>轮播图</li>");
+                creControlHtml(btnHtml,btnSetHtml);
+                break;
+            case 11:
+                controlBtnBox.find('li').removeClass('current');
+                controlBtnBox.append("<li class='current'>导航</li>");
+                creControlHtml(btnHtml,btnSetHtml);
+                break;
+            case 12:
+                controlBtnBox.find('li').removeClass('current');
+                controlBtnBox.append("<li class='current'>导航按钮</li>");
+                creControlHtml(btnHtml,btnSetHtml);
+                break;
+            case 13:
+                controlBtnBox.find('li').removeClass('current');
+                controlBtnBox.append("<li class='current'>联系我们</li>");
+                creControlHtml(btnHtml,btnSetHtml);
+                break;
+            case 14:
+                controlBtnBox.find('li').removeClass('current');
+                controlBtnBox.append("<li class='current'>地图</li>");
+                creControlHtml(btnHtml,btnSetHtml);
+                break;
+            case 15:
+                controlBtnBox.find('li').removeClass('current');
+                controlBtnBox.append("<li class='current'>商品列表</li>");
+                creControlHtml(btnHtml,btnSetHtml);
+                break;
+            case 16:
+                controlBtnBox.find('li').removeClass('current');
+                controlBtnBox.append("<li class='current'>二维码</li>");
+                creControlHtml(btnHtml,btnSetHtml);
+                break;
+            case 17:
+                controlBtnBox.find('li').removeClass('current');
+                controlBtnBox.append("<li class='current'>公众号</li>");
+                creControlHtml(btnHtml,btnSetHtml);
                 break;
         };
         //生成html
@@ -441,6 +662,7 @@ $.fn.extend({
             var x;//坐标X位置
             var y;//坐标y位置
             var cp;//获取控件位置
+            
             //根据控件类型生成控件控制按钮
             function controlBtn(){
                 var controlBtnLi=controlBtnBox.find('li');
@@ -477,6 +699,7 @@ $.fn.extend({
             function select(control){
                 //取消全选的时候 取消选择控件
                 control.click(function(){
+                    console.log(1);
                     var textCon=$(this).find('.textCon');
                     var liNum=Number($(this).attr('type'));
                     
