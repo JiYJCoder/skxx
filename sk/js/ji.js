@@ -275,7 +275,7 @@ var titleHtml=`<li style='left:100px;top:190px;transform:rotate(0deg);width:194p
                   </li>`;
 //图集
 var atlasSetHtml=`<div class="panel">
-              <div class="site_pageComponent_con"  style="display:block;">
+              <div class="site_pageComponent_con" style="display:block;">
                   <div class="ImgShow Atlas">
                       <div class="ImgShowTip">
                           <p>更换图片</p>
@@ -537,7 +537,132 @@ var musicSetHtml=`<div class="panel">
               <div class="site_pageComponent_con">
                   ${positionHtml}
               </div>
-          </div>`
+          </div>`;
+
+//幻灯片
+var hdpHtml=`<li style="left:100px;top:190px;transform:rotate(0deg);width:180px;height:100px;" type='10'>
+                      <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">Slide 1</div>
+                            <div class="swiper-slide">Slide 2</div>
+                            <div class="swiper-slide">Slide 3</div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    ${csHtml}
+                  </li>`;
+var hdpSetHtml=`<div class="panel">
+              <div class="site_pageComponent_con" style="display:block;">
+                  <div class="ImgShow Atlas">
+                      <div class="ImgShowTip">
+                          <p>更换图片</p>
+                      </div>
+                  </div>
+                  <div class="component_public bgStyle">
+                      <p class="title">图片显示模式</p>
+                      <ul class="clearfix">
+                          <li class="current"><div class="bgStyleShow"></div><p>自适应</p></li>
+                          <li><div class="bgStyleShow"></div><p>居中</p></li>
+                          <li><div class="bgStyleShow"></div><p>拉伸</p></li>
+                          <li><div class="bgStyleShow"></div><p>原图</p></li>
+                      </ul>
+                  </div>
+                  <div class="component_public bgStyle">
+                      <p class="title">动画效果</p>
+                      <ul class="clearfix">
+                          <li class="current"><div class="bgStyleShow"></div><p>渐显</p></li>
+                          <li><div class="bgStyleShow"></div><p>左滚动</p></li>
+                          <li><div class="bgStyleShow"></div><p>3D</p></li>
+                      </ul>
+                  </div>
+                  <div class="component_public slideshow">
+                      <p class="title">切换设置</p>
+                      <ul>
+                          <li class="clearfix">
+                              <div class="slideshowTitle">自动运行</div>
+                              <section class="slideshowSwitch model-14">
+                                  <div class="checkbox">
+                                    <input type="checkbox"/>
+                                    <label></label>
+                                  </div>
+                              </section>
+                          </li>
+                          <li class="clearfix">
+                              <div class="slideshowTitle">速<span class="op">速度</span>度</div>
+                              <div class="slideshowTk">
+                                  <p>500ms</p>
+                                  <ul>
+                                      <li>500ms</li>
+                                      <li>1000ms</li>
+                                      <li>1500ms</li>
+                                      <li>2000ms</li>
+                                  </ul>
+                              </div>
+                          </li>
+                          <li class="clearfix">
+                              <div class="slideshowTitle">间<span class="op">间隔</span>隔</div>
+                              <div class="slideshowTk">
+                                  <p>500ms</p>
+                                  <ul>
+                                      <li>500ms</li>
+                                      <li>1000ms</li>
+                                      <li>1500ms</li>
+                                      <li>2000ms</li>
+                                  </ul>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="site_pageComponent_con">
+                  <div class="component_public slideshowStyle">
+                      <p class="title">导航设置</p>
+                      <ul>
+                          <li class="clearfix">
+                              <div class="slideshowTitle">圆点导航</div>
+                              <section class="slideshowSwitch model-14">
+                                  <div class="checkbox">
+                                    <input type="checkbox"/>
+                                    <label></label>
+                                  </div>
+                              </section>
+                          </li>
+                          <li class="clearfix">
+                              <div class="slideshowTitle">默认颜色</div>
+                              <div class="ImgchageBgSetCol">
+                                  <div class="ImgchageBgSetColVal"></div>
+                              </div>
+                          </li>
+                          <li class="clearfix">
+                              <div class="slideshowTitle">当前颜色</div>
+                              <div class="ImgchageBgSetCol">
+                                  <div class="ImgchageBgSetColVal"></div>
+                              </div>
+                          </li>
+                          <li class="clearfix">
+                              <div class="slideshowTitle">对其方式</div>
+                              <div class="slideshowStyleAlign">
+                                  <ul class="clearfix">
+                                      <li class="current"></li>
+                                      <li></li>
+                                      <li></li>
+                                  </ul>
+                              </div>
+                          </li>
+                          <li class="clearfix">
+                              <div class="slideshowTitle">形<span class="op">形状</span>状</div>
+                              <div class="slideshowStyleAlign slideshowStyleBtn">
+                                  <ul class="clearfix">
+                                      <li></li>
+                                      <li class="current"></li>
+                                  </ul>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+                  ${positionHtml}
+              </div>
+          </div>`;
 var controlSetHtmlArr=[];//控件面板html数组
 $.fn.extend({
     generate:function(data){
@@ -606,7 +731,18 @@ $.fn.extend({
             case 10:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>轮播图</li>");
-                creControlHtml(btnHtml,btnSetHtml);
+                creControlHtml(hdpHtml,hdpSetHtml);
+                var swiper = new Swiper('.swiper-container', {
+                    pagination: '.swiper-pagination',
+                    paginationType : 'progress',
+                    paginationClickable: true,
+                    autoplay:500,
+                    span:500,
+                    loop : true,
+                    effect :'cube',
+                    observer:true,
+                    observeParents:true,
+                });
                 break;
             case 11:
                 controlBtnBox.find('li').removeClass('current');

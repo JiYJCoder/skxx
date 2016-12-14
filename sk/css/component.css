@@ -803,6 +803,228 @@
     background-color: #fff;
     padding: 5px;
 }
+/*幻灯片*/
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    z-index: -1!important;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.slideshow >ul >li {
+    margin-bottom: 8px;
+}
+.slideshowTitle{
+    float: left;
+    width: 58px;
+    height: 22px;
+    line-height: 22px;
+}
+.slideshowSwitch{
+    display: block;
+    float: left;
+    height: 22px;
+    box-sizing: border-box;
+}
+.slideshowSwitch *{
+    box-sizing: border-box;
+}
+.slideshowSwitch .checkbox{
+    position: relative;
+    display: inline-block;
+}
+.checkbox {
+  position: relative;
+  display: inline-block;
+}
+.checkbox:after, .checkbox:before {
+  font-family: FontAwesome;
+  -webkit-font-feature-settings: normal;
+     -moz-font-feature-settings: normal;
+          font-feature-settings: normal;
+  -webkit-font-kerning: auto;
+     -moz-font-kerning: auto;
+          font-kerning: auto;
+  -webkit-font-language-override: normal;
+     -moz-font-language-override: normal;
+          font-language-override: normal;
+  font-stretch: normal;
+  font-style: normal;
+  font-synthesis: weight style;
+  font-variant: normal;
+  font-weight: normal;
+  text-rendering: auto;
+}
+.checkbox label {
+  width: 40px;
+  height: 22px;
+  background: #cacaca;
+  position: relative;
+  display: inline-block;
+/*  border-radius: 46px;*/
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.checkbox label:after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 22px;
+  border-radius: 100%;
+  left: 22px;
+  top: -5px;
+  z-index: 2;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.checkbox input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  opacity: 0;
+  cursor: pointer;
+} 
+.checkbox input:hover + label:after {
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+}
+.checkbox input:checked + label:after {
+  left: 40px;
+}
+ 
+.model-14 .checkbox:after, .model-14 .checkbox:before {
+  content: '否';
+  position: absolute;
+  right: 4px;
+  top: 5px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 12px;
+  color: #fff;
+}
+.model-14 .checkbox:before {
+  font-size: 12px;
+  content: '是';
+  left: 3px;
+  z-index: 1;
+  color: #fff;
+}
+.model-14 .checkbox label {
+  background: #cacaca;
+  height: 22px;
+  border-radius: 0;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+.model-14 .checkbox label:after {
+  background: #438eb9;
+  border-radius: 0;
+  box-shadow: none !important;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  top: 4px;
+  width: 15px;
+  height: 15px;
+}
+.model-14 .checkbox input:checked + label:after {
+  background: #666;
+  left: 3px;
+}
+/*以上为css3控件*/
+.slideshowTk{
+    float: left;
+}
+.slideshowTk{
+    padding-left: 5px;
+    width: 67px;
+    height: 22px;
+    line-height: 22px;
+    color: #fff;
+    background: url('../images/site_xiala.png') 60px center no-repeat #cacaca ;
+    position: relative;
+    cursor: pointer;
+}
+.slideshowTk ul {
+    position: absolute;
+    bottom: -89px;
+    left: 0;
+    z-index: 1;
+    display: none;
+}
+.slideshowTk ul li{
+    text-align: center;
+    width: 72px;
+    height: 22px;
+    line-height: 22px;
+    color: #fff;
+    background-color: #cacaca;
+}
+.slideshowStyle >ul >li{
+    margin-bottom: 8px;
+}
+.slideshowTk ul li:hover{
+    background-color: #6a6a6a;
+}
+.slideshowStyleAlign {
+    float: left;
+}
+.slideshowStyleAlign ul li {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: url('../images/text_align.png') 4px 4px no-repeat;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.slideshowStyleAlign ul li:nth-child(2){
+    background-position: -27px 4px
+}
+.slideshowStyleAlign ul li:nth-child(3){
+    background-position: -53px 4px
+}
+.slideshowStyleAlign ul li.current{
+    border: 1px solid #438eb9;
+}
+.slideshowStyleBtn ul li{
+    background: url('../images/slideshowStyleBtn.png') 5px 4px no-repeat;
+}
+.slideshowStyleBtn ul li:nth-child(2){
+    background-position: -26px 4px
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -821,6 +1043,7 @@
 .component_public .publicTitle{
     padding-right: 10px; float: left;
 }
+
 
 
 
