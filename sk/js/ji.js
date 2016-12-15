@@ -863,6 +863,50 @@ var FormHtml=`<li style="top: 50%;left: 50%;transform:translate(-50%,-50%);-webk
                           </form>
                       </div>
                   </li>`;
+var FormSetHtml=`<div class="panel">
+              <div class="site_pageComponent_con" style="display:block;">
+                  <div class="component_public formSet">
+                      <p class="title">文字</p>
+                      <div class="formSetVal clearfix">
+                          <p>按钮</p>
+                          <input type="text" placeholder="提交">
+                      </div>
+                      <div class="formSetVal clearfix">
+                          <p>表单1</p>
+                          <input type="text" placeholder="姓名">
+                      </div>
+                      <div class="formSetVal clearfix">
+                          <p>表单2</p>
+                          <input type="text" placeholder="手机号码">
+                      </div>
+                      <div class="formSetVal clearfix">
+                          <p>表单3</p>
+                          <input type="text" placeholder="公司名称">
+                      </div>
+                      <div class="formSetVal clearfix">
+                          <p>表单4</p>
+                          <input type="text" placeholder="座机号码">
+                      </div>
+                      <div class="formSetVal clearfix sex">
+                          <p>表单5</p>
+                          <input type="text" placeholder="性别">
+                          <input type="text" placeholder="男">
+                          <input type="text" placeholder="女">
+                      </div>
+                      <div class="formSetVal clearfix">
+                          <p>表单6</p>
+                          <input type="text" placeholder="备注">
+                      </div>
+                  </div>
+              </div>
+              <div class="site_pageComponent_con">
+                  ${fontHtml}
+                  ${bgHtml}
+                  ${fontAlignHtml}
+                  ${boderHtml}
+                  ${positionHtml}
+              </div>
+          </div>`
 var controlSetHtmlArr=[];//控件面板html数组
 $.fn.extend({
     generate:function(data){
@@ -957,7 +1001,7 @@ $.fn.extend({
             case 13:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>联系我们</li>");
-                creControlHtml(FormHtml,btnSetHtml);
+                creControlHtml(FormHtml,FormSetHtml);
                 break;
             case 14:
                 controlBtnBox.find('li').removeClass('current');

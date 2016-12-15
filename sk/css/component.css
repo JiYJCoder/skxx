@@ -1197,8 +1197,30 @@
     color: #fff;
     background-color: #438eb9;
 }
-
-
+.formSetVal{
+    margin-bottom: 10px;
+}
+.formSetVal p{
+    float: left;
+    width: 35px;
+    height: 20px;
+    line-height: 20px;
+}
+.formSetVal input{
+    float: left;
+    display: block;
+    border: 1px solid #cacaca;
+    background: 0;
+    background: #fff;
+    height: 18px;
+    line-height: 18px;
+    padding-left: 5px;
+    width: 162px;
+}  
+.sex input{
+    width: 40px;
+    margin-right: 10px;
+}
 
 
 
