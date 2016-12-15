@@ -923,12 +923,18 @@
   font-size: 12px;
   color: #fff;
 }
+.model-15 .checkbox:after, .model-14 .checkbox:before {
+  content: '右';
+}
 .model-14 .checkbox:before {
   font-size: 12px;
   content: '是';
   left: 3px;
   z-index: 1;
   color: #fff;
+}
+.model-15 .checkbox:before {
+  content: '左';
 }
 .model-14 .checkbox label {
   background: #cacaca;
@@ -1011,6 +1017,190 @@
 .slideshowStyleBtn ul li:nth-child(2){
     background-position: -26px 4px
 }
+/*导航*/
+.nav{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+.navUl{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #438eb9;
+}
+.navLi{
+    float: left;
+    width: 25%;
+    height: 100%;
+    position: relative;
+    background-color: #fff;
+}
+.navLi p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
+}
+.nav ul li{
+    cursor: pointer;
+    width: 178px;
+    height: 22px;
+    margin-bottom: 2px;
+    background:url('../images/site_nav1.png') left center no-repeat;
+    padding-left: 26px;
+    line-height: 22px;
+}
+.nav ul li:hover{
+    background:url('../images/site_nav2.png') left center no-repeat #fff;
+    color: #438eb9;
+}
+.navAdd{
+    cursor: pointer;
+    height: 24px;
+    width: 112px;
+    text-align: center;
+    line-height: 24px;
+    background-color: #438eb9;
+    margin-top: 54px;
+    margin-left: 46px;
+    color: #fff;
+    border-radius:5px; 
+}
+/*导航按钮*/
+.navBtn{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+.navBtnIcon{
+    width: 100%;
+    height: 100%;
+    background-color: #438eb9;
+    border-radius: 5px;
+    position: relative;
+}
+.navBtnIcon i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
+    color: #fff;
+    display: block;
+    font-size:28px;
+}
+.navBtnStyleTitle{
+    width: 33px;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+}
+.navBtnStyleList{
+    float: left;
+    width: 104px;
+    height: 30px;
+    background:url('../images/site_page_san.png') 84px center no-repeat #cacaca;
+    text-align: center;
+    color: #888;
+    font-size:18px;
+    cursor: pointer;
+    position: relative;
+}
+.navBtnStyleList> i{
+    display: block;
+    line-height: 30px;
+}
+.navBtnStyleList ul{
+    position: absolute;
+    bottom: -63px;
+    left: 0;
+    display: none;
+}
+.navBtnStyleList ul li{
+    float: left;
+    height: 30px;
+    background-color: #bbbbbb;
+    width: 33px;
+    line-height: 30px;
+    border-left: 1px solid #cacaca;
+    border-bottom: 1px solid #cacaca;
+}
+.navBtnStyleList ul li:hover{
+    background-color: #cacaca;
+}
+.navBtnStyleCol{
+    float: left;
+    width: 58px;
+    height: 30px;
+    margin-left: 8px;
+    background:url('../images/site_xiala.png') 40px center no-repeat #ccc;
+}
+.navBtnStyleColVal{
+    width: 16px;
+    height: 16px;
+    background-color: #fce0c3;
+    margin-left: 11px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+.navBtnStyleIconW{
+    float: left;
+    width: 52px;
+    height: 22px;
+    line-height: 22px;
+    color: #fff;
+    background-color: #ccc;
+    position: relative;
+}
+.navBtnStyleIconW input{
+    display: block;
+    padding-left: 5px;
+    width: 47px;
+    height: 22px;
+    border: 0;
+    background: 0;
+    color: #fff;
+}
+/*表单*/
+.form{
+    width: 280px;
+    height: 340px;
+    background-color: #fff;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.form input{
+    margin-top: 7px;
+    display: block;
+    padding-left: 5px;
+    width: 266px;
+    border: 0;
+    background: 0;
+    background: url('../images/formInputBg.png') center center no-repeat;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 12px;
+    border-radius: 2px;
+}
+.form input[type='radio']{
+    width: 26px;
+    height: 12px;
+    display: inline-block;
+    margin: 0;
+}
+.formTip{margin-top: 14px;}
+.form input[type='submit']{
+    width: 60px;
+    height: 20px;
+    background:0;
+    margin: 0 auto;
+    color: #fff;
+    background-color: #438eb9;
+}
+
+
+
+
 
 
 

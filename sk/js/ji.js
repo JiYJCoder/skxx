@@ -34,6 +34,7 @@ var shadowHtml=`<div class="component_public ImgBoder">
                           </li>
                       </ul>
                   </div>`;
+//背景
 var bgHtml=`<div class="component_public ImgchageBg">
                       <p class="title">背景</p>
                       <ul class="clearfix">
@@ -305,7 +306,7 @@ var atlasSetHtml=`<div class="panel">
                       <p class="title">图片设置</p>
                       <ul>
                           <li class="clearfix">
-                              <span>烈数</span>
+                              <span>列数</span>
                               <div class="ImgBoderSize">
                                   <input type="text" value="0">
                                   <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
@@ -663,6 +664,205 @@ var hdpSetHtml=`<div class="panel">
                   ${positionHtml}
               </div>
           </div>`;
+//导航
+var navHtml=`<li style="left:18px;top:190px;transform:rotate(0deg);width:290px;height:40px;" type='11'>
+                      <div class="nav">
+                          <div class="navUl clearfix">
+                              <div class="navLi">
+                                  <p>菜单1</p>
+                              </div>
+                              <div class="navLi">
+                                  <p>菜单2</p>
+                              </div>
+                              <div class="navLi">
+                                  <p>菜单3</p>
+                              </div>
+                              <div class="navLi">
+                                  <p>菜单4</p>
+                              </div>
+                          </div>
+                      </div>
+                      ${csHtml}
+                  </li>`;
+var navSetHtml=`<div class="panel">
+              <div class="site_pageComponent_con" style="display:block;">
+                  <div class="component_public nav">
+                      <p class="title">导航列表</p>
+                      <ul>
+                          <li>首页</li>
+                          <li>首页</li>
+                      </ul>
+                      <div class="navAdd">
+                          添加导航
+                      </div>
+                  </div>
+              </div>
+              <div class="site_pageComponent_con">
+                  <div class="component_public ImgBoder">
+                      <p class="title">导航间隔</p>
+                      <ul>
+                          <li class="clearfix">
+                              <span>间距</span>
+                              <div class="ImgBoderSize">
+                                  <input type="text" value="0">
+                                  <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
+                                  <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+                  ${fontHtml}
+                  ${bgHtml}
+                  ${fontAlignHtml}
+                  ${boderHtml}
+                  <div class="component_public ImgBoder">
+                      <p class="title">分割线</p>
+                      <ul>
+                          <li class="clearfix">
+                              <span>分割</span>
+                              <div class="ImgchageBgSetCol">
+                                  <div class="ImgchageBgSetColVal"></div>
+                              </div>
+                              <div class="ImgBoderStyle">
+                                  <p></p>
+                                  <ul>
+                                      <li><p></p></li>
+                                      <li><p style="border: 1px dotted #a5a5a5;"></p></li>
+                                      <li><p style="border: 1px dashed #a5a5a5;"></p></li>
+                                  </ul>
+                              </div>
+                              <div class="ImgBoderSize">
+                                  <input type="text" value="0">
+                                  <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
+                                  <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+                  ${shadowHtml}
+                  ${positionHtml}
+              </div>
+          </div>`;
+var navBtnHtml=`<li style="left:18px;top:190px;transform:rotate(0deg);width:50px;height:50px;" type='12'>
+                      <div class="navBtn">
+                          <div class="navBtnIcon">
+                              <i class="icon-navBtn1"></i>
+                          </div>
+                      </div>
+                      ${csHtml}
+                  </li>`;
+var navBtnSetHtml=`<div class="panel">
+              <div class="site_pageComponent_con" style="display:block;">
+                  <div class="component_public nav">
+                      <p class="title">导航列表</p>
+                      <ul>
+                          <li>首页</li>
+                          <li>首页</li>
+                      </ul>
+                      <div class="navAdd">
+                          添加导航
+                      </div>
+                  </div>
+              </div>
+              <div class="site_pageComponent_con">
+                  <div class="component_public navBtnSet">
+                      <p class="title">导航按钮</p>
+                      <div class="navBtnStyle clearfix">
+                          <div class="navBtnStyleTitle">
+                              图标
+                          </div>
+                          <div class="navBtnStyleList">
+                              <i class="icon-navBtn1"></i>
+                              <ul class="clearfix">
+                                  <li><i class="icon-navBtn1"></i></li>
+                                  <li><i class="icon-navBtn2"></i></li>
+                                  <li><i class="icon-navBtn3"></i></li>
+                                  <li><i class="icon-navBtn4"></i></li>
+                                  <li><i class="icon-navBtn4"></i></li>
+                                  <li><i class="icon-navBtn4"></i></li>
+                              </ul>
+                          </div>
+                          <div class="navBtnStyleCol">
+                              <div class="navBtnStyleColVal">
+                                  
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="component_public slideshow">
+                      <p class="title">主导航样式</p>
+                      <ul>
+                          <li class="clearfix">
+                              <div class="slideshowTitle">展开方向</div>
+                              <section class="slideshowSwitch model-14 model-15">
+                                  <div class="checkbox">
+                                    <input type="checkbox">
+                                    <label></label>
+                                  </div>
+                              </section>
+                          </li>
+                          <li class="clearfix">
+                              <div class="slideshowTitle">宽<span class="op">宽度</span>度</div>
+                              <div class="navBtnStyleIconW">
+                                  <input type="text" value="12px">
+                                  <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
+                                  <img src="images/site_xiala.png" alt="" class="xiala">
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+                  ${fontHtml}
+                  ${bgHtml}
+                  ${fontAlignHtml}
+                  <div class="component_public ImgBoder">
+                      <p class="title">分割线</p>
+                      <ul>
+                          <li class="clearfix">
+                              <span>分割</span>
+                              <div class="ImgchageBgSetCol">
+                                  <div class="ImgchageBgSetColVal"></div>
+                              </div>
+                              <div class="ImgBoderStyle">
+                                  <p></p>
+                                  <ul>
+                                      <li><p></p></li>
+                                      <li><p style="border: 1px dotted #a5a5a5;"></p></li>
+                                      <li><p style="border: 1px dashed #a5a5a5;"></p></li>
+                                  </ul>
+                              </div>
+                              <div class="ImgBoderSize">
+                                  <input type="text" value="0">
+                                  <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
+                                  <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+                  ${boderHtml}
+                  ${positionHtml}
+              </div>
+          </div>`;
+//表单
+var FormHtml=`<li style="top: 50%;left: 50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);" type='13'>
+                      <div class="form">
+                          <form action="">
+                              <p>姓名</p>
+                              <input type="text" name="user" placeholder="请输入姓名">
+                              <p>手机号码</p>
+                              <input type="text" name="phone" placeholder="请输入正确的手机号码">
+                              <p>公司名称</p>
+                              <input type="text" name="company" placeholder="请输入公司名称">
+                              <p>座机号码</p>
+                              <input type="text" name="Plane" placeholder="请输入座机号码">
+                              <span>性别</span>
+                              <label><input name="sex" type="radio" value="" checked>男</label> 
+                              <label><input name="sex" type="radio" value="">女</label>
+                              <p class="formTip">备注</p>
+                              <input type="text" name="tip">
+                              <input type='submit' name="submit" value="提交">
+                          </form>
+                      </div>
+                  </li>`;
 var controlSetHtmlArr=[];//控件面板html数组
 $.fn.extend({
     generate:function(data){
@@ -747,17 +947,17 @@ $.fn.extend({
             case 11:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>导航</li>");
-                creControlHtml(btnHtml,btnSetHtml);
+                creControlHtml(navHtml,navSetHtml);
                 break;
             case 12:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>导航按钮</li>");
-                creControlHtml(btnHtml,btnSetHtml);
+                creControlHtml(navBtnHtml,navBtnSetHtml);
                 break;
             case 13:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>联系我们</li>");
-                creControlHtml(btnHtml,btnSetHtml);
+                creControlHtml(FormHtml,btnSetHtml);
                 break;
             case 14:
                 controlBtnBox.find('li').removeClass('current');
@@ -1075,7 +1275,9 @@ $.fn.extend({
         }
     }
 })
-
+//window.onbeforeunload=function(){
+//    return '请确定保存好再离开';
+//} ;
 
 
 
