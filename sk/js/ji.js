@@ -906,6 +906,206 @@ var FormSetHtml=`<div class="panel">
                   ${boderHtml}
                   ${positionHtml}
               </div>
+          </div>`;
+var mapHtml=`<li style="left:18px;top:190px;transform:rotate(0deg);width:170px;height:135px;" type='14'>
+                      <div class="map" id="baiduMap">
+                          
+                      </div>
+                      ${csHtml}
+                  </li>`;
+var mapSetHtml=`<div class="panel">
+              <div class="site_pageComponent_con" style="display:block;">
+                  <div class="component_public mapSet">
+                      <p class="title">
+                          地址定位
+                      </p>
+                      <div class="mapSet">
+                          <input type="text" class="val">
+                          <input type="button" class="btn btnActive" value="搜索">
+                      </div>
+                  </div>
+              </div>
+              <div class="site_pageComponent_con">
+                  ${positionHtml}
+              </div>
+          </div>`;
+var cmListHtml=`<li style="left:13px;top:150px;transform:rotate(0deg);width:297px;height:270px;" type='15'>
+                      <div class="commodityList">
+                          <div class="commodityListCon">
+                              <div class="commodityListConShow clearfix">
+                                  <div class="commodityListConShowImg">
+                                      
+                                  </div>
+                                  <div class="commodityListConShowText">
+                                      <p class="commodityTitle">标题</p>
+                                      <p class="commoditPrice">价格</p>
+                                  </div>
+                              </div>
+                              <div class="commodityListConShow clearfix">
+                                  <div class="commodityListConShowImg">
+                                      
+                                  </div>
+                                  <div class="commodityListConShowText">
+                                      <p class="commodityTitle">标题</p>
+                                      <p class="commoditPrice">价格</p>
+                                  </div>
+                              </div>
+                              <div class="commodityListConShow clearfix">
+                                  <div class="commodityListConShowImg">
+                                      
+                                  </div>
+                                  <div class="commodityListConShowText">
+                                      <p class="commodityTitle">标题</p>
+                                      <p class="commoditPrice">价格</p>
+                                  </div>
+                              </div>
+                              <p class="commodityLoad">查看更多</p>
+                          </div>
+                      </div>
+                      ${csHtml}
+                  </li>`;
+var cmListSetHtml=`<div class="panel">
+              <div class="site_pageComponent_con" style="display:block;">
+                  <div class="component_public">
+                      <p class="title">列表内容</p>
+                      <div class="commoditySet clearfix">
+                          <div class="commoditySetTitle">
+                              选择店铺
+                          </div>
+                          <div class="commoditySetCon">
+                              <p>苏州分店</p>
+                              <ul>
+                                  <li>苏州分店</li>
+                                  <li>麻痹分店</li>
+                                  <li>傻逼分店</li>
+                                  <li>苏州分店</li>
+                              </ul>
+                          </div>
+                          <div class="commoditySetCon">
+                              <p>全部分类</p>
+                              <ul>
+                                  <li>苏州分店</li>
+                                  <li>麻痹分店</li>
+                                  <li>傻逼分店</li>
+                                  <li>苏州分店</li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="commoditySet clearfix">
+                          <div class="commoditySetTitle">
+                              每页显示数量
+                          </div>
+                          <div class="commoditySetCon">
+                              <p>不限</p>
+                              <ul>
+                                  <li>3</li>
+                                  <li>6</li>
+                                  <li>9</li>
+                                  <li>不限</li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="commoditySet clearfix">
+                          <div class="commoditySetTitle">
+                              排序
+                          </div>
+                          <div class="commoditySetCon commoditySort">
+                              <p>按发布时间</p>
+                              <ul>
+                                  <li>按销售量</li>
+                                  <li>6</li>
+                                  <li>9</li>
+                                  <li>不限</li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+                  <a href="" class="conmmodityA">点击进入店铺管理后台</a>
+              </div>
+              <div class="site_pageComponent_con">
+                  <div class="component_public commStyle">
+                      <p class="title">排列方式</p>
+                      <ul class="clearfix">
+                          <li class="current"></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                      </ul>
+                  </div>
+                  ${csHtml}
+              </div>
+          </div>`;
+var ewmHtml=`<li style="left:120px;top:150px;transform:rotate(0deg);width:70px;height:70px;" type='16'>
+                      <div class="ewm">
+                          <img src="images/erweima.png" alt="">
+                      </div>
+                      ${csHtml}
+                  </li>`;
+var ewmSetHtml=`<div class="panel">
+              <div class="site_pageComponent_con" style="display:block;">
+                  <div class="component_public">
+                      <p class="title">二维码链接</p>
+                      <div class="ermVal clearfix">
+                          <p>指定网址</p>
+                          <input type="text">
+                      </div>
+                  </div>
+              </div>
+              <div class="site_pageComponent_con">
+                  
+              </div>
+          </div>`;
+var weixinHtml=`<li style="left:120px;top:150px;transform:rotate(0deg);width:70px;height:70px;" type='17'>
+                      <div class="ewm weixin">
+                          <img src="images/weixin.png" alt="">
+                      </div>
+                      ${csHtml}
+                  </li>`;
+var weixinSetHtml=`<div class="panel">
+              <div class="site_pageComponent_con" style="display:block;">
+                  <div class="component_public">
+                      <p class="title">公众号</p>
+                      <div class="weixinSetTx clearfix">
+                          <div class="weixinSetTxtitle">
+                              <p>头<span class="op">头像</span>像</p>
+                          </div>
+                          <div class="weixinSetTxImg">
+                              <img src="" alt="">
+                          </div>
+                      </div>
+                      <div class="weixinSetTip clearfix">
+                          <div class="weixinSetTipTitle">
+                              文字提示
+                          </div>
+                          <input type="text">
+                      </div>
+                      <div class="weixinSetTip clearfix">
+                          <div class="weixinSetTipTitle">
+                              关注方式
+                          </div>
+                          <div class="weixinSetWay">
+                              <input type="radio" name="way" value="引导图文"  checked>&nbsp;引导图文
+                              <input type="radio" name="way" value="扫描二维码">&nbsp;扫描二维码
+                          </div>
+                      </div>
+                      <div class="weixinSetTip clearfix">
+                          <div class="weixinSetTipTitle">
+                              关注链接
+                          </div>
+                          <input type="text">
+                      </div>
+                  </div>
+                  <div class="component_public">
+                       <p class="title">展示设置</p>
+                       <ul class="weixinSetShow">
+                           <li><input type="radio" checked>&nbsp;推迟时间<input type="number" value="5" class="number">&nbsp;&nbsp;秒<p>页面打开以上时间后，组件开始显示，不勾选表示立即显示。</p></li>
+                           <li><input type="radio" checked>&nbsp;持续时间<input type="number" value="5" class="number">&nbsp;&nbsp;秒<p>组件展示的持续时间，不勾选表示永久展示。</p></li>
+                       </ul>
+                  </div>
+              </div>
+              <div class="site_pageComponent_con">
+                  ${positionHtml}
+              </div>
           </div>`
 var controlSetHtmlArr=[];//控件面板html数组
 $.fn.extend({
@@ -1006,22 +1206,42 @@ $.fn.extend({
             case 14:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>地图</li>");
-                creControlHtml(btnHtml,btnSetHtml);
+                creControlHtml(mapHtml,mapSetHtml);
+                var map = new BMap.Map("baiduMap");         // 创建地图实例
+//                map.addEventListener("click",function(e){
+//                    map.clearOverlays();
+//                    var point = new BMap.Point(e.point.lng, e.point.lat);
+//                    var marker = new BMap.Marker(point);
+//                    this.addOverlay(marker); 
+//                });
+//                var opts = {type: BMAP_NAVIGATION_CONTROL_ZOOM}    
+//                map.addControl(new BMap.NavigationControl(opts));
+                map.enableScrollWheelZoom();
+                var myGeo = new BMap.Geocoder();
+                myGeo.getPoint("广州市天河区上社喜洋居", function(point){
+                    if (point) {
+                        map.centerAndZoom(point, 18);
+                        map.clearOverlays();
+                        map.addOverlay(new BMap.Marker(point));
+                    }else{
+                        alert("您选择地址没有解析到结果!");
+                    }
+                });
                 break;
             case 15:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>商品列表</li>");
-                creControlHtml(btnHtml,btnSetHtml);
+                creControlHtml(cmListHtml,cmListSetHtml);
                 break;
             case 16:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>二维码</li>");
-                creControlHtml(btnHtml,btnSetHtml);
+                creControlHtml(ewmHtml,ewmSetHtml);
                 break;
             case 17:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>公众号</li>");
-                creControlHtml(btnHtml,btnSetHtml);
+                creControlHtml(weixinHtml,weixinSetHtml);
                 break;
         };
         //生成html

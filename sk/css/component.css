@@ -1198,7 +1198,7 @@
     background-color: #438eb9;
 }
 .formSetVal{
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 }
 .formSetVal p{
     float: left;
@@ -1221,15 +1221,245 @@
     width: 40px;
     margin-right: 10px;
 }
-
-
-
-
-
-
-
-
-
+/*地图*/
+.map{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+.mapSet input.val{
+    border: 0;
+    background: 0;
+    background-color: #fff;
+    padding-left: 10px;
+    height: 25px;
+    border: 1px solid #cacaca;
+    border-radius: 4px;
+    width: 150px;
+}
+.mapSet input.btn{
+    width: 35px;
+    height: 25px;
+    border: 0;
+    background: 0;
+    background-color: #fff;
+    border: 1px solid #cacaca;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btnActive:active{
+    color: #438eb9;
+    box-shadow: 0px 0px 2px  0px;
+}
+/*商品列表*/
+.commodityList{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+.commodityListCon{
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
+    overflow: hidden;
+    border-radius: 4px;
+    position: relative;
+}
+.commodityListConShow{
+    margin-top: 16px;
+    width: 100%;
+    height: 22%;
+}
+.commodityListConShowImg{
+    float: left;
+    width: 22%;
+    height: 100%;
+    background-color: #438eb9;
+    border-radius: 5px;
+}
+.commodityListConShowText{
+    float: left;
+    margin-left: 23px;
+}
+.commodityTitle{
+    font-weight: bold;
+    margin-top: 10px;
+}
+.commoditPrice{
+    margin-top: 10px;
+}
+.commodityLoad{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+    background-color: #dddddd;
+    text-align: center;
+    line-height: 30px;
+}
+.commoditySet{
+    margin-top: 7px;
+}
+.commoditySetTitle{
+    height: 22px;
+    float: left;
+    line-height: 22px;
+}
+.commoditySetCon{
+    float: left;
+    position: relative;
+    width: 66px;
+    height: 22px;
+    line-height: 22px;
+    margin-left: 8px;
+    color: #999;
+    padding-left: 4px;
+    background:url('../images/site_xiala.png') 95% center  no-repeat #FFF;
+    cursor: pointer;
+}
+.commoditySetCon ul {
+    position: absolute;
+    bottom: -89px;
+    left: 0;
+    z-index: 1;
+    display: none;
+}
+.commoditySetCon ul li{
+    
+    width: 70px;
+    height: 22px;
+    line-height: 22px;
+    background-color: #fff;
+    text-align: center;
+}
+.commoditySetCon ul li:hover{
+    background-color: #438eb9;
+    color: #fff;
+}
+.commoditySort{
+    width: 144px;
+}
+.commoditySort ul li{
+    width: 148px;
+}
+.conmmodityA{
+    display: block;
+    text-decoration: underline;
+    color: #438eb9;
+    margin-top: 14px;
+}
+.commStyle ul{
+    margin-left: 5px;
+    width: 212px;
+    height: 246px;
+    overflow: hidden;
+}
+.commStyle ul li{
+    width: 88px;
+    height: 115px;
+    background:url('../images/Ccomm_4.png') no-repeat;
+    float: left;
+    margin-right: 18px;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+.commStyle ul li:nth-child(2){
+    background:url('../images/Ccomm_3.png') no-repeat;
+}
+.commStyle ul li:nth-child(3){
+    background:url('../images/Ccomm_2.png') no-repeat;
+}
+.commStyle ul li:nth-child(4){
+    background:url('../images/Ccomm_1.png') no-repeat;
+}
+.commStyle ul li:nth-child(4).current{
+    background:url('../images/Ccomm_Current1.png') no-repeat;
+}
+.commStyle ul li:nth-child(3).current{
+    background:url('../images/Ccomm_Current2.png') no-repeat;
+}
+.commStyle ul li:nth-child(2).current{
+    background:url('../images/Ccomm_Current3.png') no-repeat;
+}
+.commStyle ul li:nth-child(1).current{
+    background:url('../images/Ccomm_Current4.png') no-repeat;
+}
+.commStyle{
+    overflow: hidden;
+}
+/*二维码*/
+.ewm{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+.ewm img{
+    width: 100%;
+    height: 100%;
+}
+.ermVal p{
+    height: 20px;
+    line-height: 20px;
+    width: 56px;
+    float: left;
+}
+.ermVal input{
+    display: block;
+    background-color: #fff;
+    border: 1px solid #dfdfdf;
+    height: 18px;
+    padding-left: 5px;
+    width: 137px;
+}
+/*公众号*/
+.weixinSetTxtitle{
+    float: left;
+}
+.weixinSetTxImg{
+    float: left;
+    margin-left: 44px;
+    width: 54px;
+    height: 54px;
+    background-color: #ccc;
+    border-radius: 8px;
+}
+.weixinSetTip{
+    margin-top: 8px;
+}
+.weixinSetTipTitle{
+    height: 20px;
+    line-height: 20px;
+    width: 56px;
+    float: left;
+}
+.weixinSetTip >input{
+    display: block;
+    float: left;
+    height: 18px;
+    border: 1px solid #dfdfdf;
+    background-color: #fff;
+    padding-left: 5px;
+    width: 136px;
+}
+.weixinSetShow li{
+    margin-top: 5px;
+}
+.weixinSetShow li p{
+    color: #999;
+    margin-top: 9px;
+}
+.weixinSetShow li .number{
+    width: 35px;
+    height: 20px;
+    background: 0;
+    margin-left: 8px;
+    background-color: #ccc;
+    border: 0;
+    color: #fff;
+    padding-left: 5px;
+}
 
 
 
