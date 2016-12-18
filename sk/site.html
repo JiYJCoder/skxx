@@ -813,6 +813,9 @@ accountBtn">
                 if($(this).attr('type') !=undefined){
                     $(this).generate({
                         type:typeVal,
+                        defaultSet:{
+                            height:'100px'
+                        }
                     })
                 }
                 return false;

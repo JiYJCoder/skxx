@@ -4,37 +4,10 @@
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
 <title>Hello, World</title>  
-<style type="text/css">  
-html{height:100%}  
-body{height:100%;margin:0px;padding:0px}  
-#container{height:100%}  
-</style>  
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=jVAPaZjQWZZ2sKI1igsSXyoC"></script>
+
 </head>  
  
 <body>  
-<div id="container"></div> 
-<script type="text/javascript"> 
-var map = new BMap.Map("container");         // 创建地图实例
-map.addEventListener("click",function(e){
-    map.clearOverlays();
-    var point = new BMap.Point(e.point.lng, e.point.lat);
-    var marker = new BMap.Marker(point);
-    this.addOverlay(marker); 
-});
-var opts = {type: BMAP_NAVIGATION_CONTROL_ZOOM}    
-map.addControl(new BMap.NavigationControl(opts));
-map.enableScrollWheelZoom();
-var myGeo = new BMap.Geocoder();
-myGeo.getPoint("广州市天河区上社喜洋居", function(point){
-    if (point) {
-        map.centerAndZoom(point, 18);
-        map.clearOverlays();
-        map.addOverlay(new BMap.Marker(point));
-    }else{
-        alert("您选择地址没有解析到结果!");
-    }
-});
-</script>  
+<input type="color">
 </body>  
 </html>

@@ -132,7 +132,7 @@ var fontHtml=`<div class='component_font_font component_public'>
                     <div class='colTitle publicTitle'>样式</div>
                     <div class='fontStyle'>
                         <ul class='clearfix'>
-                            <li class='fontbold current'>B</li>
+                            <li class='fontbold'>B</li>
                             <li class='fontI'><i>i</i></li>
                             <li>U</li>
                             <li>Tx</li>
@@ -1117,7 +1117,7 @@ $.fn.extend({
             type:0,   //控件类型
             position:true,  //移动
             chageSize:true, //改变大小
-            chageCss:true,//改变CSS
+            chageCssBtn:true,//改变CSS
         };
         var setting=$.extend({},defaults,data);
         //根据类型生成控件
@@ -1296,10 +1296,9 @@ $.fn.extend({
             controlBtn();
             
             //控件选择
-            function select(control){
+            function select(controlSel){
                 //取消全选的时候 取消选择控件
-                control.click(function(){
-                    console.log(1);
+                controlSel.click(function(){
                     var textCon=$(this).find('.textCon');
                     var liNum=Number($(this).attr('type'));
                     
@@ -1532,9 +1531,37 @@ $.fn.extend({
                 resize(control.find('.es'),false,false,false,false,false,false,false,true,false);
                 resize(control.find('.Rotate'),false,false,false,false,false,false,false,false,true);
             }
-            function chageCss(control){
+            function chageCss(controlSet){
                 
-            }
+                $('.fontStyle ul li').click(function(){
+//                    console.log(data)
+                    if($(this).hasClass('current')){
+                        $(this).removeClass('current');
+                    }else{
+                        $(this).addClass('current');
+                    }
+                    //字体变粗
+                    if($(this).index()==0&&$(this).hasClass('current')){
+                        controlSet.children().css({
+                            fontWeight:'bold'
+                        })
+                    }else{
+                        controlSet.children().css({
+                            fontWeight:'normal'
+                        })
+                    }
+                    //斜体
+                    if($(this).index()==1&&$(this).hasClass('current')){
+                        controlSet.children().css({
+                            fontStyle:'italic'
+                        })
+                    }else{
+                        controlSet.children().css({
+                            fontStyle:'normal'
+                        })
+                    }
+                });
+            };
             chageCss(control);
         }
     }
