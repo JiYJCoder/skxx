@@ -3,11 +3,28 @@
 <head>  
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <title>Hello, World</title>  
 
 </head>  
  
 <body>  
-<input type="color">
-</body>  
+
+</body>
+<script>
+ var ajaxPackage=function(url,json){
+     return $.ajax({
+         url:url,
+         type:'POST',
+         dataType:'JSON',
+         data:json,
+     })
+ 
+     }
+ ajaxPackage("http://192.168.2.44:8081/wangjian/api/productType/productAdd",{"merchantId":'44',"productName":'哈哈',"typeId":'4',"productNo":'10',"unit":'11',"productPictureId":'085b496e080d4796935a4e79a53b9401',"billId":'39f156f8efab4a4e997487927c0a3044',"goodInfo":JSON.stringify([{"productId":"","paramId1": "uio","paramValueId1": "oip","statue": "ey","productStock": "111","price": "11","costPrice": "111","sellPrice": "111","paramId2": "fghb","paramValueId2": "ghrt","goodPictureId": "03aaaf6ab0d14a25a53ddeaaa9dd10b8"}])})
+ .done(function(data){
+   console.log(data);
+ })    
+ //[{"productId": "","paramId1": "uio","paramValueId1": "oip","statue": "ey","productStock": "111","price": "11","costPrice": "111","sellPrice": "111","paramId2": "fghb","paramValueId2": "ghrt","goodPictureId": "03aaaf6ab0d14a25a53ddeaaa9dd10b8"}]
+</script> 
 </html>

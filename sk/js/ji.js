@@ -122,9 +122,10 @@ var fontHtml=`<div class='component_font_font component_public'>
                     <div class='colTitle publicTitle'>颜色</div>
                     <div class='colCon clearfix'>
                         <ul class='clearfix'>
-                            <li><div class='colConValShow'></div></li>
-                            <li>
+                            <li class='bgCol'><div class='colConValShow'></div></li>
+                            <li class='fontCol'>
                             <div class='fontCol'><img src='images/site_fontA.png' alt=''></div></li>
+                            <li class='fontDelCol'>DEL</li>
                         </ul>
                     </div>
                 </li>
@@ -141,7 +142,7 @@ var fontHtml=`<div class='component_font_font component_public'>
                 </li>
                 <li class='clearfix'>
                     <div class='colTitle publicTitle'>大小</div>
-                    <div class='fontSize'><p>12px</p><img src='images/site_chageSize.png' alt='' class='shangla'><img src='images/site_xiala.png' alt='' class='xiala'>
+                    <div class='fontSize'><p><span>12</span>px</p><img src='images/site_chageSize.png' alt='' class='shangla'><img src='images/site_xiala.png' alt='' class='xiala'>
                     </div>
                 </li>
             </ul>
@@ -1298,6 +1299,7 @@ $.fn.extend({
             //控件选择
             function select(controlSel){
                 //取消全选的时候 取消选择控件
+                var textCon=$(this).find('.textCon');
                 controlSel.click(function(){
                     var textCon=$(this).find('.textCon');
                     var liNum=Number($(this).attr('type'));
@@ -1332,18 +1334,29 @@ $.fn.extend({
                     controlBtnBox.find('li').removeClass('current');
                     controlBtnBox.find('li').eq($(this).index()).addClass('current');
                     chageCss($(this));
-                    $(document).click(function(){
-                        var oHeight = control.height();
-                        textCon.attr('contenteditable','false');
-                        textCon.parents("li").height(oHeight);
-                        textCon.height(textCon.height());
-                        textCon.removeClass('heightIm');
-                        textCon.parents("li").removeClass('heightIm');
-                        $('.chageSize').hide();
-                    })
+//                    $('.site_poneBox').click(function(){
+//                        console.log(2);
+//                        var oHeight = control.height();
+//                        textCon.attr('contenteditable','false');
+//                        textCon.parents("li").height(oHeight);
+//                        textCon.height(textCon.height());
+//                        textCon.removeClass('heightIm');
+//                        textCon.parents("li").removeClass('heightIm');
+//                        $('.chageSize').hide();
+//                    })
                 
                 return false;
                 });
+                $('.site_poneBox').click(function(){
+                    console.log(2);
+                    var oHeight = control.height();
+                    textCon.attr('contenteditable','false');
+                    textCon.parents("li").height(oHeight);
+                    textCon.height(textCon.height());
+                    textCon.removeClass('heightIm');
+                    textCon.parents("li").removeClass('heightIm');
+                    $('.chageSize').hide();
+                })
             }
             select(control);
             
@@ -1532,7 +1545,7 @@ $.fn.extend({
                 resize(control.find('.Rotate'),false,false,false,false,false,false,false,false,true);
             }
             function chageCss(controlSet){
-                
+                //字体模块
                 $('.fontStyle ul li').click(function(){
 //                    console.log(data)
                     if($(this).hasClass('current')){
@@ -1545,7 +1558,7 @@ $.fn.extend({
                         controlSet.children().css({
                             fontWeight:'bold'
                         })
-                    }else{
+                    }else if($(this).index()==0&&!$(this).hasClass('current')){
                         controlSet.children().css({
                             fontWeight:'normal'
                         })
@@ -1555,11 +1568,76 @@ $.fn.extend({
                         controlSet.children().css({
                             fontStyle:'italic'
                         })
-                    }else{
+                    }else if($(this).index()==1&&!$(this).hasClass('current')){
                         controlSet.children().css({
                             fontStyle:'normal'
                         })
                     }
+                    //字体下划线
+                    if($(this).index()==2&&$(this).hasClass('current')){
+                        controlSet.children().css({
+                            textDecoration:'underline'
+                        })
+                    }else if($(this).index()==2&&!$(this).hasClass('current')){
+                        controlSet.children().css({
+                            textDecoration:'none'
+                        })
+                    }
+                    //清楚字体样式
+                    if($(this).index()==3){
+                        $('.fontStyle ul li').removeClass('current');
+                        controlSet.children().css({
+                            textDecoration:'none',
+                            fontStyle:'normal',
+                            fontWeight:'normal',
+                            fontWeight:'normal'
+                        })
+                    }
+                });
+                //颜色模块
+                //1.背景颜色
+                $('.bgCol').colpick({
+//                    layout:'rgbhex',
+//                    color:'ffffff',
+                    onSubmit:function(hsb,hex,rgb,el) {
+                        controlSet.children().css('background-color', '#'+hex);
+                        $('.colConValShow').css('background-color', '#'+hex);
+                        $(el).colpickHide();
+                        return false;
+                    }
+                });
+                 //2，字体颜色
+                $('.fontCol').colpick({
+//                    layout:'rgbhex',
+//                    color:'ffffff',
+                    onSubmit:function(hsb,hex,rgb,el) {
+                        controlSet.children().css('color', '#'+hex);
+                        $('.fontCol img').css('border-bottom-color', '#'+hex);
+                        $(el).colpickHide();
+
+                    }
+                });
+                //清除
+                $('.fontDelCol').click(function(){
+                    controlSet.children().css({
+                        color:'#333333',
+                        backgroundColor:'transparent'
+                    });
+                    $('.fontCol img').css('border-bottom-color', '#333333');
+                    $('.colConValShow').css('background-color', 'transparent');
+                })
+                //字体大小
+                $('.shangla').click(function(){
+                    var num=Number($('.fontSize > p span').text())+1;
+                    $('.fontSize > p span').text(num);
+                    controlSet.children().css('font-size',num+'px');
+                }); 
+                $('.xiala').click(function(){
+                    var num=Number($('.fontSize > p span').text())-1;
+                    if(num<=0){
+                        num=0;
+                    }
+                    $('.fontSize > p span').text(num);
                 });
             };
             chageCss(control);

@@ -710,7 +710,7 @@ a:active{blr:expression(this.onFocus=this.blur());}
     background-color: #438eb9;
     color: #fff;
     text-align: center;
-    width: 82px;
+    width: 83px;
     height: 30px;
     line-height: 30px;
     overflow: hidden;
@@ -1353,6 +1353,7 @@ a:active{blr:expression(this.onFocus=this.blur());}
     top: 73px;
     left: 50%;
     transform:translate(-50%,0);-webkit-transform:translate(-50%,0);
+    z-index: 1;
 }
 .site_page_container{
     height: 577px;

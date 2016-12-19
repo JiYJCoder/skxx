@@ -49,7 +49,7 @@
     color: #fff;
 }
 .fontCol img{
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid #333;
     padding-bottom: 2px;
 }
 .colCon ul li{
@@ -65,10 +65,15 @@
     background-repeat: no-repeat;
     background-position: 27px center;
 }
+.fontDelCol{
+    color: #fff;
+    background-image: none!important;
+}
 .colConValShow{
-    background-color: #fff;
-    width: 16px;
-    height: 16px;
+    background-color:transparent;
+    border: 1px solid #fff;
+    width: 14px;
+    height: 14px;
 }
 .fontStyle{
     float: left;
@@ -1486,7 +1491,14 @@
 .component_public .publicTitle{
     padding-right: 10px; float: left;
 }
-
+.site_poneBox{
+    width: 1428px;
+    height: 860px;
+    position: absolute;
+    top: 36px;
+    left: 233px;
+    z-index: 0;
+}
 
 
 
