@@ -1252,6 +1252,14 @@ $.fn.extend({
             cssSetBox.find('.panel').remove();//删除旧控件设置html
             cssSetBox.append(controlSetHtml);//生成新控件设置html
             box.append(controlHtml);//生成新控件html
+            box.find('>li:last').children().css({
+                fontSize:'12px',
+                fontWeight:'normal',
+                fontStyle:'normal',
+                backgroundColor:'transparent',
+                color:'#333333',
+                textDecoration:'none'
+            });
             new Mian(box.find('>li:last'),controlSetHtmlArr);
         };
         
@@ -1325,10 +1333,18 @@ $.fn.extend({
                         $(this).parents("li").removeClass('heightIm');
                      
                     })
-                    
-                    $('.panel').remove();
-                    box.find('.chageSize').hide();
-                    cssSetBox.append(controlSetHtmlArr[liNum]);
+                    //值回传到控制面板
+                    function valReturn(){
+                        $('.panel').remove();
+                        box.find('.chageSize').hide();
+                        cssSetBox.append(controlSetHtmlArr[liNum]);
+                        var cssVal=controlSel.children().attr('style');
+                        var valArr=cssVal.split(';')
+                        var fonSizeVal=valArr[0].substring(11,valArr[0].length-2);
+                        //面板字体大小
+                        $('.fontSize p span').text(fonSizeVal);
+                    }
+                    valReturn();
                     $(this).find('.chageSize').show();
                     //控件控制按钮
                     controlBtnBox.find('li').removeClass('current');
@@ -1348,7 +1364,6 @@ $.fn.extend({
                 return false;
                 });
                 $('.site_poneBox').click(function(){
-                    console.log(2);
                     var oHeight = control.height();
                     textCon.attr('contenteditable','false');
                     textCon.parents("li").height(oHeight);
@@ -1545,9 +1560,9 @@ $.fn.extend({
                 resize(control.find('.Rotate'),false,false,false,false,false,false,false,false,true);
             }
             function chageCss(controlSet){
+//                var controlNewVal=$.extend({},controlVal);
                 //字体模块
                 $('.fontStyle ul li').click(function(){
-//                    console.log(data)
                     if($(this).hasClass('current')){
                         $(this).removeClass('current');
                     }else{
@@ -1557,31 +1572,37 @@ $.fn.extend({
                     if($(this).index()==0&&$(this).hasClass('current')){
                         controlSet.children().css({
                             fontWeight:'bold'
-                        })
+                        });
+//                        controlNewVal.fw='bold';
                     }else if($(this).index()==0&&!$(this).hasClass('current')){
                         controlSet.children().css({
                             fontWeight:'normal'
                         })
+//                        controlNewVal.fw='normal';
                     }
                     //斜体
                     if($(this).index()==1&&$(this).hasClass('current')){
                         controlSet.children().css({
                             fontStyle:'italic'
-                        })
+                        });
+//                        controlNewVal.fontStyle='italic';
                     }else if($(this).index()==1&&!$(this).hasClass('current')){
                         controlSet.children().css({
                             fontStyle:'normal'
                         })
+//                        controlNewVal.fontStyle='normal'
                     }
                     //字体下划线
                     if($(this).index()==2&&$(this).hasClass('current')){
                         controlSet.children().css({
                             textDecoration:'underline'
-                        })
+                        });
+//                        controlNewVal.td='underline'
                     }else if($(this).index()==2&&!$(this).hasClass('current')){
                         controlSet.children().css({
                             textDecoration:'none'
-                        })
+                        });
+//                        controlNewVal.td='none'
                     }
                     //清楚字体样式
                     if($(this).index()==3){
@@ -1590,8 +1611,10 @@ $.fn.extend({
                             textDecoration:'none',
                             fontStyle:'normal',
                             fontWeight:'normal',
-                            fontWeight:'normal'
                         })
+//                        controlNewVal.td='none';
+//                        controlNewVal.fontStyle='normal';
+//                        controlNewVal.fw='normal';
                     }
                 });
                 //颜色模块
@@ -1603,7 +1626,7 @@ $.fn.extend({
                         controlSet.children().css('background-color', '#'+hex);
                         $('.colConValShow').css('background-color', '#'+hex);
                         $(el).colpickHide();
-                        return false;
+//                        controlNewVal.bc='#'+hex;
                     }
                 });
                  //2，字体颜色
@@ -1614,7 +1637,7 @@ $.fn.extend({
                         controlSet.children().css('color', '#'+hex);
                         $('.fontCol img').css('border-bottom-color', '#'+hex);
                         $(el).colpickHide();
-
+//                        controlNewVal.col='#'+hex;
                     }
                 });
                 //清除
@@ -1625,20 +1648,26 @@ $.fn.extend({
                     });
                     $('.fontCol img').css('border-bottom-color', '#333333');
                     $('.colConValShow').css('background-color', 'transparent');
+//                    controlNewVal.col='#333333';
+//                    controlNewVal.bc='transparent';
                 })
                 //字体大小
                 $('.shangla').click(function(){
                     var num=Number($('.fontSize > p span').text())+1;
                     $('.fontSize > p span').text(num);
                     controlSet.children().css('font-size',num+'px');
+//                    controlNewVal.fs=num
                 }); 
                 $('.xiala').click(function(){
                     var num=Number($('.fontSize > p span').text())-1;
                     if(num<=0){
-                        num=0;
+                        num=1;
                     }
+                    controlSet.children().css('font-size',num+'px');
                     $('.fontSize > p span').text(num);
+//                    controlNewVal.fs=num
                 });
+                
             };
             chageCss(control);
         }
