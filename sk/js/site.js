@@ -118,6 +118,10 @@ $(function(){
         })
         return false;
     })
+    //链接==》页面
+    $('.site_linePage ul li').click(function(){
+        $(this).addClass('current')
+    })
     //选择部门等增加和删除数据
     function addData(){
         var dataBox=$('.con li');
