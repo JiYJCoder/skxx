@@ -119,8 +119,10 @@ $(function(){
         return false;
     })
     //链接==》页面
-    $('.site_linePage ul li').click(function(){
-        $(this).addClass('current')
+    $('.site_linePage ul li').click(function(e){
+        e.stopPropagation();
+        $(".site_linePage").find("li").removeClass("current");
+        $(this).addClass('current');
     })
     //选择部门等增加和删除数据
     function addData(){
