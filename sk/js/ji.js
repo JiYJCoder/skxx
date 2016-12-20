@@ -135,14 +135,14 @@ var fontHtml=`<div class='component_font_font component_public'>
                         <ul class='clearfix'>
                             <li class='fontbold'>B</li>
                             <li class='fontI'><i>i</i></li>
-                            <li>U</li>
+                            <li class='fontX'>U</li>
                             <li>Tx</li>
                         </ul>
                     </div>
                 </li>
                 <li class='clearfix'>
                     <div class='colTitle publicTitle'>大小</div>
-                    <div class='fontSize'><p><span>12</span>px</p><img src='images/site_chageSize.png' alt='' class='shangla'><img src='images/site_xiala.png' alt='' class='xiala'>
+                    <div class='fontSize tbBox'><p><span>12</span>px</p><img src='images/site_chageSize.png' alt='' class='shangla'><img src='images/site_xiala.png' alt='' class='xiala'>
                     </div>
                 </li>
             </ul>
@@ -157,7 +157,7 @@ var fontAlignHtml=`<div class='component_public'>
             </ul>
             <div class='fontspacing clearfix'>
                 <div class='colTitle publicTitle'>行间距</div>
-                <div class='fontspacingVal'>
+                <div class='fontspacingVal tbBox'>
                     <span>1</span>
                     <img src='images/site_chageSize.png' alt='' class='shangla'>
                     <img src='images/site_xiala.png' alt='' class='xiala'>
@@ -1258,7 +1258,9 @@ $.fn.extend({
                 fontStyle:'normal',
                 backgroundColor:'transparent',
                 color:'#333333',
-                textDecoration:'none'
+                textDecoration:'none',
+                textAlign:'left',
+                lineHeight:'1em',
             });
             new Mian(box.find('>li:last'),controlSetHtmlArr);
         };
@@ -1339,10 +1341,47 @@ $.fn.extend({
                         box.find('.chageSize').hide();
                         cssSetBox.append(controlSetHtmlArr[liNum]);
                         var cssVal=controlSel.children().attr('style');
-                        var valArr=cssVal.split(';')
-                        var fonSizeVal=valArr[0].substring(11,valArr[0].length-2);
-                        //面板字体大小
-                        $('.fontSize p span').text(fonSizeVal);
+                        var valArr=cssVal.split(';');
+                        var fonSizeVal=valArr[0].substring(11,valArr[0].length-2);//文字大小值
+                        var fw=valArr[1].substring(14);//粗体
+                        var fs=valArr[2].substring(13);//斜体
+                        var td=valArr[5].substring(18);//下划线
+                        var bgc=valArr[3].substring(19);//背景颜色
+                        var col=valArr[4].substring(8);//字体颜色
+                        var ta=valArr[6].substring(13);//字体对齐方式
+                        var lh=valArr[7].substring(14,valArr[7].length-2);//行高
+                        console.log(lh);
+                        console.log(valArr);
+                        $('.fontSize p span').text(fonSizeVal);//面板字体大小
+                        if(fw=='bold'){
+                            $('.fontbold').addClass('current');
+                        }
+                        if(fs=='italic'){
+                            $('.fontI').addClass('current');
+                        }
+                        if(td=='underline'){
+                            $('.fontX').addClass('current');
+                        }
+                        if(bgc!='transparent'){
+                            $('.colConValShow').css({
+                                backgroundColor:bgc
+                            })
+                        }
+                        if(col!='rgb(51, 51, 51)'){
+                            $('.fontCol img').css({
+                                borderBottomColor:col
+                            })
+                        }
+                        if(ta=='center'){
+                            $('.font_text_align .center').addClass('current').siblings().removeClass('current');
+                        }else if(ta=='right'){
+                            $('.font_text_align .right').addClass('current').siblings().removeClass('current');
+                        }else if(ta=='justify'){
+                            $('.font_text_align .justify').addClass('current').siblings().removeClass('current');
+                        }
+                        if(lh!='1'){
+                            $('.fontspacingVal span').text(lh);
+                        }
                     }
                     valReturn();
                     $(this).find('.chageSize').show();
@@ -1560,7 +1599,6 @@ $.fn.extend({
                 resize(control.find('.Rotate'),false,false,false,false,false,false,false,false,true);
             }
             function chageCss(controlSet){
-//                var controlNewVal=$.extend({},controlVal);
                 //字体模块
                 $('.fontStyle ul li').click(function(){
                     if($(this).hasClass('current')){
@@ -1573,24 +1611,20 @@ $.fn.extend({
                         controlSet.children().css({
                             fontWeight:'bold'
                         });
-//                        controlNewVal.fw='bold';
                     }else if($(this).index()==0&&!$(this).hasClass('current')){
                         controlSet.children().css({
                             fontWeight:'normal'
                         })
-//                        controlNewVal.fw='normal';
                     }
                     //斜体
                     if($(this).index()==1&&$(this).hasClass('current')){
                         controlSet.children().css({
                             fontStyle:'italic'
                         });
-//                        controlNewVal.fontStyle='italic';
                     }else if($(this).index()==1&&!$(this).hasClass('current')){
                         controlSet.children().css({
                             fontStyle:'normal'
                         })
-//                        controlNewVal.fontStyle='normal'
                     }
                     //字体下划线
                     if($(this).index()==2&&$(this).hasClass('current')){
@@ -1602,7 +1636,6 @@ $.fn.extend({
                         controlSet.children().css({
                             textDecoration:'none'
                         });
-//                        controlNewVal.td='none'
                     }
                     //清楚字体样式
                     if($(this).index()==3){
@@ -1612,9 +1645,6 @@ $.fn.extend({
                             fontStyle:'normal',
                             fontWeight:'normal',
                         })
-//                        controlNewVal.td='none';
-//                        controlNewVal.fontStyle='normal';
-//                        controlNewVal.fw='normal';
                     }
                 });
                 //颜色模块
@@ -1626,7 +1656,6 @@ $.fn.extend({
                         controlSet.children().css('background-color', '#'+hex);
                         $('.colConValShow').css('background-color', '#'+hex);
                         $(el).colpickHide();
-//                        controlNewVal.bc='#'+hex;
                     }
                 });
                  //2，字体颜色
@@ -1637,7 +1666,6 @@ $.fn.extend({
                         controlSet.children().css('color', '#'+hex);
                         $('.fontCol img').css('border-bottom-color', '#'+hex);
                         $(el).colpickHide();
-//                        controlNewVal.col='#'+hex;
                     }
                 });
                 //清除
@@ -1648,25 +1676,58 @@ $.fn.extend({
                     });
                     $('.fontCol img').css('border-bottom-color', '#333333');
                     $('.colConValShow').css('background-color', 'transparent');
-//                    controlNewVal.col='#333333';
-//                    controlNewVal.bc='transparent';
                 })
-                //字体大小
+                //字体大小,行间距
                 $('.shangla').click(function(){
-                    var num=Number($('.fontSize > p span').text())+1;
-                    $('.fontSize > p span').text(num);
-                    controlSet.children().css('font-size',num+'px');
-//                    controlNewVal.fs=num
+                    var num=Number($(this).parents('.tbBox').find('span').text())+1;
+                    console.log(num);
+                    if($(this).parents('.fontSize').hasClass('fontSize')){
+                        $('.fontSize > p span').text(num);
+                        controlSet.children().css('font-size',num+'px');
+                    }else if($(this).parents('.fontspacingVal').hasClass('fontspacingVal')){
+                        $('.fontspacingVal span').text(num);
+                        controlSet.children().css({
+                            lineHeight:num+'em'
+                        });
+                    }
+                    
                 }); 
                 $('.xiala').click(function(){
-                    var num=Number($('.fontSize > p span').text())-1;
+                    var num=Number($(this).parents('.tbBox').find('span').text())-1;
                     if(num<=0){
                         num=1;
                     }
-                    controlSet.children().css('font-size',num+'px');
-                    $('.fontSize > p span').text(num);
-//                    controlNewVal.fs=num
+                    if($(this).parents('.fontSize').hasClass('fontSize')){
+                        controlSet.children().css('font-size',num+'px');
+                        $('.fontSize > p span').text(num);
+                    }else if($(this).parents('.fontspacingVal').hasClass('fontspacingVal')){
+                        $('.fontspacingVal span').text(num);
+                        controlSet.children().css({
+                            lineHeight:num+'em'
+                        });
+                    }
                 });
+                //对齐方式
+                $('.font_text_align li').click(function(){
+                    $(this).addClass('current').siblings().removeClass('current');
+                    if($(this).index()==0){
+                         controlSet.children().css({
+                             textAlign:'left'
+                         })
+                    }else if($(this).index()==1){
+                        controlSet.children().css({
+                             textAlign:'center'
+                         })
+                    }else if($(this).index()==2){
+                        controlSet.children().css({
+                             textAlign:'right'
+                         })
+                    }else if($(this).index()==3){
+                        controlSet.children().css({
+                             textAlign:'justify'
+                         })
+                    }
+                })
                 
             };
             chageCss(control);

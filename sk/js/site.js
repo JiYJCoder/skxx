@@ -23,20 +23,25 @@ $(function(){
     });
     //站点设置显示
     $('.showSel').click(function(){
-        $('.siteSet').show();
+        $('.siteSetShow').show();
         $('.ji_dataBg').show();
     });
     //站点设置品牌等切换
     $(".index input").click(function(e){
         e.stopPropagation();
         $('.sel select').attr('disabled',"disabled").eq($(this).parents('li').index()).attr('disabled',false)
-        
+    })
+    //隐藏链接设置
+    $('.siteLineColse').click(function(){
+        $('.siteLine').hide();
     })
     //站点设置TAB
     $('.siteSetConLeftBtn ul li').click(function(){
     		$(this).addClass('current').siblings().removeClass();
-    		$(".siteSetConShow").hide().eq($(this).index()).show(); 
-    		$(".siteSetbottom_save").hide().eq($(this).index()).show(); 
+    		$(".siteSetTabCon").hide().eq($(this).index()).show(); 
+    		$(".siteLineTab").hide().eq($(this).index()).show(); 
+    		$(".saveBtn").hide().eq($(this).index()).show(); 
+    		$(".siteLineBtn").hide().eq($(this).index()).show(); 
     //        $(".tab1").eq($(this).index()).show().siblings().hide(); 
     });
     //预览发布关闭
