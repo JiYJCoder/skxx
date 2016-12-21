@@ -168,7 +168,7 @@ var fontAlignHtml=`<div class='component_public'>
 //改变大小HTML
 var csHtml="<div class='chageSize'><div class='chageSizeLeft'><div class='wr size'></div><div class='nw size'></div><div class='sw size'></div></div><div class='chageSizeTop'><div class='nr size'></div><div class='Rotate'></div></div><div class='chageSizeRight'><div class='ne size'></div><div class='er size'></div><div class='es size'></div></div><div class='chageSizebottom'><div class='sr size'></div></div>";
 //字体控件HTML
-var textHtml="<li style='left: 25px; top: 190px; transform:rotate(0deg);width:92px;height:36px;' type='0'><div class='text'><div class='textCon'>双击输入文字</div></div>"+csHtml+"</li>";
+var textHtml="<li type='0'><div class='text'><div class='textCon'>双击输入文字</div></div>"+csHtml+"</li>";
 //字体设置html
 var textSetHtml=`<div class='panel'>
     <div class='site_pageComponent_con' style='display:block'>
@@ -182,7 +182,7 @@ var textSetHtml=`<div class='panel'>
 </div>`;
 
 //图片控件HTML
-var ImgHtml="<li style='left:100px;top:190px;transform:rotate(0deg);' type='1'><div class='Img'><img src='images/site_img.png'></div>"+csHtml+"</li>"
+var ImgHtml="<li type='1'><div class='Img'><img src='images/site_img.png'></div>"+csHtml+"</li>"
 //图片设置html
 var ImgSetHtml=`<div class='panel'>
               <div class="site_pageComponent_con" style="display:block">
@@ -268,7 +268,7 @@ var titleSetHtml=`<div class="panel">
               </div>
           </div>`;
 //标题控件HTML
-var titleHtml=`<li style='left:100px;top:190px;transform:rotate(0deg);width:194px;height:36px;' type='2'>
+var titleHtml=`<li type='2'>
                       
                       <div class="site_serch clearfix">
                           <div class="serchCon">标题标题标</div>
@@ -371,7 +371,7 @@ var atlasSetHtml=`<div class="panel">
               </div>
           </div>`;
 //图集控件
-var atlasHtml=`<li style='left:100px;top:190px;transform:rotate(0deg);width:147px;height:130px;' type='3'>
+var atlasHtml=`<li type='3'>
                       <div class="site_CAtlas">
                           <ul class="clearfix">
                               <li><img src="images/site_Atlas.png" alt=""></li>
@@ -388,7 +388,7 @@ var atlasHtml=`<li style='left:100px;top:190px;transform:rotate(0deg);width:147p
                       ${csHtml}
                   </li>`;
 //横线控件
-var HlineHtml=`<li style="left:100px;top:190px;transform:rotate(0deg);width:190px;height:20px;" type='4'><div class="Hline"><hr></div>${csHtml}</li>`;
+var HlineHtml=`<li type='4'><div class="Hline"><hr></div>${csHtml}</li>`;
 //横线控件设置HTML
 var HlineSetHtml=`<div class="panel">
               <div class="site_pageComponent_con" style="display:block;"></div>
@@ -422,10 +422,10 @@ var HlineSetHtml=`<div class="panel">
               </div>
           </div>`;
 //竖线控件
-var slineHtml=`<li style="left:100px;top:190px;transform:rotate(0deg);width:20px;height:190px;" type='5'><div class="sLine"><hr></div>${csHtml}</li>`;
+var slineHtml=`<li type='5'><div class="sLine"><hr></div>${csHtml}</li>`;
 
 //按钮控件
-var btnHtml=`<li style="left:100px;top:190px;transform:rotate(0deg);width:100px;height:40px;" type='6'><div class="bottonCon"><div class="botton"><p>按钮</p></div></div>${csHtml}</li>`;
+var btnHtml=`<li type='6'><div class="bottonCon"><div class="botton"><p>按钮</p></div></div>${csHtml}</li>`;
 //按钮设置
 var btnSetHtml=`<div class="panel">
               <div class="site_pageComponent_con" style="display:block;">
@@ -486,7 +486,7 @@ var btnSetHtml=`<div class="panel">
               </div>
           </div>`;
 //容器
-var  CboxHtml=`<li style="left:100px;top:190px;transform:rotate(0deg);width:130px;height:130px;" type='7'><div class="Cbox"><div class="CboxShow"></div></div>${csHtml}</li>`;
+var  CboxHtml=`<li type='7'><div class="Cbox"><div class="CboxShow"></div></div>${csHtml}</li>`;
 //容器设置
 var CboxSetHtml=`<div class="panel">
               <div class="site_pageComponent_con" style="display:block;">
@@ -500,7 +500,7 @@ var CboxSetHtml=`<div class="panel">
               </div>
           </div>`;
 //视频
-var videoHtml=`<li style="left:100px;top:190px;transform:rotate(0deg);width:80px;height:80px;" type='8'>
+var videoHtml=`<li type='8'>
                       <div class="video">
                           <div class="videoImg" style='pointer-events:none;'><embed src="http://player.youku.com/player.php/sid/XMTQ2Mjk2NDI5Mg==/v.swf" allowfullscreen="true" wmode="opaque" quality="high" height="100%" width="100%" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash"></div>
                       </div>
@@ -520,7 +520,7 @@ var videoSetHtml=`<div class="panel">
                   ${positionHtml}
               </div>
           </div>`;
-var musicHtml=`<li style="left:100px;top:190px;transform:rotate(0deg);width:80px;height:80px;" type='9'>
+var musicHtml=`<li type='9'>
                       <div class="video">
                           <div class="videoImg" style='pointer-events:none;'><audio loop="" src="http://mp3.haoduoge.com/music7/233898.mp3" preload=" "></audio></div>
                       </div>
@@ -541,8 +541,8 @@ var musicSetHtml=`<div class="panel">
               </div>
           </div>`;
 
-//幻灯片
-var hdpHtml=`<li style="left:100px;top:190px;transform:rotate(0deg);width:180px;height:100px;" type='10'>
+//轮播图
+var hdpHtml=`<li type='10'>
                       <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">Slide 1</div>
@@ -666,7 +666,7 @@ var hdpSetHtml=`<div class="panel">
               </div>
           </div>`;
 //导航
-var navHtml=`<li style="left:18px;top:190px;transform:rotate(0deg);width:290px;height:40px;" type='11'>
+var navHtml=`<li type='11'>
                       <div class="nav">
                           <div class="navUl clearfix">
                               <div class="navLi">
@@ -744,7 +744,8 @@ var navSetHtml=`<div class="panel">
                   ${positionHtml}
               </div>
           </div>`;
-var navBtnHtml=`<li style="left:18px;top:190px;transform:rotate(0deg);width:50px;height:50px;" type='12'>
+//导航按钮
+var navBtnHtml=`<li type='12'>
                       <div class="navBtn">
                           <div class="navBtnIcon">
                               <i class="icon-navBtn1"></i>
@@ -843,8 +844,8 @@ var navBtnSetHtml=`<div class="panel">
                   ${positionHtml}
               </div>
           </div>`;
-//表单
-var FormHtml=`<li style="top: 50%;left: 50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);" type='13'>
+//联系我们
+var FormHtml=`<li type='13'>
                       <div class="form">
                           <form action="">
                               <p>姓名</p>
@@ -908,7 +909,8 @@ var FormSetHtml=`<div class="panel">
                   ${positionHtml}
               </div>
           </div>`;
-var mapHtml=`<li style="left:18px;top:190px;transform:rotate(0deg);width:170px;height:135px;" type='14'>
+//地图
+var mapHtml=`<li type='14'>
                       <div class="map" id="baiduMap">
                           
                       </div>
@@ -930,7 +932,8 @@ var mapSetHtml=`<div class="panel">
                   ${positionHtml}
               </div>
           </div>`;
-var cmListHtml=`<li style="left:13px;top:150px;transform:rotate(0deg);width:297px;height:270px;" type='15'>
+//商品列表
+var cmListHtml=`<li type='15'>
                       <div class="commodityList">
                           <div class="commodityListCon">
                               <div class="commodityListConShow clearfix">
@@ -1036,7 +1039,8 @@ var cmListSetHtml=`<div class="panel">
                   ${csHtml}
               </div>
           </div>`;
-var ewmHtml=`<li style="left:120px;top:150px;transform:rotate(0deg);width:70px;height:70px;" type='16'>
+//二维码
+var ewmHtml=`<li type='16'>
                       <div class="ewm">
                           <img src="images/erweima.png" alt="">
                       </div>
@@ -1056,7 +1060,8 @@ var ewmSetHtml=`<div class="panel">
                   
               </div>
           </div>`;
-var weixinHtml=`<li style="left:120px;top:150px;transform:rotate(0deg);width:70px;height:70px;" type='17'>
+//公众号
+var weixinHtml=`<li type='17'>
                       <div class="ewm weixin">
                           <img src="images/weixin.png" alt="">
                       </div>
@@ -1137,59 +1142,200 @@ $.fn.extend({
                     lineHeight:'1',
                     width:'92',
                     height:'36',
-                    left:'25',
+                    left:'110',
                     top:'190',
+                    transform:'rotate(0deg)',
                 });
                 break;
             case 1:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>图片</li>");
-                creControlHtml(ImgHtml,ImgSetHtml);
+                creControlHtml(ImgHtml,ImgSetHtml,{
+                    fontSize:'12',
+                    fontWeight:'normal',
+                    fontStyle:'normal',
+                    backgroundColor:'transparent',
+                    color:'#333333',
+                    textDecoration:'none',
+                    textAlign:'left',
+                    lineHeight:'1',
+                    width:'92',
+                    height:'80',
+                    left:'100',
+                    top:'190',
+                    transform:'rotate(0deg)',
+                });
                 break;
             case 2:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>标题</li>");
-                creControlHtml(titleHtml,titleSetHtml);
+                creControlHtml(titleHtml,titleSetHtml,{
+                    fontSize:'12',
+                    fontWeight:'normal',
+                    fontStyle:'normal',
+                    backgroundColor:'transparent',
+                    color:'#333333',
+                    textDecoration:'none',
+                    textAlign:'left',
+                    lineHeight:'1',
+                    width:'194',
+                    height:'36',
+                    left:'64',
+                    top:'172',
+                    transform:'rotate(0deg)',
+                });
                 break;
             case 3:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>图集</li>");
-                creControlHtml(atlasHtml,atlasSetHtml);
+                creControlHtml(atlasHtml,atlasSetHtml,{
+                    fontSize:'12',
+                    fontWeight:'normal',
+                    fontStyle:'normal',
+                    backgroundColor:'transparent',
+                    color:'#333333',
+                    textDecoration:'none',
+                    textAlign:'left',
+                    lineHeight:'1',
+                    width:'147',
+                    height:'130',
+                    left:'88',
+                    top:'99',
+                    transform:'rotate(0deg)',
+                });
                 break;
             case 4:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>横线</li>");
-                creControlHtml(HlineHtml,HlineSetHtml);
+                creControlHtml(HlineHtml,HlineSetHtml,{
+                    fontSize:'12',
+                    fontWeight:'normal',
+                    fontStyle:'normal',
+                    backgroundColor:'transparent',
+                    color:'#333333',
+                    textDecoration:'none',
+                    textAlign:'left',
+                    lineHeight:'1',
+                    width:'190',
+                    height:'20',
+                    left:'68',
+                    top:'188',
+                    transform:'rotate(0deg)',
+                });
                 break;
             case 5:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>竖线</li>");
-                creControlHtml(slineHtml,HlineSetHtml);
+                creControlHtml(slineHtml,HlineSetHtml,{
+                    fontSize:'12',
+                    fontWeight:'normal',
+                    fontStyle:'normal',
+                    backgroundColor:'transparent',
+                    color:'#333333',
+                    textDecoration:'none',
+                    textAlign:'left',
+                    lineHeight:'1',
+                    width:'20',
+                    height:'190',
+                    left:'146',
+                    top:'190',
+                    transform:'rotate(0deg)',
+                });
                 break;
             case 6:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>按钮</li>");
-                creControlHtml(btnHtml,btnSetHtml);
+                creControlHtml(btnHtml,btnSetHtml,{
+                    fontSize:'12',
+                    fontWeight:'normal',
+                    fontStyle:'normal',
+                    backgroundColor:'transparent',
+                    color:'#333333',
+                    textDecoration:'none',
+                    textAlign:'left',
+                    lineHeight:'1',
+                    width:'100',
+                    height:'40',
+                    left:'100',
+                    top:'190',
+                    transform:'rotate(0deg)',
+                });
                 break;
             case 7:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>容器</li>");
-                creControlHtml(CboxHtml,CboxSetHtml);
+                creControlHtml(CboxHtml,CboxSetHtml,{
+                    fontSize:'12',
+                    fontWeight:'normal',
+                    fontStyle:'normal',
+                    backgroundColor:'transparent',
+                    color:'#333333',
+                    textDecoration:'none',
+                    textAlign:'left',
+                    lineHeight:'1',
+                    width:'130',
+                    height:'130',
+                    left:'100',
+                    top:'190',
+                    transform:'rotate(0deg)',
+                });
                 break;
             case 8:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>视频</li>");
-                creControlHtml(videoHtml,videoSetHtml);
+                creControlHtml(videoHtml,videoSetHtml,{
+                    fontSize:'12',
+                    fontWeight:'normal',
+                    fontStyle:'normal',
+                    backgroundColor:'transparent',
+                    color:'#333333',
+                    textDecoration:'none',
+                    textAlign:'left',
+                    lineHeight:'1',
+                    width:'80',
+                    height:'80',
+                    left:'100',
+                    top:'190',
+                    transform:'rotate(0deg)',
+                });
                 break;
             case 9:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>音乐</li>");
-                creControlHtml(musicHtml,musicSetHtml);
+                creControlHtml(musicHtml,musicSetHtml,{
+                    fontSize:'12',
+                    fontWeight:'normal',
+                    fontStyle:'normal',
+                    backgroundColor:'transparent',
+                    color:'#333333',
+                    textDecoration:'none',
+                    textAlign:'left',
+                    lineHeight:'1',
+                    width:'80',
+                    height:'80',
+                    left:'100',
+                    top:'190',
+                    transform:'rotate(0deg)',
+                });
                 break;
             case 10:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>轮播图</li>");
-                creControlHtml(hdpHtml,hdpSetHtml);
+                creControlHtml(hdpHtml,hdpSetHtml,{
+                    fontSize:'12',
+                    fontWeight:'normal',
+                    fontStyle:'normal',
+                    backgroundColor:'transparent',
+                    color:'#333333',
+                    textDecoration:'none',
+                    textAlign:'left',
+                    lineHeight:'1',
+                    width:'180',
+                    height:'130',
+                    left:'75',
+                    top:'174',
+                    transform:'rotate(0deg)',
+                });
                 var swiper = new Swiper('.swiper-container', {
                     pagination: '.swiper-pagination',
                     paginationType : 'progress',
@@ -1205,22 +1351,78 @@ $.fn.extend({
             case 11:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>导航</li>");
-                creControlHtml(navHtml,navSetHtml);
+                creControlHtml(navHtml,navSetHtml,{
+                    fontSize:'12',
+                    fontWeight:'normal',
+                    fontStyle:'normal',
+                    backgroundColor:'transparent',
+                    color:'#333333',
+                    textDecoration:'none',
+                    textAlign:'left',
+                    lineHeight:'1',
+                    width:'290',
+                    height:'40',
+                    left:'15',
+                    top:'0',
+                    transform:'rotate(0deg)',
+                });
                 break;
             case 12:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>导航按钮</li>");
-                creControlHtml(navBtnHtml,navBtnSetHtml);
+                creControlHtml(navBtnHtml,navBtnSetHtml,{
+                    fontSize:'12',
+                    fontWeight:'normal',
+                    fontStyle:'normal',
+                    backgroundColor:'transparent',
+                    color:'#333333',
+                    textDecoration:'none',
+                    textAlign:'left',
+                    lineHeight:'1',
+                    width:'50',
+                    height:'50',
+                    left:'100',
+                    top:'190',
+                    transform:'rotate(0deg)',
+                });
                 break;
             case 13:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>联系我们</li>");
-                creControlHtml(FormHtml,FormSetHtml);
+                creControlHtml(FormHtml,FormSetHtml,{
+                    fontSize:'12',
+                    fontWeight:'normal',
+                    fontStyle:'normal',
+                    backgroundColor:'transparent',
+                    color:'#333333',
+                    textDecoration:'none',
+                    textAlign:'left',
+                    lineHeight:'1',
+                    width:'280',
+                    height:'340',
+                    left:'163',
+                    top:'402',
+                    transform:'translate(-50%,-50%)',
+                });
                 break;
             case 14:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>地图</li>");
-                creControlHtml(mapHtml,mapSetHtml);
+                creControlHtml(mapHtml,mapSetHtml,{
+                    fontSize:'12',
+                    fontWeight:'normal',
+                    fontStyle:'normal',
+                    backgroundColor:'transparent',
+                    color:'#333333',
+                    textDecoration:'none',
+                    textAlign:'left',
+                    lineHeight:'1',
+                    width:'170',
+                    height:'135',
+                    left:'100',
+                    top:'190',
+                    transform:'rotate(0deg)',
+                });
                 var map = new BMap.Map("baiduMap");         // 创建地图实例
 //                map.addEventListener("click",function(e){
 //                    map.clearOverlays();
@@ -1245,17 +1447,59 @@ $.fn.extend({
             case 15:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>商品列表</li>");
-                creControlHtml(cmListHtml,cmListSetHtml);
+                creControlHtml(cmListHtml,cmListSetHtml,{
+                    fontSize:'12',
+                    fontWeight:'normal',
+                    fontStyle:'normal',
+                    backgroundColor:'transparent',
+                    color:'#333333',
+                    textDecoration:'none',
+                    textAlign:'left',
+                    lineHeight:'1',
+                    width:'297',
+                    height:'270',
+                    left:'12',
+                    top:'270',
+                    transform:'rotate(0deg)',
+                });
                 break;
             case 16:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>二维码</li>");
-                creControlHtml(ewmHtml,ewmSetHtml);
+                creControlHtml(ewmHtml,ewmSetHtml,{
+                    fontSize:'12',
+                    fontWeight:'normal',
+                    fontStyle:'normal',
+                    backgroundColor:'transparent',
+                    color:'#333333',
+                    textDecoration:'none',
+                    textAlign:'left',
+                    lineHeight:'1',
+                    width:'70',
+                    height:'70',
+                    left:'100',
+                    top:'190',
+                    transform:'rotate(0deg)',
+                });
                 break;
             case 17:
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>公众号</li>");
-                creControlHtml(weixinHtml,weixinSetHtml);
+                creControlHtml(weixinHtml,weixinSetHtml,{
+                    fontSize:'12',
+                    fontWeight:'normal',
+                    fontStyle:'normal',
+                    backgroundColor:'transparent',
+                    color:'#333333',
+                    textDecoration:'none',
+                    textAlign:'left',
+                    lineHeight:'1',
+                    width:'70',
+                    height:'70',
+                    left:'100',
+                    top:'190',
+                    transform:'rotate(0deg)',
+                });
                 break;
         };
         //生成html
@@ -1276,6 +1520,13 @@ $.fn.extend({
                 textAlign:defaultCssSet.textAlign,
                 lineHeight:defaultCssSet.lineHeight+'em',
             });
+            box.find('>li:last').css({
+                width:defaultCssSet.width+'px',
+                height:defaultCssSet.height+'px',
+                left:defaultCssSet.left+'px',
+                top:defaultCssSet.top+'px',
+                transform:defaultCssSet.transform,
+            })
             //设置控件面板默认值
             function panelDefaultVal(){
                 $('.bgCol .colConValShow').css({
@@ -1803,6 +2054,31 @@ $.fn.extend({
                     }else if($(this).parent().index()==3){
                         controlSet.css({
                             top:$(this).val()+'px'
+                        })
+                    }
+                });
+                //图片模式设置
+                $('.bgStyle ul li').click(function(){
+                    var img =new Image();
+                    img.src = $('.Img >img').attr('src');
+                    if($(this).index()==0){
+                        $('.Img >img').css({
+                            objectFit:'cover'
+                        })
+                    }
+                    if($(this).index()==1){
+                        $('.Img >img').css({
+                            objectFit:'contain'
+                        })
+                    }
+                    if($(this).index()==2){
+                        $('.Img >img').css({
+                            objectFit:'fill'
+                        })
+                    }
+                    if($(this).index()==3){
+                        $('.Img >img').css({
+                            objectFit:'none'
                         })
                     }
                 })

@@ -140,6 +140,11 @@ $(function(){
     $('.siteLine_Features ul li').click(function(){
         $(this).addClass('current').siblings().removeClass('current');
     })
+    $('.bgStyle ul li').click(function(){
+        console.log(1)
+        $(this).addClass('current').siblings().removeClass('current');
+    })
+    base.sel('.bgStyle ul li')
     //选择部门等增加和删除数据
     function addData(){
         var dataBox=$('.con li');
@@ -221,9 +226,9 @@ $(function(){
             file.readAsDataURL(this.files[0]);
         }
     }
-    base.sel($('.site_PageheadSet_val ul li'))
-    base.sel($('#site_zx ul li'))
-    base.sel($('#site_hx ul li'))
+    base.sel('.site_PageheadSet_val ul li')
+    base.sel('#site_zx ul li')
+    base.sel('#site_hx ul li')
     base.tip($('.site_tip ul li'));
     imgfile()
 //    console.log(decodeURIComponent($('#baseForm').serialize()))
