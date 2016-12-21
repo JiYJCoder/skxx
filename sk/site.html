@@ -543,57 +543,127 @@ accountBtn saveBtn">
                     <li><p>邮件</p></li>
                 </ul>
             </div>
-            <div class="siteSetConShow clearLineStyle siteLineTab" >
+            <div class="siteSetConShow clearLineStyle siteLineTab" style="display:block">
                 <div class="site_lineTitle">
-                    请选择链接功能
+                    请选择链接的页面
                 </div>
-                <div class="siteLine_Features">
+                <div class="siteLine_Features lineVal">
                     <ul class="clearfix">
-                        <li class="current">无链接</li>
-                        <li>滑动到顶部</li>
-                        <li>滑动到底部</li>
+                        <li datalineVal='空'>无链接</li>
+                        <li class="current" datalineVal='top'>滑动到顶部</li>
+                        <li datalineVal='bottom'>滑动到底部</li>
                     </ul>
                 </div>
             </div>
-            <div class="siteSetConShow siteLineTab clearLineStyle" style="display:block">
+            <div class="siteSetConShow siteLineTab clearLineStyle">
                 <div class="site_lineTitle">
                     请选择链接功能
                 </div>
-                <div class="site_linePage">
+                <div class="site_linePage lineVal">
                     <ul>
-                        <li class="current fj">
+                        <li class="fj">
                             <p>关于我们<span class="btn"></span></p>
                             <ul>
-                                <li class="child"><p>关于他们<span class="btn"></span></p></li>
+                                <li class="child current" datalineVal='测试'><p>关于他们<span class="btn"></span></p></li>
                             </ul>
                         </li>
                         <li class="fj">
                             <p>关于我们<span class="btn"></span></p>
-                            
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="siteSetConShow siteLineTab">
-                 
+            <div class="siteSetConShow siteLineTab clearLineStyle">
+                <div class="site_lineTitle">
+                    请选择链接的店铺
+                </div>
+                <div class="site_lineshop lineShopAjax lineVal">
+                    <ul>
+                        <li class="current">
+                            <p class="title">店铺名称</p>
+                            <span>这是描述</span>
+                            <i></i>
+                        </li>
+                        <li>
+                            <p class="title">店铺名称</p>
+                            <span>这是描述</span>
+                            <i></i>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="siteSetConShow siteLineTab">
-                
+            <div class="siteSetConShow siteLineTab clearLineStyle">
+                <div class="site_lineTitle">
+                    请选择链接的店铺内的商品
+                </div>
+                <div class="site_lineCommodityBtn">
+                    <ul>
+                        <li class="current">店铺1</li>
+                        <li>店铺1</li>
+                    </ul>
+                </div>
+                <div class="site_lineCommodityCon lineVal" style="display:block">
+                    <ul>
+                        <li><p class="title">商品名称</p><span>这是描述</span><i></i></li>
+                        <li><p class="title">商品名称</p><span>这是描述</span><i></i></li>
+                    </ul>
+                </div>
+                <div class="site_lineCommodityCon lineVal">
+                    <ul>
+                        <li><p class="title">名称</p><span>这是描述</span><i></i></li>
+                    </ul>
+                </div>
             </div>
-            <div class="siteSetConShow siteLineTab">
-                
+            <div class="siteSetConShow siteLineTab clearLineStyle">
+                <div class="site_lineTitle">
+                    请选择链接的海报
+                </div>
+                <div class="site_lineshop lineShopAjax lineVal">
+                    <ul>
+                        <li class="current">
+                            <p class="title">海报</p>
+                            <span>这是描述</span>
+                            <i></i>
+                        </li>
+                        <li>
+                            <p class="title">店铺名称</p>
+                            <span>这是描述</span>
+                            <i></i>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="siteSetConShow siteLineTab">
-                
+            <div class="siteSetConShow siteLineTab clearLineStyle">
+                <div class="site_lineTitle">
+                    请输入链接的URL地址
+                </div>
+                <div class="site_lineUrl">
+                    <input type="text" placeholder="请输入要链接的地址">
+                </div>
             </div>
-            <div class="siteSetConShow siteLineTab">
-                
+            <div class="siteSetConShow siteLineTab clearLineStyle">
+                <div class="site_lineTitle">
+                    请输入电话号码
+                </div>
+                <div class="site_lineUrl">
+                    <input type="text" placeholder="请输入电话号码">
+                </div>
             </div>
-            <div class="siteSetConShow siteLineTab">
-                
+            <div class="siteSetConShow siteLineTab clearLineStyle">
+                <div class="site_lineTitle">
+                    请输入短信内容
+                </div>
+                <div class="site_lineUrl">
+                    <input type="text" placeholder="请输入短信内容">
+                </div>
             </div>
-            <div class="siteSetConShow siteLineTab">
-                
+            <div class="siteSetConShow siteLineTab clearLineStyle">
+                <div class="site_lineTitle">
+                    请输入要链接的邮件地址
+                </div>
+                <div class="site_lineUrl">
+                    <input type="text" placeholder="请输入邮件地址">
+                </div>
             </div>
         </div>
         <div class="siteSetbottom">
@@ -917,9 +987,6 @@ accountBtn saveBtn">
                 if($(this).attr('type') !=undefined){
                     $(this).generate({
                         type:typeVal,
-                        defaultSet:{
-                            height:'100px'
-                        }
                     })
                 }
                 return false;

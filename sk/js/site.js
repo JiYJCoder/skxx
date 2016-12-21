@@ -28,12 +28,13 @@ $(function(){
     });
     //站点设置品牌等切换
     $(".index input").click(function(e){
-        e.stopPropagation();
+        e.prevenDefault();
         $('.sel select').attr('disabled',"disabled").eq($(this).parents('li').index()).attr('disabled',false)
     })
     //隐藏链接设置
     $('.siteLineColse').click(function(){
         $('.siteLine').hide();
+        $('.ji_dataBg').hide();
     })
     //站点设置TAB
     $('.siteSetConLeftBtn ul li').click(function(){
@@ -123,6 +124,21 @@ $(function(){
         e.stopPropagation();
         $(".site_linePage").find("li").removeClass("current");
         $(this).addClass('current');
+    });
+    //链接==》店铺
+    $('.site_lineshop ul li').click(function(){
+        $(this).addClass('current').siblings().removeClass('current');
+    });
+    //链接==》商品TAB
+    $('.site_lineCommodityBtn ul li').click(function(){
+    		$(this).addClass('current').siblings().removeClass();
+    		$(".site_lineCommodityCon").hide().eq($(this).index()).show(); 
+    });
+    $('.site_lineCommodityCon ul li').click(function(){
+        $(this).addClass('current').siblings().removeClass('current');
+    });
+    $('.siteLine_Features ul li').click(function(){
+        $(this).addClass('current').siblings().removeClass('current');
     })
     //选择部门等增加和删除数据
     function addData(){

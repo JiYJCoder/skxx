@@ -111,7 +111,7 @@ var linkHtml=`<div class="component_public">
                       <ul>
                           <li class="clearfix">
                               <div class="colTitle publicTitle">地<span class="op">地址</span>址</div>
-                              <div class="lineBtn"></div>
+                              <div class="lineBtn lineSetVal"></div>
                           </li>
                       </ul>
                   </div>`;
@@ -123,7 +123,7 @@ var fontHtml=`<div class='component_font_font component_public'>
                     <div class='colCon clearfix'>
                         <ul class='clearfix'>
                             <li class='bgCol'><div class='colConValShow'></div></li>
-                            <li class='fontCol'>
+                            <li>
                             <div class='fontCol'><img src='images/site_fontA.png' alt=''></div></li>
                             <li class='fontDelCol'>DEL</li>
                         </ul>
@@ -1126,7 +1126,20 @@ $.fn.extend({
             case 0://生成文字
                 controlBtnBox.find('li').removeClass('current');
                 controlBtnBox.append("<li class='current'>文本框</li>");
-                creControlHtml(textHtml,textSetHtml);
+                creControlHtml(textHtml,textSetHtml,{
+                    fontSize:'12',
+                    fontWeight:'normal',
+                    fontStyle:'normal',
+                    backgroundColor:'transparent',
+                    color:'#333333',
+                    textDecoration:'none',
+                    textAlign:'left',
+                    lineHeight:'1',
+                    width:'92',
+                    height:'36',
+                    left:'25',
+                    top:'190',
+                });
                 break;
             case 1:
                 controlBtnBox.find('li').removeClass('current');
@@ -1246,22 +1259,40 @@ $.fn.extend({
                 break;
         };
         //生成html
-        function creControlHtml(controlHtml,controlSetHtml){
+        function creControlHtml(controlHtml,controlSetHtml,defaultCssSet){
             controlSetHtmlArr[setting.type]=controlSetHtml;
             box.find('.chageSize').hide();//隐藏旧控件控制html
             cssSetBox.find('.panel').remove();//删除旧控件设置html
             cssSetBox.append(controlSetHtml);//生成新控件设置html
             box.append(controlHtml);//生成新控件html
+            //设置控件默认值
             box.find('>li:last').children().css({
-                fontSize:'12px',
-                fontWeight:'normal',
-                fontStyle:'normal',
-                backgroundColor:'transparent',
-                color:'#333333',
-                textDecoration:'none',
-                textAlign:'left',
-                lineHeight:'1em',
+                fontSize:defaultCssSet.fontSize+'px',
+                fontWeight:defaultCssSet.fontWeight,
+                fontStyle:defaultCssSet.fontStyle,
+                backgroundColor:defaultCssSet.backgroundColor,
+                color:defaultCssSet.color,
+                textDecoration:defaultCssSet.textDecoration,
+                textAlign:defaultCssSet.textAlign,
+                lineHeight:defaultCssSet.lineHeight+'em',
             });
+            //设置控件面板默认值
+            function panelDefaultVal(){
+                $('.bgCol .colConValShow').css({
+                    backgroundColor:defaultCssSet.backgroundColor
+                });
+                $('.fontCol img').css({
+                    borderBottomColor:defaultCssSet.color
+                });
+                $('.tbBox p span').text(defaultCssSet.fontSize);
+                $('.font_text_align li.left').addClass('current');
+                $('.fontspacingVal span').text(defaultCssSet.lineHeight);
+                $('.fontcssSet li input').eq(0).val(defaultCssSet.width)
+                $('.fontcssSet li input').eq(1).val(defaultCssSet.height)
+                $('.fontcssSet li input').eq(2).val(defaultCssSet.left)
+                $('.fontcssSet li input').eq(3).val(defaultCssSet.top)
+            }
+            panelDefaultVal()
             new Mian(box.find('>li:last'),controlSetHtmlArr);
         };
         
@@ -1313,7 +1344,7 @@ $.fn.extend({
                 controlSel.click(function(){
                     var textCon=$(this).find('.textCon');
                     var liNum=Number($(this).attr('type'));
-                    
+                    $('.site_pageComponent_Btn ul li').eq(0).addClass('current').siblings().removeClass('current');
                     //判断控件是否不可输入
                      if(!(textCon.attr("contenteditable")=='true')){
                            $(this).parents('li').removeClass('heightIm')
@@ -1350,8 +1381,8 @@ $.fn.extend({
                         var col=valArr[4].substring(8);//字体颜色
                         var ta=valArr[6].substring(13);//字体对齐方式
                         var lh=valArr[7].substring(14,valArr[7].length-2);//行高
-                        console.log(lh);
-                        console.log(valArr);
+//                        console.log(lh);
+//                        console.log(valArr);
                         $('.fontSize p span').text(fonSizeVal);//面板字体大小
                         if(fw=='bold'){
                             $('.fontbold').addClass('current');
@@ -1382,6 +1413,14 @@ $.fn.extend({
                         if(lh!='1'){
                             $('.fontspacingVal span').text(lh);
                         }
+                        //设置链接
+                        $('.lineSetVal').text(controlSel.attr('linedata'));
+                        //设置高度宽度，Top,left
+                        $('.fontcssSet li').eq(0).find('input').val(controlSel.width())
+                        $('.fontcssSet li').eq(1).find('input').val(controlSel.height())
+                        $('.fontcssSet li').eq(2).find('input').val(controlSel.position().left)
+                        $('.fontcssSet li').eq(3).find('input').val(controlSel.position().top)
+                        
                     }
                     valReturn();
                     $(this).find('.chageSize').show();
@@ -1726,6 +1765,45 @@ $.fn.extend({
                         controlSet.children().css({
                              textAlign:'justify'
                          })
+                    }
+                });
+                //链接获取值
+                function getLineVal(){
+                    //弹出链接框
+                    $('.lineSetVal').click(function(){
+                        $('.siteLine').show();
+                        $('.ji_dataBg').show();
+                        controlSet.attr('lineData','缺省');
+                    });
+                    $('.siteSetbottom_save').click(function(){
+                        var lineCurrent=$('.lineVal ul li.current');
+//                        console.log(lineCurrent.is(':hidden'));
+                        $(lineCurrent).each(function(){
+                            if(!$(this).is(':hidden')){
+                                $('.lineBtn').text($(this).attr('datalineVal'));
+                                controlSet.attr('lineData',$(this).attr('datalineVal'));
+                            }
+                        });
+                        $('.siteLine').hide();
+                        $('.ji_dataBg').hide();
+                    })
+                }
+                getLineVal();
+                //设置宽高XY
+                $('.fontcssSet li').find('input').keyup(function(){
+                    if($(this).parent().index()==0){
+                        controlSet.width($(this).val());
+                    }else if($(this).parent().index()==1){
+                        controlSet.height($(this).val());
+                    }else if($(this).parent().index()==2){
+                        console.log(1);
+                        controlSet.css({
+                            left:$(this).val()+'px'
+                        })
+                    }else if($(this).parent().index()==3){
+                        controlSet.css({
+                            top:$(this).val()+'px'
+                        })
                     }
                 })
                 

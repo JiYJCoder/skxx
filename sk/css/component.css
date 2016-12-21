@@ -1170,7 +1170,7 @@
 .form{
     width: 280px;
     height: 340px;
-    background-color: #fff;
+    background-color: #fff!important;
     border-radius: 4px;
     padding-left: 10px;
     padding-top: 10px;
