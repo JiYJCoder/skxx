@@ -1622,11 +1622,11 @@ a:active{blr:expression(this.onFocus=this.blur());}
 }
 .site_imgBox{
     width: 800px;
-    height: 497px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
+    box-shadow: 0 0 1px 0px;
 }
 .site_imgBoxTitle{
     height: 40px;
@@ -1685,8 +1685,137 @@ a:active{blr:expression(this.onFocus=this.blur());}
     font-size:0px;
     cursor: pointer;
 }
+.site_ImgList{
+    padding: 10px;
+    background-color: #fff;
+    height: 290px;
+    overflow: hidden;
+    display: none;
+}
+.site_ImgList >ul{
+    width: 788px;
+}
+.site_ImgList >ul >li {
+    width: 187px;
+    height: 138px;
+    float: left;
+    border: 1px solid #fff;
+    border-radius:6px;
+    margin-right: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+}
 
-
+.site_ImgList >ul >li.current{
+    border: 1px solid #ffffff;
+    box-shadow: 0 0 1px 1px
+}
+.site_ImgList ul li:hover{
+    border: 1px solid #ffffff;
+    box-shadow: 0 0 1px 1px
+}
+.site_ImgList ul li img{
+    border-radius: 6px;
+}
+.site_ImgList ul li i{
+    display: block;
+    width: 37px;
+    height: 37px;
+    background:url('../images/defaultImgSel.png') no-repeat;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: none;
+}
+.site_ImgListSel{
+    height: 60px;
+    background-color: #f2f2f2;
+    padding: 6px 9px;
+    overflow: hidden;
+}
+.site_ImgListSel ul{
+    width: 792px;
+}
+.site_ImgListSel ul li {
+    background-color: #f8f8f8;
+    border:2px dotted #dedede; 
+    width: 76px;
+    height: 56px;
+    float: left;
+    margin-right: 8px;
+}
+.site_ImgListBtn{
+    height: 38px;
+    background-color: #dedede;
+    position: relative;
+}
+.site_ImgListSave{
+    position: absolute;
+    right: 9px;
+    top: 4px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #438eb9;
+    width: 82px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+.material{
+    padding-top: 39px;
+    position: relative;
+}
+.materialBtn{
+    position: absolute;
+    top: 5px;
+    left: 18px;
+}
+.materialBtn ul li {
+    float: left;
+    background-color: #dedede;
+    border-radius: 3px;
+    border:1px solid #dedede;
+    width: 58px;
+    height: 22px;
+    text-align: center;
+    line-height: 22px;
+    margin-right: 10px;
+}
+.materialBtn{
+    width: 777px;
+}
+.materialBtn ul li.current{
+    border: 1px solid #438eb9;
+    background-color: #fff;
+    box-shadow: 0 0 1px 0px;
+}
+.imgSearch{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 122px;
+    height: 24px;
+}
+.searchIcon{
+    position: absolute;
+    top: 5px;
+    right: 4px;
+    cursor: pointer;
+}
+.imgSearch input{
+    display: block;
+    padding-left: 5px;
+    width: 117px;
+    height: 24px;
+    background: 0;
+    border: 0;
+    background-color: #bbbbbb;
+    border-radius: 3px;
+    color: #fff;
+    line-height: 24px;
+}
 
 
 

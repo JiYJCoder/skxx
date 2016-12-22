@@ -56,9 +56,15 @@ $(function(){
     base.sel('.siteLine_Features ul li');//链接==》功能选择
     base.sel('#site_zx ul li');//页面设置==》横向选择
     base.sel('#site_hx ul li');//页面设置==》纵向选择
-    base.sel('.siteLine_Features ul li');
     base.sel('.bgStyle ul li');//面板背景选择
+    base.sel('.materialBtn ul li');//面板背景选择
     base.tip($('.site_tip ul li'));//功能栏Tip
+    base.tab('.site_imgBoxBtn ul li','.site_ImgList')//图片素材库
+    $('.site_ImgList >ul >li').click(function(){
+        $(this).addClass('current').siblings().removeClass('current');
+        $('.site_ImgList >ul >li').find('i').hide();
+        $(this).find('i').show();
+    })
     //选择部门等增加和删除数据
     function addData(){
         var dataBox=$('.con li');
