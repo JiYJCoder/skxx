@@ -18,7 +18,30 @@ base.tip=function(obj){
 }
 //选择
 base.sel=function(obj){
-    $(document).on('click','obj',function(){
+    $(document).on('click',obj,function(){
         $(this).addClass('current').siblings().removeClass('current');
     })
+}
+base.close=function (closeBtn,Box,showBtn,bg){
+    $(closeBtn).click(function(){
+        $(Box).fadeOut(300);
+        $(bg).hide();
+    });
+    $(showBtn).click(function(){
+        $(Box).fadeIn(200);
+        $(bg).show();
+    })
+};
+base.hover=function(btn,box){
+    $(btn).hover(function(){
+        $(this).find(box).show();
+    },function(){
+        $(this).find(box).hide();
+    })
+}
+base.tab=function(btn,box){
+    $(btn).click(function(){
+        $(this).addClass('current').siblings().removeClass();
+        $(box).hide().eq($(this).index()).show(); 
+    });
 }
