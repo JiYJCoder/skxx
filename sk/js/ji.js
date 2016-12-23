@@ -372,7 +372,7 @@ var atlasSetHtml=`<div class="panel">
           </div>`;
 //图集控件
 var atlasHtml=`<li type='3'>
-                      <div class="site_CAtlas">
+                      <div class="site_CAtlas Img">
                           <ul class="clearfix">
                               <li><img src="images/site_Atlas.png" alt=""></li>
                               <li><img src="images/site_Atlas.png" alt=""></li>
@@ -1888,6 +1888,66 @@ $.fn.extend({
                     })
                 }
                 getLineVal();
+                //图库
+                function getImgVal(){
+                    var num=controlSet.find('.Img img').size();
+                    var imgSet=controlSet.find('.Img img');
+                    var ImgValBox=$('.site_ImgListSel ul li img');
+                    $('.ImgShow').click(function(){
+                        $('.site_imgBox').show();
+                        $('.ji_dataBg').show();
+                        ImgValBox.attr('src','');
+                        $('.site_ImgList >ul >li').removeClass('current');
+                        $('.site_ImgList >ul >li').find('i').hide();
+                    });
+                    $('.site_ImgList >ul >li').click(function(){
+                        var imgSrc=$(this).find('img').attr('src');
+                        //单图模式
+                        if(num==1&&!$(this).hasClass('current')){
+                            $(this).addClass('current').siblings().removeClass('current');
+                            $('.site_ImgList >ul >li').find('i').hide();
+                            $(this).find('i').show();
+                            ImgValBox.eq(0).attr('src',imgSrc);
+                        }else if($(this).hasClass('current')&&num==1){
+                            $(this).removeClass('current');
+                            $(this).find('i').hide();
+                            ImgValBox.eq(0).attr('src','');
+                        }
+                        //多图模式
+                        if(num>1&&(!$(this).hasClass('current'))){
+                            $(this).addClass('current');
+                            $(this).find('i').show();
+                            ImgValBox.each(function(){
+                                if($(this).attr('src')==''){
+                                    $(this).attr('src',imgSrc);
+                                    return false;
+                                }
+                            })
+                            
+                        }else if(num>1&&$(this).hasClass('current')){
+                            $(this).removeClass('current');
+                            $(this).find('i').hide();
+                            for(var i=0;i<ImgValBox.size();i++){
+                                if(ImgValBox.eq(i).attr('src')==imgSrc){
+                                    ImgValBox.eq(i).attr('src','');
+                                    return false;
+                                }
+                            }
+                        }
+                    });
+                    $('.site_ImgListSave').click(function(){
+                        $('.site_imgBox').hide();
+                        $('.ji_dataBg').hide();
+                        imgSet.attr('src','images/site_img.png');
+                        for(var i=0;i<ImgValBox.size();i++){
+                            if(ImgValBox.eq(i).attr('src') !=''){
+                               imgSet.eq(i).attr('src',ImgValBox.eq(i).attr('src'))
+                               
+                            }
+                        }
+                    })
+                }
+                getImgVal()
                 //设置宽高XY
                 $('.fontcssSet li').find('input').keyup(function(){
                     if($(this).parent().index()==0){
@@ -1895,7 +1955,6 @@ $.fn.extend({
                     }else if($(this).parent().index()==1){
                         controlSet.height($(this).val());
                     }else if($(this).parent().index()==2){
-                        console.log(1);
                         controlSet.css({
                             left:$(this).val()+'px'
                         })

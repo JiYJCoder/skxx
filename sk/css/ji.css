@@ -1627,6 +1627,8 @@ a:active{blr:expression(this.onFocus=this.blur());}
     left: 50%;
     transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
     box-shadow: 0 0 1px 0px;
+    display: none;
+    z-index: 99;
 }
 .site_imgBoxTitle{
     height: 40px;
@@ -1641,6 +1643,7 @@ a:active{blr:expression(this.onFocus=this.blur());}
     position: absolute;
     top: 15px;
     right: 15px;
+    cursor: pointer;
 }
 .site_imgBoxBtn{
     padding-left: 8px;

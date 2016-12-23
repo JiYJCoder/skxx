@@ -11,6 +11,7 @@ $(function(){
     base.tab('.site_con_leftHead ul li',".site_con_leftCon")//组件与页面TAB
     base.tab('.site_pageComponent_Btn ul li',".site_pageComponent_con")//面板TAB
     base.tab('.site_lineCommodityBtn ul li',".site_lineCommodityCon")//链接==》商品TAB
+    base.close('.site_imgBox_close','.site_imgBox',null,'.ji_dataBg');//图库
     //站点设置品牌等切换
     $(".index input").click(function(e){
         e.prevenDefault();
@@ -60,11 +61,7 @@ $(function(){
     base.sel('.materialBtn ul li');//面板背景选择
     base.tip($('.site_tip ul li'));//功能栏Tip
     base.tab('.site_imgBoxBtn ul li','.site_ImgList')//图片素材库
-    $('.site_ImgList >ul >li').click(function(){
-        $(this).addClass('current').siblings().removeClass('current');
-        $('.site_ImgList >ul >li').find('i').hide();
-        $(this).find('i').show();
-    })
+    
     //选择部门等增加和删除数据
     function addData(){
         var dataBox=$('.con li');
@@ -146,6 +143,7 @@ $(function(){
             file.readAsDataURL(this.files[0]);
         }
     }
-    imgfile()
+    imgfile();
+    
 //    console.log(decodeURIComponent($('#baseForm').serialize()))
 })
