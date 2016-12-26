@@ -38,21 +38,21 @@ var shadowHtml=`<div class="component_public ImgBoder">
 var bgHtml=`<div class="component_public ImgchageBg">
                       <p class="title">背景</p>
                       <ul class="clearfix">
-                          <li class="current">纯色</li>
-                          <li>渐变</li>
-                          <li>图片</li>
-                          <li>无</li>
+                          <li type='1'>纯色</li>
+                          <li type='2'>渐变</li>
+                          <li type='3'>图片</li>
+                          <li class="current" type='4'>无</li>
                       </ul>
-                      <div class="ImgchageBgSet clearfix" style="display:block">
-                          <div class="ImgchageBgSetCol">
+                      <div class="ImgchageBgSet clearfix">
+                          <div class="ImgchageBgSetCol solidColor">
                               <div class="ImgchageBgSetColVal"></div>
                           </div>
                       </div>
                       <div class="ImgchageBgSet clearfix ImgchageBgSetJb">
-                          <div class="ImgchageBgSetCol">
+                          <div class="ImgchageBgSetCol gradientHead">
                               <div class="ImgchageBgSetColVal"></div>
                           </div>
-                          <div class="ImgchageBgSetCol">
+                          <div class="ImgchageBgSetCol gradientfoot">
                               <div class="ImgchageBgSetColVal"></div>
                           </div>
                       </div>
@@ -229,12 +229,12 @@ var titleSetHtml=`<div class="panel">
                           <li class="clearfix">
                               <span>标题</span>
                               <div class="titleStyleCon titleVal">
-                                  <div class="titleStyleConVal">
+                                  <div class="titleStyleConVal titleStyleSet">
                                       
                                   </div>
                                   <ul>
-                                      <li><i></i></li>
-                                      <li class="chage"><i></i></li>
+                                      <li type='1'><i></i></li>
+                                      <li class="chage" type='2'><i></i></li>
                                   </ul>
                               </div>
                           </li>
@@ -261,7 +261,6 @@ var titleSetHtml=`<div class="panel">
                       </ul>
                   </div>
                   ${fontHtml}
-                  ${bgHtml}
                   ${fontAlignHtml}
                   ${boderHtml}
                   ${positionHtml}
@@ -271,7 +270,7 @@ var titleSetHtml=`<div class="panel">
 var titleHtml=`<li type='2'>
                       
                       <div class="site_serch clearfix">
-                          <div class="serchCon">标题标题标</div>
+                          <div class="serchCon textView">标题标题标</div>
                       </div>
                       ${csHtml}
                   </li>`;
@@ -1156,6 +1155,7 @@ $.fn.extend({
                     height:'36',
                     left:'64',
                     top:'172',
+                    color:'#ffffff'
                 });
                 break;
             case 3:
@@ -1889,11 +1889,11 @@ $.fn.extend({
                 }
                 getLineVal();
                 //图库
-                function getImgVal(){
-                    var num=controlSet.find('.Img img').size();
+                function getImgVal(btn,type){
                     var imgSet=controlSet.find('.Img img');
+                    var num=imgSet.size();
                     var ImgValBox=$('.site_ImgListSel ul li img');
-                    $('.ImgShow').click(function(){
+                    btn.click(function(){
                         $('.site_imgBox').show();
                         $('.ji_dataBg').show();
                         ImgValBox.attr('src','');
@@ -1915,6 +1915,7 @@ $.fn.extend({
                         }
                         //多图模式
                         if(num>1&&(!$(this).hasClass('current'))){
+                            console.log(2);
                             $(this).addClass('current');
                             $(this).find('i').show();
                             ImgValBox.each(function(){
@@ -1947,7 +1948,8 @@ $.fn.extend({
                         }
                     })
                 }
-                getImgVal()
+                getImgVal($('.ImgShow'),'1');
+                getImgVal($('.Atlas'),'2');
                 //设置宽高XY
                 $('.fontcssSet li').find('input').keyup(function(){
                     if($(this).parent().index()==0){
@@ -1966,29 +1968,92 @@ $.fn.extend({
                 });
                 //图片模式设置
                 $('.bgStyle ul li').click(function(){
-                    $('.Img >img').removeClass();
+                    $('.Img img').removeClass();
                     if($(this).index()==0){
-                        $('.Img >img').css({
+                        $('.Img img').css({
                             objectFit:'cover'
                         }).addClass('cover')
                     }
                     if($(this).index()==1){
-                        $('.Img >img').css({
+                        $('.Img img').css({
                             objectFit:'contain'
                         }).addClass('contain')
                     }
                     if($(this).index()==2){
-                        $('.Img >img').css({
+                        $('.Img img').css({
                             objectFit:'fill'
                         }).addClass('fill')
                     }
                     if($(this).index()==3){
-                        $('.Img >img').css({
+                        $('.Img img').css({
                             objectFit:'none'
                         }).addClass('none')
                     }
+                });
+                //设置文字
+                $('.searchInput input').keyup(function(){
+                    $('.textView').text($(this).val());
+                });
+                //下拉选择hover
+                function selTitleStyle(setList,setBox){
+                    setBox.hover(function(){
+                        setList.show();
+                    },function(){   
+                        setList.hide();
+                    });
+                    setList.find('li').click(function(){
+                        setBox.find('.titleStyleConVal').css('background-image',$(this).find('i').css('background-image'));
+                        setList.hide();
+                        if($(this).attr('type')=="2"){
+                            $('.serchCon').css({
+                                backgroundColor:'#a5a5a5',
+                                borderLeft:'3px solid #505050',
+                            })
+                        }else if($(this).attr('type')=="1"){
+                            $('.serchCon').css({
+                                backgroundColor:'#438eb9',
+                                borderLeft:'none',
+                            })
+                        }
+                    });
+                }
+                selTitleStyle($('.titleVal ul'),$('.titleVal'));
+                $('.ImgchageBg ul li').click(function(){
+                    $(this).addClass('current').siblings().removeClass('current');
+                    $(".ImgchageBgSet").hide().eq($(this).index()).show();
+                    if($(this).attr('type')=='1'){
+                        $('.solidColor').colpick({
+                            onSubmit:function(hsb,hex,rgb,el) {
+                                controlSet.children().css('background-color', '#'+hex);
+                                $('.solidColor .ImgchageBgSetColVal').css('background-color', '#'+hex);
+                                $(el).colpickHide();
+                            }
+                        });
+                    }else if($(this).attr('type')=='2'){
+                        $('.gradientHead').colpick({
+                            onSubmit:function(hsb,hex,rgb,el) {
+                                controlSet.children().css('background-color', '#'+hex);
+                                $('.gradientHead .ImgchageBgSetColVal').css({
+                                    backgroundColor:'#'+hex,
+                                });
+                                $(el).colpickHide();
+                            }
+                        });
+                        $('.gradientfoot').colpick({
+                            onSubmit:function(hsb,hex,rgb,el) {
+                                var headCol=$('.gradientHead .ImgchageBgSetColVal').css('background-color')
+                                controlSet.children().css({
+                                    backgroundImage:"linear-gradient("+headCol+",#"+hex+")",
+                                });
+                                $('.gradientfoot .ImgchageBgSetColVal').css('background-color', '#'+hex);
+                                $(el).colpickHide();
+                            }
+                        });
+                    }else if($(this).attr('type')=='3'){
+//                        $('.site_imgBox').show();
+//                        $('.ji_dataBg').show();
+                    }
                 })
-                
             };
             chageCss(control);
         }

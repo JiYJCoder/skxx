@@ -1785,6 +1785,7 @@ a:active{blr:expression(this.onFocus=this.blur());}
     text-align: center;
     line-height: 22px;
     margin-right: 10px;
+    cursor: pointer;
 }
 .materialBtn{
     width: 777px;
