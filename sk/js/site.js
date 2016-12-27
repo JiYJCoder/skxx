@@ -11,7 +11,12 @@ $(function(){
     base.tab('.site_con_leftHead ul li',".site_con_leftCon")//组件与页面TAB
     base.tab('.site_pageComponent_Btn ul li',".site_pageComponent_con")//面板TAB
     base.tab('.site_lineCommodityBtn ul li',".site_lineCommodityCon")//链接==》商品TAB
-    base.close('.site_imgBox_close','.site_imgBox',null,'.ji_dataBg');//图库
+    //图库关闭
+    $('.site_imgBox_close').click(function(){
+        $('.site_imgBox').hide();
+        $('.ji_dataBg').hide();
+        $('.site_ImgList >ul >li').unbind('click');
+    })
     //站点设置品牌等切换
     $(".index input").click(function(e){
         e.prevenDefault();

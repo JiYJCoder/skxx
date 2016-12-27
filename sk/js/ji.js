@@ -186,7 +186,7 @@ var ImgHtml="<li type='1'><div class='Img'><img src='images/site_img.png'></div>
 //图片设置html
 var ImgSetHtml=`<div class='panel'>
               <div class="site_pageComponent_con" style="display:block">
-                  <div class="ImgShow">
+                  <div class="ImgShow danImg">
                       <div class="ImgShowTip">
                           <p>更换图片</p>
                       </div>
@@ -1111,7 +1111,79 @@ var weixinSetHtml=`<div class="panel">
               <div class="site_pageComponent_con">
                   ${positionHtml}
               </div>
-          </div>`
+          </div>`;
+var imgBox=`<div class="site_imgBox">
+        <div class="site_imgBoxTitle">
+            <p>图库</p>
+            <img src="images/site_close.png" alt="" class="site_imgBox_close">
+        </div>
+        <div class="site_imgBoxBtn">
+            <ul class="clearfix">
+                <li class="current">我的图片</li>
+                <li>素材库</li>
+            </ul>
+            <div class="site_imgUpload">
+                上传资源
+                <input type="file">
+            </div>
+        </div>
+        <div class="site_ImgList" style="display:block">
+            <ul class="clearfix">
+                <li><img src="images/site_AtlasStyle1.png" alt="" width="187" height="138"><i></i></li>
+                <li><img src="images/defaultImg.png" alt="" width="187" height="138"><i></i></li>
+                <li><img src="images/defaultImg.png" alt="" width="187" height="138"><i></i></li>
+                <li><img src="images/defaultImg.png" alt="" width="187" height="138"><i></i></li>
+                <li><img src="images/defaultImg.png" alt="" width="187" height="138"><i></i></li>
+                <li><img src="images/defaultImg.png" alt="" width="187" height="138"><i></i></li>
+                <li><img src="images/defaultImg.png" alt="" width="187" height="138"><i></i></li>
+                <li><img src="images/defaultImg.png" alt="" width="187" height="138"><i></i></li>
+            </ul>
+        </div>
+        <div class="site_ImgList material">
+            <div class="materialBtn">
+                <ul class="clearfix">
+                    <li class="current">全部</li>
+                    <li>风景</li>
+                    <li>人物</li>
+                    <li>卡通</li>
+                    <li>影视</li>
+                    <li>游戏</li>
+                    <li>品牌</li>
+                    <li>其他</li>
+                </ul>
+                <div class="imgSearch">
+                    <img src="images/searchIcon.png" alt="" class="searchIcon">
+                    <input type="text">
+                </div>
+            </div>
+            <ul class="clearfix">
+                <li><img src="images/defaultImg.png" alt="" width="187" height="138"><i></i></li>
+                <li><img src="images/defaultImg.png" alt="" width="187" height="138"><i></i></li>
+                <li><img src="images/defaultImg.png" alt="" width="187" height="138"><i></i></li>
+                <li><img src="images/defaultImg.png" alt="" width="187" height="138"><i></i></li>
+                <li><img src="images/defaultImg.png" alt="" width="187" height="138"><i></i></li>
+                <li><img src="images/defaultImg.png" alt="" width="187" height="138"><i></i></li>
+                <li><img src="images/defaultImg.png" alt="" width="187" height="138"><i></i></li>
+                <li><img src="images/defaultImg.png" alt="" width="187" height="138"><i></i></li>
+            </ul>
+        </div>
+        <div class="site_ImgListSel">
+            <ul class="clearfix">
+                <li><img src="" alt="" width="76" height="56"></li>
+                <li><img src="" alt="" width="76" height="56"></li>
+                <li><img src="" alt="" width="76" height="56"></li>
+                <li><img src="" alt="" width="76" height="56"></li>
+                <li><img src="" alt="" width="76" height="56"></li>
+                <li><img src="" alt="" width="76" height="56"></li>
+                <li><img src="" alt="" width="76" height="56"></li>
+                <li><img src="" alt="" width="76" height="56"></li>
+                <li><img src="" alt="" width="76" height="56"></li>
+            </ul>
+        </div>
+        <div class="site_ImgListBtn">
+            <div class="site_ImgListSave">确定</div>
+        </div>
+    </div>`
 var controlSetHtmlArr=[];//控件面板html数组
 $.fn.extend({
     generate:function(data){
@@ -1889,56 +1961,68 @@ $.fn.extend({
                 }
                 getLineVal();
                 //图库
-                function getImgVal(btn,type){
+                function getImgVal(){
                     var imgSet=controlSet.find('.Img img');
-                    var num=imgSet.size();
                     var ImgValBox=$('.site_ImgListSel ul li img');
-                    btn.click(function(){
+                    $('.ImgShow').click(function(){
+                        if($(this).hasClass('danImg')){
+                            controlImg(true,false);
+                        }else if($(this).hasClass('Atlas')){
+                            controlImg(false,true);
+                        }
                         $('.site_imgBox').show();
                         $('.ji_dataBg').show();
                         ImgValBox.attr('src','');
                         $('.site_ImgList >ul >li').removeClass('current');
                         $('.site_ImgList >ul >li').find('i').hide();
                     });
-                    $('.site_ImgList >ul >li').click(function(){
-                        var imgSrc=$(this).find('img').attr('src');
-                        //单图模式
-                        if(num==1&&!$(this).hasClass('current')){
-                            $(this).addClass('current').siblings().removeClass('current');
-                            $('.site_ImgList >ul >li').find('i').hide();
-                            $(this).find('i').show();
-                            ImgValBox.eq(0).attr('src',imgSrc);
-                        }else if($(this).hasClass('current')&&num==1){
-                            $(this).removeClass('current');
-                            $(this).find('i').hide();
-                            ImgValBox.eq(0).attr('src','');
-                        }
-                        //多图模式
-                        if(num>1&&(!$(this).hasClass('current'))){
-                            console.log(2);
-                            $(this).addClass('current');
-                            $(this).find('i').show();
-                            ImgValBox.each(function(){
-                                if($(this).attr('src')==''){
-                                    $(this).attr('src',imgSrc);
-                                    return false;
-                                }
-                            })
-                            
-                        }else if(num>1&&$(this).hasClass('current')){
-                            $(this).removeClass('current');
-                            $(this).find('i').hide();
-                            for(var i=0;i<ImgValBox.size();i++){
-                                if(ImgValBox.eq(i).attr('src')==imgSrc){
-                                    ImgValBox.eq(i).attr('src','');
-                                    return false;
+                    function controlImg(dan,shuang){
+                        $('.site_ImgList >ul >li').bind('click',function(){
+                            var imgSrc=$(this).find('img').attr('src');
+                            //单图模式
+                            if((!$(this).hasClass('current'))&&dan){
+                                console.log(1+'我是单图模式')
+                                $(this).addClass('current').siblings().removeClass('current');
+                                $('.site_ImgList >ul >li').find('i').hide();
+                                $(this).find('i').show();
+                                ImgValBox.eq(0).attr('src',imgSrc);
+                            }else if($(this).hasClass('current')&&dan){
+                                console.log(2+'关闭current单图')
+                                $(this).removeClass('current');
+                                $(this).find('i').hide();
+                                ImgValBox.eq(0).attr('src','');
+                            }
+                            //多图模式
+                            if((!$(this).hasClass('current'))&&shuang){
+                              console.log(1+'我是多图模式')
+                                $(this).addClass('current');
+                                $(this).find('i').show();
+                                ImgValBox.each(function(){
+                                    if($(this).attr('src')==''){
+                                        $(this).attr('src',imgSrc);
+                                        return false;
+                                    }
+                                })
+
+                            }else if($(this).hasClass('current')&&shuang){
+                                console.log(1+'我是多图模式删除')
+                                $(this).removeClass('current');
+                                $(this).find('i').hide();
+                                for(var i=0;i<ImgValBox.size();i++){
+                                    if(ImgValBox.eq(i).attr('src')==imgSrc){
+                                        ImgValBox.eq(i).attr('src','');
+                                        return false;
+                                    }
                                 }
                             }
-                        }
-                    });
+                        });
+                    }
+                    controlImg()
+                    
                     $('.site_ImgListSave').click(function(){
                         $('.site_imgBox').hide();
                         $('.ji_dataBg').hide();
+                        $('.site_ImgList >ul >li').unbind('click');
                         imgSet.attr('src','images/site_img.png');
                         for(var i=0;i<ImgValBox.size();i++){
                             if(ImgValBox.eq(i).attr('src') !=''){
@@ -1948,8 +2032,7 @@ $.fn.extend({
                         }
                     })
                 }
-                getImgVal($('.ImgShow'),'1');
-                getImgVal($('.Atlas'),'2');
+                getImgVal();
                 //设置宽高XY
                 $('.fontcssSet li').find('input').keyup(function(){
                     if($(this).parent().index()==0){
