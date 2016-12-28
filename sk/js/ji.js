@@ -1554,14 +1554,14 @@ $.fn.extend({
                         var fw=valArr[1].substring(14);//粗体
                         var fs=valArr[2].substring(13);//斜体
                         var td=valArr[5].substring(18);//下划线
-                        var bgc=valArr[3].substring(19);//背景颜色
+                        var bgc=controlSel.attr('bgc');//背景颜色
                         var col=valArr[4].substring(8);//字体颜色
                         var ta=valArr[6].substring(13);//字体对齐方式
                         var lh=valArr[7].substring(14,valArr[7].length-2);//行高
                         var bw=valArr[8].substring(14,valArr[8].length-2);//边宽
                         var br=valArr[12].substring(15,valArr[12].length-2);//圆角
                         var pd=valArr[11].substring(9,valArr[11].length-2);
-                        console.log(pd);
+//                        console.log(pd);
 //                        console.log(cssVal);
 //                        console.log(valArr);
                         $('.fontSize p span').text(fonSizeVal);//面板字体大小
@@ -1574,11 +1574,10 @@ $.fn.extend({
                         if(td=='underline'){
                             $('.fontX').addClass('current');
                         }
-                        if(bgc!='transparent'){
-                            $('.colConValShow').css({
-                                backgroundColor:bgc
-                            })
-                        }
+                        //背景颜色
+                        $('.colConValShow').css({
+                            backgroundColor:bgc
+                        })
                         if(col!='rgb(51, 51, 51)'){
                             $('.fontCol img').css({
                                 borderBottomColor:col
@@ -1613,14 +1612,30 @@ $.fn.extend({
                             $('.bgStyle ul li').eq(1).addClass('current').siblings().removeClass()
                         }
                         //背景模式
-                        if(control.attr('bg')=='1'){
+                        if(controlSel.attr('bg')=='1'){
                             $('.ImgchageBg ul li').eq(0).addClass('current').siblings().removeClass('current');
-                        }else if(control.attr('bg')=='2'){
+                        }else if(controlSel.attr('bg')=='2'){
                             $('.ImgchageBg ul li').eq(1).addClass('current').siblings().removeClass('current');
                         }
-                        else if(control.attr('bg')=='3'){
+                        else if(controlSel.attr('bg')=='3'){
                             $('.ImgchageBg ul li').eq(2).addClass('current').siblings().removeClass('current');
                         }
+                        //控件类型回传
+                        function controlType(setCon,imgUrl,type){
+                            var num=null
+                            if(type==1){
+                                num=Number(controlSel.attr('controltype'))-1;
+                            }else if(type==2){
+                                num=Number(controlSel.attr('controlicontype'));
+                            }
+                            
+                            var imgSrc=imgUrl.eq(num).find('i').css('background-image');
+                            setCon.css({
+                                backgroundImage:imgSrc
+                            })
+                        }
+                        controlType($('.titleStyleConVal'),$('.chageTitleStyle li'),1);
+                        controlType($('.titleStyleIcon'),$('.chageIcon li'),2);
                     }
                     valReturn();
                     $(this).find('.chageSize').show();
@@ -1881,7 +1896,8 @@ $.fn.extend({
 //                    layout:'rgbhex',
 //                    color:'ffffff',
                     onSubmit:function(hsb,hex,rgb,el) {
-                        controlSet.children().css('background-color', '#'+hex);
+                        controlSet.attr('bgc','#'+hex);
+                        controlSet.find('.textView').css('background-color', '#'+hex);
                         $('.colConValShow').css('background-color', '#'+hex);
                         $(el).colpickHide();
                     }
@@ -2125,17 +2141,23 @@ $.fn.extend({
                         setList.hide();
                         if($(this).parent().hasClass('chageTitleStyle')){
                             if($(this).attr('type')=="2"){
-                                $('.serchCon').css({
+                                controlSet.attr('bgc','#a5a5a5');
+                                controlSet.attr('controlType','2');
+                                controlSet.find('.serchCon').css({
                                     backgroundColor:'#a5a5a5',
                                     borderLeft:'3px solid #505050',
                                 })
                             }else if($(this).attr('type')=="1"){
-                                $('.serchCon').css({
+                                controlSet.attr('bgc','#438eb9');
+                                controlSet.attr('controlType','1');
+                                controlSet.find('.serchCon').css({
                                     backgroundColor:'#438eb9',
                                     borderLeft:'none',
                                 })
                             }
                         }else if($(this).parent().hasClass('chageIcon')){
+                            var num=$(this).index().toString()
+                            controlSet.attr('controlIconType',num);
                             controlSet.find('.serchCon').css({
                                 backgroundImage:imgSrc
                             })
