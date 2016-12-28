@@ -226,7 +226,6 @@
 .ImgShow{
     width: 192px;
     height: 100px;
-    margin: 0 auto;
     background:url('../images/site_imgShow.png') center center  no-repeat;
     margin: 16px auto 0 auto;
     cursor: pointer;
@@ -559,9 +558,7 @@
 .serchCon{
     background:url('../images/site_serchW.png') 10px center no-repeat #438eb9;
     background-size: 14px 14px;
-    min-height: 36px;
     word-wrap: break-word;
-    padding: 10px;
     padding-left: 35px;
     width: 100%;
     height: 100%;
@@ -640,11 +637,11 @@
     width: 18px;
     height: 18px;
     margin: 7px auto 0 auto;
-    background:url('../images/site_title1.png') no-repeat;
+    background:url('../images/site_serchW.png') no-repeat;
 }
 .titleIconlist ul{
     position: absolute;
-    bottom:-63px;
+    bottom:-62px;
     left: 1px;
     z-index: 0;
     border-right: 0;
@@ -658,6 +655,19 @@
     float: left;
     border-left: 1px solid #cacaca;
     border-bottom: 1px solid #cacaca;
+}
+.titleIconlist ul li i{
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin: 7px auto 0 auto;
+    background-size: cover;
+}
+.titleIconlist ul li:nth-child(1) i{
+    background: url('../images/site_serchW.png') center center no-repeat;
+}
+.titleIconlist ul li:nth-child(2) i{
+    background: url('../images/site_title2.png') center center no-repeat;
 }
 .titleIconlist ul li:hover{
     background-color: #cacaca;
@@ -727,8 +737,22 @@
     position: absolute;
     top: 50%;
     left: 0;
-    width: 100%;
     transform:translate(0,-50%);-webkit-transform:translate(0,-50%);
+    width: 100%;
+}
+.Hline hr{
+    width: 100%;
+    margin: 0;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #333;
+    -webkit-box-shadow: 0px 0px 0px transparent;
+    -moz-box-shadow: 0px 0px 0px transparent;
+    box-shadow: 0px 0px 0px transparent;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
 }
 /*竖线*/
 .sLine{
@@ -739,6 +763,17 @@
 }
 .sLine hr{
     height: 100%;
+    margin: 0;
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: #333;
+    -webkit-box-shadow: 0px 0px 0px transparent;
+    -moz-box-shadow: 0px 0px 0px transparent;
+    box-shadow: 0px 0px 0px transparent;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
 }
 /*按钮*/
 .bottonCon{

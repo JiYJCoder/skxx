@@ -40,7 +40,7 @@ var bgHtml=`<div class="component_public ImgchageBg">
                       <ul class="clearfix">
                           <li type='1'>纯色</li>
                           <li type='2'>渐变</li>
-                          <li type='3'>图片</li>
+                          <li type='3' class='galleryBtn bgSel'>图片</li>
                           <li class="current" type='4'>无</li>
                       </ul>
                       <div class="ImgchageBgSet clearfix">
@@ -73,7 +73,7 @@ var boderHtml=`<div class="component_public ImgBoder">
                                       <li><p style="border: 1px dashed #a5a5a5;"></p></li>
                                   </ul>
                               </div>
-                              <div class="ImgBoderSize">
+                              <div class="ImgBoderSize chageBoderWidth">
                                   <input type="text" value="0">
                                   <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
                                   <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
@@ -81,7 +81,7 @@ var boderHtml=`<div class="component_public ImgBoder">
                           </li>
                           <li class="clearfix">
                               <span>圆角</span>
-                              <div class="ImgBoderSize">
+                              <div class="ImgBoderSize chageFilletWidth">
                                   <input type="text" value="0">
                                   <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
                                   <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
@@ -89,7 +89,7 @@ var boderHtml=`<div class="component_public ImgBoder">
                           </li>
                           <li class="clearfix">
                               <span>内距</span>
-                              <div class="ImgBoderSize">
+                              <div class="ImgBoderSize chagePadding">
                                   <input type="text" value="0">
                                   <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
                                   <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
@@ -186,7 +186,7 @@ var ImgHtml="<li type='1'><div class='Img'><img src='images/site_img.png'></div>
 //图片设置html
 var ImgSetHtml=`<div class='panel'>
               <div class="site_pageComponent_con" style="display:block">
-                  <div class="ImgShow danImg">
+                  <div class="ImgShow danImg galleryBtn">
                       <div class="ImgShowTip">
                           <p>更换图片</p>
                       </div>
@@ -232,7 +232,7 @@ var titleSetHtml=`<div class="panel">
                                   <div class="titleStyleConVal titleStyleSet">
                                       
                                   </div>
-                                  <ul>
+                                  <ul class='chageTitleStyle'>
                                       <li type='1'><i></i></li>
                                       <li class="chage" type='2'><i></i></li>
                                   </ul>
@@ -241,20 +241,20 @@ var titleSetHtml=`<div class="panel">
                           <li class="clearfix">
                               <span>图标</span>
                               <div class="titleStyleCon titleIconlist">
-                                  <div class="titleStyleIcon">
+                                  <div class="titleStyleIcon titleStyleSet">
                                       
                                   </div>
-                                  <ul class="clearfix">
-                                      <li><img src="images/site_title1.png" alt=""></li>
-                                      <li><img src="images/site_title2.png" alt=""></li>
-                                      <li></li>
-                                      <li></li>
-                                      <li></li>
-                                      <li></li>
-                                      <li></li>
-                                      <li></li>
-                                      <li></li>
-                                      <li></li>
+                                  <ul class="clearfix chageIcon">
+                                      <li><i></i></li>
+                                      <li><i></i></li>
+                                      <li><i></i></li>
+                                      <li><i></i></li>
+                                      <li><i></i></li>
+                                      <li><i></i></li>
+                                      <li><i></i></li>
+                                      <li><i></i></li>
+                                      <li><i></i></li>
+                                      <li><i></i></li>
                                   </ul>
                               </div>
                           </li>
@@ -277,7 +277,7 @@ var titleHtml=`<li type='2'>
 //图集
 var atlasSetHtml=`<div class="panel">
               <div class="site_pageComponent_con" style="display:block;">
-                  <div class="ImgShow Atlas">
+                  <div class="ImgShow Atlas galleryBtn">
                       <div class="ImgShowTip">
                           <p>更换图片</p>
                       </div>
@@ -1227,7 +1227,8 @@ $.fn.extend({
                     height:'36',
                     left:'64',
                     top:'172',
-                    color:'#ffffff'
+                    color:'#ffffff',
+                    lineHeight:'3'
                 });
                 break;
             case 3:
@@ -1238,6 +1239,7 @@ $.fn.extend({
                     height:'130',
                     left:'88',
                     top:'99',
+                    padding:'5px'
                 });
                 break;
             case 4:
@@ -1278,6 +1280,7 @@ $.fn.extend({
                     height:'130',
                     left:'100',
                     top:'190',
+                    padding:'5px'
                 });
                 break;
             case 8:
@@ -1308,6 +1311,7 @@ $.fn.extend({
                     height:'130',
                     left:'75',
                     top:'174',
+                    padding:'5px'
                 });
                 var swiper = new Swiper('.swiper-container', {
                     pagination: '.swiper-pagination',
@@ -1347,8 +1351,9 @@ $.fn.extend({
                 creControlHtml(FormHtml,FormSetHtml,{
                     width:'280',
                     height:'340',
-                    left:'163',
-                    top:'402',
+                    left:'23',
+                    top:'220',
+                    padding:'10px'
                 });
                 break;
             case 14:
@@ -1390,6 +1395,7 @@ $.fn.extend({
                     height:'270',
                     left:'12',
                     top:'270',
+                    padding:'5px'
                 });
                 break;
             case 16:
@@ -1400,6 +1406,7 @@ $.fn.extend({
                     height:'70',
                     left:'100',
                     top:'190',
+                    padding:'5px'
                 });
                 break;
             case 17:
@@ -1410,6 +1417,7 @@ $.fn.extend({
                     height:'70',
                     left:'100',
                     top:'190',
+                    padding:'5px'
                 });
                 break;
         };
@@ -1429,7 +1437,12 @@ $.fn.extend({
                 color:defaultCssSet.color || '#333333',
                 textDecoration:defaultCssSet.textDecoration || 'none',
                 textAlign:defaultCssSet.textAlign || 'left',
-                lineHeight:defaultCssSet.lineHeight||'1em'
+                lineHeight:defaultCssSet.lineHeight+'em'||'1em',
+                borderWidth:0+"px",
+                borderStyle:'solid',
+                borderColor:'#ffffff',
+                padding:defaultCssSet.padding||"0px",
+                borderRadius:"0px"
             });
             box.find('>li:last').css({
                 width:defaultCssSet.width+'px' || false,
@@ -1545,7 +1558,10 @@ $.fn.extend({
                         var col=valArr[4].substring(8);//字体颜色
                         var ta=valArr[6].substring(13);//字体对齐方式
                         var lh=valArr[7].substring(14,valArr[7].length-2);//行高
-//                        console.log(controlSel);
+                        var bw=valArr[8].substring(14,valArr[8].length-2);//边宽
+                        var br=valArr[12].substring(15,valArr[12].length-2);//圆角
+                        var pd=valArr[11].substring(9,valArr[11].length-2);
+                        console.log(pd);
 //                        console.log(cssVal);
 //                        console.log(valArr);
                         $('.fontSize p span').text(fonSizeVal);//面板字体大小
@@ -1578,6 +1594,9 @@ $.fn.extend({
                         if(lh!='1'){
                             $('.fontspacingVal span').text(lh);
                         }
+                        $('.chageBoderWidth > input').val(bw);
+                        $('.chageFilletWidth > input').val(br);
+                        $('.chagePadding > input').val(pd);
                         //设置链接
                         $('.lineSetVal').text(controlSel.attr('linedata'));
                         //设置高度宽度，Top,left
@@ -1593,6 +1612,15 @@ $.fn.extend({
                         }else if(controlSel.find('.Img > img').hasClass('contain')){
                             $('.bgStyle ul li').eq(1).addClass('current').siblings().removeClass()
                         }
+                        //背景模式
+                        if(control.attr('bg')=='1'){
+                            $('.ImgchageBg ul li').eq(0).addClass('current').siblings().removeClass('current');
+                        }else if(control.attr('bg')=='2'){
+                            $('.ImgchageBg ul li').eq(1).addClass('current').siblings().removeClass('current');
+                        }
+                        else if(control.attr('bg')=='3'){
+                            $('.ImgchageBg ul li').eq(2).addClass('current').siblings().removeClass('current');
+                        }
                     }
                     valReturn();
                     $(this).find('.chageSize').show();
@@ -1600,17 +1628,6 @@ $.fn.extend({
                     controlBtnBox.find('li').removeClass('current');
                     controlBtnBox.find('li').eq($(this).index()).addClass('current');
                     chageCss($(this));
-//                    $('.site_poneBox').click(function(){
-//                        console.log(2);
-//                        var oHeight = control.height();
-//                        textCon.attr('contenteditable','false');
-//                        textCon.parents("li").height(oHeight);
-//                        textCon.height(textCon.height());
-//                        textCon.removeClass('heightIm');
-//                        textCon.parents("li").removeClass('heightIm');
-//                        $('.chageSize').hide();
-//                    })
-                
                 return false;
                 });
                 $('.site_poneBox').click(function(){
@@ -1948,7 +1965,6 @@ $.fn.extend({
                     });
                     $('.siteSetbottom_save').click(function(){
                         var lineCurrent=$('.lineVal ul li.current');
-//                        console.log(lineCurrent.is(':hidden'));
                         $(lineCurrent).each(function(){
                             if(!$(this).is(':hidden')){
                                 $('.lineBtn').text($(this).attr('datalineVal'));
@@ -1964,37 +1980,41 @@ $.fn.extend({
                 function getImgVal(){
                     var imgSet=controlSet.find('.Img img');
                     var ImgValBox=$('.site_ImgListSel ul li img');
-                    $('.ImgShow').click(function(){
+                    var selBtn=$('.site_ImgList >ul >li');
+                    $('.galleryBtn').click(function(){
                         if($(this).hasClass('danImg')){
-                            controlImg(true,false);
+                            controlImg(true,false,false);
+                            $('.site_imgBox').removeClass('bgGaller');
                         }else if($(this).hasClass('Atlas')){
-                            controlImg(false,true);
+                            controlImg(false,true,false);
+                            $('.site_imgBox').removeClass('bgGaller');
+                        }else if($(this).hasClass('bgSel')){
+                            controlImg(false,false,true);
+                            controlSet.attr('bg','3');
+                            $('.site_imgBox').addClass('bgGaller');
                         }
                         $('.site_imgBox').show();
                         $('.ji_dataBg').show();
                         ImgValBox.attr('src','');
-                        $('.site_ImgList >ul >li').removeClass('current');
-                        $('.site_ImgList >ul >li').find('i').hide();
+                        selBtn.removeClass('current');
+                        selBtn.find('i').hide();
                     });
-                    function controlImg(dan,shuang){
-                        $('.site_ImgList >ul >li').bind('click',function(){
+                    function controlImg(single,double,bg){
+                        selBtn.bind('click',function(){
                             var imgSrc=$(this).find('img').attr('src');
                             //单图模式
-                            if((!$(this).hasClass('current'))&&dan){
-                                console.log(1+'我是单图模式')
+                            if((!$(this).hasClass('current'))&&single){
                                 $(this).addClass('current').siblings().removeClass('current');
-                                $('.site_ImgList >ul >li').find('i').hide();
+                                selBtn.find('i').hide();
                                 $(this).find('i').show();
                                 ImgValBox.eq(0).attr('src',imgSrc);
-                            }else if($(this).hasClass('current')&&dan){
-                                console.log(2+'关闭current单图')
+                            }else if($(this).hasClass('current')&&single){
                                 $(this).removeClass('current');
                                 $(this).find('i').hide();
                                 ImgValBox.eq(0).attr('src','');
                             }
                             //多图模式
-                            if((!$(this).hasClass('current'))&&shuang){
-                              console.log(1+'我是多图模式')
+                            if((!$(this).hasClass('current'))&&double){
                                 $(this).addClass('current');
                                 $(this).find('i').show();
                                 ImgValBox.each(function(){
@@ -2003,9 +2023,7 @@ $.fn.extend({
                                         return false;
                                     }
                                 })
-
-                            }else if($(this).hasClass('current')&&shuang){
-                                console.log(1+'我是多图模式删除')
+                            }else if($(this).hasClass('current')&&double){
                                 $(this).removeClass('current');
                                 $(this).find('i').hide();
                                 for(var i=0;i<ImgValBox.size();i++){
@@ -2015,21 +2033,38 @@ $.fn.extend({
                                     }
                                 }
                             }
+                            //背景图片
+                            if((!$(this).hasClass('current'))&&bg){
+                                $(this).addClass('current').siblings().removeClass('current');
+                                selBtn.find('i').hide();
+                                $(this).find('i').show();
+                                ImgValBox.eq(0).attr('src',imgSrc);
+                            }else if($(this).hasClass('current')&&bg){
+                                $(this).removeClass('current');
+                                $(this).find('i').hide();
+                                ImgValBox.eq(0).attr('src','');
+                            }
+                            
                         });
                     }
                     controlImg()
-                    
                     $('.site_ImgListSave').click(function(){
                         $('.site_imgBox').hide();
                         $('.ji_dataBg').hide();
                         $('.site_ImgList >ul >li').unbind('click');
-                        imgSet.attr('src','images/site_img.png');
-                        for(var i=0;i<ImgValBox.size();i++){
-                            if(ImgValBox.eq(i).attr('src') !=''){
-                               imgSet.eq(i).attr('src',ImgValBox.eq(i).attr('src'))
-                               
-                            }
+                        if($(this).parents('.site_imgBox').hasClass('bgGaller')){
+                            controlSet.children().css({
+                                backgroundImage:"url("+ImgValBox.eq(0).attr('src')+")"
+                            })
+                        }else{
+                            imgSet.attr('src','images/site_img.png');
+                            for(var i=0;i<ImgValBox.size();i++){
+                                if(ImgValBox.eq(i).attr('src') !=''){
+                                   imgSet.eq(i).attr('src',ImgValBox.eq(i).attr('src'))
+                                }
+                            }   
                         }
+                        
                     })
                 }
                 getImgVal();
@@ -2085,26 +2120,37 @@ $.fn.extend({
                         setList.hide();
                     });
                     setList.find('li').click(function(){
-                        setBox.find('.titleStyleConVal').css('background-image',$(this).find('i').css('background-image'));
+                        var imgSrc=$(this).find('i').css('background-image')
+                        setBox.find('.titleStyleSet').css('background-image',imgSrc);
                         setList.hide();
-                        if($(this).attr('type')=="2"){
-                            $('.serchCon').css({
-                                backgroundColor:'#a5a5a5',
-                                borderLeft:'3px solid #505050',
-                            })
-                        }else if($(this).attr('type')=="1"){
-                            $('.serchCon').css({
-                                backgroundColor:'#438eb9',
-                                borderLeft:'none',
+                        if($(this).parent().hasClass('chageTitleStyle')){
+                            if($(this).attr('type')=="2"){
+                                $('.serchCon').css({
+                                    backgroundColor:'#a5a5a5',
+                                    borderLeft:'3px solid #505050',
+                                })
+                            }else if($(this).attr('type')=="1"){
+                                $('.serchCon').css({
+                                    backgroundColor:'#438eb9',
+                                    borderLeft:'none',
+                                })
+                            }
+                        }else if($(this).parent().hasClass('chageIcon')){
+                            controlSet.find('.serchCon').css({
+                                backgroundImage:imgSrc
                             })
                         }
+                        
                     });
                 }
                 selTitleStyle($('.titleVal ul'),$('.titleVal'));
+                selTitleStyle($('.titleIconlist ul'),$('.titleIconlist'));
+                //背景选择
                 $('.ImgchageBg ul li').click(function(){
                     $(this).addClass('current').siblings().removeClass('current');
                     $(".ImgchageBgSet").hide().eq($(this).index()).show();
                     if($(this).attr('type')=='1'){
+                        controlSet.attr('bg','1');
                         $('.solidColor').colpick({
                             onSubmit:function(hsb,hex,rgb,el) {
                                 controlSet.children().css('background-color', '#'+hex);
@@ -2113,6 +2159,7 @@ $.fn.extend({
                             }
                         });
                     }else if($(this).attr('type')=='2'){
+                        controlSet.attr('bg','2');
                         $('.gradientHead').colpick({
                             onSubmit:function(hsb,hex,rgb,el) {
                                 controlSet.children().css('background-color', '#'+hex);
@@ -2132,11 +2179,54 @@ $.fn.extend({
                                 $(el).colpickHide();
                             }
                         });
-                    }else if($(this).attr('type')=='3'){
-//                        $('.site_imgBox').show();
-//                        $('.ji_dataBg').show();
+                    }else if($(this).attr('type')=='4'){
+                        controlSet.children().css({
+                            background:'none'
+                        })
                     }
-                })
+                });
+                //关于数字增加的
+                function addNum(plus,Less){
+                    plus.click(function(){
+                        var num=Number($(this).parent().find('input').val())+1;
+                        $(this).parent().find('input').val(num);
+                        if($(this).parent().hasClass('chageBoderWidth')){
+                            controlSet.children().css({
+                                borderWidth:num+'px'
+                            });
+                        }else if($(this).parent().hasClass('chageFilletWidth')){
+                            controlSet.find('*').css({
+                                borderRadius:num+'px'
+                            });
+                        }else if($(this).parent().hasClass('chagePadding')){
+                            controlSet.children().css({
+                                padding:num+'px'
+                            });
+                        }
+                    });
+                    Less.click(function(){
+                        var num=Number($(this).parent().find('input').val())-1;
+                        if(num<0){
+                            $(this).parent().find('input').val(0);
+                        }else{
+                            $(this).parent().find('input').val(num);
+                        }
+                        if($(this).parent().hasClass('chageBoderWidth')){
+                            controlSet.children().css({
+                                borderWidth:num+'px'//设置边框宽度
+                            });
+                        }else if($(this).parent().hasClass('chageFilletWidth')){
+                            controlSet.find('*').css({
+                                borderRadius:num+'px'//设置圆角
+                            });
+                        }else if($(this).parent().hasClass('chagePadding')){
+                            controlSet.children().css({
+                                padding:num+'px'//设置padding
+                            });
+                        }
+                    });
+                }
+                addNum($('.ImgBoderSizeS'),$('.ImgBoderSizeXia'));
             };
             chageCss(control);
         }
