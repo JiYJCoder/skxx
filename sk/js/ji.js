@@ -1437,7 +1437,7 @@ $.fn.extend({
                 color:defaultCssSet.color || '#333333',
                 textDecoration:defaultCssSet.textDecoration || 'none',
                 textAlign:defaultCssSet.textAlign || 'left',
-                lineHeight:defaultCssSet.lineHeight+'em'||'1em',
+                lineHeight:defaultCssSet.lineHeight||'1',
                 borderWidth:0+"px",
                 borderStyle:'solid',
                 borderColor:'#ffffff',
@@ -1557,11 +1557,13 @@ $.fn.extend({
                         var bgc=controlSel.attr('bgc');//背景颜色
                         var col=valArr[4].substring(8);//字体颜色
                         var ta=valArr[6].substring(13);//字体对齐方式
-                        var lh=valArr[7].substring(14,valArr[7].length-2);//行高
+                        var lh=valArr[7].substring(13);//行高
                         var bw=valArr[8].substring(14,valArr[8].length-2);//边宽
                         var br=valArr[12].substring(15,valArr[12].length-2);//圆角
-                        var pd=valArr[11].substring(9,valArr[11].length-2);
-//                        console.log(pd);
+                        var pd=valArr[11].substring(9,valArr[11].length-2);//内距
+                        var bs=valArr[9].substring(14);//边样
+                        var bc=valArr[10].substring(14);//边色
+//                        console.log(bc);
 //                        console.log(cssVal);
 //                        console.log(valArr);
                         $('.fontSize p span').text(fonSizeVal);//面板字体大小
@@ -1593,6 +1595,12 @@ $.fn.extend({
                         if(lh!='1'){
                             $('.fontspacingVal span').text(lh);
                         }
+                        $('.ImgchageBgSetColVal').css({
+                            backgroundColor:bc
+                        });
+                        $('.ImgBoderStyle >p').css({
+                            borderStyle:bs
+                        });
                         $('.chageBoderWidth > input').val(bw);
                         $('.chageFilletWidth > input').val(br);
                         $('.chagePadding > input').val(pd);
@@ -1622,7 +1630,7 @@ $.fn.extend({
                         }
                         //控件类型回传
                         function controlType(setCon,imgUrl,type){
-                            var num=null
+                            var num=null;
                             if(type==1){
                                 num=Number(controlSel.attr('controltype'))-1;
                             }else if(type==2){
@@ -2206,6 +2214,41 @@ $.fn.extend({
                             background:'none'
                         })
                     }
+                });
+                //边框颜色
+                $('.ImgchageBgSetCol').colpick({
+//                    layout:'rgbhex',
+//                    color:'ffffff',
+                    onSubmit:function(hsb,hex,rgb,el) {
+                        controlSet.children().css('border-color', '#'+hex);
+                        $('.ImgchageBgSetColVal').css('background-color', '#'+hex);
+                        $(el).colpickHide();
+                    }
+                });
+                //边框类型
+                $('.ImgBoderStyle').hover(function(){
+                    $('.ImgBoderStyle ul').show();
+                    $('.ImgBoderStyle ul li').click(function(){
+                        if($(this).index()==0){
+                            $('.ImgBoderStyle >p').css({
+                                borderStyle:'solid'
+                            });
+                            controlSet.children().css('border-style', 'solid');
+                        }else if($(this).index()==1){
+                            $('.ImgBoderStyle >p').css({
+                                borderStyle:'dotted'
+                            });
+                            controlSet.children().css('border-style', 'dotted');
+                        }else if($(this).index()==2){
+                            $('.ImgBoderStyle >p').css({
+                                borderStyle:'dashed'
+                            });
+                            controlSet.children().css('border-style', 'dashed');
+                        }
+                        $('.ImgBoderStyle ul').hide();
+                    })
+                },function(){
+                    $('.ImgBoderStyle ul').hide();
                 });
                 //关于数字增加的
                 function addNum(plus,Less){
