@@ -294,11 +294,11 @@ var atlasSetHtml=`<div class="panel">
               </div>
               <div class="site_pageComponent_con">
                   <div class="AtlasStyle">
-                      <img src="images/site_AtlasStyle.png" alt="">
+                      <div class='titleStyleSet atlasStyleBg'></div>
                       <div class="AtlasStyleList">
-                          <ul>
-                              <li><img src="images/site_AtlasStyle.png" alt=""></li>
-                              <li><img src="images/site_AtlasStyle1.png" alt=""></li>
+                          <ul class='AtlasStyleListUl'>
+                              <li><i></i></li>
+                              <li><i></i></li>
                           </ul>
                       </div>
                   </div>
@@ -307,15 +307,15 @@ var atlasSetHtml=`<div class="panel">
                       <ul>
                           <li class="clearfix">
                               <span>列数</span>
-                              <div class="ImgBoderSize">
-                                  <input type="text" value="0">
+                              <div class="ImgBoderSize atlasColumn">
+                                  <input type="text" value="3">
                                   <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
                                   <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
                               </div>
                           </li>
                           <li class="clearfix">
                               <span>间距</span>
-                              <div class="ImgBoderSize">
+                              <div class="ImgBoderSize atlasPadding">
                                   <input type="text" value="0">
                                   <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
                                   <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
@@ -323,7 +323,7 @@ var atlasSetHtml=`<div class="panel">
                           </li>
                           <li class="clearfix">
                               <span>圆角</span>
-                              <div class="ImgBoderSize">
+                              <div class="ImgBoderSize chageFilletWidth">
                                   <input type="text" value="0">
                                   <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
                                   <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
@@ -2169,12 +2169,15 @@ $.fn.extend({
                             controlSet.find('.serchCon').css({
                                 backgroundImage:imgSrc
                             })
+                        }else if($(this).parent().hasClass('AtlasStyleListUl')){
+                            console.log(1);
                         }
                         
                     });
                 }
                 selTitleStyle($('.titleVal ul'),$('.titleVal'));
                 selTitleStyle($('.titleIconlist ul'),$('.titleIconlist'));
+                selTitleStyle($('.AtlasStyleList ul'),$('.AtlasStyle'));
                 //背景选择
                 $('.ImgchageBg ul li').click(function(){
                     $(this).addClass('current').siblings().removeClass('current');
@@ -2254,6 +2257,10 @@ $.fn.extend({
                 function addNum(plus,Less){
                     plus.click(function(){
                         var num=Number($(this).parent().find('input').val())+1;
+                        var atlasW=controlSet.find('li').width();
+                        var atlasH=controlSet.find('li').height();
+                        var atlasFW=controlSet.find('ul').width();
+                        var atlasFH=controlSet.find('ul').height();
                         $(this).parent().find('input').val(num);
                         if($(this).parent().hasClass('chageBoderWidth')){
                             controlSet.children().css({
@@ -2267,10 +2274,49 @@ $.fn.extend({
                             controlSet.children().css({
                                 padding:num+'px'
                             });
+                        }else if($(this).parent().hasClass('atlasPadding')){
+                            controlSet.find('li').width((atlasW-1)/atlasFW*100+"%");
+                            controlSet.find('li').height((atlasH-1)/atlasFH*100+"%");
+                            controlSet.find('li').eq(1).css({
+                                marginLeft:3*num/atlasFW/2*100+'%',
+                                marginRight:3*num/atlasFW/2*100+'%'
+                            })
+                            controlSet.find('li').eq(3).css({
+                                marginTop:3*num/atlasFH/2*100+'%',
+                                marginBottom:3*num/atlasFH/2*100+'%'
+                            })
+                            controlSet.find('li').eq(5).css({
+                                marginTop:3*num/atlasFH/2*100+'%',
+                                marginBottom:3*num/atlasFH/2*100+'%'
+                            })
+                            controlSet.find('li').eq(4).css({
+                                marginLeft:3*num/atlasFW/2*100+'%',
+                                marginRight:3*num/atlasFW/2*100+'%',
+                                marginTop:3*num/atlasFH/2*100+'%',
+                                marginBottom:3*num/atlasFH/2*100+'%',
+                            })
+                            controlSet.find('li').eq(7).css({
+                                marginLeft:3*num/atlasFW/2*100+'%',
+                                marginRight:3*num/atlasFW/2*100+'%'
+                            })
+                        }else if($(this).parent().hasClass('atlasColumn')){
+                            if(num>3){
+                                $(this).parent().find('input').val(3);
+                            }
+                            if(num==2){
+                                var chageNum=Number($('.atlasPadding input').val());
+                                controlSet.find('li').width((atlasFW/2-chageNum)/atlasFW*100+"%")
+                                controlSet.find('li').height((atlasFH/5-chageNum)/atlasFH*100+"%")
+                                
+                            }
                         }
                     });
                     Less.click(function(){
                         var num=Number($(this).parent().find('input').val())-1;
+                        var atlasW=controlSet.find('li').width();
+                        var atlasH=controlSet.find('li').height();
+                        var atlasFW=controlSet.find('ul').width();
+                        var atlasFH=controlSet.find('ul').height();
                         if(num<0){
                             $(this).parent().find('input').val(0);
                         }else{
@@ -2288,10 +2334,44 @@ $.fn.extend({
                             controlSet.children().css({
                                 padding:num+'px'//设置padding
                             });
+                        }else if($(this).parent().hasClass('atlasPadding')&&num>=0){
+                            controlSet.find('li').width((atlasW+1)/atlasFW*100+"%");
+                            controlSet.find('li').height((atlasH+1)/atlasFH*100+"%");
+                            controlSet.find('li').eq(1).css({
+                                marginLeft:3*num/atlasFW/2*100+'%',
+                                marginRight:3*num/atlasFW/2*100+'%'
+                            })
+                            controlSet.find('li').eq(3).css({
+                                marginTop:3*num/atlasFH/2*100+'%',
+                                marginBottom:3*num/atlasFH/2*100+'%'
+                            })
+                            controlSet.find('li').eq(5).css({
+                                marginTop:3*num/atlasFH/2*100+'%',
+                                marginBottom:3*num/atlasFH/2*100+'%'
+                            })
+                            controlSet.find('li').eq(4).css({
+                                marginLeft:3*num/atlasFW/2*100+'%',
+                                marginRight:3*num/atlasFW/2*100+'%',
+                                marginTop:3*num/atlasFH/2*100+'%',
+                                marginBottom:3*num/atlasFH/2*100+'%',
+                            })
+                            controlSet.find('li').eq(7).css({
+                                marginLeft:3*num/atlasFW/2*100+'%',
+                                marginRight:3*num/atlasFW/2*100+'%'
+                            })
+                        }else if($(this).parent().hasClass('atlasColumn')){
+                            if(num==2){
+                                console.log(1);
+                            }
                         }
                     });
                 }
                 addNum($('.ImgBoderSizeS'),$('.ImgBoderSizeXia'));
+                //图集控件
+                function atlasCss(){
+                    
+                }
+                atlasCss();
             };
             chageCss(control);
         }
