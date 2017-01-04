@@ -7,21 +7,23 @@
 <title>Hello, World</title>  
 
 </head>  
-<style>
-    .test{
-        width: 200px;
-        height: 200px;
-        display: flex;
-        flex-wrap:wrap;
-    }
-    .test p{
-        width: 33.333%;
-        background-color: red;
-    }
-</style>
+
 <body>  
-<div class="test"><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p></div>
+
 </body>
 <script>
+
+var arr=[11,10,7,1,8,1100,100,2];
+var maxNum;
+for(var i=0;i<arr.length-1;i++){
+    
+    if(arr[i]>arr[i+1]){
+        maxNum=arr[i];
+        arr[i]=arr[i+1];
+        arr[i+1]=maxNum
+    }
+//     console.log(arr);
+}
+console.log(arr[arr.length-1]-arr[0]);  
 </script> 
 </html>

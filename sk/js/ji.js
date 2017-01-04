@@ -62,7 +62,7 @@ var boderHtml=`<div class="component_public ImgBoder">
                       <ul>
                           <li class="clearfix">
                               <span>边框</span>
-                              <div class="ImgchageBgSetCol">
+                              <div class="ImgchageBgSetCol borderColBtn">
                                   <div class="ImgchageBgSetColVal"></div>
                               </div>
                               <div class="ImgBoderStyle">
@@ -2219,7 +2219,7 @@ $.fn.extend({
                     }
                 });
                 //边框颜色
-                $('.ImgchageBgSetCol').colpick({
+                $('.borderColBtn').colpick({
 //                    layout:'rgbhex',
 //                    color:'ffffff',
                     onSubmit:function(hsb,hex,rgb,el) {
@@ -2261,6 +2261,7 @@ $.fn.extend({
                         var atlasH=controlSet.find('li').height();
                         var atlasFW=controlSet.find('ul').width();
                         var atlasFH=controlSet.find('ul').height();
+                        var chageNum=Number($('.atlasPadding input').val());
                         $(this).parent().find('input').val(num);
                         if($(this).parent().hasClass('chageBoderWidth')){
                             controlSet.children().css({
@@ -2275,39 +2276,30 @@ $.fn.extend({
                                 padding:num+'px'
                             });
                         }else if($(this).parent().hasClass('atlasPadding')){
-                            controlSet.find('li').width((atlasW-1)/atlasFW*100+"%");
-                            controlSet.find('li').height((atlasH-1)/atlasFH*100+"%");
-                            controlSet.find('li').eq(1).css({
-                                marginLeft:3*num/atlasFW/2*100+'%',
-                                marginRight:3*num/atlasFW/2*100+'%'
-                            })
-                            controlSet.find('li').eq(3).css({
-                                marginTop:3*num/atlasFH/2*100+'%',
-                                marginBottom:3*num/atlasFH/2*100+'%'
-                            })
-                            controlSet.find('li').eq(5).css({
-                                marginTop:3*num/atlasFH/2*100+'%',
-                                marginBottom:3*num/atlasFH/2*100+'%'
-                            })
-                            controlSet.find('li').eq(4).css({
-                                marginLeft:3*num/atlasFW/2*100+'%',
-                                marginRight:3*num/atlasFW/2*100+'%',
-                                marginTop:3*num/atlasFH/2*100+'%',
-                                marginBottom:3*num/atlasFH/2*100+'%',
-                            })
-                            controlSet.find('li').eq(7).css({
-                                marginLeft:3*num/atlasFW/2*100+'%',
-                                marginRight:3*num/atlasFW/2*100+'%'
-                            })
+                            var column =$('.atlasColumn input').val();
+                            if(column == 1){
+                                controlSet.find('li').css({
+                                    marginTop:chageNum+1+'px',
+                                    marginBottom:0,
+                                    marginLeft:0,
+                                    marginRight:0,
+                                })
+                                controlSet.find('li').eq(0).css({
+                                    marginTop:0,
+                                })
+                            }
                         }else if($(this).parent().hasClass('atlasColumn')){
+                            var ImgNum=controlSet.find('li').size();
                             if(num>3){
                                 $(this).parent().find('input').val(3);
                             }
                             if(num==2){
-                                var chageNum=Number($('.atlasPadding input').val());
                                 controlSet.find('li').width((atlasFW/2-chageNum)/atlasFW*100+"%")
-                                controlSet.find('li').height((atlasFH/5-chageNum)/atlasFH*100+"%")
+                                controlSet.find('li').height((atlasFH/(Math.ceil(ImgNum/2))-chageNum)/atlasFH*100+"%")
                                 
+                            }else if(num==3){
+                                controlSet.find('li').width((atlasFW/3-chageNum)/atlasFW*100+"%")
+                                controlSet.find('li').height((atlasFH/Math.ceil(ImgNum/3)-chageNum)/atlasFH*100+"%")
                             }
                         }
                     });
@@ -2317,6 +2309,7 @@ $.fn.extend({
                         var atlasH=controlSet.find('li').height();
                         var atlasFW=controlSet.find('ul').width();
                         var atlasFH=controlSet.find('ul').height();
+                        var chageNum=Number($('.atlasPadding input').val());
                         if(num<0){
                             $(this).parent().find('input').val(0);
                         }else{
@@ -2335,33 +2328,21 @@ $.fn.extend({
                                 padding:num+'px'//设置padding
                             });
                         }else if($(this).parent().hasClass('atlasPadding')&&num>=0){
-                            controlSet.find('li').width((atlasW+1)/atlasFW*100+"%");
-                            controlSet.find('li').height((atlasH+1)/atlasFH*100+"%");
-                            controlSet.find('li').eq(1).css({
-                                marginLeft:3*num/atlasFW/2*100+'%',
-                                marginRight:3*num/atlasFW/2*100+'%'
-                            })
-                            controlSet.find('li').eq(3).css({
-                                marginTop:3*num/atlasFH/2*100+'%',
-                                marginBottom:3*num/atlasFH/2*100+'%'
-                            })
-                            controlSet.find('li').eq(5).css({
-                                marginTop:3*num/atlasFH/2*100+'%',
-                                marginBottom:3*num/atlasFH/2*100+'%'
-                            })
-                            controlSet.find('li').eq(4).css({
-                                marginLeft:3*num/atlasFW/2*100+'%',
-                                marginRight:3*num/atlasFW/2*100+'%',
-                                marginTop:3*num/atlasFH/2*100+'%',
-                                marginBottom:3*num/atlasFH/2*100+'%',
-                            })
-                            controlSet.find('li').eq(7).css({
-                                marginLeft:3*num/atlasFW/2*100+'%',
-                                marginRight:3*num/atlasFW/2*100+'%'
-                            })
+                            
                         }else if($(this).parent().hasClass('atlasColumn')){
+                            var ImgNum=controlSet.find('li').size();
+                            if(num<2){
+                                $(this).parent().find('input').val(1);
+                            }
                             if(num==2){
-                                console.log(1);
+                                controlSet.find('li').width((atlasFW/2-chageNum)/atlasFW*100+"%")
+                                controlSet.find('li').height((atlasFH/(Math.ceil(ImgNum/2))-chageNum)/atlasFH*100+"%")
+                            }else if(num==3){
+                                controlSet.find('li').width((atlasFW/3-chageNum)/atlasFW*100+"%")
+                                controlSet.find('li').height((atlasFH/Math.ceil(ImgNum/3)-chageNum)/atlasFH*100+"%")
+                            }else if(num==1){
+                                controlSet.find('li').width((atlasFW-chageNum)/atlasFW*100+"%")
+                                controlSet.find('li').height((atlasFH/Math.ceil(ImgNum)-chageNum)/atlasFH*100+"%")
                             }
                         }
                     });
