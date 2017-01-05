@@ -633,6 +633,33 @@
 .titleVal ul li.chage i{
     background:url('../images/site_CTitleStyle2.png') no-repeat;
 }
+.btnVal ul{
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    z-index: 1;
+    display: none;
+}
+.btnVal ul li{
+    overflow: hidden;
+    height: 30px;
+    width: 172px;
+    background-color: #cacaca;
+}
+.btnVal ul li:hover{
+    background-color: #959595;
+}
+.btnVal ul li i{
+    margin-left: 35px;
+    margin-top: 4px;
+    display: block;
+    width: 90px;
+    height: 22px;
+    background:url('../images/site_CTitleStyle1.png') no-repeat;
+}
+.btnVal ul li.chage i{
+    background:url('../images/site_CTitleStyle2.png') no-repeat;
+}
 .titleStyleIcon{
     width: 18px;
     height: 18px;
@@ -643,7 +670,7 @@
     position: absolute;
     bottom:-62px;
     left: 1px;
-    z-index: 0;
+    z-index: 999;
     border-right: 0;
     display: none;
 }
@@ -808,9 +835,10 @@
     width: 100%;
     height: 100%;
     background-color: #438eb9;
-    color: #fff;
-    border-radius: 5px;
     position: relative;
+    background-size: 14px 14px;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 .botton p{
     position: absolute;

@@ -228,7 +228,7 @@ var titleSetHtml=`<div class="panel">
                       <ul>
                           <li class="clearfix">
                               <span>标题</span>
-                              <div class="titleStyleCon titleVal">
+                              <div class="titleStyleCon titleVal titleSet">
                                   <div class="titleStyleConVal titleStyleSet">
                                       
                                   </div>
@@ -240,7 +240,7 @@ var titleSetHtml=`<div class="panel">
                           </li>
                           <li class="clearfix">
                               <span>图标</span>
-                              <div class="titleStyleCon titleIconlist">
+                              <div class="titleStyleCon titleIconlist titleIconSet">
                                   <div class="titleStyleIcon titleStyleSet">
                                       
                                   </div>
@@ -410,33 +410,33 @@ var btnSetHtml=`<div class="panel">
                       <ul>
                           <li class="clearfix">
                               <span>按钮</span>
-                              <div class="titleStyleCon titleVal btnVal">
-                                  <div class="titleStyleConVal btnCurrent">
+                              <div class="titleStyleCon btnVal">
+                                  <div class="titleStyleConVal btnCurrent titleStyleSet">
                                       
                                   </div>
-                                  <ul>
-                                      <li><i></i></li>
-                                      <li class="chage"><i></i></li>
+                                  <ul class="chageTitleStyle">
+                                      <li type="1"><i></i></li>
+                                      <li class="chage" type="2"><i></i></li>
                                   </ul>
                               </div>
                           </li>
                           <li class="clearfix">
                               <span>图标</span>
-                              <div class="titleStyleCon titleIconlist">
-                                  <div class="titleStyleIcon">
+                              <div class="titleStyleCon titleIconlist btnlist">
+                                  <div class="titleStyleIcon titleStyleSet">
                                       
                                   </div>
-                                  <ul class="clearfix">
-                                      <li><img src="images/site_title1.png" alt=""></li>
-                                      <li><img src="images/site_title2.png" alt=""></li>
-                                      <li></li>
-                                      <li></li>
-                                      <li></li>
-                                      <li></li>
-                                      <li></li>
-                                      <li></li>
-                                      <li></li>
-                                      <li></li>
+                                  <ul class="clearfix chageIcon">
+                                      <li><i></i></li>
+                                      <li><i></i></li>
+                                      <li><i></i></li>
+                                      <li><i></i></li>
+                                      <li><i></i></li>
+                                      <li><i></i></li>
+                                      <li><i></i></li>
+                                      <li><i></i></li>
+                                      <li><i></i></li>
+                                      <li><i></i></li>
                                   </ul>
                               </div>
                           </li>
@@ -1234,6 +1234,8 @@ $.fn.extend({
                     height:'40',
                     left:'100',
                     top:'190',
+                    color:"#ffffff",
+                    borderRadius:"5"
                 });
                 break;
             case 7:
@@ -1393,6 +1395,8 @@ $.fn.extend({
             cssSetBox.append(controlSetHtml);//生成新控件设置html
             box.append(controlHtml);//生成新控件html
             //设置控件默认值
+            console.log(defaultCssSet.borderRadius)
+            
             box.find('>li:last').children().css({
                 fontSize:defaultCssSet.fontSize||'12px',
                 fontWeight:defaultCssSet.fontWeight || 'normal',
@@ -1406,7 +1410,6 @@ $.fn.extend({
                 borderStyle:'solid',
                 borderColor:'#ffffff',
                 padding:defaultCssSet.padding||"0px",
-                borderRadius:"0px",
             });
             box.find('>li:last').css({
                 width:defaultCssSet.width+'px' || false,
@@ -1417,7 +1420,10 @@ $.fn.extend({
             });
             box.find('>li:last').find('.general').css({
                 boxShadow:"#ffffff 0 0 0"
-            })
+            });
+            box.find('>li:last').find('*').css({
+                borderRadius:defaultCssSet.borderRadius+"px"||"0px"
+            });
             //设置控件面板默认值
             function panelDefaultVal(){
                 $('.bgCol .colConValShow').css({
@@ -1530,7 +1536,7 @@ $.fn.extend({
                         var pd=valArr[11].substring(9,valArr[11].length-2);//内距
                         var bs=valArr[9].substring(14);//边样
                         var bc=valArr[10].substring(14);//边色
-//                        console.log(bc);
+                        console.log(br);
 //                        console.log(cssVal);
 //                        console.log(valArr);
                         $('.fontSize p span').text(fonSizeVal);//面板字体大小
@@ -2114,9 +2120,13 @@ $.fn.extend({
                     }
                 });
                 //设置文字
-                $('.searchInput input').keyup(function(){
-                    $('.textView').text($(this).val());
-                });
+                function setText(btn, box){
+                    btn.keyup(function(){
+                        box.text($(this).val());
+                    });
+                }
+                setText($('.searchInput input'),controlSet.find('.textView'));
+                setText($('.searchInput input'),controlSet.find('.botton >p'));
                 //下拉选择hover
                 function selTitleStyle(setList,setBox){
                     setBox.hover(function(){
@@ -2129,36 +2139,74 @@ $.fn.extend({
                         setBox.find('.titleStyleSet').css('background-image',imgSrc);
                         setList.hide();
                         if($(this).parent().hasClass('chageTitleStyle')){
+                            
+                            controlSet.attr('bgc','#a5a5a5');
+                            controlSet.attr('controlType','2');
                             if($(this).attr('type')=="2"){
-                                controlSet.attr('bgc','#a5a5a5');
-                                controlSet.attr('controlType','2');
-                                controlSet.find('.serchCon').css({
-                                    backgroundColor:'#a5a5a5',
-                                    borderLeft:'3px solid #505050',
-                                })
+                                if(controlSet.attr('type')=="2"){
+                                    controlSet.find('.serchCon').css({
+                                        backgroundColor:'#a5a5a5',
+                                        borderLeft:'3px solid #505050',
+                                    })
+                                }else if(controlSet.attr('type')=="6"){
+                                    controlSet.find('.botton').css({
+                                        backgroundColor:"#ffffff",
+                                        backgroundImage:"none"
+                                    });
+                                    controlSet.children().css({
+                                        color:"#333333",
+                                    });
+                                    controlSet.find("*").css({
+                                        borderRadius:"0px"
+                                    });
+                                    controlSet.find('.botton p').text("按钮");
+                                }
+                                
                             }else if($(this).attr('type')=="1"){
                                 controlSet.attr('bgc','#438eb9');
                                 controlSet.attr('controlType','1');
-                                controlSet.find('.serchCon').css({
-                                    backgroundColor:'#438eb9',
-                                    borderLeft:'none',
-                                })
+                                if(controlSet.attr('type')=="2"){
+                                    controlSet.find('.serchCon').css({
+                                        backgroundColor:'#438eb9',
+                                        borderLeft:'none',
+                                    })
+                                }else if(controlSet.attr('type')=="6"){
+                                    controlSet.find('.botton').css({
+                                        backgroundColor:"#438eb9",
+                                        backgroundImage:"none"
+                                    });
+                                    controlSet.children().css({
+                                        color:"#ffffff",
+                                    });
+                                    controlSet.find("*").css({
+                                        borderRadius:"5px"
+                                    });
+                                    controlSet.find('.botton p').text("按钮");
+                                }
+                                
                             }
                         }else if($(this).parent().hasClass('chageIcon')){
                             var num=$(this).index().toString()
                             controlSet.attr('controlIconType',num);
-                            controlSet.find('.serchCon').css({
-                                backgroundImage:imgSrc
-                            })
-                        }else if($(this).parent().hasClass('AtlasStyleListUl')){
-                            console.log(1);
+                            if(controlSet.attr('type')=="2"){
+                                controlSet.find('.serchCon').css({
+                                    backgroundImage:imgSrc
+                                })
+                            }else if(controlSet.attr('type')=="6"){
+                                controlSet.find('.botton').css({
+                                    backgroundImage:imgSrc
+                                });
+                                controlSet.find('.botton p').text("");
+                            }
+                            
                         }
                         
                     });
                 }
-                selTitleStyle($('.titleVal ul'),$('.titleVal'));
-                selTitleStyle($('.titleIconlist ul'),$('.titleIconlist'));
-                selTitleStyle($('.AtlasStyleList ul'),$('.AtlasStyle'));
+                selTitleStyle($('.titleSet ul'),$('.titleSet'));
+                selTitleStyle($('.titleIconSet ul'),$('.titleIconSet'));
+                selTitleStyle($('.btnVal ul'),$('.btnVal'));
+                selTitleStyle($('.btnlist ul'),$('.btnlist'));
                 //背景选择
                 $('.ImgchageBg ul li').click(function(){
                     $(this).addClass('current').siblings().removeClass('current');
@@ -2451,6 +2499,8 @@ $.fn.extend({
                         $(el).colpickHide();
                     }
                 });
+                //按钮
+                
             };
             chageCss(control);
         }
