@@ -765,13 +765,16 @@
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: #333;
-    -webkit-box-shadow: 0px 0px 0px transparent;
-    -moz-box-shadow: 0px 0px 0px transparent;
-    box-shadow: 0px 0px 0px transparent;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
     position: absolute;
     top: 50%;
     left:50%;
     transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
+}
+.borderStyle .ImgchageBgSetColVal{
+    background-color: #333;
 }
 /*竖线*/
 .sLine{
@@ -786,9 +789,9 @@
     border-left-width: 1px;
     border-left-style: solid;
     border-left-color: #333;
-    -webkit-box-shadow: 0px 0px 0px transparent;
-    -moz-box-shadow: 0px 0px 0px transparent;
-    box-shadow: 0px 0px 0px transparent;
+    border-top: 0;
+    border-bottom: 0;
+    border-right: 0;
     position: absolute;
     top: 50%;
     left:50%;
@@ -819,7 +822,7 @@
     background:url('../images/site_Cbtn1.png') center center no-repeat;
 }
 .btnVal ul li i{
-    
+    margin-left: 46px;
     background:url('../images/site_Cbtn1.png') no-repeat;
 }
 .btnVal ul li.chage i{

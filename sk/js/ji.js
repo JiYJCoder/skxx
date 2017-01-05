@@ -4,13 +4,13 @@ var shadowHtml=`<div class="component_public ImgBoder">
                       <ul>
                           <li class="clearfix">
                               <span>颜色</span>
-                              <div class="ImgchageBgSetCol">
+                              <div class="ImgchageBgSetCol shadowCol">
                                   <div class="ImgchageBgSetColVal"></div>
                               </div>
                           </li>
                           <li class="clearfix">
                               <span>Y轴</span>
-                              <div class="ImgBoderSize">
+                              <div class="ImgBoderSize shadowY">
                                   <input type="text" value="0">
                                   <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
                                   <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
@@ -18,7 +18,7 @@ var shadowHtml=`<div class="component_public ImgBoder">
                           </li>
                           <li class="clearfix">
                               <span>X轴</span>
-                              <div class="ImgBoderSize">
+                              <div class="ImgBoderSize shadowX">
                                   <input type="text" value="0">
                                   <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
                                   <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
@@ -26,7 +26,7 @@ var shadowHtml=`<div class="component_public ImgBoder">
                           </li>
                           <li class="clearfix">
                               <span>模糊</span>
-                              <div class="ImgBoderSize">
+                              <div class="ImgBoderSize shadowRange">
                                   <input type="text" value="0">
                                   <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
                                   <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
@@ -331,41 +331,7 @@ var atlasSetHtml=`<div class="panel">
                           </li>
                       </ul>
                   </div>
-                  <div class="component_public ImgBoder">
-                      <p class="title">阴影</p>
-                      <ul>
-                          <li class="clearfix">
-                              <span>颜色</span>
-                              <div class="ImgchageBgSetCol">
-                                  <div class="ImgchageBgSetColVal"></div>
-                              </div>
-                          </li>
-                          <li class="clearfix">
-                              <span>Y轴</span>
-                              <div class="ImgBoderSize">
-                                  <input type="text" value="0">
-                                  <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
-                                  <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
-                              </div>
-                          </li>
-                          <li class="clearfix">
-                              <span>X轴</span>
-                              <div class="ImgBoderSize">
-                                  <input type="text" value="0">
-                                  <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
-                                  <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
-                              </div>
-                          </li>
-                          <li class="clearfix">
-                              <span>模糊</span>
-                              <div class="ImgBoderSize">
-                                  <input type="text" value="0">
-                                  <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
-                                  <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
-                              </div>
-                          </li>
-                      </ul>
-                  </div>
+                  ${shadowHtml}
                   ${positionHtml}
               </div>
           </div>`;
@@ -373,21 +339,21 @@ var atlasSetHtml=`<div class="panel">
 var atlasHtml=`<li type='3'>
                       <div class="site_CAtlas Img">
                           <ul class="clearfix">
-                              <li><img src="images/site_Atlas.png" alt=""></li>
-                              <li><img src="images/site_Atlas.png" alt=""></li>
-                              <li><img src="images/site_Atlas.png" alt=""></li>
-                              <li><img src="images/site_Atlas.png" alt=""></li>
-                              <li><img src="images/site_Atlas.png" alt=""></li>
-                              <li><img src="images/site_Atlas.png" alt=""></li>
-                              <li><img src="images/site_Atlas.png" alt=""></li>
-                              <li><img src="images/site_Atlas.png" alt=""></li>
-                              <li><img src="images/site_Atlas.png" alt=""></li>
+                              <li class="general"><img src="images/site_Atlas.png" alt=""></li>
+                              <li class="general"><img src="images/site_Atlas.png" alt=""></li>
+                              <li class="general"><img src="images/site_Atlas.png" alt=""></li>
+                              <li class="general"><img src="images/site_Atlas.png" alt=""></li>
+                              <li class="general"><img src="images/site_Atlas.png" alt=""></li>
+                              <li class="general"><img src="images/site_Atlas.png" alt=""></li>
+                              <li class="general"><img src="images/site_Atlas.png" alt=""></li>
+                              <li class="general"><img src="images/site_Atlas.png" alt=""></li>
+                              <li class="general"><img src="images/site_Atlas.png" alt=""></li>
                           </ul>
                       </div>
                       ${csHtml}
                   </li>`;
 //横线控件
-var HlineHtml=`<li type='4'><div class="Hline"><hr></div>${csHtml}</li>`;
+var HlineHtml=`<li type='4'><div class="Hline"><hr class="general"></div>${csHtml}</li>`;
 //横线控件设置HTML
 var HlineSetHtml=`<div class="panel">
               <div class="site_pageComponent_con" style="display:block;"></div>
@@ -397,10 +363,10 @@ var HlineSetHtml=`<div class="panel">
                       <ul>
                           <li class="clearfix">
                               <span>线条</span>
-                              <div class="ImgchageBgSetCol">
+                              <div class="ImgchageBgSetCol borderStyle">
                                   <div class="ImgchageBgSetColVal"></div>
                               </div>
-                              <div class="ImgBoderStyle">
+                              <div class="ImgBoderStyle borderSetStyle">
                                   <p></p>
                                   <ul>
                                       <li><p></p></li>
@@ -408,8 +374,8 @@ var HlineSetHtml=`<div class="panel">
                                       <li><p style="border: 1px dashed #a5a5a5;"></p></li>
                                   </ul>
                               </div>
-                              <div class="ImgBoderSize">
-                                  <input type="text" value="0">
+                              <div class="ImgBoderSize borderSetWidth">
+                                  <input type="text" value="1">
                                   <img src="images/site_xiala.png" alt="" class="ImgBoderSizeXia">
                                   <img src="images/site_chageSize.png" alt="" class="ImgBoderSizeS">
                               </div>
@@ -421,8 +387,7 @@ var HlineSetHtml=`<div class="panel">
               </div>
           </div>`;
 //竖线控件
-var slineHtml=`<li type='5'><div class="sLine"><hr></div>${csHtml}</li>`;
-
+var slineHtml=`<li type='5'><div class="sLine"><hr class="general"></div>${csHtml}</li>`;
 //按钮控件
 var btnHtml=`<li type='6'><div class="bottonCon"><div class="botton"><p>按钮</p></div></div>${csHtml}</li>`;
 //按钮设置
@@ -485,7 +450,7 @@ var btnSetHtml=`<div class="panel">
               </div>
           </div>`;
 //容器
-var  CboxHtml=`<li type='7'><div class="Cbox"><div class="CboxShow"></div></div>${csHtml}</li>`;
+var  CboxHtml=`<li type='7'><div class="Cbox"><div class="CboxShow general"></div></div>${csHtml}</li>`;
 //容器设置
 var CboxSetHtml=`<div class="panel">
               <div class="site_pageComponent_con" style="display:block;">
@@ -1035,7 +1000,6 @@ var cmListSetHtml=`<div class="panel">
                           <li></li>
                       </ul>
                   </div>
-                  ${csHtml}
               </div>
           </div>`;
 //二维码
@@ -1442,7 +1406,7 @@ $.fn.extend({
                 borderStyle:'solid',
                 borderColor:'#ffffff',
                 padding:defaultCssSet.padding||"0px",
-                borderRadius:"0px"
+                borderRadius:"0px",
             });
             box.find('>li:last').css({
                 width:defaultCssSet.width+'px' || false,
@@ -1450,6 +1414,9 @@ $.fn.extend({
                 left:defaultCssSet.left+'px' || false,
                 top:defaultCssSet.top+'px' || false,
                 transform:defaultCssSet.transform || 'rotate(0deg)',
+            });
+            box.find('>li:last').find('.general').css({
+                boxShadow:"#ffffff 0 0 0"
             })
             //设置控件面板默认值
             function panelDefaultVal(){
@@ -1612,11 +1579,11 @@ $.fn.extend({
                         $('.fontcssSet li').eq(2).find('input').val(controlSel.position().left)
                         $('.fontcssSet li').eq(3).find('input').val(controlSel.position().top)
                         //设置图片模式
-                        if(controlSel.find('.Img > img').hasClass('none')){
+                        if(controlSel.find('img').hasClass('none')){
                             $('.bgStyle ul li').eq(3).addClass('current').siblings().removeClass()
-                        }else if(controlSel.find('.Img > img').hasClass('fill')){
+                        }else if(controlSel.find('img').hasClass('fill')){
                             $('.bgStyle ul li').eq(2).addClass('current').siblings().removeClass()
-                        }else if(controlSel.find('.Img > img').hasClass('contain')){
+                        }else if(controlSel.find('img').hasClass('contain')){
                             $('.bgStyle ul li').eq(1).addClass('current').siblings().removeClass()
                         }
                         //背景模式
@@ -1644,6 +1611,20 @@ $.fn.extend({
                         }
                         controlType($('.titleStyleConVal'),$('.chageTitleStyle li'),1);
                         controlType($('.titleStyleIcon'),$('.chageIcon li'),2);
+                        //阴影回值
+                        function shaDowSet(){
+                            var shaDowVal=$('.general').css('box-shadow');
+                            var shaDowCol=controlSel.find('.general').attr('shadowcol')||"#fff"
+                            var shaDowX=controlSel.find('.general').attr('shadowx') || 0;
+                            var shaDowY=controlSel.find('.general').attr('shadowy') || 0;
+                            var shaDowR=controlSel.find('.general').attr('shadowrange') || 0;
+                            $('.shadowCol .ImgchageBgSetColVal').css('background-color',shaDowCol);
+                            $('.shadowY input').val(shaDowY);
+                            $('.shadowX input').val(shaDowX);
+                            $('.shadowRange input').val(shaDowR);
+                        }
+                        shaDowSet()
+                                                
                     }
                     valReturn();
                     $(this).find('.chageSize').show();
@@ -2112,22 +2093,22 @@ $.fn.extend({
                 $('.bgStyle ul li').click(function(){
                     $('.Img img').removeClass();
                     if($(this).index()==0){
-                        $('.Img img').css({
+                        controlSet.find("img").css({
                             objectFit:'cover'
                         }).addClass('cover')
                     }
                     if($(this).index()==1){
-                        $('.Img img').css({
+                        controlSet.find("img").css({
                             objectFit:'contain'
                         }).addClass('contain')
                     }
                     if($(this).index()==2){
-                        $('.Img img').css({
+                        controlSet.find("img").css({
                             objectFit:'fill'
                         }).addClass('fill')
                     }
                     if($(this).index()==3){
-                        $('.Img img').css({
+                        controlSet.find("img").css({
                             objectFit:'none'
                         }).addClass('none')
                     }
@@ -2220,11 +2201,9 @@ $.fn.extend({
                 });
                 //边框颜色
                 $('.borderColBtn').colpick({
-//                    layout:'rgbhex',
-//                    color:'ffffff',
                     onSubmit:function(hsb,hex,rgb,el) {
                         controlSet.children().css('border-color', '#'+hex);
-                        $('.ImgchageBgSetColVal').css('background-color', '#'+hex);
+                        $('.borderColBtn .ImgchageBgSetColVal').css('background-color', '#'+hex);
                         $(el).colpickHide();
                     }
                 });
@@ -2236,17 +2215,47 @@ $.fn.extend({
                             $('.ImgBoderStyle >p').css({
                                 borderStyle:'solid'
                             });
-                            controlSet.children().css('border-style', 'solid');
+                            if(controlSet.attr('type')=="4"){
+                                controlSet.find('.general').css({
+                                    borderBottomStyle:'solid'
+                                });
+                            }else if(controlSet.attr('type')=="5"){
+                                controlSet.find('.general').css({
+                                    borderLeftStyle:'solid'
+                                });
+                            }else{
+                                controlSet.children().css('border-style', 'solid');
+                            }
                         }else if($(this).index()==1){
                             $('.ImgBoderStyle >p').css({
                                 borderStyle:'dotted'
                             });
-                            controlSet.children().css('border-style', 'dotted');
+                            if(controlSet.attr('type')=="4"){
+                                controlSet.find('.general').css({
+                                    borderBottomStyle:'dotted'
+                                });
+                            }else if(controlSet.attr('type')=="5"){
+                                controlSet.find('.general').css({
+                                    borderLeftStyle:'dotted'
+                                });
+                            }else{
+                                controlSet.children().css('border-style', 'dotted');
+                            }
                         }else if($(this).index()==2){
                             $('.ImgBoderStyle >p').css({
                                 borderStyle:'dashed'
                             });
-                            controlSet.children().css('border-style', 'dashed');
+                            if(controlSet.attr('type')=="4"){
+                                controlSet.find('.general').css({
+                                    borderBottomStyle:'dashed'
+                                });
+                            }else if(controlSet.attr('type')=="5"){
+                                controlSet.find('.general').css({
+                                    borderLeftStyle:'dashed'
+                                });
+                            }else{
+                                controlSet.children().css('border-style', 'dashed');
+                            }
                         }
                         $('.ImgBoderStyle ul').hide();
                     })
@@ -2261,7 +2270,12 @@ $.fn.extend({
                         var atlasH=controlSet.find('li').height();
                         var atlasFW=controlSet.find('ul').width();
                         var atlasFH=controlSet.find('ul').height();
+                        var ImgNum=controlSet.find('li').size();
                         var chageNum=Number($('.atlasPadding input').val());
+                        var shaDowY=$('.shadowY input').val();
+                        var shaDowX=$('.shadowX input').val();
+                        var shaDowRange=$('.shadowRange input').val();
+                        var shaDowCol=$('.shadowCol .ImgchageBgSetColVal').css('background-color');
                         $(this).parent().find('input').val(num);
                         if($(this).parent().hasClass('chageBoderWidth')){
                             controlSet.children().css({
@@ -2277,19 +2291,21 @@ $.fn.extend({
                             });
                         }else if($(this).parent().hasClass('atlasPadding')){
                             var column =$('.atlasColumn input').val();
+                            console.log((atlasH-num)/atlasFH*100);
                             if(column == 1){
                                 controlSet.find('li').css({
-                                    marginTop:chageNum+1+'px',
+                                    marginTop:num+'px',
                                     marginBottom:0,
                                     marginLeft:0,
                                     marginRight:0,
-                                })
+//                                    height:(atlasH-8/9)/atlasFH*100+"%"
+                                });
                                 controlSet.find('li').eq(0).css({
                                     marginTop:0,
-                                })
+                                    
+                                });
                             }
                         }else if($(this).parent().hasClass('atlasColumn')){
-                            var ImgNum=controlSet.find('li').size();
                             if(num>3){
                                 $(this).parent().find('input').val(3);
                             }
@@ -2301,7 +2317,32 @@ $.fn.extend({
                                 controlSet.find('li').width((atlasFW/3-chageNum)/atlasFW*100+"%")
                                 controlSet.find('li').height((atlasFH/Math.ceil(ImgNum/3)-chageNum)/atlasFH*100+"%")
                             }
+                        }else if($(this).parent().hasClass('shadowY')){
+                            controlSet.find(".general").css({
+                                boxShadow:shaDowX+'px '+num+'px ' +shaDowRange+'px '+shaDowCol
+                            }).attr('shadowY',num);
+                            
+                        }else if($(this).parent().hasClass('shadowX')){
+                            controlSet.find(".general").css({
+                                boxShadow:num+'px ' + shaDowY+'px ' + shaDowRange+'px '+shaDowCol
+                            }).attr('shadowX',num);
+                            
+                        }else if($(this).parent().hasClass('shadowRange')){
+                            controlSet.find(".general").css({
+                                boxShadow: shaDowX+'px '+ shaDowY+'px ' + num+'px '+shaDowCol
+                            }).attr('shadowRange',num);
+                        }else if($(this).parent().hasClass('borderSetWidth')){
+                            if(controlSet.attr('type')=='4'){
+                                controlSet.find('hr').css({
+                                        borderBottomWidth:num+'px'
+                                })
+                            }else if(controlSet.attr('type')=='5'){
+                                controlSet.find('hr').css({
+                                        borderLeftWidth:num+'px'
+                                })
+                            }
                         }
+                        
                     });
                     Less.click(function(){
                         var num=Number($(this).parent().find('input').val())-1;
@@ -2310,10 +2351,18 @@ $.fn.extend({
                         var atlasFW=controlSet.find('ul').width();
                         var atlasFH=controlSet.find('ul').height();
                         var chageNum=Number($('.atlasPadding input').val());
+                        var ImgNum=controlSet.find('li').size();
+                        var shaDowY=$('.shadowY input').val();
+                        var shaDowX=$('.shadowX input').val();
+                        var shaDowRange=$('.shadowRange input').val();
+                        var shaDowCol=$('.shadowCol .ImgchageBgSetColVal').css('background-color');
+                        $(this).parent().find('input').val(num);
                         if(num<0){
-                            $(this).parent().find('input').val(0);
-                        }else{
-                            $(this).parent().find('input').val(num);
+                            if($(this).parent().hasClass('shadowY')||$(this).parent().hasClass('shadowX')){
+                                $(this).parent().find('input').val(num);
+                            }else{
+                                $(this).parent().find('input').val(0);
+                            }
                         }
                         if($(this).parent().hasClass('chageBoderWidth')){
                             controlSet.children().css({
@@ -2330,7 +2379,6 @@ $.fn.extend({
                         }else if($(this).parent().hasClass('atlasPadding')&&num>=0){
                             
                         }else if($(this).parent().hasClass('atlasColumn')){
-                            var ImgNum=controlSet.find('li').size();
                             if(num<2){
                                 $(this).parent().find('input').val(1);
                             }
@@ -2344,15 +2392,65 @@ $.fn.extend({
                                 controlSet.find('li').width((atlasFW-chageNum)/atlasFW*100+"%")
                                 controlSet.find('li').height((atlasFH/Math.ceil(ImgNum)-chageNum)/atlasFH*100+"%")
                             }
+                        }else if($(this).parent().hasClass('shadowY')){
+                            controlSet.find(".general").css({
+                                boxShadow:shaDowX+'px '+num+'px ' +shaDowRange+'px '+shaDowCol
+                            }).attr('shadowY',num);
+                            
+                        }else if($(this).parent().hasClass('shadowX')){
+                            controlSet.find(".general").css({
+                                boxShadow:num+'px ' + shaDowY+'px ' + shaDowRange+'px '+shaDowCol
+                            }).attr('shadowX',num);
+                            
+                        }else if($(this).parent().hasClass('shadowRange')){
+                            controlSet.find(".general").css({
+                                boxShadow: shaDowX+'px '+ shaDowY+'px ' + num+'px '+shaDowCol
+                            }).attr('shadowRange',num);
+                        }else if($(this).parent().hasClass('borderSetWidth')){
+                            if(controlSet.attr('type')=='4'){
+                                controlSet.find('hr').css({
+                                        borderBottomWidth:num+'px'
+                                })
+                            }else if(controlSet.attr('type')=='5'){
+                                controlSet.find('hr').css({
+                                        borderLeftWidth:num+'px'
+                                })
+                            }
                         }
                     });
                 }
                 addNum($('.ImgBoderSizeS'),$('.ImgBoderSizeXia'));
-                //图集控件
-                function atlasCss(){
-                    
-                }
-                atlasCss();
+                //阴影
+                $('.shadowCol').colpick({
+                    onSubmit:function(hsb,hex,rgb,el) {
+                        var shaDowY=$('.shadowY input').val();
+                        var shaDowX=$('.shadowX input').val();
+                        var shaDowRange=$('.shadowRange input').val();
+                        controlSet.find('.general').css({
+                            boxShadow:shaDowX+'px '+shaDowY+'px '+shaDowRange+'px '+'#'+hex 
+                        }).attr('shadowCol','#'+hex);
+                        $('.shadowCol .ImgchageBgSetColVal').css('background-color', '#'+hex);
+                        $(el).colpickHide();
+                    }
+                });
+                //线条
+                $('.borderStyle').colpick({
+                    onSubmit:function(hsb,hex,rgb,el) {
+                        
+                        controlSet.attr('hrcol','#'+hex);
+                        if(controlSet.attr('type')=='4'){
+                            controlSet.find('hr').css({
+                                borderBottomColor:'#'+hex
+                            });
+                        }else{
+                           controlSet.find('hr').css({
+                                borderLeftColor:'#'+hex
+                            }); 
+                        }
+                        $('.borderStyle .ImgchageBgSetColVal').css('background-color', '#'+hex);
+                        $(el).colpickHide();
+                    }
+                });
             };
             chageCss(control);
         }
