@@ -102,16 +102,18 @@ $(function(){
     addData();
     //自动Tip
     function autoTip(){
-        $('.site_page_conFeatures ul li').hover(function(){
+        $(document).on("mouseover mouseout",".site_page_conFeatures ul li",function(event){
             var topNum=$(this).offset().top;
             var data=$(this).attr('data');
             $(this).addClass('current');
-            $('.autoTip').css({
-                top:topNum-3
-            }).text(data).show();
-        },function(){
-            $('.autoTip').hide();
-            $(this).removeClass('current');
+            if(event.type == "mouseover"){
+                $('.autoTip').css({
+                    top:topNum-3
+                }).text(data).show();
+            }else if(event.type == "mouseout"){
+                $('.autoTip').hide();
+                $(this).removeClass('current');
+            }
         })
     }
     autoTip();
@@ -119,11 +121,18 @@ $(function(){
     function addPage(){
         $('.site_page_add').click(function(){
             var num=$('.site_page_con >ul >li').size()+1;
-            var data="<li><p class='top'>"+num+"</p><p class='center'>第"+num+"页</p></li>"
+            var data="<li><p class='top'>"+num+"</p><p class='center'>第"+num+"页</p><div class='site_page_conFeatures'><ul><li data='删除'></li><li data='复制'></li><li data='设置' id='pageSet'></li></ul></div></li>"
             $('.site_page_con >ul').append(data)
         })
     }
     addPage();
+    //站点页面选择
+    function selPage(){
+        $(document).on("click","#Default ul li",function(){
+            $(this).addClass('current').siblings().removeClass('current');
+        })
+    }
+    selPage()
     //站点页面颜色选择
     function colSel(){
         $("#ColSel").siblings().click(function(){
@@ -149,6 +158,26 @@ $(function(){
         }
     }
     imgfile();
-    
+    //站点页面设置
+    function pageSet(){
+        $('.site_pageSetBottomBtn').click(function(){
+            
+            var titleVal=$('.site_pageSetConRight > input').val();
+            var pageBgCol=$(".valShow > input").val();
+            var pageSeo=$(".site_pageSeo_val >input").val();
+            var description=$('#description').val();
+            if(pageBgCol==""){
+                $('.site_page_container ul').css("background-color","transparent");
+            }else{
+                $('.site_page_container ul').css("background-color",pageBgCol);
+            }
+            $('#Default ul li.current').attr("title",titleVal);
+            $('#Default ul li.current').attr("seo",pageSeo);
+            $('#Default ul li.current').attr("description",description);
+            $('.site_pageSet').hide();
+            $('.ji_dataBg').hide();
+        })
+    }
+    pageSet()
 //    console.log(decodeURIComponent($('#baseForm').serialize()))
 })

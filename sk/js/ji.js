@@ -1235,7 +1235,8 @@ $.fn.extend({
                     left:'100',
                     top:'190',
                     color:"#ffffff",
-                    borderRadius:"5"
+                    borderRadius:"5",
+                    backgroundColor:"#438eb9"
                 });
                 break;
             case 7:
@@ -1395,9 +1396,7 @@ $.fn.extend({
             cssSetBox.append(controlSetHtml);//生成新控件设置html
             box.append(controlHtml);//生成新控件html
             //设置控件默认值
-            console.log(defaultCssSet.borderRadius)
-            
-            box.find('>li:last').children().css({
+            box.find('>li:last').children().eq(0).css({
                 fontSize:defaultCssSet.fontSize||'12px',
                 fontWeight:defaultCssSet.fontWeight || 'normal',
                 fontStyle:defaultCssSet.fontStyle || 'normal',
@@ -1521,7 +1520,7 @@ $.fn.extend({
                         $('.panel').remove();
                         box.find('.chageSize').hide();
                         cssSetBox.append(controlSetHtmlArr[liNum]);
-                        var cssVal=controlSel.children().attr('style');
+                        var cssVal=controlSel.children().eq(0).attr('style');
                         var valArr=cssVal.split(';');
                         var fonSizeVal=valArr[0].substring(11,valArr[0].length-2);//文字大小值
                         var fw=valArr[1].substring(14);//粗体
@@ -1846,39 +1845,38 @@ $.fn.extend({
                     }
                     //字体变粗
                     if($(this).index()==0&&$(this).hasClass('current')){
-                        controlSet.children().css({
+                        controlSet.children().eq(0).css({
                             fontWeight:'bold'
                         });
                     }else if($(this).index()==0&&!$(this).hasClass('current')){
-                        controlSet.children().css({
+                        controlSet.children().eq(0).css({
                             fontWeight:'normal'
                         })
                     }
                     //斜体
                     if($(this).index()==1&&$(this).hasClass('current')){
-                        controlSet.children().css({
+                        controlSet.children().eq(0).css({
                             fontStyle:'italic'
                         });
                     }else if($(this).index()==1&&!$(this).hasClass('current')){
-                        controlSet.children().css({
+                        controlSet.children().eq(0).css({
                             fontStyle:'normal'
                         })
                     }
                     //字体下划线
                     if($(this).index()==2&&$(this).hasClass('current')){
-                        controlSet.children().css({
+                        controlSet.children().eq(0).css({
                             textDecoration:'underline'
                         });
-//                        controlNewVal.td='underline'
                     }else if($(this).index()==2&&!$(this).hasClass('current')){
-                        controlSet.children().css({
+                        controlSet.children().eq(0).css({
                             textDecoration:'none'
                         });
                     }
                     //清楚字体样式
                     if($(this).index()==3){
                         $('.fontStyle ul li').removeClass('current');
-                        controlSet.children().css({
+                        controlSet.children().eq(0).css({
                             textDecoration:'none',
                             fontStyle:'normal',
                             fontWeight:'normal',
@@ -1888,8 +1886,6 @@ $.fn.extend({
                 //颜色模块
                 //1.背景颜色
                 $('.bgCol').colpick({
-//                    layout:'rgbhex',
-//                    color:'ffffff',
                     onSubmit:function(hsb,hex,rgb,el) {
                         controlSet.attr('bgc','#'+hex);
                         controlSet.find('.textView').css('background-color', '#'+hex);
@@ -1899,17 +1895,15 @@ $.fn.extend({
                 });
                  //2，字体颜色
                 $('.fontCol').colpick({
-//                    layout:'rgbhex',
-//                    color:'ffffff',
                     onSubmit:function(hsb,hex,rgb,el) {
-                        controlSet.children().css('color', '#'+hex);
+                        controlSet.children().eq(0).css('color', '#'+hex);
                         $('.fontCol img').css('border-bottom-color', '#'+hex);
                         $(el).colpickHide();
                     }
                 });
                 //清除
                 $('.fontDelCol').click(function(){
-                    controlSet.children().css({
+                    controlSet.children().eq(0).css({
                         color:'#333333',
                         backgroundColor:'transparent'
                     });
@@ -1921,10 +1915,10 @@ $.fn.extend({
                     var num=Number($(this).parents('.tbBox').find('span').text())+1;
                     if($(this).parents('.fontSize').hasClass('fontSize')){
                         $('.fontSize > p span').text(num);
-                        controlSet.children().css('font-size',num+'px');
+                        controlSet.children().eq(0).css('font-size',num+'px');
                     }else if($(this).parents('.fontspacingVal').hasClass('fontspacingVal')){
                         $('.fontspacingVal span').text(num);
-                        controlSet.children().css({
+                        controlSet.children().eq(0).css({
                             lineHeight:num+'em'
                         });
                     }
@@ -1936,11 +1930,11 @@ $.fn.extend({
                         num=1;
                     }
                     if($(this).parents('.fontSize').hasClass('fontSize')){
-                        controlSet.children().css('font-size',num+'px');
+                        controlSet.children().eq(0).css('font-size',num+'px');
                         $('.fontSize > p span').text(num);
                     }else if($(this).parents('.fontspacingVal').hasClass('fontspacingVal')){
                         $('.fontspacingVal span').text(num);
-                        controlSet.children().css({
+                        controlSet.children().eq(0).css({
                             lineHeight:num+'em'
                         });
                     }
@@ -1949,19 +1943,19 @@ $.fn.extend({
                 $('.font_text_align li').click(function(){
                     $(this).addClass('current').siblings().removeClass('current');
                     if($(this).index()==0){
-                         controlSet.children().css({
+                         controlSet.children().eq(0).css({
                              textAlign:'left'
                          })
                     }else if($(this).index()==1){
-                        controlSet.children().css({
+                        controlSet.children().eq(0).css({
                              textAlign:'center'
                          })
                     }else if($(this).index()==2){
-                        controlSet.children().css({
+                        controlSet.children().eq(0).css({
                              textAlign:'right'
                          })
                     }else if($(this).index()==3){
-                        controlSet.children().css({
+                        controlSet.children().eq(0).css({
                              textAlign:'justify'
                          })
                     }
@@ -2064,9 +2058,12 @@ $.fn.extend({
                         $('.ji_dataBg').hide();
                         $('.site_ImgList >ul >li').unbind('click');
                         if($(this).parents('.site_imgBox').hasClass('bgGaller')){
-                            controlSet.children().css({
+                            controlSet.children().eq(0).css({
                                 backgroundImage:"url("+ImgValBox.eq(0).attr('src')+")"
-                            })
+                            });
+                            controlSet.find(".botton").css({
+                                backgroundColor:'transparent',
+                            });
                         }else{
                             imgSet.attr('src','images/site_img.png');
                             for(var i=0;i<ImgValBox.size();i++){
@@ -2153,7 +2150,7 @@ $.fn.extend({
                                         backgroundColor:"#ffffff",
                                         backgroundImage:"none"
                                     });
-                                    controlSet.children().css({
+                                    controlSet.children().eq(0).css({
                                         color:"#333333",
                                     });
                                     controlSet.find("*").css({
@@ -2215,7 +2212,10 @@ $.fn.extend({
                         controlSet.attr('bg','1');
                         $('.solidColor').colpick({
                             onSubmit:function(hsb,hex,rgb,el) {
-                                controlSet.children().css('background-color', '#'+hex);
+                                controlSet.children().eq(0).css({
+                                    backgroundColor:"#"+hex,
+                                    backgroundImage:"none"
+                                });
                                 $('.solidColor .ImgchageBgSetColVal').css('background-color', '#'+hex);
                                 $(el).colpickHide();
                             }
@@ -2224,7 +2224,7 @@ $.fn.extend({
                         controlSet.attr('bg','2');
                         $('.gradientHead').colpick({
                             onSubmit:function(hsb,hex,rgb,el) {
-                                controlSet.children().css('background-color', '#'+hex);
+                                controlSet.children().eq(0).css('background-color', '#'+hex);
                                 $('.gradientHead .ImgchageBgSetColVal').css({
                                     backgroundColor:'#'+hex,
                                 });
@@ -2234,15 +2234,16 @@ $.fn.extend({
                         $('.gradientfoot').colpick({
                             onSubmit:function(hsb,hex,rgb,el) {
                                 var headCol=$('.gradientHead .ImgchageBgSetColVal').css('background-color')
-                                controlSet.children().css({
+                                controlSet.children().eq(0).css({
                                     backgroundImage:"linear-gradient("+headCol+",#"+hex+")",
+                                    backgroundColor:"transparent",
                                 });
                                 $('.gradientfoot .ImgchageBgSetColVal').css('background-color', '#'+hex);
                                 $(el).colpickHide();
                             }
                         });
                     }else if($(this).attr('type')=='4'){
-                        controlSet.children().css({
+                        controlSet.children().eq(0).css({
                             background:'none'
                         })
                     }
@@ -2250,7 +2251,7 @@ $.fn.extend({
                 //边框颜色
                 $('.borderColBtn').colpick({
                     onSubmit:function(hsb,hex,rgb,el) {
-                        controlSet.children().css('border-color', '#'+hex);
+                        controlSet.children().eq(0).css('border-color', '#'+hex);
                         $('.borderColBtn .ImgchageBgSetColVal').css('background-color', '#'+hex);
                         $(el).colpickHide();
                     }
@@ -2272,7 +2273,7 @@ $.fn.extend({
                                     borderLeftStyle:'solid'
                                 });
                             }else{
-                                controlSet.children().css('border-style', 'solid');
+                                controlSet.children().eq(0).css('border-style', 'solid');
                             }
                         }else if($(this).index()==1){
                             $('.ImgBoderStyle >p').css({
@@ -2287,7 +2288,7 @@ $.fn.extend({
                                     borderLeftStyle:'dotted'
                                 });
                             }else{
-                                controlSet.children().css('border-style', 'dotted');
+                                controlSet.children().eq(0).css('border-style', 'dotted');
                             }
                         }else if($(this).index()==2){
                             $('.ImgBoderStyle >p').css({
@@ -2302,7 +2303,7 @@ $.fn.extend({
                                     borderLeftStyle:'dashed'
                                 });
                             }else{
-                                controlSet.children().css('border-style', 'dashed');
+                                controlSet.children().eq(0).css('border-style', 'dashed');
                             }
                         }
                         $('.ImgBoderStyle ul').hide();
@@ -2326,7 +2327,7 @@ $.fn.extend({
                         var shaDowCol=$('.shadowCol .ImgchageBgSetColVal').css('background-color');
                         $(this).parent().find('input').val(num);
                         if($(this).parent().hasClass('chageBoderWidth')){
-                            controlSet.children().css({
+                            controlSet.children().eq(0).css({
                                 borderWidth:num+'px'
                             });
                         }else if($(this).parent().hasClass('chageFilletWidth')){
@@ -2334,7 +2335,7 @@ $.fn.extend({
                                 borderRadius:num+'px'
                             });
                         }else if($(this).parent().hasClass('chagePadding')){
-                            controlSet.children().css({
+                            controlSet.children().eq(0).css({
                                 padding:num+'px'
                             });
                         }else if($(this).parent().hasClass('atlasPadding')){
@@ -2413,7 +2414,7 @@ $.fn.extend({
                             }
                         }
                         if($(this).parent().hasClass('chageBoderWidth')){
-                            controlSet.children().css({
+                            controlSet.children().eq(0).css({
                                 borderWidth:num+'px'//设置边框宽度
                             });
                         }else if($(this).parent().hasClass('chageFilletWidth')){
@@ -2421,7 +2422,7 @@ $.fn.extend({
                                 borderRadius:num+'px'//设置圆角
                             });
                         }else if($(this).parent().hasClass('chagePadding')){
-                            controlSet.children().css({
+                            controlSet.children().eq(0).css({
                                 padding:num+'px'//设置padding
                             });
                         }else if($(this).parent().hasClass('atlasPadding')&&num>=0){

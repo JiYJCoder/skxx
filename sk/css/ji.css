@@ -1083,6 +1083,7 @@ a:active{blr:expression(this.onFocus=this.blur());}
     display: none;
 }
 .site_pageSet{
+    overflow: hidden;
     height: 660px;
     width: 430px;
     position: absolute;
