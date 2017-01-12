@@ -164,11 +164,20 @@ var fontAlignHtml=`<div class='component_public'>
                 </div>
             </div>
         </div>`;
+var fontAlignHtml1=`<div class='component_public'>
+            <p class='title'>对齐方式</p>
+            <ul class='clearfix font_text_align'>
+                <li class='left current'></li>
+                <li class='center'></li>
+                <li class='right'></li>
+                <li class='justify'></li>
+            </ul>
+        </div>`
 
 //改变大小HTML
 var csHtml="<div class='chageSize'><div class='chageSizeLeft'><div class='wr size'></div><div class='nw size'></div><div class='sw size'></div></div><div class='chageSizeTop'><div class='nr size'></div><div class='Rotate'></div></div><div class='chageSizeRight'><div class='ne size'></div><div class='er size'></div><div class='es size'></div></div><div class='chageSizebottom'><div class='sr size'></div></div>";
 //字体控件HTML
-var textHtml="<li type='0'><div class='text'><div class='textCon'>双击输入文字</div></div>"+csHtml+"</li>";
+var textHtml="<li type='0'><div class='text'><div class='textCon textView' bgc='transparent'>双击输入文字</div></div>"+csHtml+"</li>";
 //字体设置html
 var textSetHtml=`<div class='panel'>
     <div class='site_pageComponent_con' style='display:block'>
@@ -270,7 +279,7 @@ var titleSetHtml=`<div class="panel">
 var titleHtml=`<li type='2'>
                       
                       <div class="site_serch clearfix">
-                          <div class="serchCon textView">标题标题标</div>
+                          <div class="serchCon textView" bgc="#438eb9">标题标题标</div>
                       </div>
                       ${csHtml}
                   </li>`;
@@ -389,7 +398,7 @@ var HlineSetHtml=`<div class="panel">
 //竖线控件
 var slineHtml=`<li type='5'><div class="sLine"><hr class="general"></div>${csHtml}</li>`;
 //按钮控件
-var btnHtml=`<li type='6'><div class="bottonCon"><div class="botton"><p>按钮</p></div></div>${csHtml}</li>`;
+var btnHtml=`<li type='6'><div class="bottonCon"><div class="botton"><p class="textView" bgc="#438eb9">按钮</p></div></div>${csHtml}</li>`;
 //按钮设置
 var btnSetHtml=`<div class="panel">
               <div class="site_pageComponent_con" style="display:block;">
@@ -444,7 +453,7 @@ var btnSetHtml=`<div class="panel">
                   </div>
                   ${fontHtml}
                   ${bgHtml}
-                  ${fontAlignHtml}
+                  ${fontAlignHtml1}
                   ${boderHtml}
                   ${positionHtml}
               </div>
@@ -1192,7 +1201,7 @@ $.fn.extend({
                     left:'64',
                     top:'172',
                     color:'#ffffff',
-                    lineHeight:'3'
+                    lineHeight:'3em'
                 });
                 break;
             case 3:
@@ -1235,8 +1244,9 @@ $.fn.extend({
                     left:'100',
                     top:'190',
                     color:"#ffffff",
-                    borderRadius:"5",
-                    backgroundColor:"#438eb9"
+                    borderRadius:"5px",
+                    backgroundColor:"#438eb9",
+                    textAlign:"center"
                 });
                 break;
             case 7:
@@ -1404,7 +1414,7 @@ $.fn.extend({
                 color:defaultCssSet.color || '#333333',
                 textDecoration:defaultCssSet.textDecoration || 'none',
                 textAlign:defaultCssSet.textAlign || 'left',
-                lineHeight:defaultCssSet.lineHeight||'1',
+                lineHeight:defaultCssSet.lineHeight||'1em',
                 borderWidth:0+"px",
                 borderStyle:'solid',
                 borderColor:'#ffffff',
@@ -1421,11 +1431,25 @@ $.fn.extend({
                 boxShadow:"#ffffff 0 0 0"
             });
             box.find('>li:last').find('*').css({
-                borderRadius:defaultCssSet.borderRadius+"px"||"0px"
+                borderRadius:defaultCssSet.borderRadius||"0px"
             });
             //设置控件面板默认值
             function panelDefaultVal(){
-                $('.bgCol .colConValShow').css({
+                var ta=defaultCssSet.textAlign;
+                //行高
+                if(defaultCssSet.lineHeight !=undefined){
+                    var lh=defaultCssSet.lineHeight.substring(1,this.length-2);
+                }
+                //对齐方式
+                if(ta=="center"){
+                    $('.font_text_align .center').addClass('current').siblings().removeClass('current');
+                }else if(ta=='right'){
+                    $('.font_text_align .right').addClass('current').siblings().removeClass('current');
+                }else if(ta=='justify'){
+                    $('.font_text_align .justify').addClass('current').siblings().removeClass('current');
+                }
+                
+                $('.solidColor .ImgchageBgSetColVal').css({
                     backgroundColor:defaultCssSet.backgroundColor
                 });
                 $('.fontCol img').css({
@@ -1433,18 +1457,18 @@ $.fn.extend({
                 });
                 $('.tbBox p span').text(defaultCssSet.fontSize);
                 $('.font_text_align li.left').addClass('current');
-                $('.fontspacingVal span').text(defaultCssSet.lineHeight);
+                $('.fontspacingVal span').text(lh);
                 $('.fontcssSet li input').eq(0).val(defaultCssSet.width)
                 $('.fontcssSet li input').eq(1).val(defaultCssSet.height)
                 $('.fontcssSet li input').eq(2).val(defaultCssSet.left)
                 $('.fontcssSet li input').eq(3).val(defaultCssSet.top)
             }
             panelDefaultVal()
-            new Mian(box.find('>li:last'),controlSetHtmlArr);
+            new Mian(box.find('>li:last'),controlSetHtmlArr,defaultCssSet);
         };
-        
+       
         //控件主函数
-        function Mian(control,controlSetHtmlArr){
+        function Mian(control,controlSetHtmlArr,defaultCssSet){
             //移动函数
             var flag;//移动开关
             var fls;//大小开关
@@ -1526,16 +1550,16 @@ $.fn.extend({
                         var fw=valArr[1].substring(14);//粗体
                         var fs=valArr[2].substring(13);//斜体
                         var td=valArr[5].substring(18);//下划线
-                        var bgc=controlSel.attr('bgc');//背景颜色
+                        var bgc=controlSel.attr('bgc');//字体背景颜色
                         var col=valArr[4].substring(8);//字体颜色
                         var ta=valArr[6].substring(13);//字体对齐方式
-                        var lh=valArr[7].substring(13);//行高
+                        var lh=valArr[7].substring(13,valArr[7].length-2);//行高
                         var bw=valArr[8].substring(14,valArr[8].length-2);//边宽
                         var br=valArr[12].substring(15,valArr[12].length-2);//圆角
                         var pd=valArr[11].substring(9,valArr[11].length-2);//内距
                         var bs=valArr[9].substring(14);//边样
                         var bc=valArr[10].substring(14);//边色
-                        console.log(br);
+//                        console.log(lh);
 //                        console.log(cssVal);
 //                        console.log(valArr);
                         $('.fontSize p span').text(fonSizeVal);//面板字体大小
@@ -1548,7 +1572,7 @@ $.fn.extend({
                         if(td=='underline'){
                             $('.fontX').addClass('current');
                         }
-                        //背景颜色
+                        //字体背景颜色
                         $('.colConValShow').css({
                             backgroundColor:bgc
                         })
@@ -1557,6 +1581,8 @@ $.fn.extend({
                                 borderBottomColor:col
                             })
                         }
+                        //
+                        //对齐方式
                         if(ta=='center'){
                             $('.font_text_align .center').addClass('current').siblings().removeClass('current');
                         }else if(ta=='right'){
@@ -1567,7 +1593,7 @@ $.fn.extend({
                         if(lh!='1'){
                             $('.fontspacingVal span').text(lh);
                         }
-                        $('.ImgchageBgSetColVal').css({
+                        $('.borderColBtn .ImgchageBgSetColVal').css({
                             backgroundColor:bc
                         });
                         $('.ImgBoderStyle >p').css({
@@ -1594,8 +1620,10 @@ $.fn.extend({
                         //背景模式
                         if(controlSel.attr('bg')=='1'){
                             $('.ImgchageBg ul li').eq(0).addClass('current').siblings().removeClass('current');
+                            $('.ImgchageBgSet').eq(0).show();
                         }else if(controlSel.attr('bg')=='2'){
                             $('.ImgchageBg ul li').eq(1).addClass('current').siblings().removeClass('current');
+                            $('.ImgchageBgSet').eq(1).show();
                         }
                         else if(controlSel.attr('bg')=='3'){
                             $('.ImgchageBg ul li').eq(2).addClass('current').siblings().removeClass('current');
@@ -1903,12 +1931,15 @@ $.fn.extend({
                 });
                 //清除
                 $('.fontDelCol').click(function(){
-                    controlSet.children().eq(0).css({
-                        color:'#333333',
-                        backgroundColor:'transparent'
+                    var bgc=controlSet.find(".textView").attr("bgc");
+                    controlSet.children().eq(0).find(".textView").css({
+                        backgroundColor:bgc
                     });
+                    controlSet.children().eq(0).css({
+                        color:defaultCssSet.color||"#333333"
+                    })
                     $('.fontCol img').css('border-bottom-color', '#333333');
-                    $('.colConValShow').css('background-color', 'transparent');
+                    $('.bgCol .colConValShow').css('background-color',bgc );
                 })
                 //字体大小,行间距
                 $('.shangla').click(function(){

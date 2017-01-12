@@ -314,9 +314,6 @@
 .ImgchageBgSetJb{
     margin-left: 30px;
 }
-.ImgBoder{
-    
-}
 .ImgBoder ul li span{
     float: left;
     display: block;
@@ -840,6 +837,7 @@
     background-position: center center;
 }
 .botton p{
+    width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
