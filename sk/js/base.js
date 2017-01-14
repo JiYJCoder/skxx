@@ -45,3 +45,16 @@ base.tab=function(btn,box){
         $(box).hide().eq($(this).index()).show(); 
     });
 }
+
+
+
+ function stringToArray(arr){
+     var dataStrArr;
+     if(arr.indexOf(",")!=-1){
+           dataStrArr=arr.split(',');
+     }else{
+        dataStrArr=[arr];
+     }
+  
+    return dataStrArr;
+}

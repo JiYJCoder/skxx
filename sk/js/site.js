@@ -126,13 +126,7 @@ $(function(){
         })
     }
     addPage();
-    //站点页面选择
-    function selPage(){
-        $(document).on("click","#Default ul li",function(){
-            $(this).addClass('current').siblings().removeClass('current');
-        })
-    }
-    selPage()
+    
     //站点页面颜色选择
     function colSel(){
         $("#ColSel").siblings().click(function(){

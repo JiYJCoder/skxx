@@ -1419,6 +1419,8 @@ $.fn.extend({
                 borderStyle:'solid',
                 borderColor:'#ffffff',
                 padding:defaultCssSet.padding||"0px",
+                borderRadius:"0px",
+                backgroundImage:"none",
             });
             box.find('>li:last').css({
                 width:defaultCssSet.width+'px' || false,
@@ -1456,7 +1458,6 @@ $.fn.extend({
                     borderBottomColor:defaultCssSet.color
                 });
                 $('.tbBox p span').text(defaultCssSet.fontSize);
-                $('.font_text_align li.left').addClass('current');
                 $('.fontspacingVal span').text(lh);
                 $('.fontcssSet li input').eq(0).val(defaultCssSet.width)
                 $('.fontcssSet li input').eq(1).val(defaultCssSet.height)
@@ -1559,7 +1560,8 @@ $.fn.extend({
                         var pd=valArr[11].substring(9,valArr[11].length-2);//内距
                         var bs=valArr[9].substring(14);//边样
                         var bc=valArr[10].substring(14);//边色
-//                        console.log(lh);
+                        var bGrong=valArr[3].substring(19);//背景颜色
+//                        console.log(bgi);
 //                        console.log(cssVal);
 //                        console.log(valArr);
                         $('.fontSize p span').text(fonSizeVal);//面板字体大小
@@ -1621,9 +1623,17 @@ $.fn.extend({
                         if(controlSel.attr('bg')=='1'){
                             $('.ImgchageBg ul li').eq(0).addClass('current').siblings().removeClass('current');
                             $('.ImgchageBgSet').eq(0).show();
+                            $('.solidColor .ImgchageBgSetColVal').css({
+                                backgroundColor:bGrong
+                            })
                         }else if(controlSel.attr('bg')=='2'){
+                            var bgi=valArr[13].split(",");
+                            var bgiT=bgi[0].substring(35)+","+bgi[1]+","+bgi[2];
+                            var bgiB=bgi[3]+","+bgi[4]+","+bgi[5].substring(0,bgi[5].length-1)
                             $('.ImgchageBg ul li').eq(1).addClass('current').siblings().removeClass('current');
                             $('.ImgchageBgSet').eq(1).show();
+                            $('.gradientHead .ImgchageBgSetColVal').css("background-color",bgiT)
+                            $('.gradientfoot .ImgchageBgSetColVal').css("background-color",bgiB)
                         }
                         else if(controlSel.attr('bg')=='3'){
                             $('.ImgchageBg ul li').eq(2).addClass('current').siblings().removeClass('current');
@@ -1691,23 +1701,41 @@ $.fn.extend({
                         cpTop=Number($(this).css('top').replace('px',''))
                         x=e.pageX;
                         y=e.pageY;
+                        $(document).mousemove(function(e){
+                            console.log(1);
+                            if(flag){
+                              control.css({
+                                "left":cpLeft+(e.pageX-x),
+                                "top":cpTop+(e.pageY-y),
+                                "width":control.width(),
+                                "height":control.height()
+                              })  
+                            }
+                            return false;
+                        }).mouseup(function(){
+                            $(document).unbind("mousemove");
+                            flag=false;//关掉移动
+                            return false;
+                        })
                         return false;
                     })
                     //移动
-                    $(document).mousemove(function(e){
-                        if(flag){
-                          control.css({
-                            "left":cpLeft+(e.pageX-x),
-                            "top":cpTop+(e.pageY-y),
-                            "width":control.width(),
-                            "height":control.height()
-                          })  
-                        }
-                        return false;
-                    }).mouseup(function(){
-                        flag=false;//关掉移动
-                        return false;
-                    })
+//                    $(document).bind("mousemove",function(e){
+//                        if(flag){
+//                          control.css({
+//                            "left":cpLeft+(e.pageX-x),
+//                            "top":cpTop+(e.pageY-y),
+//                            "width":control.width(),
+//                            "height":control.height()
+//                          })  
+//                        }
+//                        return false;
+//                    }).mouseup(function(){
+//                        $(document).unbind("mousemove");
+//                        flag=false;//关掉移动
+//                        return false;
+//                    })
+                    
                 }
                 drag();
             };
@@ -2177,7 +2205,7 @@ $.fn.extend({
                                         borderLeft:'3px solid #505050',
                                     })
                                 }else if(controlSet.attr('type')=="6"){
-                                    controlSet.find('.botton').css({
+                                    controlSet.find('.bottonCon').css({
                                         backgroundColor:"#ffffff",
                                         backgroundImage:"none"
                                     });
@@ -2199,7 +2227,7 @@ $.fn.extend({
                                         borderLeft:'none',
                                     })
                                 }else if(controlSet.attr('type')=="6"){
-                                    controlSet.find('.botton').css({
+                                    controlSet.find('.bottonCon').css({
                                         backgroundColor:"#438eb9",
                                         backgroundImage:"none"
                                     });
@@ -2279,6 +2307,40 @@ $.fn.extend({
                         })
                     }
                 });
+                if($('.ImgchageBg ul li.current').attr("type")=="1"){
+                    $('.solidColor').colpick({
+                        onSubmit:function(hsb,hex,rgb,el) {
+                            controlSet.children().eq(0).css({
+                                backgroundColor:"#"+hex,
+                                backgroundImage:"none"
+                            });
+                            $('.solidColor .ImgchageBgSetColVal').css('background-color', '#'+hex);
+                            $(el).colpickHide();
+                        }
+                    });
+                }else if($('.ImgchageBg ul li.current').attr('type')=='2'){
+                    controlSet.attr('bg','2');
+                    $('.gradientHead').colpick({
+                        onSubmit:function(hsb,hex,rgb,el) {
+                            controlSet.children().eq(0).css('background-color', '#'+hex);
+                            $('.gradientHead .ImgchageBgSetColVal').css({
+                                backgroundColor:'#'+hex,
+                            });
+                            $(el).colpickHide();
+                        }
+                    });
+                    $('.gradientfoot').colpick({
+                        onSubmit:function(hsb,hex,rgb,el) {
+                            var headCol=$('.gradientHead .ImgchageBgSetColVal').css('background-color')
+                            controlSet.children().eq(0).css({
+                                backgroundImage:"linear-gradient("+headCol+",#"+hex+")",
+                                backgroundColor:"transparent",
+                            });
+                            $('.gradientfoot .ImgchageBgSetColVal').css('background-color', '#'+hex);
+                            $(el).colpickHide();
+                        }
+                    });
+                }
                 //边框颜色
                 $('.borderColBtn').colpick({
                     onSubmit:function(hsb,hex,rgb,el) {
@@ -2531,8 +2593,11 @@ $.fn.extend({
                         $(el).colpickHide();
                     }
                 });
-                //按钮
-                
+                //获取值
+                function setVal(){
+                    $('.videoSetCon').focus();
+                }
+                setVal();
             };
             chageCss(control);
         }

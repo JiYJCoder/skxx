@@ -1,5 +1,5 @@
 $(function(){
-    var pageIdList=[];
+    var url="http://120.25.102.247:8180"
     var ajaxPackage=function(url,json){
         return $.ajax({
             url:url,
@@ -9,7 +9,7 @@ $(function(){
         })
     }
     $('.j_con_main_head_open').click(function(){
-        ajaxPackage("http://120.25.102.247:8180/wangjian/api/web/webSave",{
+        ajaxPackage(url+"/wangjian/api/web/webSave",{
             id:"",
             merchentId:"44",
             type:"1",
@@ -17,11 +17,11 @@ $(function(){
             
         })
         .done(function(data){
+            var pageIdList=[];
+            sessionStorage.setItem("siteId",data.resultData.id);         
+            pageIdList.push(data.resultData.pages.id);
+            sessionStorage.setItem("pageIdArray",pageIdList);
             window.location.href="file:///C:/Users/u1/Desktop/box/sk/site.html";
-            sessionStorage.setItem("siteId",data.resultData.id);
-            sessionStorage.setItem("pageId",data.resultData.pages.id);
-            pageIdList.push(sessionStorage.getItem("pageId"));
-            
         })
        .fail(function(data){
             console.log(data);
@@ -29,9 +29,8 @@ $(function(){
     });
     //增加站点页面
     $('.site_page_add').click(function(){
-        pageIdList[0]=sessionStorage.getItem("pageId");
         var num=$('#Default ul li:last').index()+1;
-        ajaxPackage("http://120.25.102.247:8180/wangjian/api/web/webPageSave",{
+        ajaxPackage(url+"/wangjian/api/web/webPageSave",{
             webId:sessionStorage.getItem("siteId"),
             number:num.toString(),
             merchentId:"44",
@@ -39,7 +38,9 @@ $(function(){
             
         })
         .done(function(data){
-            pageIdList.push(data.resultData);
+            var array = stringToArray(sessionStorage.getItem("pageIdArray"));
+            array.push(data.resultData);
+            sessionStorage.setItem("pageIdArray",array);
         })
        .fail(function(data){
             console.log(data);
@@ -48,7 +49,7 @@ $(function(){
     //保存站点页面
     $('#save').click(function(){
         var num=$('#Default ul li.current').index();
-        var content=$(".site_page_container").html;
+        var content=$(".site_page_container").html();
         var title=$('#Default ul li.current').attr("title");
         var seo=$('#Default ul li.current').attr("seo");
         var des=$('#Default ul li.current').attr("description");
@@ -71,12 +72,13 @@ $(function(){
         </div>
         </body>
         </html>`;
-        pageIdList[0]=sessionStorage.getItem("pageId");
-        ajaxPackage("http://120.25.102.247:8180/wangjian/api/web/webPageUrl",{
+        var array = stringToArray(sessionStorage.getItem("pageIdArray"));
+        ajaxPackage(url+"/wangjian/api/web/webPageUrl",{
             webId:sessionStorage.getItem("siteId"),
-            id:pageIdList[num],
+            id:array[num],
             pageContent:htmlPage,
-            
+            remark:content,
+            merchentId:"44"
         })
         .done(function(data){
             console.log(data);            
@@ -85,4 +87,51 @@ $(function(){
             console.log(data);
         })
     })
+    //返回页面内容
+    $(document).on("click","#Default ul li",function(){
+        var array = stringToArray(sessionStorage.getItem("pageIdArray"));
+        var num=$(this).index();
+        console.log($(this).hasClass('current'));
+        if($(this).hasClass('current')){
+            return false;
+        }else{
+          $(this).addClass('current').siblings().removeClass('current');
+           $(".site_page_container").children().remove();
+           ajaxPackage(url+"/wangjian/api/web/backPageContent",{
+                pageId:array[num],
+            })
+            .done(function(data){
+                console.log(data);            
+            })
+            .fail(function(data){
+                console.log(data);
+            }) 
+        }
+    })
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 })
