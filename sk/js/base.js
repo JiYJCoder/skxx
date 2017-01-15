@@ -1,4 +1,5 @@
 var base=window.Namespace || {};
+var url="http://120.25.102.247:8180"
 //tip提示
 base.tip=function(obj){
     for(var i=0 ;i<obj.size();i++){
@@ -45,9 +46,6 @@ base.tab=function(btn,box){
         $(box).hide().eq($(this).index()).show(); 
     });
 }
-
-
-
  function stringToArray(arr){
      var dataStrArr;
      if(arr.indexOf(",")!=-1){

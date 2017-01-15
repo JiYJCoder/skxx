@@ -22,6 +22,7 @@
 <script type="text/javascript" src="js/ajaxfileupload.js"></script>
 <script type="text/javascript" src="js/swiper.min.js"></script>
 <script type="text/javascript" src="js/ajax.js"></script>
+<script type="text/javascript" src="js/newConter.js"></script>
 <!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=jVAPaZjQWZZ2sKI1igsSXyoC"></script>-->
 </head>
 <body ondblclick="return false;">
@@ -979,7 +980,7 @@ accountBtn saveBtn">
             </ul>
             <div class="site_imgUpload">
                 上传资源
-                <input type="file">
+                <input type="file" name="file" id="file1" accept="image/png,image/gif" onchange="ajaxFileUpload('file1')">
             </div>
         </div>
         <div class="site_ImgList" style="display:block">
@@ -1065,6 +1066,22 @@ accountBtn saveBtn">
                 return false;
             });
       });
+        
+        //图片
+    function ajaxFileUpload(id){
+        $.ajaxFileUpload({
+            url:'http://120.25.102.247:8180/wangjian/api/web/pictureUpload',
+            secureuri:false,
+            data:{id:"1",type:"10-1"},
+            fileElementId:id,
+            type:'POST',
+            success: function (data){
+            console.log(JSON.parse($(data).find("pre").text()).resultData[0].picUrl)
+        },error:function(e){
+            alert("服务器出错，请联系网站管理员");
+        }
+        })
+    }
     </script>
 </body>
 </html>

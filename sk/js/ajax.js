@@ -1,5 +1,5 @@
 $(function(){
-    var url="http://120.25.102.247:8180"
+    
     var ajaxPackage=function(url,json){
         return $.ajax({
             url:url,
@@ -8,6 +8,7 @@ $(function(){
             data:json,
         })
     }
+    //首页创建空白站点
     $('.j_con_main_head_open').click(function(){
         ajaxPackage(url+"/wangjian/api/web/webSave",{
             id:"",
@@ -27,6 +28,16 @@ $(function(){
             console.log(data);
         })
     });
+    //首页行业标签页面
+    ajaxPackage(url+"/wangjian/api/web/webTypeList")
+    .done(function(data){
+        $.each(data.resultData,function(){
+            $('.j_con_main_con_condition_sortVal ul').append("<li>"+this.typeName+"</li>")
+        })
+    })
+   .fail(function(data){
+        console.log(data);
+    })
     //增加站点页面
     $('.site_page_add').click(function(){
         var num=$('#Default ul li:last').index()+1;
@@ -91,47 +102,28 @@ $(function(){
     $(document).on("click","#Default ul li",function(){
         var array = stringToArray(sessionStorage.getItem("pageIdArray"));
         var num=$(this).index();
-        console.log($(this).hasClass('current'));
         if($(this).hasClass('current')){
             return false;
         }else{
           $(this).addClass('current').siblings().removeClass('current');
            $(".site_page_container").children().remove();
            ajaxPackage(url+"/wangjian/api/web/backPageContent",{
+                webId:sessionStorage.getItem("siteId"),
                 pageId:array[num],
             })
             .done(function(data){
-                console.log(data);            
+            if(!(data.resultData==undefined)){
+                $('.site_page_container').append(data.resultData.remarks);
+            }
+            $.each($('.site_page_container ul li'),function(){
+                var num=Number($(this).attr("type"));
+                new Mian($(this),setCssHtml(num));                  
+            })
             })
             .fail(function(data){
                 console.log(data);
             }) 
         }
-    })
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    })   
     
 })
