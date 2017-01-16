@@ -60,7 +60,7 @@ $(function(){
     //保存站点页面
     $('#save').click(function(){
         var num=$('#Default ul li.current').index();
-        var content=$(".site_page_container").html();
+        var content=$(".site_page_container ul").html();
         var title=$('#Default ul li.current').attr("title");
         var seo=$('#Default ul li.current').attr("seo");
         var des=$('#Default ul li.current').attr("description");
@@ -79,7 +79,9 @@ $(function(){
         </head>
         <body>
         <div class='content'>
+        <ul>
         ${content}
+        </ul>
         </div>
         </body>
         </html>`;
@@ -92,28 +94,31 @@ $(function(){
             merchentId:"44"
         })
         .done(function(data){
-            console.log(data);            
+            ajaxTip("保存成功");        
         })
         .fail(function(data){
+            ajaxTip("保存失败");
             console.log(data);
         })
     })
     //返回页面内容
     $(document).on("click","#Default ul li",function(){
         var array = stringToArray(sessionStorage.getItem("pageIdArray"));
+        var box=$(".site_page_container ul")
         var num=$(this).index();
         if($(this).hasClass('current')){
             return false;
         }else{
-          $(this).addClass('current').siblings().removeClass('current');
-           $(".site_page_container").children().remove();
-           ajaxPackage(url+"/wangjian/api/web/backPageContent",{
+            $(this).addClass('current').siblings().removeClass('current');
+            $('.site_ControlRecordCon ul').children().remove();
+            box.children().remove();
+            ajaxPackage(url+"/wangjian/api/web/backPageContent",{
                 webId:sessionStorage.getItem("siteId"),
                 pageId:array[num],
             })
             .done(function(data){
             if(!(data.resultData==undefined)){
-                $('.site_page_container').append(data.resultData.remarks);
+                $('.site_page_container ul').append(data.resultData.remarks);
             }
             $.each($('.site_page_container ul li'),function(){
                 var num=Number($(this).attr("type"));

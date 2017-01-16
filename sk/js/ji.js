@@ -1702,7 +1702,6 @@ $.fn.extend({
                         x=e.pageX;
                         y=e.pageY;
                         $(document).mousemove(function(e){
-                            console.log(1);
                             if(flag){
                               control.css({
                                 "left":cpLeft+(e.pageX-x),
@@ -2131,7 +2130,6 @@ $.fn.extend({
                                 }
                             }   
                         }
-                        
                     })
                 }
                 getImgVal();
