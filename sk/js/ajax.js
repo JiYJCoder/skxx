@@ -86,12 +86,14 @@ $(function(){
         </body>
         </html>`;
         var array = stringToArray(sessionStorage.getItem("pageIdArray"));
+        var num=$('#Default ul li.current').index();
         ajaxPackage(url+"/wangjian/api/web/webPageUrl",{
             webId:sessionStorage.getItem("siteId"),
             id:array[num],
             pageContent:htmlPage,
             remark:content,
-            merchentId:"44"
+            merchentId:"44",
+            number:num.toString(),
         })
         .done(function(data){
             ajaxTip("保存成功");        

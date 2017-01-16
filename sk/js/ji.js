@@ -2041,6 +2041,8 @@ $.fn.extend({
                 getLineVal();
                 //图库
                 function getImgVal(){
+                    $('.site_ImgListBtn').children().remove();
+                    $('.site_ImgListBtn').append("<div class='site_ImgListSave'>确定</div>");
                     var imgSet=controlSet.find('.Img img');
                     var ImgValBox=$('.site_ImgListSel ul li img');
                     var selBtn=$('.site_ImgList >ul >li');
@@ -2110,7 +2112,7 @@ $.fn.extend({
                             
                         });
                     }
-                    controlImg()
+                    controlImg();
                     $('.site_ImgListSave').click(function(){
                         $('.site_imgBox').hide();
                         $('.ji_dataBg').hide();
@@ -2130,7 +2132,7 @@ $.fn.extend({
                                 }
                             }   
                         }
-                    })
+                    });
                 }
                 getImgVal();
                 //设置宽高XY
