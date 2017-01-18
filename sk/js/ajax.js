@@ -21,7 +21,7 @@ $(function(){
             sessionStorage.setItem("siteId",data.resultData.id);         
             pageIdList.push(data.resultData.pages.id);
             sessionStorage.setItem("pageIdArray",pageIdList);
-            window.location.href="file:///C:/Users/u1/Desktop/box/sk/site.html";
+            window.location.href="site.html";
         })
        .fail(function(data){
             console.log(data);
@@ -163,7 +163,7 @@ $(function(){
             for (var i=1;i<data.resultData.length;i++){
                 $('#Default >ul').append("<li><p class='top'>"+(i+1)+"</p><p class='center'>"+data.resultData[i].pageTitle+"</p><div class='site_page_conFeatures'><ul><li data='删除'></li><li data='复制'></li><li data='设置' class='webPageSet'></li></ul></div></li>")
             }
-            console.log(data.resultData);        
+//            console.log(data.resultData);        
         })
         .fail(function(data){
             console.log(data);
@@ -186,6 +186,41 @@ $(function(){
             console.log(data);
         })
     });
-    
+    //站点页面设置
+    function pageSet(){
+        $('.site_pageSetBottomBtn').click(function(){
+            var titleVal=$('.site_pageSetConRight > input').val();
+            var pageBgCol=$(".valShow > input").val();
+            var pageSeo=$(".site_pageSeo_val >input").val();
+            var description=$('#description').val();
+            var num=$("#Default ul li.current").index();
+            var array = stringToArray(sessionStorage.getItem("pageIdArray"));
+            ajaxPackage(url+"/wangjian/api/web/webPageSave",{
+                webId:sessionStorage.getItem("siteId"),
+                id:array[num],
+                number:(num+1).toString(),
+                pageTitle:titleVal,
+                merchentId:"44"
+            })
+            .done(function(data){
+                ajaxTip("设置成功");        
+            })
+            .fail(function(data){
+                ajaxTip("设置失败");
+                console.log(data);
+            })
+            if(pageBgCol==""){
+                $('.site_page_container ul').css("background-color","transparent");
+            }else{
+                $('.site_page_container ul').css("background-color",pageBgCol);
+            }
+            $('#Default ul li.current p.center').text(titleVal);
+            $('#Default ul li.current').attr("seo",pageSeo);
+            $('#Default ul li.current').attr("description",description);
+            $('.site_pageSet').hide();
+            $('.ji_dataBg').hide();
+        })
+    }
+    pageSet()
     
 })

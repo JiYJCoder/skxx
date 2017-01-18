@@ -4,7 +4,7 @@ $(function(){
     base.close('.siteLineColse','.siteLine',null,'.ji_dataBg')//链接设置开关
     base.close('.createBtn_close','.create','.createBtns','.ji_dataBg')//预览发布开关
     base.close('.siteRange_data_cloase','.siteRange_data','.siteRange_btn')//预览发布开关
-    base.close('.site_pageSet_close','.site_pageSet','.webPageSet','.ji_dataBg')//页面设置开关
+    base.close('.site_pageSet_close','.site_pageSet',null,'.ji_dataBg')//页面设置开关
     base.hover('.base_btn ul li','.hoverBg')//控件栏hover
     base.hover('.site_tip ul li','.site_con_right_BtnBg')//功能栏hover
     base.tab('.siteRange_data_con_btn ul li',".siteRange_data_con_btn_dataShow")//预览发布TAB
@@ -23,6 +23,11 @@ $(function(){
     $(".index input").click(function(e){
         e.prevenDefault();
         $('.sel select').attr('disabled',"disabled").eq($(this).parents('li').index()).attr('disabled',false)
+    });
+    //页面设置开关
+    $('#Default').on("click",".webPageSet",function(){
+        $(".site_pageSet").fadeIn(300);
+        $('.ji_dataBg').show();
     })
     //部门人员选择后，高度自增加
     $('.siteRange_show ul').hover(function(){
@@ -146,26 +151,5 @@ $(function(){
         }
     }
     imgfile();
-    //站点页面设置
-    function pageSet(){
-        $('.site_pageSetBottomBtn').click(function(){
-            
-            var titleVal=$('.site_pageSetConRight > input').val();
-            var pageBgCol=$(".valShow > input").val();
-            var pageSeo=$(".site_pageSeo_val >input").val();
-            var description=$('#description').val();
-            if(pageBgCol==""){
-                $('.site_page_container ul').css("background-color","transparent");
-            }else{
-                $('.site_page_container ul').css("background-color",pageBgCol);
-            }
-            $('#Default ul li.current p.center').text(titleVal);
-            $('#Default ul li.current').attr("seo",pageSeo);
-            $('#Default ul li.current').attr("description",description);
-            $('.site_pageSet').hide();
-            $('.ji_dataBg').hide();
-        })
-    }
-    pageSet()
 //    console.log(decodeURIComponent($('#baseForm').serialize()))
 })
