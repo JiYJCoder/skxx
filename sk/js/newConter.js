@@ -611,24 +611,31 @@ function Mian(control,controlSetHtmlArr,defaultCssSet){
             });
             //链接获取值
             function getLineVal(){
-                //弹出链接框
-                $('.lineSetVal').click(function(){
-                    $('.siteLine').show();
-                    $('.ji_dataBg').show();
-                    controlSet.attr('lineData','缺省');
-                });
-                $('.siteSetbottom_save').click(function(){
-                    var lineCurrent=$('.lineVal ul li.current');
-                    $(lineCurrent).each(function(){
-                        if(!$(this).is(':hidden')){
-                            $('.lineBtn').text($(this).attr('datalineVal'));
-                            controlSet.attr('lineData',$(this).attr('datalineVal'));
-                        }
+                    //弹出链接框
+                    $('.lineSetVal').click(function(){
+                        $('#siteLineBtnList ul li').removeClass("current").eq(0).addClass("current");
+                        $('.siteLineTab').hide().eq(0).show();
+                        $('.siteLine').show();
+                        $('.ji_dataBg').show();
+                        controlSet.attr('lineData','缺省');
                     });
-                    $('.siteLine').hide();
-                    $('.ji_dataBg').hide();
-                })
-            }
+                    $('.siteSetbottom_save').click(function(){
+                        var lineCurrent=$('.lineVal >ul >li.current');
+                        var sel=$('#siteLineBtnList >ul >li.current').index();
+                        lineCurrent.each(function(){
+                            if(!($(this).is(':hidden'))){
+                                if(sel==1){
+                                    $('.lineSetVal').text($(this).find("p").text())
+                                }else{
+                                    $('.lineSetVal').text($(this).attr('datalineVal'));
+                                }
+                                controlSet.attr('lineData',$(this).attr('datalineVal'));
+                            }
+                        })
+                        $('.siteLine').hide();
+                        $('.ji_dataBg').hide();
+                    })
+                }
             getLineVal();
             //图库
             function getImgVal(){

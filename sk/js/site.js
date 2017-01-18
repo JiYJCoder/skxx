@@ -4,13 +4,15 @@ $(function(){
     base.close('.siteLineColse','.siteLine',null,'.ji_dataBg')//链接设置开关
     base.close('.createBtn_close','.create','.createBtns','.ji_dataBg')//预览发布开关
     base.close('.siteRange_data_cloase','.siteRange_data','.siteRange_btn')//预览发布开关
-    base.close('.site_pageSet_close','.site_pageSet','#pageSet','.ji_dataBg')//页面设置开关
+    base.close('.site_pageSet_close','.site_pageSet','.webPageSet','.ji_dataBg')//页面设置开关
     base.hover('.base_btn ul li','.hoverBg')//控件栏hover
     base.hover('.site_tip ul li','.site_con_right_BtnBg')//功能栏hover
     base.tab('.siteRange_data_con_btn ul li',".siteRange_data_con_btn_dataShow")//预览发布TAB
     base.tab('.site_con_leftHead ul li',".site_con_leftCon")//组件与页面TAB
     base.tab('.site_pageComponent_Btn ul li',".site_pageComponent_con")//面板TAB
     base.tab('.site_lineCommodityBtn ul li',".site_lineCommodityCon")//链接==》商品TAB
+    base.tab("#siteWebSet ul li",".siteSetTabCon")//站点设置TAB
+    base.tab("#siteLineBtnList ul li",".siteLineTab")//链接设置TAB
     //图库关闭
     $('.site_imgBox_close').click(function(){
         $('.site_imgBox').hide();
@@ -22,14 +24,6 @@ $(function(){
         e.prevenDefault();
         $('.sel select').attr('disabled',"disabled").eq($(this).parents('li').index()).attr('disabled',false)
     })
-    //站点设置TAB
-    $('.siteSetConLeftBtn ul li').click(function(){
-        $(this).addClass('current').siblings().removeClass();
-        $(".siteSetTabCon").hide().eq($(this).index()).show(); 
-        $(".siteLineTab").hide().eq($(this).index()).show(); 
-        $(".saveBtn").hide().eq($(this).index()).show(); 
-        $(".siteLineBtn").hide().eq($(this).index()).show(); 
-    });
     //部门人员选择后，高度自增加
     $('.siteRange_show ul').hover(function(){
         var hSize=Math.round($('.siteRange_show ul li').size()/6)+2;
@@ -51,11 +45,11 @@ $(function(){
         }
     });
     //链接==》页面
-    $('.site_linePage ul li').click(function(e){
+    $(document).on("click",".site_linePage ul li",function(e){
         e.stopPropagation();
         $(".site_linePage").find("li").removeClass("current");
         $(this).addClass('current');
-    });
+    })
     base.sel('.site_lineshop ul li');//链接==》店铺选择
     base.sel('.site_lineCommodityCon ul li');//链接==》商品选择
     base.sel('.site_PageheadSet_val ul li');//页面设置==》头底部选择
@@ -121,7 +115,7 @@ $(function(){
     function addPage(){
         $('.site_page_add').click(function(){
             var num=$('.site_page_con >ul >li').size()+1;
-            var data="<li><p class='top'>"+num+"</p><p class='center'>第"+num+"页</p><div class='site_page_conFeatures'><ul><li data='删除'></li><li data='复制'></li><li data='设置' id='pageSet'></li></ul></div></li>"
+            var data="<li><p class='top'>"+num+"</p><p class='center'>第"+num+"页</p><div class='site_page_conFeatures'><ul><li data='删除'></li><li data='复制'></li><li data='设置' class='webPageSet'></li></ul></div></li>"
             $('.site_page_con >ul').append(data)
         })
     }
@@ -165,7 +159,7 @@ $(function(){
             }else{
                 $('.site_page_container ul').css("background-color",pageBgCol);
             }
-            $('#Default ul li.current').attr("title",titleVal);
+            $('#Default ul li.current p.center').text(titleVal);
             $('#Default ul li.current').attr("seo",pageSeo);
             $('#Default ul li.current').attr("description",description);
             $('.site_pageSet').hide();

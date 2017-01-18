@@ -227,14 +227,14 @@
           <div class="site_con_leftCon site_page">
               <div class="site_page_con" id="Default">
                   <ul>
-                      <li class="current">
+                      <li class="current" title="第一页">
                           <p class="top">1</p>
-                          <p class="center">第<span>1</span>页</p>
+                          <p class="center">第1页</p>
                           <div class="site_page_conFeatures">
                               <ul>
                                   <li data="删除"></li>
                                   <li data="复制"></li>
-                                  <li data="设置" id="pageSet"></li>
+                                  <li data="设置" class="webPageSet"></li>
                               </ul>
                           </div>
                       </li>
@@ -419,7 +419,7 @@
             <img src="images/site_close.png" alt="" class="site_close site_Imgclose">
         </div>
         <div class="siteSetCon clearfix">
-            <div class="siteSetConLeftBtn">
+            <div class="siteSetConLeftBtn" id="siteWebSet">
                 <ul>
                     <li class="current"><p>基本设置</p></li>
                     <li><p>绑定独立域名</p></li>
@@ -532,10 +532,10 @@ accountBtn saveBtn">
             <img src="images/site_close.png" alt="" class="siteLineColse site_Imgclose">
         </div>
         <div class="siteSetCon clearfix">
-            <div class="siteSetConLeftBtn">
+            <div class="siteSetConLeftBtn" id="siteLineBtnList">
                 <ul>
                     <li class="current"><p>功能</p></li>
-                    <li><p>页面</p></li>
+                    <li id="allPage"><p>页面</p></li>
                     <li><p>店铺</p></li>
                     <li><p>店铺商品</p></li>
                     <li><p>海报</p></li>
@@ -563,15 +563,7 @@ accountBtn saveBtn">
                 </div>
                 <div class="site_linePage lineVal">
                     <ul>
-                        <li class="fj">
-                            <p>关于我们<span class="btn"></span></p>
-                            <ul>
-                                <li class="child current" datalineVal='测试'><p>关于他们<span class="btn"></span></p></li>
-                            </ul>
-                        </li>
-                        <li class="fj">
-                            <p>关于我们<span class="btn"></span></p>
-                        </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -1042,6 +1034,9 @@ accountBtn saveBtn">
     </div>
     <div class="ajaxTip">
         保存成功
+    </div>
+    <div class="ajaxImg">
+        <img src="images/loading.gif" alt="" width="40" height="40">
     </div>
     <script>
         $(function ($) {

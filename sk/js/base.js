@@ -57,7 +57,25 @@ function stringToArray(arr){
     return dataStrArr;
 }
 function ajaxTip(text){
+    $('.ajaxImg').hide(300);
+    $('.ji_dataBg').hide();
     $('.ajaxTip').fadeIn();
     $('.ajaxTip').text(text);
     setTimeout("$('.ajaxTip').fadeOut()",2000)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

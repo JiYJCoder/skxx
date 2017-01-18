@@ -1841,3 +1841,11 @@ input:focus{
     color: #438eb9;
     display: none;
 }
+.ajaxImg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
+    display: none;
+    z-index: 999;
+}

@@ -1,5 +1,4 @@
 $(function(){
-    
     var ajaxPackage=function(url,json){
         return $.ajax({
             url:url,
@@ -40,12 +39,13 @@ $(function(){
     })
     //增加站点页面
     $('.site_page_add').click(function(){
-        var num=$('#Default ul li:last').index()+1;
+        var title=$('#Default >ul >li:last p.center').text();
+        var num=$('#Default >ul >li').size();
         ajaxPackage(url+"/wangjian/api/web/webPageSave",{
             webId:sessionStorage.getItem("siteId"),
             number:num.toString(),
             merchentId:"44",
-            pageTitle:"第"+num+"页"
+            pageTitle:title,
             
         })
         .done(function(data){
@@ -61,7 +61,7 @@ $(function(){
     $('#save').click(function(){
         var num=$('#Default ul li.current').index();
         var content=$(".site_page_container ul").html();
-        var title=$('#Default ul li.current').attr("title");
+        var title=$('#Default ul li.current p.center').text();
         var seo=$('#Default ul li.current').attr("seo");
         var des=$('#Default ul li.current').attr("description");
         var htmlPage=`<!doctype html>
@@ -87,6 +87,8 @@ $(function(){
         </html>`;
         var array = stringToArray(sessionStorage.getItem("pageIdArray"));
         var num=$('#Default ul li.current').index();
+        $('.ajaxImg').fadeIn(300);
+        $('.ji_dataBg').show();
         ajaxPackage(url+"/wangjian/api/web/webPageUrl",{
             webId:sessionStorage.getItem("siteId"),
             id:array[num],
@@ -96,7 +98,8 @@ $(function(){
             number:num.toString(),
         })
         .done(function(data){
-            ajaxTip("保存成功");        
+            ajaxTip("保存成功");
+            console.log(data);
         })
         .fail(function(data){
             ajaxTip("保存失败");
@@ -119,6 +122,28 @@ $(function(){
                 pageId:array[num],
             })
             .done(function(data){
+                if(!(data.resultData==undefined)){
+                    $('.site_page_container ul').append(data.resultData.remarks);
+                    $.each($('.site_page_container ul li'),function(){
+                        var num=Number($(this).attr("type"));
+                        new Mian($(this),setCssHtml(num));                  
+                    })
+                }
+                
+            })
+            .fail(function(data){
+                console.log(data);
+            }) 
+        }
+    });
+    //页面加载数据
+    function refresh(){
+        var array = stringToArray(sessionStorage.getItem("pageIdArray"));
+        ajaxPackage(url+"/wangjian/api/web/backPageContent",{
+        webId:sessionStorage.getItem("siteId"),
+        pageId:array[0],
+        })
+        .done(function(data){
             if(!(data.resultData==undefined)){
                 $('.site_page_container ul').append(data.resultData.remarks);
             }
@@ -126,11 +151,41 @@ $(function(){
                 var num=Number($(this).attr("type"));
                 new Mian($(this),setCssHtml(num));                  
             })
+        })
+        .fail(function(data){
+            console.log(data);
+        });
+        ajaxPackage(url+"/wangjian/api/web/webUrlTitleBack",{
+            webId:sessionStorage.getItem("siteId"),
+        })
+        .done(function(data){
+            $('#Default >ul >li p.center').text(data.resultData[0].pageTitle);
+            for (var i=1;i<data.resultData.length;i++){
+                $('#Default >ul').append("<li><p class='top'>"+(i+1)+"</p><p class='center'>"+data.resultData[i].pageTitle+"</p><div class='site_page_conFeatures'><ul><li data='删除'></li><li data='复制'></li><li data='设置' class='webPageSet'></li></ul></div></li>")
+            }
+            console.log(data.resultData);        
+        })
+        .fail(function(data){
+            console.log(data);
+        });
+    }
+    refresh()
+    //返回所有页面
+    $(document).on("click","#allPage",function(){
+        $('.site_linePage ul').children().remove();
+        ajaxPackage(url+"/wangjian/api/web/webUrlTitleBack",{
+            webId:sessionStorage.getItem("siteId"),
+        })
+        .done(function(data){
+            $.each(data.resultData,function(){
+                $('.site_linePage ul').append("<li class='fj' datalineval="+this.pageUrl+"><p>"+this.pageTitle+"<span class='btn'></span></p></li>")
             })
-            .fail(function(data){
-                console.log(data);
-            }) 
-        }
-    })   
+            console.log(data.resultData);        
+        })
+        .fail(function(data){
+            console.log(data);
+        })
+    });
+    
     
 })
