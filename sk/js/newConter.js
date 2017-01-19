@@ -627,11 +627,11 @@ function Mian(control,controlSetHtmlArr,defaultCssSet){
                                 if(sel==1){
                                     $('.lineSetVal').text($(this).find("p").text())
                                 }else{
-                                    $('.lineSetVal').text($(this).attr('datalineVal'));
+                                    $('.lineSetVal').text($(this).attr('datalineval'));
                                 }
-                                controlSet.attr('lineData',$(this).attr('datalineVal'));
+                                controlSet.attr('lineData',$(this).attr('datalineval'));
                             }
-                        })
+                        });
                         $('.siteLine').hide();
                         $('.ji_dataBg').hide();
                     })

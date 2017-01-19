@@ -63,7 +63,14 @@ function ajaxTip(text){
     $('.ajaxTip').text(text);
     setTimeout("$('.ajaxTip').fadeOut()",2000)
 }
-
+var ajaxPackage=function(url,json){
+    return $.ajax({
+        url:url,
+        type:'POST',
+        dataType:'json',
+        data:json,
+    })
+}
 
 
 

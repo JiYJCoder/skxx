@@ -1,12 +1,5 @@
 $(function(){
-    var ajaxPackage=function(url,json){
-        return $.ajax({
-            url:url,
-            type:'POST',
-            dataType:'json',
-            data:json,
-        })
-    }
+    
     //首页创建空白站点
     $('.j_con_main_head_open').click(function(){
         ajaxPackage(url+"/wangjian/api/web/webSave",{
@@ -17,11 +10,23 @@ $(function(){
             
         })
         .done(function(data){
-            var pageIdList=[];
             sessionStorage.setItem("siteId",data.resultData.id);         
-            pageIdList.push(data.resultData.pages.id);
-            sessionStorage.setItem("pageIdArray",pageIdList);
-            window.location.href="site.html";
+            ajaxPackage(url+"/wangjian/api/web/webPageSave",{
+                webId:sessionStorage.getItem("siteId"),
+                number:"1",
+                merchentId:"44",
+                pageTitle:"首页",
+
+            })
+            .done(function(data){
+                var pageIdList=[];
+                pageIdList.push(data.resultData);
+                sessionStorage.setItem("pageIdArray",pageIdList);
+                window.location.href="site.html";
+            })
+           .fail(function(data){
+                console.log(data);
+            })
         })
        .fail(function(data){
             console.log(data);
@@ -138,36 +143,70 @@ $(function(){
     });
     //页面加载数据
     function refresh(){
-        var array = stringToArray(sessionStorage.getItem("pageIdArray"));
-        ajaxPackage(url+"/wangjian/api/web/backPageContent",{
-        webId:sessionStorage.getItem("siteId"),
-        pageId:array[0],
-        })
-        .done(function(data){
-            if(!(data.resultData==undefined)){
-                $('.site_page_container ul').append(data.resultData.remarks);
-            }
-            $.each($('.site_page_container ul li'),function(){
-                var num=Number($(this).attr("type"));
-                new Mian($(this),setCssHtml(num));                  
+        if(sessionStorage.getItem("pageIdArray") !=null){
+            var array = stringToArray(sessionStorage.getItem("pageIdArray"));
+            //返回页面数量，并创建
+            ajaxPackage(url+"/wangjian/api/web/webUrlTitleBack",{
+                webId:sessionStorage.getItem("siteId"),
             })
-        })
-        .fail(function(data){
-            console.log(data);
-        });
-        ajaxPackage(url+"/wangjian/api/web/webUrlTitleBack",{
-            webId:sessionStorage.getItem("siteId"),
-        })
-        .done(function(data){
-            $('#Default >ul >li p.center').text(data.resultData[0].pageTitle);
-            for (var i=1;i<data.resultData.length;i++){
-                $('#Default >ul').append("<li><p class='top'>"+(i+1)+"</p><p class='center'>"+data.resultData[i].pageTitle+"</p><div class='site_page_conFeatures'><ul><li data='删除'></li><li data='复制'></li><li data='设置' class='webPageSet'></li></ul></div></li>")
-            }
-//            console.log(data.resultData);        
-        })
-        .fail(function(data){
-            console.log(data);
-        });
+            .done(function(data){
+                $('#Default >ul >li p.center').text(data.resultData[0].pageTitle);
+                for (var i=0;i<data.resultData.length;i++){
+                    $('#Default >ul').append("<li><p class='top'>"+(i+1)+"</p><p class='center'>"+data.resultData[i].pageTitle+"</p><div class='site_page_conFeatures'><ul><li data='删除'></li><li data='复制'></li><li data='设置' class='webPageSet'></li></ul></div></li>")
+                }
+                $('#Default >ul>li').eq(0).addClass('current');
+            })
+            .fail(function(data){
+                console.log(data);
+            });
+            //加载第一页内容
+            ajaxPackage(url+"/wangjian/api/web/backPageContent",{
+                webId:sessionStorage.getItem("siteId"),
+                pageId:array[0],
+            })
+            .done(function(data){
+                if(!(data.resultData==undefined)){
+                    $('.site_page_container ul').append(data.resultData.remarks);
+                }
+                $.each($('.site_page_container ul li'),function(){
+                    var num=Number($(this).attr("type"));
+                    new Mian($(this),setCssHtml(num));                  
+                })
+            })
+            .fail(function(data){
+                console.log(data);
+            });
+            //加载图片
+            ajaxPackage(url+"/wangjian/api/web/pictureList",{
+                objId:"44",
+                type:"9",
+                pageNo:"0",
+                pageSize:"8"
+            })
+            .done(function(data){
+                console.log(data);
+                var imgArr=$("#myImg ul li img");
+                var srcVal=data.resultData.list;
+                var num=Number(data.resultData.sum);
+                sessionStorage.setItem("ImgPageSize",num);
+                $.each(srcVal,function(i){
+                    imgArr.eq(i).prop('src',this.picUrl)
+                })
+                if(num<=5){
+                    for(var i=0 ;i<num;i++){
+                        $('.next').before("<li>"+(i+1)+"</li>")
+                    }
+                }else if(num>5){
+                    for(var i=0 ;i<5;i++){
+                        $('.next').before("<li>"+(i+1)+"</li>")
+                    }
+                }
+                $('.PageNo ul li').eq(1).addClass('current');
+             })
+            .fail(function(data){
+                console.log(data);
+            });
+        }
     }
     refresh()
     //返回所有页面
@@ -180,7 +219,6 @@ $(function(){
             $.each(data.resultData,function(){
                 $('.site_linePage ul').append("<li class='fj' datalineval="+this.pageUrl+"><p>"+this.pageTitle+"<span class='btn'></span></p></li>")
             })
-            console.log(data.resultData);        
         })
         .fail(function(data){
             console.log(data);
@@ -222,5 +260,98 @@ $(function(){
         })
     }
     pageSet()
-    
+    //翻页
+    function pageClick(){
+        $(document).on("click",".PageNo ul li",function(){
+            var nowLi=$(".PageNo ul li.current");
+            var li=$(".PageNo ul li");
+            var nowNum=nowLi.index();
+            var nextNum=Number(nowLi.text());
+            var preNum=Number(nowLi.text())-2;
+            var sum=sessionStorage.getItem("ImgPageSize");
+            if($(this).hasClass("pre")){
+                if(nowNum==1&&nowLi.text()=="1"){
+                    alert("已经是第一页");
+                }else{
+                    if(nowNum==1&&nowLi.text()=="2"){
+                        li.eq(5).remove();
+                        li.removeClass('current');
+                        $('.pre').after("<li class='current'>"+(nowNum)+"</li>");
+                    }else{
+                        li.removeClass('current');
+                        li.eq(nowNum-1).addClass("current");  
+                    }
+                    ajaxPackage(url+"/wangjian/api/web/pictureList",{
+                        objId:"44",
+                        type:"9",
+                        pageNo:preNum,
+                        pageSize:"8",
+                    })
+                    .done(function(data){
+                        var imgArr=$("#myImg ul li img");
+                        var srcVal=data.resultData.list;
+                        var num=Number(data.resultData.sum);
+                        $.each(srcVal,function(i){
+                            imgArr.eq(i).prop('src',this.picUrl)
+                        })
+                     })
+                    .fail(function(data){
+                        console.log(data);
+                    });
+                }
+            }else if($(this).hasClass("next")){
+                if(nowNum==5&&nowLi.text()==sum){
+                    alert("已经是最后一页")
+                }else{
+                    if(nowNum==5&&nowLi.text()!=sum){
+                        li.eq(1).remove();
+                        li.removeClass('current');
+                        $('.next').before("<li class='current'>"+(nowNum+1)+"</li>");
+                    }else{
+                        li.removeClass('current');
+                        li.eq(nowNum+1).addClass("current");  
+                    }
+                    ajaxPackage(url+"/wangjian/api/web/pictureList",{
+                        objId:"44",
+                        type:"9",
+                        pageNo:nextNum,
+                        pageSize:"8",
+                    })
+                    .done(function(data){
+                        var imgArr=$("#myImg ul li img");
+                        var srcVal=data.resultData.list;
+                        var num=Number(data.resultData.sum);
+                        $.each(srcVal,function(i){
+                            imgArr.eq(i).prop('src',this.picUrl)
+                        })
+                     })
+                    .fail(function(data){
+                        console.log(data);
+                    });
+                }
+            }else if(!$(this).hasClass("current")){
+                var num=$(this).index()-1;
+                $(this).addClass('current').siblings().removeClass("current");
+                ajaxPackage(url+"/wangjian/api/web/pictureList",{
+                    objId:"44",
+                    type:"9",
+                    pageNo:num.toString(),
+                    pageSize:"8",
+                })
+                .done(function(data){
+                    var imgArr=$("#myImg ul li img");
+                    var srcVal=data.resultData.list;
+                    var num=Number(data.resultData.sum);
+                    $.each(srcVal,function(i){
+                        imgArr.eq(i).prop('src',this.picUrl)
+                    })
+                 })
+                .fail(function(data){
+                    console.log(data);
+                });
+            }
+        })
+        
+    }
+    pageClick();
 })
