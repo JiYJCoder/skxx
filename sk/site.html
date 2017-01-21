@@ -14,6 +14,7 @@
 <link href="fonts/style.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/ajax.js"></script>
 <script type="text/javascript" src="js/ji.js"></script>
 <script type="text/javascript" src="js/scroll-min.js"></script>
 <script type="text/javascript" src="js/scrollbar-min.js"></script>
@@ -21,7 +22,6 @@
 <script type="text/javascript" src="js/site.js"></script>
 <script type="text/javascript" src="js/ajaxfileupload.js"></script>
 <script type="text/javascript" src="js/swiper.min.js"></script>
-<script type="text/javascript" src="js/ajax.js"></script>
 <script type="text/javascript" src="js/newConter.js"></script>
 <!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=jVAPaZjQWZZ2sKI1igsSXyoC"></script>-->
 </head>
@@ -712,22 +712,7 @@ accountBtn saveBtn">
                     </div> 
                     <div class="siteTypeInfo">
                         <ul class="clearfix">
-                            <li>产品介绍</li>
-                            <li>营销活动</li>
-                            <li>邀请函</li>
-                            <li>节日祝福</li>
-                            <li>招聘</li>
-                            <li>庆典</li>
-                            <li>年会</li>
-                            <li>调查表</li>
-                            <li>培训</li>
-                            <li>汇报</li>
-                            <li>知识分享</li>
-                            <li>课件</li>
-                            <li>表彰</li>
-                            <li>政策宣传</li>
-                            <li>总结报告</li>
-                            <li>其他</li>
+                            
                         </ul>
                     </div>    
                 </div>
@@ -980,14 +965,14 @@ accountBtn saveBtn">
         <div class="site_ImgList material">
             <div class="materialBtn">
                 <ul class="clearfix">
-                    <li class="current">全部</li>
-                    <li>风景</li>
-                    <li>人物</li>
-                    <li>卡通</li>
-                    <li>影视</li>
-                    <li>游戏</li>
-                    <li>品牌</li>
-                    <li>其他</li>
+                    <li class="current" type="10">全部</li>
+                    <li type="10-1">风景</li>
+                    <li type="10-2">人物</li>
+                    <li type="10-3">卡通</li>
+                    <li type="10-4">影视</li>
+                    <li type="10-5">游戏</li>
+                    <li type="10-6">品牌</li>
+                    <li type="10-7">其他</li>
                 </ul>
                 <div class="imgSearch">
                     <img src="images/searchIcon.png" alt="" class="searchIcon">
@@ -1065,7 +1050,6 @@ accountBtn saveBtn">
     function ajaxFileUpload(id){
         var index=$('.site_imgBoxBtn ul li.current').index();
         var type=$(".materialBtn ul li.current").index();
-        console.logindex
         var data={};
         if(index==0){
             data={id:"44",type:"9"}
@@ -1095,7 +1079,13 @@ accountBtn saveBtn">
             fileElementId:id,
             type:'POST',
             success: function (data){
-            console.log(JSON.parse($(data).find("pre").text()).resultData[0].picUrl)
+            console.log(data);
+            ajaxTip("上传成功");
+            if($(".site_imgBoxBtn ul li.current").index()==1){
+                console.log(1);
+            }else{
+                cconsole.log(0);
+            }
         },error:function(e){
             alert("服务器出错，请联系网站管理员");
         }
