@@ -2587,7 +2587,6 @@ $.fn.extend({
                 //线条
                 $('.borderStyle').colpick({
                     onSubmit:function(hsb,hex,rgb,el) {
-                        
                         controlSet.attr('hrcol','#'+hex);
                         if(controlSet.attr('type')=='4'){
                             controlSet.find('hr').css({
@@ -2614,7 +2613,7 @@ $.fn.extend({
 })
 //window.onbeforeunload=function(){
 //    return '请确定保存好再离开';
-//} ;
+//};
 
 
 

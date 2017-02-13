@@ -21,7 +21,6 @@ $(function(){
     })
     //站点设置品牌等切换
     $(".index input").click(function(e){
-        e.prevenDefault();
         $('.sel select').attr('disabled',"disabled").eq($(this).parents('li').index()).attr('disabled',false)
     });
     //页面设置开关
@@ -116,16 +115,6 @@ $(function(){
         })
     }
     autoTip();
-    //增加页面
-    function addPage(){
-        $('.site_page_add').click(function(){
-            var num=$('.site_page_con >ul >li').size()+1;
-            var data="<li><p class='top'>"+num+"</p><p class='center'>第"+num+"页</p><div class='site_page_conFeatures'><ul><li data='删除'></li><li data='复制'></li><li data='设置' class='webPageSet'></li></ul></div></li>"
-            $('.site_page_con >ul').append(data)
-        })
-    }
-    addPage();
-    
     //站点页面颜色选择
     function colSel(){
         $("#ColSel").siblings().click(function(){

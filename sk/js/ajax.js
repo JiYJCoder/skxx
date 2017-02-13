@@ -1,5 +1,4 @@
 $(function(){
-    
     //首页创建空白站点
     $('.j_con_main_head_open').click(function(){
         ajaxPackage(url+"/wangjian/api/web/webSave",{
@@ -45,6 +44,9 @@ $(function(){
     })
     //增加站点页面
     $('.site_page_add').click(function(){
+        var num=$('.site_page_con >ul >li').size()+1;
+        var data="<li><p class='top'>"+num+"</p><p class='center'>第"+num+"页</p><div class='site_page_conFeatures'><ul><li data='删除'></li><li data='复制'></li><li data='设置' class='webPageSet'></li></ul></div></li>"
+        $('.site_page_con >ul').append(data);
         var title=$('#Default >ul >li:last p.center').text();
         var num=$('#Default >ul >li').size();
         ajaxPackage(url+"/wangjian/api/web/webPageSave",{
@@ -188,7 +190,6 @@ $(function(){
                 var imgArr=$("#myImg ul li img");
                 var srcVal=data.resultData.list || new Array(8);
                 var num=Number(data.resultData.sum);
-                console.log(data)
                 sessionStorage.setItem("ImgPageSize",num);
                 if(data.resultData.list==null){
                     $.each(srcVal,function(i){
@@ -213,6 +214,18 @@ $(function(){
             .fail(function(data){
                 console.log(data);
             });
+            ajaxPackage(url+"/wangjian/api/web/webUrlTitleBack",{
+                webId:sessionStorage.getItem("siteId"),
+            })
+            .done(function(data){
+                $.each(data.resultData,function(){
+                    $("select[name='indexSel']").append("<option>"+this.pageTitle+"</option>")
+                })
+                
+            })
+            .fail(function(data){
+                console.log(data);
+            })
         }
     }
     refresh()
@@ -547,8 +560,32 @@ $(function(){
         })
     });
     //全局站点设置
-    
-    
+    $('.saveBtn').click(function(){
+        ajaxPackage(url+"/wangjian/api/web/webSet",{
+            webId:sessionStorage.getItem("siteId"),
+            siteName:"",
+            siteDomain:"",
+            languageId:"1",
+            siteSubDomain:"",
+            metaSetting:"",
+            posterIds:"",
+        })
+        .done(function(data){
+            var val=data.resultData|| new Array(8);
+            var imgArr=$(".material ul li img");
+            console.log(data);
+            if(data.resultData==null){
+                $.each(val,function(i){
+                    imgArr.eq(i).prop('src','images/defaultImg.png')
+                });
+            }else{
+                $.each(val,function(i){
+                    imgArr.eq(i).prop('src',val[i].picUrl)
+                });
+            }
+        })
+    })
+
     
     
     

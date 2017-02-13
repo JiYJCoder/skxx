@@ -422,7 +422,7 @@
                 <form id="baseForm" method="post">
                     <div class="baseSetTitle">
                          <p class="title"><span>网站名称：</span><input type="text" placeholder="我的网站名称" class="baseInput" name="title" maxlength="30"></p>
-                         <p class="name"><span>网站域名：</span><input type="text" placeholder="我的网站域名" class="baseInput" name="name"></p>
+                         <p class="name"><span>网站域名：</span><input type="text" placeholder="我的网站域名 ( 由字母和数字组成,长度为5~26 )" class="baseInput" name="name" maxlength="26"></p>
                          <div class="BaseTitleTip">
                              <p>提示：可用中文，英文或者数字组成，最长30个字。</p>
                          </div>
@@ -433,10 +433,15 @@
                         <label><input type="radio" name="lang" value="英文">&nbsp;英文</label>
                         <label><input type="radio" name="lang" value="俄语">&nbsp;俄语</label>
                     </div>
-                    <div class="baseSetLogo clearfix label">
+                    <div class="baseSetLogo clearfix">
                         <p class="title">网站logo：</p>
-                        <label><input type="radio" name="logo" checked value="use">&nbsp;使用</label>
-                        <label><input type="radio" name="logo" value="noUse">&nbsp;不使用</label>
+                        <label><input type="radio" name="logo" value="use">&nbsp;使用</label>
+                        <label><input type="radio" name="logo" checked value="noUse">&nbsp;不使用</label>
+                        <div class="clear"></div>
+                        <div class="clearfix logBox">
+                            <div class="logoFileImg"></div>
+                            <div class="logoFileBtn">上传<input type="file" name="file" id="file2" accept="image/png,image/gif" onchange="ajaxFileUpload('file2')"></div>
+                        </div>
                     </div>
                     <div class="baseSetIndex clearfix">
                         <p class="title">网站首页：</p>
@@ -444,7 +449,7 @@
                             <ul>
                                 <li>
                                      <label class="index" for="index"><input type="radio" name="index" value="site" id="index" checked>&nbsp;站点</label>
-                                     <label class="sel"><select name="indexSel"><option>品牌介绍</option><option>测试1</option></select></label>
+                                     <label class="sel"><select name="indexSel"></select></label>
                                 </li>
                                 <li>
                                      <label class="index" for="poster"><input type="radio" name="index" value="poster" id="poster">&nbsp;海报</label>
@@ -1046,7 +1051,7 @@ accountBtn saveBtn">
             });
       });
         
-        //图片
+    //上传图片
     function ajaxFileUpload(id){
         var index=$('.site_imgBoxBtn ul li.current').index();
         var type=$(".materialBtn ul li.current").index();
@@ -1071,6 +1076,8 @@ accountBtn saveBtn">
             data={id:"44",type:"10-6"}
         }else if(index==1&&type==7){
             data={id:"44",type:"10-7"}
+        }else{
+            data={id:"44",type:"9"}
         }
         $.ajaxFileUpload({
             url:'http://120.25.102.247:8180/wangjian/api/web/pictureUpload',
@@ -1080,12 +1087,9 @@ accountBtn saveBtn">
             type:'POST',
             success: function (data){
             console.log(data);
+//            console.log(JSON.parse($(data).find("pre").text()).resultData.picUrl);
             ajaxTip("上传成功");
-            if($(".site_imgBoxBtn ul li.current").index()==1){
-                console.log(1);
-            }else{
-                cconsole.log(0);
-            }
+            
         },error:function(e){
             alert("服务器出错，请联系网站管理员");
         }

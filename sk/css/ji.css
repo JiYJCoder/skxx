@@ -1278,6 +1278,7 @@ a:active{blr:expression(this.onFocus=this.blur());}
     height: 22px;
     cursor: pointer;
     opacity: 0;
+    font-size:0px;
 }
 .site_pageBgiSet_file > p{
     margin-top: 8px;
@@ -1890,4 +1891,49 @@ input:focus{
     transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
     display: none;
     z-index: 999;
+}
+.logBox{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.logoFileImg{
+    width: 70px;
+    height: 55px;
+    border: 1px dashed #438eb9;
+    float: left;
+}
+.logoFileBtn{
+    float: left;
+    width: 50px;
+    height: 22px;
+    border: 1px solid #438eb9;
+    border-radius:4px;
+    margin-left: 10px;
+    margin-top: 32px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 22px;
+    color: #438eb9;
+    position: relative;
+    overflow: hidden;
+    
+}
+.logoFileBtn input{
+    display: block;
+    opacity: 0;
+    width: 50px;
+    height: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size：0;
+    z-index: 0;
+    cursor: pointer;
+    font-size:0px;
+}
+
+.baseSetLogo{
+    min-height: 29px;
+    border-bottom: 1px solid #cacaca;
+    padding-top: 10px;
 }
