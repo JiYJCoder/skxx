@@ -151,5 +151,15 @@ $(function(){
         }
     }
     imgfile();
+    //站点设置
+    function siteSet(){
+        $('.saveBtn').click(function(){
+            var sel=$('#siteLineBtnList ul li.current').index();
+            
+            $('.siteSet').hide();
+            $('.ji_dataBg').hide();
+        })
+    }
+    siteSet()
 //    console.log(decodeURIComponent($('#baseForm').serialize()))
 })

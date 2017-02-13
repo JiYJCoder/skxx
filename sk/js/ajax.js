@@ -129,8 +129,8 @@ $(function(){
             })
             .done(function(data){
                 if(!(data.resultData==undefined)){
-                    $('.site_page_container ul').append(data.resultData.remarks);
-                    $.each($('.site_page_container ul li'),function(){
+                    $('.site_page_container >ul').append(data.resultData.remarks);
+                    $.each($('.site_page_container >ul >li'),function(){
                         var num=Number($(this).attr("type"));
                         new Mian($(this),setCssHtml(num));                  
                     })
@@ -186,8 +186,9 @@ $(function(){
             })
             .done(function(data){
                 var imgArr=$("#myImg ul li img");
-                var srcVal=data.resultData.list||new Array(8);
+                var srcVal=data.resultData.list || new Array(8);
                 var num=Number(data.resultData.sum);
+                console.log(data)
                 sessionStorage.setItem("ImgPageSize",num);
                 if(data.resultData.list==null){
                     $.each(srcVal,function(i){
@@ -215,7 +216,7 @@ $(function(){
         }
     }
     refresh()
-    //返回所有页面
+    //插入链接：返回所有页面
     $(document).on("click","#allPage",function(){
         $('.site_linePage ul').children().remove();
         ajaxPackage(url+"/wangjian/api/web/webUrlTitleBack",{
@@ -544,7 +545,9 @@ $(function(){
                 });
             }
         })
-    })
+    });
+    //全局站点设置
+    
     
     
     

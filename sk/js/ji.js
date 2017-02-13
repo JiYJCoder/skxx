@@ -1561,7 +1561,7 @@ $.fn.extend({
                         var bs=valArr[9].substring(14);//边样
                         var bc=valArr[10].substring(14);//边色
                         var bGrong=valArr[3].substring(19);//背景颜色
-//                        console.log(bgi);
+//                        console.log(controlSel.children().eq(0));
 //                        console.log(cssVal);
 //                        console.log(valArr);
                         $('.fontSize p span').text(fonSizeVal);//面板字体大小
@@ -2028,7 +2028,8 @@ $.fn.extend({
                         $('.ji_dataBg').show();
                         controlSet.attr('lineData','缺省');
                     });
-                    $('.siteSetbottom_save').click(function(){
+                    //要新生成一个按钮
+                    $('.siteLineBtn').click(function(){
                         var lineCurrent=$('.lineVal ul li.current');
                         var sel=$('#siteLineBtnList ul li.current').index();
                         lineCurrent.each(function(){
@@ -2041,6 +2042,7 @@ $.fn.extend({
                                 controlSet.attr('lineData',$(this).attr('datalineval'));
                             }
                         });
+                        console.log(controlSet)
                         $('.siteLine').hide();
                         $('.ji_dataBg').hide();
                     })
