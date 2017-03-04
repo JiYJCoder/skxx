@@ -62,9 +62,9 @@ a:active{blr:expression(this.onFocus=this.blur());}
 .j_con_main_con_condition_dataVal ul li{float: left;border: 1px solid #dbdbdb;padding: 0 8px;font-size:12px;margin-right: 20px;border-radius:2px; cursor: pointer;text-align: center;height: 18px;line-height: 18px;}
 .j_con_main_con_condition_dataVal ul li.current{border: 1px solid #00abeb;color: #00abeb;}
 .starDate{position: absolute;top: 0;left: 242px;}
-.ovDate{position: absolute;top: 0;left:324px;}
-.j_con_main_con_condition_dataVal input{display: block;width: 56px;text-align: center;border: 1px solid #dbdbdb;border-radius: 3px; height: 18px;line-height: 18px;}
-.j_con_main_con_condition_dataVal .text{position: absolute;top: 2px;left: 306px;}
+.ovDate{position: absolute;top: 0;left:337px;}
+.j_con_main_con_condition_dataVal input{display: block;width: 75px;text-align: center;border: 1px solid #dbdbdb;border-radius: 3px; height: 18px;line-height: 18px;}
+.j_con_main_con_condition_dataVal .text{position: absolute;top: 2px;left: 322px;}
 .j_con_main_con_condition_dataVal .tip{position: absolute;font-size:10px;left: 260px; top:20px;display: none;color: #00abeb}
 .j_con_main_con_condition_sort{padding-top: 7px;border-bottom: 1px solid #dbdbdb;}
 .j_con_main_con_condition_sortVal{width: 599px;float: left;}
@@ -1370,7 +1370,6 @@ a:active{blr:expression(this.onFocus=this.blur());}
     height: 994px;
     box-shadow: -1px -1px 21px #000;
     background-color: #f1f1f1;
-    z-index: 999999999999;
 }
 .site_pageComponent_title{
     background-color: #438eb9;
@@ -1895,6 +1894,7 @@ input:focus{
 .logBox{
     margin-top: 5px;
     margin-bottom: 5px;
+    display: none;
 }
 .logoFileImg{
     width: 70px;
@@ -1931,7 +1931,13 @@ input:focus{
     cursor: pointer;
     font-size:0px;
 }
-
+.logoFileImg {
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.siteTypeInfo ul li.current{
+    background-color: #438eb9;
+}
 .baseSetLogo{
     min-height: 29px;
     border-bottom: 1px solid #cacaca;

@@ -21,7 +21,8 @@ $(function(){
     })
     //站点设置品牌等切换
     $(".index input").click(function(e){
-        $('.sel select').attr('disabled',"disabled").eq($(this).parents('li').index()).attr('disabled',false)
+        $('.sel select').attr('disabled',"disabled").eq($(this).parents('li').index()).attr('disabled',false);
+        $(this).parents('li').addClass('current').siblings().removeClass('current');        
     });
     //页面设置开关
     $('#Default').on("click",".webPageSet",function(){
@@ -62,8 +63,18 @@ $(function(){
     base.sel('#site_hx ul li');//页面设置==》纵向选择
     base.sel('.bgStyle ul li');//面板背景选择
     base.sel('.materialBtn ul li');//面板背景选择
+    base.sel('.siteTypeInfo ul li');//行业标签选择
     base.tip($('.site_tip ul li'));//功能栏Tip
     base.tab('.site_imgBoxBtn ul li','.site_ImgList')//图片素材库
+    //logo选择
+    $('.baseSetLogo .sel').click(function(){
+        if($(this).index()==1){
+            $('.logBox').show();
+        }else{
+            $('.showBox img').attr('src','');
+            $('.logBox').hide();
+        }
+    })
     
     //选择部门等增加和删除数据
     function addData(){
@@ -128,18 +139,18 @@ $(function(){
     };
     colSel();
     //站点页面，作品信息图片上传既显；
-    function imgfile(){
-        var file=new FileReader();
-        var inpitFile=document.getElementById('file');
-        var img=document.getElementById('image_preview')
-        inpitFile.onchange=function(){
-            file.onload=function(){
-                img.src=file.result
-            }
-            file.readAsDataURL(this.files[0]);
-        }
-    }
-    imgfile();
+//    function imgfile(){
+//        var file=new FileReader();
+//        var inpitFile=document.getElementById('file');
+//        var img=document.getElementById('image_preview')
+//        inpitFile.onchange=function(){
+//            file.onload=function(){
+//                img.src=file.result
+//            }
+//            file.readAsDataURL(this.files[0]);
+//        }
+//    }
+//    imgfile();
     //站点设置
     function siteSet(){
         $('.saveBtn').click(function(){

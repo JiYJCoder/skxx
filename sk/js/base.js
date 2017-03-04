@@ -8,7 +8,6 @@ base.tip=function(obj){
         }else{
             $(obj[i]).append("<div class='tipShow'><p></p></div>");
         }
-        
         $(obj[i]).find('.tipShow p').text($(obj[i]).attr('data'));
         $(obj[i]).hover(function(){
             $(this).find('.tipShow').fadeIn(200)
@@ -34,11 +33,19 @@ base.close=function (closeBtn,Box,showBtn,bg){
     })
 };
 base.hover=function(btn,box){
-    $(btn).hover(function(){
-        $(this).find(box).show();
-    },function(){
-        $(this).find(box).hide();
+    $(document).on("mouseover mouseout",btn,function(e){
+        if(e.type == "mouseover"){
+            $(this).find(box).show();
+        }else if(e.type == "mouseout"){
+            $(this).find(box).hide();
+        }
     })
+   
+//    $(btn).hover(function(){
+//        $(this).find(box).show();
+//    },function(){
+//        $(this).find(box).hide();
+//    })
 }
 base.tab=function(btn,box){
     $(btn).click(function(){

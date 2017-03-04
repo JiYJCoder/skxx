@@ -1,63 +1,83 @@
+var arr=[];
 function setCssHtml(type){
-    var arr=[];
+    var controlBtnBox=$('.site_ControlRecordCon >ul');
     switch(type){
         case 0://生成文字
             arr[type]=textSetHtml;
+            controlBtnBox.append("<li class='current'>文本框</li>");
             break;
         case 1:
             arr[type]=ImgSetHtml;
+            controlBtnBox.append("<li class='current'>图片</li>");
             break;
         case 2:
             arr[type]=titleSetHtml;
+            controlBtnBox.append("<li class='current'>标题</li>");
             break;
         case 3:
             arr[type]=atlasSetHtml;
+            controlBtnBox.append("<li class='current'>图集</li>");
             break;
         case 4:
             arr[type]=HlineSetHtml;
+            controlBtnBox.append("<li class='current'>横线</li>");
             break;
         case 5:
             arr[type]=HlineSetHtml;
+            controlBtnBox.append("<li class='current'>竖线</li>");
             break;
         case 6:
             arr[type]=btnSetHtml;
+            controlBtnBox.append("<li class='current'>按钮</li>");
             break;
         case 7:
             arr[type]=CboxSetHtml;
+            controlBtnBox.append("<li class='current'>容器</li>");
             break;
         case 8:
             arr[type]=videoSetHtml;
+            controlBtnBox.append("<li class='current'>视频</li>");
             break;
         case 9:
             arr[type]=musicSetHtml;
+            controlBtnBox.append("<li class='current'>音乐</li>");
             break;
         case 10:
             arr[type]=hdpSetHtml;
+            controlBtnBox.append("<li class='current'>轮播图</li>");
             break;
         case 11:
             arr[type]=navSetHtml;
+            controlBtnBox.append("<li class='current'>导航</li>");
             break;
         case 12:
             arr[type]=navBtnSetHtml;
+            controlBtnBox.append("<li class='current'>导航按钮</li>");
             break;
         case 13:
             arr[type]=FormSetHtml;
+            controlBtnBox.append("<li class='current'>联系我们</li>");
             break;
         case 14:
             arr[type]=mapSetHtml;
+            controlBtnBox.append("<li class='current'>地图</li>");
             break;
         case 15:
             arr[type]=cmListSetHtml;
+            controlBtnBox.append("<li class='current'>商品列表</li>");
             break;
         case 16:
             arr[type]=ewmSetHtml;
+            controlBtnBox.append("<li class='current'>二维码</li>");
             break;
         case 17:
             arr[type]=weixinSetHtml;
+            controlBtnBox.append("<li class='current'>公众号</li>");
             break;
     };
     return arr;
 }
+
 function Mian(control,controlSetHtmlArr,defaultCssSet){
         var cssSetBox=$('.site_pageComponent');//控件box
         var controlBtnBox=$('.site_ControlRecordCon >ul');//控件控制按钮
@@ -71,27 +91,28 @@ function Mian(control,controlSetHtmlArr,defaultCssSet){
         //根据控件类型生成控件控制按钮
         function controlBtn(){
             var controlBtnLi=controlBtnBox.find('li');
-            controlBtnLi.click(function(){
-                var liNum=Number(box.find('li').eq($(this).index()).attr('type'));
+            controlBtnLi.click(function(e){
+                var liNum=Number(box.children('li').eq($(this).index()).attr('type'));
                 $(this).addClass('current').siblings().removeClass('current');
                 $('.chageSize').hide();
                 $('.panel').remove();
                 cssSetBox.append(controlSetHtmlArr[liNum]);
-                box.find('li').eq($(this).index()).show();
-                box.find('li').eq($(this).index()).find('.chageSize').show();
+                box.children('li').eq($(this).index()).show();
+                box.children('li').eq($(this).index()).find('.chageSize').show();
+                chageCss(control);
                 return false;
             });
 
             $('.site_ControlRecordTitle ul li').click(function(){
                 $('.panel').remove();
-                for(var i=0;i<box.find('li').size();i++){
+                for(var i=0;i<box.children('li').size();i++){
                     if(box.find('li>.chageSize').eq(i).is(':visible')&&$(this).hasClass('control_Sh')){
-                        controlBtnBox.find('li').eq(box.find('li').eq(i).index()).removeClass('current');
-                        box.find('li').eq(i).hide();
+                        controlBtnBox.find('li').eq(box.children('li').eq(i).index()).removeClass('current');
+                        box.children('li').eq(i).hide();
                     }
                     if(box.find('li>.chageSize').eq(i).is(':visible')&&$(this).hasClass('control_Del')){
-                        controlBtnBox.find('li').eq(box.find('li').eq(i).index()).remove();
-                        box.find('li').eq(i).remove();
+                        controlBtnBox.find('li').eq(box.children('li').eq(i).index()).remove();
+                        box.children('li').eq(i).remove();
                     }
 
                 }
@@ -152,7 +173,7 @@ function Mian(control,controlSetHtmlArr,defaultCssSet){
                     var bs=valArr[9].substring(14);//边样
                     var bc=valArr[10].substring(14);//边色
                     var bGrong=valArr[3].substring(19);//背景颜色
-                        console.log(controlSel.children().eq(0));
+//                        console.log(controlSel);
 //                        console.log(cssVal);
 //                        console.log(valArr);
                     $('.fontSize p span').text(fonSizeVal);//面板字体大小
@@ -711,7 +732,8 @@ function Mian(control,controlSetHtmlArr,defaultCssSet){
 
                     });
                 }
-                controlImg()
+                controlImg();
+                //设置照片到控件
                 $('.site_ImgListSave').click(function(){
                     $('.site_imgBox').hide();
                     $('.ji_dataBg').hide();
@@ -1195,7 +1217,14 @@ function Mian(control,controlSetHtmlArr,defaultCssSet){
             });
             //获取值
             function setVal(){
-                $('.videoSetCon').focus();
+                $('.videoSetCon').blur(function(){
+                    var src = $(this).text();
+                    if($(this).attr('type')=="music"){
+                        $('.music audio').attr('src',src)
+                    }else if($(this).attr('type')=="video"){
+                        $('.video embed').attr('src',src)
+                    }
+                });
             }
             setVal();
         };

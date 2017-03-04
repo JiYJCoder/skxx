@@ -1,22 +1,16 @@
 if(typeof($)=='undefined'){
   alert('您的浏览器无法兼容所作操作，请更换chrome或者火狐浏览器再试!');
 }
+
 $(function(){
-    $('.j_signin').hover(function(){
-        $('.j_signin_block').fadeIn(200);
-    },function(){
-        $('.j_signin_block').fadeOut(200);
-    });
-    $('.j_con_main_con_condition_dataVal input').hover(function(){
-        $('.j_con_main_con_condition_dataVal .tip').fadeIn(200);
-    },function(){
-        $('.j_con_main_con_condition_dataVal .tip').fadeOut(200);
-    });
-    $('.j_con_main_con_data ul li').hover(function(){
-        $(this).find('.feat').fadeIn(300);
-    },function(){
-        $(this).find('.feat').fadeOut(300);
-    });
+    base.sel('.j_con_main_con_condition_statusVal ul li');//首页状态选择
+    base.sel('.j_con_main_con_condition_sortVal ul li');//首页行业标签选择
+    base.sel('.j_con_main_con_condition_pxVal ul li');//首页排序选择
+    base.sel('.j_con_main_con_condition_dataVal ul li');//首页时间选择
+    base.hover('.j_con_main_con_data ul li','.feat');//首页网站列表功能显隐
+    //注销
+    base.hover('.j_signin','.j_signin_block')
+    base.tab(".ji_dataShow_btn ul li",'.ji_dataShowBox')
     $('.ji_close').click(function(){
         $('.ji_dataBg').hide();
         $('.ji_dataShow').hide();
@@ -26,13 +20,7 @@ $(function(){
         $('.ji_dataShow').show();
         
     });
-    $('.ji_dataShow_btn ul li').click(function(){
-    		$(this).addClass('current').siblings().removeClass();
-    		$(".ji_dataShowBox").hide().eq($(this).index()).fadeIn(300); 
-    //        $(".tab1").eq($(this).index()).show().siblings().hide(); 
-    })
-    base.tip($('.featSmall ul li'));
-
+    
     //数据创建
     function getTime(){
         for(var i=0;i<6;i++){
