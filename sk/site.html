@@ -413,7 +413,7 @@
                 <ul>
                     <li class="current"><p>基本设置</p></li>
                     <li><p>绑定独立域名</p></li>
-                    <li><p>meta设置</p></li>
+<!--                    <li><p>meta设置</p></li>-->
 <!--                    <li><p>图片管理</p></li>-->
                     <li><p>账号设置</p></li>
                 </ul>
@@ -422,7 +422,7 @@
                 <form id="baseForm" method="post">
                     <div class="baseSetTitle">
                          <p class="title"><span>网站名称：</span><input type="text" placeholder="我的网站名称" class="baseInput1 baseInput" name="title" maxlength="30"></p>
-                         <p class="name"><span>网站域名：</span><input type="text" placeholder="我的网站域名 ( 由字母和数字组成,长度为5~26 )" class="baseInput1 baseInput" name="name" maxlength="26" pattern="[0-9a-zA-Z]"></p>
+                         <p class="name"><span>网站域名：</span><input type="text" placeholder="我的网站域名 ( 由字母和数字组成,长度为5~26 )" class="baseInput2 baseInput" name="name" maxlength="26" pattern="[0-9a-zA-Z]"></p>
                          <div class="BaseTitleTip">
                              <p>提示：可用中文，英文或者数字组成，最长30个字。</p>
                          </div>
@@ -489,6 +489,7 @@
                 <p class="tip">提示：建议图片宽度640像素以上；支持多图上传；图片大小不能超过4M；支持jpg,png,gif格式；</p>
             </div>
 -->
+<!--
             <div class="siteSetConShow clearfix metaSet siteSetTabCon">
                  <p>META设置</p>
                  <div class="metaSet_con">
@@ -496,6 +497,7 @@
                      <p>(提示：这里可以加入第三方工具的META的验证消息)</p>
                  </div>
             </div>
+-->
             <div class="siteSetConShow siteSetTabCon">
                 <p>账号设置</p>
             </div>
@@ -1025,7 +1027,7 @@ accountBtn saveBtn">
         <img src="images/loading.gif" alt="" width="40" height="40">
     </div>
     <script>
-        $(function ($) {
+        $(function(){
             //滚动条
             $('#Default').perfectScrollbar({
                 wheelSpeed: 4,
@@ -1111,13 +1113,19 @@ accountBtn saveBtn">
         webReturnPage();
         webReturnAllPage();
         WebPageSet();
-        pageClick();
         webImgList();
         webGallery();
         webSet();
         webReturnAllPage1();
         webload();
         webRelease();
+        webImgLoad("9",'#myImg ul li img');
+        ajaxPage({
+            objId:"44",
+            type:'9',
+            pageNo:'0',
+            pageSize:"8"
+        },"/wangjian/api/web/pictureList",webImgAjaxPage)
     </script>
 </body>
 </html>

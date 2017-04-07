@@ -77,13 +77,13 @@ a:active{blr:expression(this.onFocus=this.blur());}
 .j_con_main_con_condition_pxVal{float: left;width: 599px;}
 .j_con_main_con_condition_pxVal ul li{float: left;border: 1px solid #dbdbdb;border-radius:2px;height: 18px;line-height: 18px;border-radius:2px;cursor: pointer;margin-right: 10px;}
 .j_con_main_con_condition_pxVal ul li p{float: left;border-right: 1px solid #dbdbdb;text-align: center;padding-left: 6px;padding-right: 6px;}
-.j_con_main_con_condition_pxVal ul li span{float: left;display: block;background:url('../images/ji_sort.png') center center no-repeat;width: 24px;height: 18px;transition:transform 0.3s ease-out;}
-.j_con_main_con_condition_pxVal ul li span:hover{transform:rotate(180deg);}
+.j_con_main_con_condition_pxVal ul li span{float: left;display: block;background:url('../images/ji_sort.png') center center no-repeat;width: 24px;height: 18px;transition:transform 0.3s ease-out;transform:rotate(180deg);}
+.j_con_main_con_condition_pxVal ul li span:hover{transform:rotate(360deg);}
 .j_con_main_con_condition_pxVal ul{width: 608px;overflow: hidden;}
 .j_con_main_con_condition_pxVal ul li.current{border: 1px solid #00abeb;}
 .j_con_main_con_condition_pxVal ul li.current p{border-right: 1px solid #00abeb;color: #00abeb}
 .j_con_main_con_condition_pxVal ul li.current span{background:url('../images/ji_sortCurrent.png') center center no-repeat;}
-.j_con_main_con_data{width: 670px;margin-left: 15px;}
+.j_con_main_con_data{width: 670px;margin-left: 15px;min-height: 285px;}
 /*注意：选择子元素。ie8以下不兼容*/
 .j_con_main_con_data > ul{width: 690px;overflow: hidden;}
 .j_con_main_con_data > ul >li{width: 210px;float: left;height: 271px;margin-right: 20px;border-radius:3px;margin-top: 14px;position: relative;}
