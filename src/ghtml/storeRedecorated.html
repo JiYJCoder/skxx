@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>店铺装修</title>
+    <link rel="stylesheet" href="../gcss/style.css">
+    <link rel="stylesheet" href="../gcss/base.css">
+  </head>
+  <body>
+        <div id="storeHome">
+            <div class="homePage_header">
+                    <div class="homePage_logo">
+
+                    </div>
+                    <div class="contentWrap">
+                          <ul class="clearfix homePage_header_list">
+                              <li >站点页面</li>
+                              <li class="header_tab_active">线上分店</li>
+                              <li>产品库</li>
+                              <li>生成app</li>
+                          </ul>
+                    </div>
+                    <div class="createD">
+                          创建店铺
+                    </div>
+                    <div class="createL">
+                          创建店铺列表
+                    </div>
+            </div>
+            <div class="productG_content_wrapall clearfix">
+                <section class="storeHome_aside fl">
+                  <div class="storeHome_aside_wrap">
+                    <div class="storeHome_aside_title">
+                        <div class="storeHome_aside_img fl">
+                            <img src="../images/shopICON.png"  />
+                        </div>
+                        <div class="storeHome_aside_text fl">
+                            苏州分店
+                        </div>
+                    </div>
+                    <div class="storeHome_aside_list">
+                          <ul class="clearfix">
+                            <li >
+                                <div class="storeHome_aside_list_logo1  fl">
+
+                                </div>
+                                <div class="storeHome_aside_list_Text fl">
+                                    首页
+                                </div>
+                            </li>
+                            <li>
+                              <div class="storeHome_aside_list_logo2 fl">
+
+                              </div>
+                              <div class="storeHome_aside_list_Text fl">
+                                  商品管理
+                              </div>
+                            </li>
+                            <li>
+                              <div class="storeHome_aside_list_logo3 fl">
+
+                              </div>
+                              <div class="storeHome_aside_list_Text fl">
+                                  订单管理
+                              </div>
+                            </li>
+                            <li class="storeHome_aside_listActive">
+                              <div class="storeHome_aside_list_logo4 storeHome_aside_list_logo4_active fl">
+
+                              </div>
+                              <div class="storeHome_aside_list_Text fl">
+                                  店铺装修
+                              </div>
+                            </li>
+                            <li >
+                              <div class="storeHome_aside_list_logo5 fl">
+
+                              </div>
+                              <div class="storeHome_aside_list_Text fl">
+                                  店铺设置
+                              </div>
+                            </li>
+                          </ul>
+                    </div>
+
+                  </div>
+                </section>
+                <div class="storeHome_aside_box fl">
+                  <div class="storeHome_aside_box_top" style="height:50px;">
+                        <div class="storeHome_aside_box_nav">
+                              <ul class="clearfix" id="storeRedecorated_list">
+                                <li class="liActive_fff">
+                                    <p>
+                                      基本设置　
+                                    </p>
+                                </li>
+                                <li >
+                                    <p>
+                                    店铺首页
+                                    </p>
+
+                                </li>
+                              </ul>
+                        </div>
+                  </div>
+                  <div class="storeRedecorated_bot">
+                    <section id="storeBase" class="storeRedecorated_index">
+                          <div class="storeR_headerBox clearfix">
+                                <p class="fl storeBaseText">店铺头像</p>
+                                <div class="fl storeR_headerRight">
+                                      <div class="storeR_headerImg fl">
+                                            <img src="../images/storeGheader.png" alt="" id="storeR_headerImg">
+                                      </div>
+                                      <div class="fl uploadHeaderStoreG">
+                                          <p>上传头像</p>
+                                          <input type="file" id="uploadHeaderStoreG" name="file" onchange=imgAjax("uploadHeaderStoreG")>
+                                      </div>
+                                      <div class="storeR_headerImg_online fl">
+                                          (提示: 图像大小不能超过4m，建议尺寸640*640像素，支持JPG,PNG等格式)
+                                      </div>
+                                </div>
+                          </div>
+                          <div class="storeR_headerBox clearfix">
+                                <p class="fl storeBaseText">店铺封面</p>
+                                <div class="fl storeR_headerRight">
+                                      <div class="storeR_pageImg fl">
+                                                <img src="../images/storePage.png" alt="" id="storeR_pageImg">
+                                      </div>
+                                      <div class="fl uploadHeaderStoreG">
+                                          <p>上传封面</p>
+                                          <input type="file" id="uploadPageStoreG" name="file" onchange=bannerAjax("uploadPageStoreG")>
+                                      </div>
+                                      <div class="storeR_headerImg_online fl">
+                                          (提示: 图像大小不能超过4m，建议尺寸640*214像素，支持JPG,PNG等格式)
+                                      </div>
+                                </div>
+                          </div>
+                          <div class="storeR_headerBox clearfix">
+                                <p class="fl storeBaseText">封面样式</p>
+                                <div class="fl storeR_headerRight">
+                                      <ul class="clearfix">
+                                        <li>
+                                            <div class="storeR_cover1 coverActive" data="1">
+
+                                            </div>
+                                            <p >标准版</p>
+                                        </li>
+                                        <li>
+                                            <div class="storeR_cover2" data="2">
+
+                                            </div>
+                                            <p>居中版</p>
+                                        </li>
+                                        <li>
+                                            <div class="storeR_cover3" data="3">
+
+                                            </div>
+                                            <p>居下版</p>
+                                        </li>
+                                      </ul>
+                                </div>
+                          </div>
+                    </section>
+                    <section id="storeHome" style="display:none;" class="storeRedecorated_index">
+                      <div class="clearfix">
+                        <div class="productG_content_config fl">
+                              <div class="config_text fl">
+                                  店铺公告
+                              </div>
+                        </div>
+                        <div class="productG_content_radio_box fl">
+                            <div class="productG_content_radio_left fl">
+                                <div class="productG_selectDot radio_dotActive fl" data="1">
+
+                                </div>
+                                <div class="fl">
+                                    开启
+                                </div>
+                            </div>
+                            <div class="productG_content_radio_right fl" style="margin-left:40px;">
+                              <div class="productG_selectDot fl" data="0">
+
+                              </div>
+                              <div class="fl">
+                                  隐藏
+                              </div>
+                            </div>
+                        </div>
+
+                      </div>
+                      <div class="storeRede_type_css">
+                          <ul class="clearfix">
+                              <li>
+                                  <div class="storeRede_type_img storeRede_type_imgActive" data="0">
+
+                                  </div>
+                                  <div class="storeRede_type_text">
+                                    普通样式
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="storeRede_type_img2" data="1">
+
+                                  </div>
+                                  <div class="storeRede_type_text">
+                                    别针样式
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="storeRede_type_img3" data="2">
+
+                                  </div>
+                                  <div class="storeRede_type_text">
+                                    卷叶样式
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="storeRede_type_img4" data="3">
+
+                                  </div>
+                                  <div class="storeRede_type_text">
+                                    胶带样式
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                      <div class="storeRede_storelist_css">
+                        <div class="productG_content_config fl" style="margin-top:20px;">
+                              <div class="config_text fl">
+                                  店铺列表
+                              </div>
+                        </div>
+                        <div class="storeRede_storelist_list fl">
+                            <ul>
+                              <li>
+                                <div class="storeRede_storelist_img storeRede_storelist_imgActive" data="0">
+
+                                </div>
+                                <div class="storeRede_type_text">
+                                  明细列表
+                                </div>
+                              </li>
+                              <li>
+                                <div class="storeRede_storelist_img2" data="1">
+
+                                </div>
+                                <div class="storeRede_type_text">
+                                  大图列表
+                                </div>
+                              </li>
+                              <li>
+                                <div class="storeRede_storelist_img3" data="2">
+
+                                </div>
+                                <div class="storeRede_type_text">
+                                  双列小图
+                                </div>
+                              </li>
+                            </ul>
+                        </div>
+                      </div>
+                      <div class="clearfix">
+                        <div class="productG_content_config fl">
+                              <div class="config_text fl">
+                                  底部导航
+                              </div>
+                        </div>
+                        <div class="productG_content_radio_box fl">
+                            <div class="productG_content_radio_left fl">
+                                <div class="productG_selectDot  radio_dotActive fl" data="1">
+
+                                </div>
+                                <div class="fl">
+                                    关闭
+                                </div>
+                            </div>
+                            <div class="productG_content_radio_right fl" style="margin-left:40px;">
+                              <div class="productG_selectDot fl" data="2">
+
+                              </div>
+                              <div class="fl">
+                                  隐藏
+                              </div>
+                            </div>
+                        </div>
+
+                      </div>
+                    </section>
+                    <div class="saveStoreGBtn">
+                        保存并发布
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+  </body>
+    <script type="text/javascript" src="../gjs/jquery.min.js">  </script>
+    <script type="text/javascript" src="../gjs/base.js">  </script>
+    <script type="text/javascript" src="../gjs/app.js">  </script>
+        <script type="text/javascript" src="../gjs/ajaxfileupload.js">  </script>
+    <script type="text/javascript">
+          $(function(){
+              storeRedecorated();
+          })
+           //上传头像
+        function imgAjax(param){
+            console.log("进入了头衔逛商场");
+            // drawTempPhoto($("#productL_img_upload")
+            var fileName = $("#"+param).val().substring($("#"+param).val().lastIndexOf("\\")+1);
+            var fileType=fileName.substring(fileName.lastIndexOf(".")+1);
+            if(fileType!="jpg"&&fileType!="png"&&fileType!="gif"&&fileType!="jpeg"&&fileType!="JPEG"&&fileType!="JPG"){
+              alertOnline("请上传图片jpg、jpeg、png、gif文件");
+              return;
+            }
+            $.ajaxFileUpload({
+                 url : ""+url+"wangjian/api/productType/pictureUpload",//服务器地址
+                 secureuri: false,
+                 data:{pictureType:4},
+                 fileElementId:param,
+                 type:'post',
+                 success : function(data){ //try语句块
+                   var oText =   $(data).find("pre").text();
+                   var newJson = JSON.parse(oText);
+                   var {resultCode,resultData} =newJson;
+                   if(resultCode==0){
+                     //图片id 图片分类 图片路径
+                     var {id,type,picUrl}= resultData;
+                     $("#storeR_headerImg").attr("data",id);
+                     $("#storeR_headerImg").attr("src",picUrl);
+                   }
+
+                 },error : function(e){ // 相当于java中catch语句块的用法
+                     alert("上传文件时出错，请联系管理员");
+                 }
+             });
+           };
+        //上传封面
+        function bannerAjax(param){
+            //  drawTempPhoto($("#productL_banner_upload"))
+             var fileName = $("#"+param).val().substring($("#"+param).val().lastIndexOf("\\")+1);
+             var fileType=fileName.substring(fileName.lastIndexOf(".")+1);
+             if(fileType!="jpg"&&fileType!="png"&&fileType!="gif"&&fileType!="jpeg"&&fileType!="JPEG"&&fileType!="JPG"){
+               alertOnline("请上传图片jpg、jpeg、png、gif文件");
+               return;
+             }
+             var pictureType = '4';
+             $.ajaxFileUpload({
+                  url : ""+url+"wangjian/api/productType/pictureUpload",//服务器地址
+                  data: { pictureType: pictureType},
+                  secureuri: false,
+                  fileElementId:param,
+                  type:'POST',
+                  success : function(data){ //try语句块
+                  var oText =   $(data).find("pre").text();
+
+                  var newJson = JSON.parse(oText);
+                  var {resultCode,resultData} =newJson;
+                  if(resultCode==0){
+                    //图片id 图片分类 图片路径
+                    var {id,type,picUrl}= resultData;
+                    $("#storeR_pageImg").attr("data",id);
+                    $("#storeR_pageImg").attr("src",picUrl);
+                  }
+
+
+                  },error : function(e){ // 相当于java中catch语句块的用法
+                      alert("上传文件时出错，请联系管理员");
+                  }
+              });
+
+            };
+        
+    </script>
+</html>

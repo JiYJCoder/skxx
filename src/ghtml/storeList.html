@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>店铺列表</title>
+    <link rel="stylesheet" href="../gcss/style.css">
+    <link rel="stylesheet" href="../gcss/base.css">
+    <style media="screen">
+      .box{
+
+      }
+    </style>
+  </head>
+  <body>
+        <div id="storeList">
+              <div class="homePage_header">
+                    <div class="homePage_logo">
+
+                    </div>
+                    <div class="contentWrap">
+                          <ul class="clearfix homePage_header_list">
+                              <li >站点页面</li>
+                              <li class="header_tab_active">线上分店</li>
+                              <li>产品库</li>
+                              <li>生成app</li>
+                          </ul>
+                    </div>
+                    <div class="createD">
+                          <a href="createStore.html">创建店铺</a>
+                    </div>
+              </div>
+              <div class="storeList_content">
+                    <div class="storeList_content_wrap clearfix">
+                          <section class="storeList_createBox fl">
+                                  <div class="storeList_addLogo">
+                                      <img src="../images/addLogo.png" alt="addLogo" />
+                                  </div>
+                                  <div class="storeList_texts">
+                                        新建店铺
+                                  </div>
+                          </section>
+                          <div id="storeList_content" class="fl">
+                          
+                          </div>
+
+
+                    </div>
+
+              </div>
+        </div>
+        <div class="ajaxImg">
+            <img src="../images/loading.gif" alt="" width="40" height="40">
+        </div>
+        <div class="bg">
+            
+        </div>
+  </body>
+    <script type="text/javascript" src="../gjs/jquery.min.js">  </script>
+    <script type="text/javascript" src="../gjs/base.js">  </script>
+    <script type="text/javascript" src="../gjs/app.js">  </script>
+
+    <script type="text/javascript">
+          $(function(){
+            storeList();
+            //新建店铺
+            $(".storeList_createBox ").click(function(){
+              window.location.href="createStore.html";
+            });
+          })
+    </script>
+</html>

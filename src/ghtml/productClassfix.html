@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>产品分类</title>
+    <link rel="stylesheet" href="../gcss/style.css">
+    <link rel="stylesheet" href="../gcss/base.css">
+    <style media="screen">
+      .productG_content_ul1 li{
+        min-height: 40px;
+      }
+
+      .j_con_main_con_nav{
+        position: absolute;
+        bottom: 13px;left: 50%;
+        transform: translate(-50%, 0);
+        line-height: 18px;
+      }
+      .j_con_main_con_nav ul li{
+        float: left;
+        margin-right: 8px;
+        cursor: pointer;
+      }
+      .j_con_main_con_nav ul li.current{
+        color: #00abeb;
+      }
+    </style>
+  </head>
+
+  <body>
+        <div id="productList">
+              <div class="homePage_header">
+                    <div class="homePage_logo">
+
+                    </div>
+                    <div class="contentWrap">
+                          <ul class="clearfix homePage_header_list">
+                              <li >站点页面</li>
+                              <li>线上分店</li>
+                              <li class="header_tab_active">产品库</li>
+                              <li>生成app</li>
+                          </ul>
+                    </div>
+                    <div class="createD">
+                          创建店铺
+                    </div>
+              </div>
+              <div class="productList_content clearfix">
+                    <div class="productList_content_aside fl">
+                        <ul class="clearfix">
+                            <li >
+                                <div class="productList_aside_logo fl">
+
+                                </div>
+                                <div class="productList_aside_info fl">
+                                    产品列表
+                                </div>
+                            </li>
+                            <li class="productClassfix_listActive">
+                                <div class="productList_aside_logo2 productList_aside_logo2Active fl">
+
+                                </div>
+                                <div class="productList_aside_info fl">
+                                    产品分类
+                                </div>
+                            </li>
+                            <li>
+                                <div class="productList_aside_logo3 fl">
+
+                                </div>
+                                <div class="productList_aside_info fl">
+                                    产品规格
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="productG_content fl">
+                        <div class="productG_content_top clearfix">
+                              <p class="productG_content_topT fl">
+                                  产品分类管理
+                              </p>
+                              <div class="productG_content_topI fl">
+                                  <div class="fl">
+                                    (&nbsp;注:&nbsp;&nbsp;&nbsp;可设二级分类)
+                                  </div>
+
+                              </div>
+                              <div class="productClassfix_topBtnBox fr" style="margin-right:14px; position:relative;">
+                                  <div class="productClassfix_btnN fl">
+                                      新建分类
+                                  </div>
+                                  <div class="productClassfix_addAlert" style="display:none;">
+                                      <div class="productClassfix_addAlert_top clearfix">
+                                        <p class="fl">新建</p>
+                                        <div class="fr" id="closeProductClassfix_addAlert" style="font-size:16px;cursor:pointer;">
+                                          x
+                                        </div>
+                                      </div>
+                                      <div class="productClassfix_addAlert_bot clearfix">
+                                          <div class="productClassfix_addAlert_input fl">
+                                                <input type="text" placeholder="请输入不超过十个字" id="pc_addAlert_input">
+                                          </div>
+                                          <div class="productClassfix_addAlert_btn fr" contenteditable="">
+                                              确定
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                        </div>
+                        <div class="productSort">
+                            <div class="productSortBox">
+                                <div class="productSortTitle">
+                                    <ul class="clearfix">
+                                        <li>分类编号</li>
+                                        <li>分类名称</li>
+                                        <li>排序</li>
+                                        <li>二级分类</li>
+                                        <li>操作</li>
+                                    </ul>
+                                </div>
+                                <div class="productSortBoxConBox">
+                                    
+                                </div>
+                            </div>
+                        </div>
+              </div>
+              </div>
+        </div>
+  </body>
+    <script type="text/javascript" src="../gjs/jquery.min.js">  </script>
+    <script type="text/javascript" src="../gjs/base.js">  </script>
+    <script type="text/javascript" src="../gjs/app.js">  </script>
+
+    <script type="text/javascript">
+          $(function(){
+            productCalssFix();
+          })
+    </script>
+</html>

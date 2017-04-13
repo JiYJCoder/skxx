@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>产品列表</title>
+    <link rel="stylesheet" href="../gcss/style.css">
+    <link rel="stylesheet" href="../gcss/base.css">
+
+  </head>
+  <body>
+        <div id="productList" >
+              <div class="homePage_header">
+                    <div class="homePage_logo">
+
+                    </div>
+                    <div class="contentWrap">
+                          <ul class="clearfix homePage_header_list">
+                              <li >站点页面</li>
+                              <li>线上分店</li>
+                              <li class="header_tab_active">产品库</li>
+                              <li>生成app</li>
+                          </ul>
+                    </div>
+                    <div class="createD">
+                          创建店铺
+                    </div>
+              </div>
+              <div class="productList_content clearfix" style="width:1200px">
+                    <div class="productList_content_aside fl">
+                        <ul class="clearfix">
+                            <li class="productClassfix_listActive">
+                                <div class="productList_aside_logo productList_aside_logoActive fl">
+
+                                </div>
+                                <div class="productList_aside_info fl">
+                                    产品列表
+                                </div>
+                            </li>
+                            <li>
+                                <div class="productList_aside_logo2 fl">
+
+                                </div>
+                                <div class="productList_aside_info fl">
+                                    产品分类
+                                </div>
+                            </li>
+                            <li onclick="toParams()">
+                                <div class="productList_aside_logo3 fl">
+
+                                </div>
+                                <div class="productList_aside_info fl">
+                                    产品规格
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="productG_content fl" style="width:1000px;">
+                        <div class="productG_content_top clearfix">
+                              <p class="productG_content_topT fl">
+                                  新推产品
+                              </p>
+                              <div class="productG_content_topI fl">
+                                  <div class="fl">
+                                    (注
+                                  </div>
+                                  <div class="createStore_import fl" style="height:10px;margin:14px 0 0 10px ; "></div>
+                                  <div class="fl">
+                                      为必填项)
+                                  </div>
+                              </div>
+                        </div>
+                        <div class="productG_content_bot" style="height:627px;">
+                            <div class="productG_content_input_list">
+                                <ul class="clearfix">
+                                  <li>
+                                    <div class="createStore_import fl" style="height:10px;margin-top:0px;">
+
+                                    </div>
+                                      <div class="productG_content_leftInput fl">
+                                          产品名称
+                                      </div>
+                                      <div class="productG_content_rightText fl">
+                                          <input type="text" name="name" id="productNameIn">
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <div class="productG_content_leftInput fl">
+                                          产品编号
+                                      </div>
+                                      <div class="productG_content_rightText fl">
+                                          <input type="text" name="name" id="productNumIn">
+                                      </div>
+                                  </li>
+                                  <li>
+                                    <div class="createStore_import fl" style="height:10px;margin-top:0px;">
+
+                                    </div>
+                                      <div class="productG_content_leftInput fl">
+                                          产品分类
+                                      </div>
+                                      <div class="productG_content_rightText fl" id="product_type_select">
+                                          <div class="product_type_hasSelect">
+
+                                          </div>
+                                          <section class="product_type_box">
+                                                <!-- <div class="product_type_box_list">
+                                                  s
+                                                </div>
+                                                <div class="product_type_box_list">
+                                                  s
+                                                </div>
+                                                <div class="product_type_box_list">
+                                                  s
+                                                </div> -->
+                                          </section>
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <div class="productG_content_leftInput fl">
+                                          商品重量
+                                      </div>
+                                      <div class="productG_content_rightText fl">
+                                          <input type="text" name="name" id="productKgIn">
+                                      </div>
+                                  </li>
+                                </ul>
+                            </div>
+                            <div class="productG_content_table_info" style="margin-left:96px;">
+                              (提示：以上为系统初始化产品分类样本，可在左侧菜单中的“产品分类”处删除或新增适合您的产品分类)
+                            </div>
+                            <!-- <div class="productList_specBox">
+                              <div class="productList_color clearfix">
+                                <div class="productList_left_text fl">
+                                  颜 &nbsp;&nbsp;&nbsp;&nbsp;色
+                                </div>
+                                <div class="productList_color_box fl">
+                                  <ul class="clearfix">
+                                    <li>
+                                        <div class="productG_table1_select fl" >
+
+                                        </div>
+                                        <div class="fl">
+                                          红色
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="productG_table1_select fl" >
+
+                                        </div>
+                                        <div class="fl">
+                                          红色
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="productG_table1_select fl" >
+
+                                        </div>
+                                        <div class="fl">
+                                          红色
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="productG_table1_select fl" >
+
+                                        </div>
+                                        <div class="fl">
+                                          红色
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="productG_table1_select fl" >
+
+                                        </div>
+                                        <div class="fl">
+                                          红色
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="productG_table1_select fl" >
+
+                                        </div>
+                                        <div class="fl">
+                                          红色
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="productG_table1_select fl" >
+
+                                        </div>
+                                        <div class="fl">
+                                          红色
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="productG_table1_select fl" >
+
+                                        </div>
+                                        <div class="fl">
+                                          红色
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="productG_table1_select fl" >
+
+                                        </div>
+                                        <div class="fl">
+                                          红色
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="productG_table1_select fl" >
+
+                                        </div>
+                                        <div class="fl">
+                                          红色
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="productG_table1_select fl" >
+
+                                        </div>
+                                        <div class="fl">
+                                          红色
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="productG_table1_select fl" >
+
+                                        </div>
+                                        <div class="fl">
+                                          红色
+                                        </div>
+                                    </li>
+
+                                  </ul>
+                                </div>
+                              </div>
+                              <div class="productG_content_table_info" style="margin-left:96px;">
+                                (提示：以上是系统初始化的规格样本，可以在左侧菜单中的“产品规格”处删除新增适合您产品的规格)
+                              </div>
+                            </div> -->
+
+                            <!-- 表格 -->
+                            <div class="productL_content_table clearfix">
+                              <div class="productL_content_Left fl">
+                                <div class="createStore_import fl" style="height:10px;margin-top:20px;">
+
+                                </div>
+                                  <div class="productG_content_leftInput fl">
+                                      产品名称
+                                  </div>
+                              </div>
+                              <div class="productG_content_table fl" style="margin-left:10px; width:auto;">
+                                       <ul class="clearfix productG_content_ul1" id="productList_id">
+                                            <li class="productL_content_table1 fl">选择库存单品</li>
+                                            <!-- <li class="productL_content_table1 fl">颜色</li>
+                                            <li class="productL_content_table1 fl">尺码</li> -->
+                                            <li class="productL_content_table2 fl" id="productL_content_table2">
+                                              <div class="createStore_import fl"style="margin-left:46px;">
+
+                                              </div>
+                                                <div class="fl" style="margin-left:2px;">
+                                                  库存量
+                                                </div>
+
+                                            </li >
+                                            <li class="productL_content_table2  fl">
+                                                <div class="createStore_import fl"style="margin-left:36px;">
+
+                                                </div>
+                                                <div class="fl"style="margin-left:2px;">
+                                                  最低销售
+                                                </div>
+
+                                            </li>
+                                            <li class="productL_content_table2  fl">
+                                              <div  style="text-align:center;">
+                                                成本价
+                                              </div>
+                                            </li>
+                                            <li class="productL_content_table3 fl">
+                                              <div  style="text-align:center;">
+                                                产品图片
+                                              </div>
+                                            </li>
+                                        </ul>
+                                        <div class="productList_box">
+
+                                        </div>
+
+                              </div>
+                            </div>
+
+                            <div class="productG_content_table_info" style="margin-left:96px;">
+                              (提示：总库存为0时，商品归为下架商品，用户将无法选择此规格商品。)
+                            </div>
+                            <div class="clearfix" style="margin-top:20px;">
+                              <div class="productL_content_Left fl" style="margin-top:18px;">
+                                <div class="createStore_import fl" style="height:10px;margin-top:20px;">
+
+                                </div>
+                                  <div class="productG_content_leftInput fl">
+                                      产品图片
+                                  </div>
+                              </div>
+                              <div class="productL_content_upload_box fl" >
+                                <div class="productL_content_upload fl" id="productL_img_upload">
+
+                                </div>
+                                <div class="productL_content_upload_btn fl">
+                                  <input type="file" accept="image/*;capture=camera" id="fileImg" name="file" onchange=imgAjax("fileImg")>
+                                    <p>
+                                      上传图片
+                                    </p>
+                                </div>
+                              </div>
+                              <div class="productL_content_Left fl" style="margin-top:18px; margin-left:50px;">
+                                <div class="createStore_import fl" style="height:10px;margin-top:20px;">
+
+                                </div>
+                                  <div class="productG_content_leftInput fl">
+                                      产品海报
+                                  </div>
+                              </div>
+                              <div class="productL_content_upload_box fl">
+                                  <div class="productL_content_upload fl" id="productL_banner_upload">
+
+                                  </div>
+                                  <div class="productL_content_upload_btn fl">
+                                      <input type="file" accept="image/*;capture=camera" id="file" name="file" onchange=bannerAjax("file")>
+                                      <p>
+                                        上传图片
+                                      </p>
+                                  </div>
+                              </div>
+                            </div>
+
+                            <div class="productG_content_saveBtn" style="margin: 40px auto;">
+                              保存
+                            </div>
+                        </div>
+                    </div>
+              </div>
+
+        </div>
+  </body>
+    <script type="text/javascript" src="../gjs/jquery.min.js">  </script>
+    <script type="text/javascript" src="../gjs/exif.js">  </script>
+    <script type="text/javascript" src="../gjs/ajaxfileupload.js">  </script>
+    <script type="text/javascript" src="../gjs/base.js">  </script>
+    <script type="text/javascript" src="../gjs/app.js">  </script>
+
+    <script type="text/javascript">
+          $(function(){
+            newProduct();
+          })
+
+        function tableAjaxImg(param){
+          // drawTempPhoto($("#productL_img_upload")
+          var fileName = $("#"+param).val().substring($("#"+param).val().lastIndexOf("\\")+1);
+          var fileType=fileName.substring(fileName.lastIndexOf(".")+1);
+          if(fileType!="jpg"&&fileType!="png"&&fileType!="gif"&&fileType!="jpeg"&&fileType!="JPEG"&&fileType!="JPG"){
+            alertOnline("请上传图片jpg、jpeg、png、gif文件");
+            return;
+          }
+          $.ajaxFileUpload({
+               url : ""+url+"wangjian/api/productType/pictureUpload",//服务器地址
+               secureuri: false,
+               data:{pictureType:1},
+               fileElementId:param,
+               type:'post',
+               success : function(data){
+                 //try语句块
+                 var oText =   $(data).find("pre").text();
+                 var newJson = JSON.parse(oText);
+                 var {resultCode,resultData} =newJson;
+                 if(resultCode==0){
+                   //图片id 图片分类 图片路径
+                   var {id,type,picUrl}= resultData;
+                   var _div=$("#"+param).parent("div").siblings('.prodect_list_imgS');
+                   _div.show();
+
+                   $("#"+param).parent().attr("url",picUrl);
+
+                   $("#"+param).parent().attr("productPictureId",id);
+
+                  //  console.log($("#"+param).parent().attr("url"));
+                  //  console.log($("#"+param).parent());
+
+                 }
+               },error : function(e){ // 相当于java中catch语句块的用法
+                   alert(JSON.stringify(e));
+               }
+
+           });
+        }
+          //上传产品图片
+        function imgAjax(param){
+            // drawTempPhoto($("#productL_img_upload")
+            var fileName = $("#"+param).val().substring($("#"+param).val().lastIndexOf("\\")+1);
+            var fileType=fileName.substring(fileName.lastIndexOf(".")+1);
+            if(fileType!="jpg"&&fileType!="png"&&fileType!="gif"&&fileType!="jpeg"&&fileType!="JPEG"&&fileType!="JPG"){
+              alertOnline("请上传图片jpg、jpeg、png、gif文件");
+              return;
+            }
+            $.ajaxFileUpload({
+                 url : ""+url+"wangjian/api/productType/pictureUpload",//服务器地址
+                 secureuri: false,
+                 data:{pictureType:1},
+                 fileElementId:param,
+                 type:'post',
+                 success : function(data){ //try语句块
+                   var oText =   $(data).find("pre").text();
+
+                   var newJson = JSON.parse(oText);
+                   var {resultCode,resultData} =newJson;
+                   if(resultCode==0){
+                     //图片id 图片分类 图片路径
+                     var {id,type,picUrl}= resultData;
+                     $("#productL_img_upload").append("<img src="+picUrl+">");
+                     $("#productL_img_upload").attr("productPictureId",id);
+                   }
+
+                 },error : function(e){ // 相当于java中catch语句块的用法
+                     alert("上传文件时出错，请联系管理员");
+                 }
+             });
+           };
+
+         //上传海报
+         function bannerAjax(param){
+            //  drawTempPhoto($("#productL_banner_upload"))
+      
+             var fileName = $("#"+param).val().substring($("#"+param).val().lastIndexOf("\\")+1);
+             var fileType=fileName.substring(fileName.lastIndexOf(".")+1);
+             if(fileType!="jpg"&&fileType!="png"&&fileType!="gif"&&fileType!="jpeg"&&fileType!="JPEG"&&fileType!="JPG"){
+               alertOnline("请上传图片jpg、jpeg、png、gif文件");
+               return;
+             }
+             var pictureType = '3';
+             $.ajaxFileUpload({
+                  url : ""+url+"wangjian/api/productType/pictureUpload",//服务器地址
+                  data: { pictureType: pictureType},
+                  secureuri: false,
+                  fileElementId:param,
+                  type:'POST',
+                  success : function(data){ //try语句块
+                  var oText =   $(data).find("pre").text();
+
+                  var newJson = JSON.parse(oText);
+                  var {resultCode,resultData} =newJson;
+                  if(resultCode==0){
+                    //图片id 图片分类 图片路径
+                    var {id,type,picUrl}= resultData;
+                    $("#productL_banner_upload").append("<img src="+picUrl+">");
+                    $("#productL_banner_upload").attr("billId",id);
+                  }
+
+
+                  },error : function(e){ // 相当于java中catch语句块的用法
+                      alert("上传文件时出错，请联系管理员");
+                  }
+              });
+
+            };
+
+
+            function toParams(){
+              window.location.href="productSpec.html";
+            }
+    </script>
+</html>

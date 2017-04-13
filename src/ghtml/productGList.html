@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>商品管理</title>
+    <link rel="stylesheet" href="../gcss/style.css">
+    <link rel="stylesheet" href="../gcss/base.css">
+  </head>
+  <body>
+        <div id="storeHome">
+            <!-- 新建商品弹窗 -->
+            <div class="alert" id="productGlist_add" style="display:none;">
+                <div class="productGlist_add_box">
+                      <div class="productGlist_add_top">
+                          <p style="color:#fff;margin-left:20px;">请选择要售卖的商品</p>
+                          <div class="closeProductGlist_add" style="color:#fff;">
+                              X
+                          </div>
+                      </div>
+                      <div class="productGlist_add_content">
+                            <div class="productGlist_add_content_top clearfix">
+                                <ul class="fl pdct_list">
+                                  <li>
+                                    <div class="pdct_wrap">
+                                          <div class="pdct_wrapin">
+                                              <p class="pdct_wrapin_select">男士衣服</p>
+                                              <div class="dowmCirle">
+                                                  >
+                                              </div>
+                                          </div>
+                                    </div>
+                                    <div class="pdct_wrap_nav">
+                                          <div class="pdct_wrap_navList">
+                                              箱包
+                                          </div>
+                                          <div class="pdct_wrap_navList">
+                                              箱包
+                                          </div>
+                                          <div class="pdct_wrap_navList">
+                                              箱包
+                                          </div>
+                                          <div class="pdct_wrap_navList">
+                                              箱包
+                                          </div>
+                                          <div class="pdct_wrap_navList">
+                                            箱包
+                                          </div>
+                                          <div class="pdct_wrap_navList">
+                                            箱包
+                                          </div>
+                                          <div class="pdct_wrap_navList">
+                                            箱包
+                                          </div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="pdct_wrap">
+                                          <div class="pdct_wrapin">
+                                              <p class="pdct_wrapin_select">男士衣服</p>
+                                              <div class="dowmCirle">
+                                                  >
+                                              </div>
+                                          </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                                <div class="fr pdct_search">
+                                  <input type="text" name="name" id="pdct_search" placeholder="搜索产品名称或商品号">
+                                  <div class="pdct_SearchLogo">
+
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="productGlist_add_content_center">
+                                <div class="pdcc_list">
+                                    <section class="pdcc_online ">
+                                            <div class="pdcc_online_top clearfix">
+                                                <div class="fl">
+                                                      xxxT恤
+                                                </div>
+                                                <div class="fl">
+                                                    编号：9527
+                                                </div>
+                                                <div class="fl">
+                                                    分类：T恤
+
+                                                </div>
+                                                <div class="fl">
+                                                    重量6。5kg
+                                                </div>
+                                                <section class="fr">
+                                                    》
+                                                </section>
+                                            </div>
+                                            <div class="pdcc_online_center">
+                                                  <div class="pdcc_online_center_info">
+                                                      <ul class="clearfix">
+                                                        <li>颜色</li>
+                                                        <li>尺码</li>
+                                                        <li>单品编号</li>
+                                                        <li>库存量</li>
+                                                        <li>批量</li>
+                                                        <li>报价</li>
+                                                        <li>
+                                                            <p>全选</p>
+                                                            <div class="select_logo">
+                                                                []
+                                                            </div>
+                                                        </li>
+                                                      </ul>
+                                                  </div>
+                                                  <div class="pdcc_online_center_online">
+                                                    <ul class="clearfix">
+                                                      <li>红色</li>
+                                                      <li>100/90</li>
+                                                      <li>aa2222</li>
+                                                      <li>222</li>
+                                                      <li>1-999-222-999</li>
+                                                      <li>70/90</li>
+                                                      <li>
+
+                                                          <div class="select_logo">
+                                                              []
+                                                          </div>
+                                                      </li>
+                                                    </ul>
+                                                  </div>
+                                            </div>
+                                    </section>
+                                </div>
+                                <!-- 翻页 -->
+
+                                  <div class="j_con_main_con_nav">
+                                      <ul class="clearfix">
+                                          <li>首页</li>
+                                          <li>&lt;&lt;</li>
+                                          <li class="current">1</li>
+                                          <li>2</li>
+                                          <li>...</li>
+                                          <li>10</li>
+                                          <li>&gt;&gt;</li>
+                                          <li>尾页</li>
+                                      </ul>
+                                  </div>
+                            </div>
+                      </div>
+                </div>
+            </div>
+            <div class="homePage_header">
+                    <div class="homePage_logo">
+
+                    </div>
+                    <div class="contentWrap">
+                          <ul class="clearfix homePage_header_list">
+                              <li >站点页面</li>
+                              <li class="header_tab_active">线上分店</li>
+                              <li>产品库</li>
+                              <li>生成app</li>
+                          </ul>
+                    </div>
+                    <div class="createD">
+                          创建店铺
+                    </div>
+                    <div class="createL">
+                          创建店铺列表
+                    </div>
+            </div>
+            <div class="productG_content_wrapall clearfix">
+                <section class="storeHome_aside fl">
+                  <div class="storeHome_aside_wrap">
+                    <div class="storeHome_aside_title">
+                        <div class="storeHome_aside_img fl">
+                            <img src="../images/shopICON.png"  />
+                        </div>
+                        <div class="storeHome_aside_text fl">
+                            苏州分店
+                        </div>
+                    </div>
+                    <div class="storeHome_aside_list">
+                          <ul class="clearfix">
+                            <li >
+                                <div class="storeHome_aside_list_logo1  fl">
+
+                                </div>
+                                <div class="storeHome_aside_list_Text fl">
+                                    首页
+                                </div>
+                            </li>
+                            <li class="storeHome_aside_listActive">
+                              <div class="storeHome_aside_list_logo2 storeHome_aside_list_logo2_active fl">
+
+                              </div>
+                              <div class="storeHome_aside_list_Text fl">
+                                  商品管理
+                              </div>
+                            </li>
+                            <li>
+                              <div class="storeHome_aside_list_logo3 fl">
+
+                              </div>
+                              <div class="storeHome_aside_list_Text fl">
+                                  订单管理
+                              </div>
+                            </li>
+                            <li>
+                              <div class="storeHome_aside_list_logo4 fl">
+
+                              </div>
+                              <div class="storeHome_aside_list_Text fl">
+                                  店铺装修
+                              </div>
+                            </li>
+                            <li>
+                              <div class="storeHome_aside_list_logo5 fl">
+
+                              </div>
+                              <div class="storeHome_aside_list_Text fl">
+                                  店铺设置
+                              </div>
+                            </li>
+                          </ul>
+                    </div>
+
+                  </div>
+                </section>
+                <div class="productGList_content fl">
+                  <div class="storeHome_aside_box_top" style="height:50px;">
+                        <div class="storeHome_aside_box_nav clearfix">
+                              <ul class="fl" id="storeRedecorated_list">
+                                <li class="liActive_fff">
+                                    <p style="text-align:center;">
+                                      出售中
+
+                                    </p>
+                                </li>
+                                <li >
+                                    <p style="text-align:center;">
+                                    已下架
+                                    </p>
+
+                                </li>
+                              </ul>
+
+                              <div class="productGL_search_box fr">
+                                <div class="productGL_search fl">
+                                    <input type="text" name="name" id="productGL_search" placeholder="名称/编号">
+                                    <img src="../images/search.png" alt="" id="search_logo"/>
+                                </div>
+                                <div class="productGL_newProduct fr">
+                                    新建商品
+                                </div>
+                              </div>
+                        </div>
+                  </div>
+                    <div class="productG_content_bot ">
+                        <div class="productG_content_bot_Wrap">
+
+                            <section class="productG_content_bot_Wrap_top clearfix">
+                                <div class="productG_content_bot_selectTypeBox fl">
+                                    <div class="productG_content_bot_selectTypeBox_Text fl">
+                                          分类
+                                    </div>
+                                    <div class="productG_content_bot_selectTypeBox_circleBox fl">
+                                          <div class="productG_content_bot_selectTypeBox_cicle">
+
+                                          </div>
+                                    </div>
+                                    <div class="productG_type_box">
+                                          <!-- <section>
+                                                衣服
+                                          </section>
+                                          <section>
+                                                电器
+                                          </section> -->
+                                    </div>
+                                </div>
+                                <div class="productG_content_bot_threeBtn fr">
+                                      <div class="productG_content_bot_sj fl productG_content_bot_threeBtn_Active">
+                                          上架
+                                      </div>
+                                      <div class="productG_content_bot_xj fl">
+                                          下架
+                                      </div>
+                                      <div class="productG_content_bot_sc fl">
+                                          删除
+                                      </div>
+                                </div>
+                            </section>
+
+                            <div class="productGList_table">
+                                  <div class="productGList_table_tdBox clearfix">
+                                        <section class="productGList_table_tdBox1" style="width:40px;">
+                                          <div class="productGList_table_selectLogo" style="margin:4px auto;">
+
+                                          </div>
+                                        </section>
+                                        <section class="productGList_table_tdBox2" style="width:80px;">
+                                          编号
+                                        </section>
+                                        <section class="productGList_table_tdBox3" style="width:80px;">
+                                          图片
+                                        </section>
+                                        <section class="productGList_table_tdBox4" style="width:80px;">
+                                          名称
+                                        </section>
+                                        <section class="productGList_table_tdBox5" style="width:40px;">
+                                          颜色
+                                        </section>
+                                        <section class="productGList_table_tdBox6" style="width:60px;">
+                                          尺寸
+                                        </section>
+                                        <section class="productGList_table_tdBox7 " style="width:60px;">
+                                          售价
+                                        </section>
+                                        <section class="productGList_table_tdBox8" style="width:60px;">
+                                          总库存
+                                        </section>
+                                        <section class="productGList_table_tdBox9" style="width:60px;">
+                                          售卖范围
+                                        </section>
+                                        <section class="productGList_table_tdBox10" style="width:40px;">
+                                          分类
+                                        </section>
+                                        <section class="productGList_table_tdBox11" style="width:85px;">
+                                          操作
+                                        </section>
+                                  </div>
+                                  <div class="productGList_table_ListBox">
+                                      <ul class="clearfix">
+                                          <li style="width:40px;">
+                                            <div class="productGList_table_selectLogo" style="margin:36px auto;">
+
+                                            </div>
+                                          </li>
+                                          <li  style="width:80px;">p-111111</li>
+                                          <li  style="width:80px;">
+                                            <img src="../images/upload.png" alt="" class="productGList_table_image">
+                                          </li>
+                                          <li  style="width:80px;">
+                                            棒球外套
+                                          </li>
+                                          <li style="width:40px;">
+                                            <div class="">红</div>
+                                            <div class="">
+                                              白
+                                            </div>
+                                            <div class="">
+                                              烂
+                                            </div>
+                                          </li>
+                                          <li style="width:60px;">
+                                            <div class="">
+                                                200/222
+                                            </div>
+                                            <div class="">
+                                                200/222
+                                            </div>
+                                            <div class="">
+                                                200/222
+                                            </div>
+                                          </li>
+                                          <li style="width:60px;">
+                                            <div class="">
+                                                200
+                                            </div>
+                                            <div class="">
+                                                200
+                                            </div>
+                                            <div class="">
+                                                  200
+                                            </div>
+                                          </li>
+                                          <li style="width:60px;">
+                                            <div class="">
+                                                200
+                                            </div>
+                                            <div class="">
+                                                200
+                                            </div>
+                                            <div class="">
+                                                  200
+                                            </div>
+                                          </li>
+                                          <li style="width:60px;">广州市</li>
+                                          <li style="width:40px;">上衣</li>
+                                          <li style="width:92px;">
+                                            <div class="productGList_table_ListBox_editBox clearfix">
+                                                <div class="productGList_editBox_logo fl">
+
+                                                </div>
+                                                <div class="fl">
+                                                    编辑
+                                                </div>
+                                            </div>
+                                            <div class="productGList_table_ListBox_delBox clearfix">
+                                              <div class="productGList_delBox_logo fl">
+
+                                              </div>
+                                              <div class="fl">
+                                                  删除
+                                              </div>
+                                            </div>
+                                            <div class="productGList_table_ListBox_xiaBox clearfix">
+                                              <div class="productGList_xiaBox_logo fl">
+
+                                              </div>
+                                              <div class="fl">
+                                                  下架
+                                              </div>
+                                            </div>
+                                          </li>
+                                      </ul>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </div>
+  </body>
+    <script type="text/javascript" src="../gjs/jquery.min.js">  </script>
+    <script type="text/javascript" src="../gjs/base.js">  </script>
+    <script type="text/javascript" src="../gjs/app.js">  </script>
+
+    <script type="text/javascript">
+          $(function(){
+              productGList();
+
+          })
+
+    </script>
+</html>

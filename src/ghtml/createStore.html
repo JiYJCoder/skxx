@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>创建店铺</title>
+    <link rel="stylesheet" href="../gcss/style.css">
+    <link rel="stylesheet" href="../gcss/base.css">
+    <script type="text/javascript" src="../gjs/jquery.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=7GAxnzcDaWjbiLx19K3Hge1OKBuK5alo"></script>
+  </head>
+  <body>
+        <div id="createStore">
+              <div class="homePage_header">
+                    <div class="homePage_logo">
+
+                    </div>
+                    <div class="contentWrap">
+                          <ul class="clearfix homePage_header_list">
+                              <li >站点页面</li>
+                              <li class="header_tab_active">线上分店</li>
+                              <li>产品库</li>
+                              <li>生成app</li>
+                          </ul>
+                    </div>
+                    <div class="createD">
+                          创建店铺
+                    </div>
+              </div>
+              <div class="createStore">
+                    <div class="createStore_title">
+                          新建店铺
+                    </div>
+                    <div class="createStore_content">
+                          <div class="store_name clearfix">
+                                <div class="createStore_leftText fl">
+                                  <div class="createStore_import fl">
+
+                                  </div>
+                                  <div class="createStore_text fl">
+                                      店铺名称
+                                  </div>
+                                </div>
+                                <div class="createStore_inputText fl">
+                                      <input type="text" name="name" placeholder="请输入不超过15个字" id="storeName">
+                                </div>
+                          </div>
+                          <div class="store_info clearfix">
+                                <div class="createStore_leftText fl">
+                                  <div class="createStore_noimport fl">
+
+                                  </div>
+                                  <div class="createStore_text fl">
+                                    店铺描述
+                                  </div>
+                                </div>
+                                <div class="createStore_textarea fl">
+                                      <textarea name="name" placeholder="请输入您的店铺描述" id="storeDesc"></textarea>
+                                </div>
+                          </div>
+                          <div class="store_city clearfix">
+                                <div class="createStore_leftText fl">
+                                  <div class="createStore_import fl">
+
+                                  </div>
+                                  <div class="createStore_text fl">
+                                      所在城市
+                                  </div>
+                                </div>
+                                <div class="productG_content_threeWrap fl">
+                                  <div class="productG_content_address fl" id="provinceCircle">
+                                    <div class="productG_content_pro fl">
+                                      省
+                                    </div>
+                                    <div class="circle fr">
+
+                                    </div>
+                                    <div class="city_select_box" id="provinceBox">
+                                         
+                                    </div>
+                                  </div>
+                                  <div class="productG_content_address  fl">
+                                    <div class="productG_content_city fl">
+                                      市
+                                    </div>
+                                    <div class="circle fr" id="cityCircle">
+
+                                    </div>
+                                    <div class="city_select_box" id="cityBox">
+
+                                    </div>
+                                  </div>
+                                  <div class="productG_content_address  fl">
+                                    <div class="productG_content_area fl">
+                                      区
+                                    </div>
+                                    <div class="circle fr" id="areaCircle">
+
+                                    </div>
+                                    <div class="city_select_box" id="areaBox">
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                          </div>
+                          <div class="store_area clearfix">
+                                <div class="createStore_leftText fl">
+                                  <div class="createStore_noimport fl">
+
+                                  </div>
+                                  <div class="createStore_text fl" >
+                                      店铺地址
+                                  </div>
+                                </div>
+                                <div class="createStore_inputText fl">
+                                      <input type="text" name="name" placeholder="请输入你的店铺地址" id="address">
+                                </div>
+                          </div>
+                          <div class="store_map clearfix">
+                                <div class="createStore_leftText fl">
+                                  <div class="createStore_noimport fl">
+
+                                  </div>
+                                  <div class="createStore_text fl">
+                                      店铺坐标
+                                  </div>
+                                </div>
+                                <div class="createStore_btn fl">
+                                      获取地图坐标
+                                </div>
+                                <div class="mapText_info fl">
+                                      (提示: 如定位有误, 请拖动图标到准确位置)
+                                </div>
+                          </div>
+                          <input type="hidden" name="" value="" id="jingdu">
+                          <input type="hidden" name="" value="" id="weidu">
+                          <div class="baidu_map" id="map">
+
+                          </div>
+                          <script type="text/javascript">
+                            var map = new BMap.Map("map");
+                            map.centerAndZoom(new BMap.Point(113.269973,23.125203),13);
+
+                            //点击获取经纬度
+                            map.addEventListener("click",function(e){
+
+                              map.clearOverlays();
+                              var json ={};
+                              json.lng =e.point.lng ;
+                              json.lat = e.point.lat;
+                              var mk = new BMap.Marker(json);
+//                               console.log(json);
+                              // sessionStorage.setItem("map",JSON.stringify(json));
+                              map.addOverlay(mk);
+                              map.panTo(mk);
+                            });
+                              
+                            //获取地址显示到地图
+                            $(".createStore_btn").click(function(){
+                                if($('#address').val()==""){
+                                    alert('请输入详细地址')
+                                }else{
+                                    var city=$('.productG_content_city').text();
+                                    var area=$('.productG_content_area').text();
+                                    var det=$('#address').val();
+                                    var address=city+area+det;
+                                    //创建地址解析器
+                                    var myGeo = new BMap.Geocoder();
+                                    myGeo.getPoint(address, function(point){
+                                        if (point) {
+                                            console.log(point);
+                                            $("#jingdu").val(point.lng);
+                                            $("#weidu").val(point.lat);
+                                            map.centerAndZoom(point, 16);
+                                            map.addOverlay(new BMap.Marker(point));
+                                        }else{
+                                            alert("您选择地址没有解析到结果!");
+                                        }
+                                    });
+                                }
+                                
+                            })
+                          </script>
+                          <div class="store_statue clearfix">
+                            <div class="createStore_leftText fl">
+                              <div class="createStore_noimport fl">
+
+                              </div>
+                              <div class="createStore_text fl">
+                                  店铺状态
+                              </div>
+                            </div>
+                            <div class="store_radio fl">
+                                <div class="radio_open fl">
+                                      <div class="radio_dot fl radio_dotActive" data="1">
+
+                                      </div>
+                                      <div class="radio_text fl">
+                                          开启
+                                      </div>
+                                </div>
+                                <div class="radio_open fl">
+                                      <div class="radio_dot fl" data="2">
+
+                                      </div>
+                                      <div class="radio_text fl">
+                                          关闭
+                                      </div>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="create_btn">
+                              创建
+                          </div>
+                    </div>
+              </div>
+        </div>
+  </body>
+    <script type="text/javascript" src="../gjs/base.js">  </script>
+    <script type="text/javascript" src="../gjs/app.js">  </script>
+
+    <script type="text/javascript">
+          $(function(){
+             createStore();
+          })
+    </script>
+</html>

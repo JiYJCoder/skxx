@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>产品列表</title>
+    <link rel="stylesheet" href="../gcss/style.css">
+    <link rel="stylesheet" href="../gcss/base.css">
+    <style media="screen">
+      .productG_content_ul1 li{
+        min-height: 40px;
+      }
+      .productG_alert_select_top{
+        color: #333;
+      }
+      .productC_child_add{
+        width: 110px;
+      }
+      #productG_alert_select_top_input{
+        width: 100%;
+        padding-left: 2px;
+        border: none;
+        height: 26px;
+        line-height: 26px;
+        vertical-align: top;
+      }
+      .j_con_main_con_nav{position: absolute;bottom: 13px;left: 50%;transform: translate(-50%, 0);line-height: 18px;}
+      .j_con_main_con_nav ul li{float: left;margin-right: 8px;cursor: pointer;}
+      .j_con_main_con_nav ul li.current{color: #00abeb;}
+    </style>
+  </head>
+
+  <body>
+        <div id="productList">
+
+                <div class="alert" id="productSpec_edit" style="display:none;">
+                    <div class="productG_alert_select">
+                      <div class="productG_alert_select_top clearfix">
+                          <div class="fl" style="padding-left:10px;">
+                              添加产品规格
+                          </div>
+                          <div class="closeproductSpecAlert fr">
+                              x
+                          </div>
+
+                      </div>
+                      <div class="productG_alert_select_bot clearfix">
+                          <div class="productSpec_alert_middle clearfix">
+                                <div class="productSpec_aleaSelect_box fl">
+                                      <!-- <div class="productSpec_aleaSelect fl">
+                                          <div >
+                                              颜色
+                                          </div>
+                                          <div class="closeAleaSelect">
+                                              x
+                                          </div>
+                                      </div> -->
+                                      <input type="text" id="productG_alert_select_top_input" maxlength="6">
+                                </div>
+                                <div class="productSpec_aleaSelect_sure fr">
+                                    确定
+                                </div>
+                          </div>
+                          <div class="productSpec_alert_select">
+                              <p>
+                                可选常用规格:
+                              </p>
+                              <div class="productSpec_select_box">
+                                    <ul class="clearfix" id="productSpec_select_box">
+                                        <li>颜色</li>
+                                        <li>大小</li>
+                                    </ul>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+
+              <div class="homePage_header">
+                    <div class="homePage_logo">
+
+                    </div>
+                    <div class="contentWrap">
+                          <ul class="clearfix homePage_header_list">
+                              <li >站点页面</li>
+                              <li>线上分店</li>
+                              <li class="header_tab_active">产品库</li>
+                              <li>生成app</li>
+                          </ul>
+                    </div>
+                    <div class="createD">
+                          创建店铺
+                    </div>
+              </div>
+              <div class="productList_content clearfix">
+                    <div class="productList_content_aside fl">
+                        <ul class="clearfix">
+                            <li onclick="toList()">
+                                <div class="productList_aside_logo fl">
+
+                                </div>
+                                <div class="productList_aside_info fl">
+                                    产品列表
+                                </div>
+                            </li>
+                            <li>
+                                <div class="productList_aside_logo2 fl">
+
+                                </div>
+                                <div class="productList_aside_info fl">
+                                    产品分类
+                                </div>
+                            </li>
+                            <li class="productClassfix_listActive">
+                                <div class="productList_aside_logo3 productList_aside_logo3Active fl">
+
+                                </div>
+                                <div class="productList_aside_info fl">
+                                    产品规格
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="productG_content fl">
+                        <div class="productG_content_top clearfix">
+                              <p class="productG_content_topT fl">
+                                  产品规格管理
+                              </p>
+                              <div class="productG_content_topI fl">
+                                  <div class="fl">
+                                    (注&nbsp;&nbsp;&nbsp;可设二级规格)
+                                  </div>
+
+                              </div>
+                              <div class="productClassfix_topBtnBox fr" style="margin-right:14px;">
+                                  <div class="productSpec_btnC fl">
+                                      新建规格
+                                  </div>
+
+                              </div>
+                        </div>
+                        <div class="productSort">
+                            <div class="productSortBox">
+                                <div class="productSortTitle productSpcTitle">
+                                    <ul class="clearfix">
+                                        <li>规格编号</li>
+                                        <li>规格名称</li>
+                                        <li>规格项</li>
+                                        <li>操作</li>
+                                    </ul>
+                                </div>
+                                <div class="productSortBoxConBox">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+              </div>
+
+        </div>
+  </body>
+    <script type="text/javascript" src="../gjs/jquery.min.js">  </script>
+    <script type="text/javascript" src="../gjs/base.js">  </script>
+    <script type="text/javascript" src="../gjs/app.js">  </script>
+
+    <script type="text/javascript">
+          $(function(){
+            productSpec();
+          })
+
+          function toList(){
+            window.location.href="productList.html";
+          }
+    </script>
+</html>
